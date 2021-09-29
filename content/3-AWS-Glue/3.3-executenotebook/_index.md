@@ -12,7 +12,7 @@ pre = "<b>3.3 </b>"
 1.Tải xuống và lưu file ở dưới máy của bạn: [analytics-workshop-notebook.ipynb](https://intro-to-analytics-on-aws.workshop.aws/notebooks/analytics-workshop-notebook.ipynb).
   + Bạn cũng có thể tải file notebook được đính kèm dưới đây.
 
-{{%attachments style="orange" title="Notebook" pattern=".*(ipynb)"/%}}
+{{%attachments style="orange" title="Notebook" pattern=".*"/%}}
 
 2. Truy cập [giao diện quản trị Notebooks](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=notebooks)
   + Click **aws-glue-AnalyticsworkshopNotebook** và click **Open Jupyter**, Jupyter Notebook sẽ được tự động mở ở tab mới.
