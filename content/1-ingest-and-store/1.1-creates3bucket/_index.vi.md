@@ -45,9 +45,10 @@ pre = "<b>1.1 </b>"
 
 {{%attachments style="orange" title="tracks_list.json" pattern=".*(json)"/%}}
 
-      + Trong S3 Console - Click chọn **Upload**.
-        + Click **Add files** và tải lên file **tracks_list.json**.
-        + Click **Upload**.
+
+  + Trong S3 Console - Click chọn **Upload**.
+    + Click **Add files** và tải lên file **tracks_list.json**.
+    + Click **Upload**.
 
 ![Architect](/images/1/4.png?width=90pc)
 

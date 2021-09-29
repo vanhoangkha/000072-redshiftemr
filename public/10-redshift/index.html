@@ -12,21 +12,21 @@
     <title>Warehouse trên Redshift :: Analytics on AWS</title>
 
     
-    <link href="/css/nucleus.css?1632888248" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1632888248" rel="stylesheet">
-    <link href="/css/hybrid.css?1632888248" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1632888248" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1632888248" rel="stylesheet">
-    <link href="/css/auto-complete.css?1632888248" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1632888248" rel="stylesheet">
-    <link href="/css/theme.css?1632888248" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1632888248" rel="stylesheet">
+    <link href="/css/nucleus.css?1632907181" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1632907181" rel="stylesheet">
+    <link href="/css/hybrid.css?1632907181" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1632907181" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1632907181" rel="stylesheet">
+    <link href="/css/auto-complete.css?1632907181" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1632907181" rel="stylesheet">
+    <link href="/css/theme.css?1632907181" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1632907181" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1632888248" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1632907181" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1632888248"></script>
+    <script src="/js/jquery-3.3.1.min.js?1632907181"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1632888248"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1632888248"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1632907181"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1632907181"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1632888248"></script>
+<script type="text/javascript" src="/js/search.js?1632907181"></script>
 
     
   </div>
@@ -2049,547 +2049,19 @@
 
 	<hr>
 <p>Ở phần này, chúng ta sẽ thiết lập một Amazon Redshift cluster, và sử dụng AWS Glue để load dữ liệu vào Amazon Redshift. Chúng ta sẽ tìm hiểu về một số thiết kế và các phương pháp tốt nhất để tải dữ liệu vào table trong Redshift, và chạy queries trên nó.</p>
-<p><img src="/images/10/redshift.png?width=90pc" alt="Architect"></p>
-<hr>
-<h4 id="yêu-cầu-trước-bài-lab">Yêu cầu trước bài lab</h4>
-<p>Hoàn thành những phần trước</p>
-<ul>
-<li>Lấy và lưu dữ liệu</li>
-<li>Catalog dữ liệu</li>
-</ul>
-<hr>
-<h4 id="tạo-redshift-iam-role">Tạo Redshift IAM role</h4>
-<p>Ở bước này chúng ta sẽ tạo IAM role cho Redshift cluster</p>
-<ul>
-<li>Đi đến: IAM console <a href="https://console.aws.amazon.com/iam/home?region=ap-southeast-1#/roles">Nhấn vào đây</a>
-<ul>
-<li>Nhấn <strong>Create role</strong></li>
-<li>Chọn <strong>Redshift</strong></li>
-<li>Chọn <strong>Redshift - customizable</strong> dưới phần <strong>Select your use case</strong></li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/1.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Nhấn <strong>Next: Permissions</strong></li>
-<li>Ở thanh tìm kiếm, tìm và check những policies sau:
-<ul>
-<li><strong>AmazonS3FullAccess</strong></li>
-<li><strong>AWSGlueConsoleFullAccess</strong></li>
-</ul>
-</li>
-<li>Nhấn <strong>Next: Tags</strong>
-<ul>
-<li>Tuỳ chọn thêm Tags:
-<ul>
-<li>workshop: AnalyticsOnAWS</li>
-</ul>
-</li>
-<li>Nhấn <strong>Next: Review</strong></li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/2.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Cho <strong>Role Name</strong> là <code>Analyticsworkshop_RedshiftRole</code></li>
-<li>Xác nhận 2 policies dưới đây đã được gắn
-<ul>
-<li><strong>AmazonS3FullAccess</strong></li>
-<li><strong>AWSGlueConsoleFullAccess</strong></li>
-</ul>
-</li>
-<li>Nhấn <strong>Create Role</strong></li>
-</ul>
-<p><img src="/images/10/3.png?width=90pc" alt="Architect"></p>
-<hr>
-<h4 id="tạo-redshift-cluster">Tạo Redshift cluster</h4>
-<p>Ở bước này, chúng ta sẽ tạo 2 node Redshift cluster để tạo một star schema database nhỏ.</p>
-<ul>
-<li>Đi đến: Console <a href="https://console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1">Nhấn vào đây</a></li>
-<li>Nhấn <strong>Create Cluster</strong></li>
-<li>Để <strong>Cluster identifier</strong> là <strong>redshift-cluster-1</strong></li>
-<li>Chọn <strong>Node Type</strong> là <strong>dc2.large</strong></li>
-<li>Chọn <strong>Number of Nodes</strong> là <code>2</code></li>
-<li>Xác nhận <strong>Configuration summary</strong></li>
-</ul>
-<p><img src="/images/10/4.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Để <strong>Database port(optional)</strong> là <strong>5439</strong></li>
-<li>Thay đổi <strong>Master user name</strong> thành <code>admin</code></li>
-<li>Nhập <strong>Master user password</strong>
-<ul>
-<li>Kiểm tra các luật đặt password trước khi chọn password (<strong>Password này sẽ sử dụng để truy cập vào cluster</strong>)</li>
-</ul>
-</li>
-<li>Mở rộng phần <strong>Clusster permissions (optional)</strong>
-<ul>
-<li>Chọn role đã tạo từ trước <strong>Analyticsworkshop_RedshiftRole</strong></li>
-<li>Nhấn <strong>Add IAM Role</strong></li>
-<li><strong>Analyticsworkshop_RedshiftRole</strong> sẽ hiển thị dưới <strong>Attached IAM roles</strong></li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/5.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Để <strong>Additional configurations</strong> mặc định. Nó sẽ sử dụng VPC mặc định và security group mặc định</li>
-<li>Nhấn <strong>Create Cluster</strong>. CHúng ta sẽ tốn vài phút để clustẻ đổi qua trạng thái <code>available</code>
-<strong>Khi cluster đã tạo và trạng thái là Available, hãy đi đến bước tiếp theo</strong></li>
-</ul>
-<hr>
-<h4 id="tạo-s3-gatewat-endpoint">Tạo S3 Gatewat Endpoint</h4>
-<p>Ở bước này, chúng ta sẽ tạo S3 Gateway Endpoint để Redshift cluster có thể giao tiếp với S3 sử dụng private IP</p>
-<ul>
-<li>Đi đến: AWS VPC console <a href="https://console.aws.amazon.com/vpc/home?region=ap-southeast-1#Endpoints:sort=vpcEndpointId">Nhấn vào đây</a></li>
-<li>Nhấn <strong>Create Endpoint</strong></li>
-<li>Chọn <strong>AWS Service</strong> dưới <strong>Service category</strong></li>
-<li>Dưới <strong>Service name</strong> trong khung tìm kiếm, tìm <strong>S3</strong> và nhấn enter</li>
-<li><strong>com.amazonaws.ap-southeast-1.s3</strong> sẽ hiển ra dưới kết quả tìm kiếm. Chọn tuỳ chọn này</li>
-<li>Dứoi <strong>VPC</strong>, chọn VPC mặc định. Đây cũng là VPC sử dụng khi cấu hình redshift cluster
-<ul>
-<li>Nếu có nhiều hơn 1 VPC được liệt kê, hãy kiểm tra VPC của Redshift để tránh việc bị rối.
-<ul>
-<li>Đi đến: Redshift console <a href="https://console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1">Nhấn vào đây</a></li>
-<li>Nhấn <strong>redshift-cluster-1</strong></li>
-<li>Nhấn tab <strong>Properties</strong></li>
-<li>Kéo xuống và kiểm tra phần <strong>Network and security</strong> để tìm tên của VPC.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/6.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Khi bạn đã check VPC xong, đi đến phần <strong>Configure route tables</strong></li>
-<li>Chọn list route table (nó nên là các main route table). Bạn có thể xác nhận bằng cách check <strong>Yes</strong> dưới các <strong>Main</strong> column</li>
-</ul>
-
-<div class="notices note" ><p><strong>com.amazonaws.ap-southeast-1.s3</strong> id được liệt kê lần nữa ở <strong>Configure route tables</strong>. Nó nên bắt đầu với pl-[some number]</p>
-</div>
-
-<ul>
-<li>Để <strong>Policy</strong> mặc định (<strong>Full Access</strong>)</li>
-<li>Nhấn <strong>Create endpoint</strong>. Việc này sẽ tốn vài giây để khởi tạo. Một khi đã sẵn sàng, bạn sẽ thấy <strong>Status</strong> là <strong>Available</strong>.</li>
-</ul>
-<p><img src="/images/10/7.png?width=90pc" alt="Architect"></p>
-<hr>
-<h4 id="xác-nhận-và-thêm-rule-vào-security-group-mặc-định">Xác nhận và thêm rule vào security group mặc định</h4>
-<p>Ở bước này, chúng ta sẽ xác nhận và thêm rule cho Redshift security group để dịch vụ Glue có thể làm việc được với Redshift</p>
-<ul>
-<li>Đi đến: VPC security groups <a href="https://console.aws.amazon.com/vpc/home?region=ap-southeast-1#SecurityGroups:sort=tag:Name">Nhấn vào đây</a></li>
-<li>Chọn Redshift security group. Nó sẽ ở security mặc định nếu nó không thay đổi khi chsung ta tạo Redshift cluster
-<ul>
-<li>Nếu bạn có nhiều hơn 1 security group trong danh sách, làm theo những bước sauL
-<ul>
-<li>Đi đến: Redshift Console <a href="https://console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1">Nhấn vào đây</a></li>
-<li>Nhấn <strong>redshift-cluster-1</strong></li>
-<li>Nhấn tab <strong>Properties</strong></li>
-<li>Kéo xuống và kiểm tra phần <strong>Network and security</strong> để lấy Security Groupd id</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Một khi bạn đã xác nhận Security Group, chọn security group</li>
-<li>Nhấn <strong>Inbound rules</strong>
-<ul>
-<li>Nhấn <strong>Edit rules</strong></li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/8.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Kiểm tra rule có sẵn
-<ul>
-<li>Type: All Traffic</li>
-<li>Source: [Tên của security group bạn đang edit]</li>
-</ul>
-</li>
-</ul>
-
-<div class="notices note" ><p>Rule tự tham chiếu này là Cần thiết để Glue có thể giao tiếp với Redshift</p>
-</div>
-
-<ul>
-<li>Thêm <strong>HTTPS</strong> rule cho Amazon S3 access
-<ul>
-<li>Type: <code>HTTPS</code></li>
-<li>Source: [s3-prefix-list-id]</li>
-</ul>
-</li>
-</ul>
-
-<div class="notices note" ><p>Dưới phần <strong>Source</strong> chọn Custom và nhập &ldquo;pl vào text box cạnh nó, S3 endpoint tạo trước đó sẽ hiển thị và chọn nó</p>
-</div>
-
-<ul>
-<li>Nhấn <strong>Save rules</strong></li>
-</ul>
-<p><img src="/images/10/9.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Nhấn <strong>Outbound Rules</strong>
-<ul>
-<li>Nhấn <strong>Edit rules</strong></li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/10.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Để nguyên rule với những giá trị dưới đây:
-<ul>
-<li>Type: All Traffic</li>
-<li>Source: <code>0.0.0.0/0</code></li>
-</ul>
-</li>
-<li>Rule tự tham chiếu
-<ul>
-<li>Type: All TCP</li>
-<li>Source: [Tên của security group bạn đang edit]</li>
-</ul>
-</li>
-<li>Nhấn <strong>Save rules</strong>.</li>
-</ul>
-<p><img src="/images/10/11.png?width=90pc" alt="Architect"></p>
-<hr>
-<h4 id="tạo-redshift-connection-thông-qua-glue-connection">Tạo Redshift connection thông qua Glue connection</h4>
-<p>Ở bước này, chúng ta sẽ tạo một Redshift Connection thông qua Glue connection thứ mà bạn sẽ sử dụng trong Development Endpoint để tạo ra đường kết nối đến Redshift</p>
-<ul>
-<li>Đi đến: Glue Connection Console <a href="https://us-east-1.console.aws.amazon.com/glue/home?region=ap-southeast-1#catalog:tab=connections">Nhấn vào đây</a>
-<ul>
-<li>Nhấn <strong>Add Connection</strong>
-<ul>
-<li>Cho <strong>Connection name</strong> là <code>analytics_workshop</code></li>
-<li>Chọn <strong>Connection type</strong> là <strong>Amazon Redshift</strong></li>
-<li>Nhấn <strong>Next</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/12.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Thiết lập kết nối vào data store:
-<ul>
-<li>Chọn <strong>Cluster</strong> là <strong>redshift-cluster-1</strong></li>
-<li>Database name và Username sẽ được tự động tạo là dev và admin</li>
-<li><strong>Password</strong>: Nhập password mà bạn cấp khi tạo Redshift cluster</li>
-<li>Nhấn <strong>Next</strong></li>
-<li>Sau đó xem lại các thông tin chi tiết của kết nối và nhấn <strong>Finish</strong></li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/13.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Chúng ta sẽ test kết nối này:
-<ul>
-<li>Chọn kết nối <strong>analytics_workshop</strong></li>
-<li>Nhấn <strong>Test Connection</strong></li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/14.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Chọn Glue role tạo trong phần <strong>Catalog dữ liệu</strong> là <strong>AnalyticsworkshopGlueRole</strong></li>
-<li>Nhấn <strong>Test Connection</strong></li>
-</ul>
-<p><img src="/images/10/15.png?width=90pc" alt="Architect"></p>
-<p>Việc này sẽ tốn một ít thời gian. Kết nối thành công sẽ hiện lên màn hình thông báo: <strong>analytics_workshop connected successfully to your instance</strong></p>
-<hr>
-<h4 id="tạo-schema-và-redshift-tables">Tạo schema và redshift tables</h4>
-<ul>
-<li>Đi đến: Redshift Query Editor <a href="https://us-east-1.console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1#query-editor">Nhấn vào đây</a></li>
-<li>Chạy câu query dưới đây để tạo schema và table cho dữ liệu raw và reference</li>
-<li>Nhập thông tin database connection</li>
-<li>Nhấn <strong>Connect</strong></li>
-</ul>
-<p><img src="/images/10/16.png?width=90pc" alt="Architect"></p>
-<pre><code>--	Create redshift_lab schema.
-CREATE schema redshift_lab;
-</code></pre><p><img src="/images/10/17.png?width=90pc" alt="Architect"></p>
-<pre><code>--	Create f_raw_1 table.
-CREATE TABLE IF not EXISTS redshift_lab.f_raw_1 (
-  uuid			varchar(256),
-  device_ts 		timestamp,
-  device_id		int,
-  device_temp		int,
-  track_id		int,
-  activity_type		varchar(128),
-  load_time		int
-);
-</code></pre><pre><code>--	Create d_ref_data_1 table.
-CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_1 (
-  track_id		int,
-  track_name	varchar(128),
-  artist_name	varchar(128)
-);
-</code></pre><hr>
-<h4 id="chuyển-đổi-và-load-dữ-liệu-vào-redshift">Chuyển đổi và load dữ liệu vào Redshift</h4>
-<p><strong>Tạo Glue Development Endpoint</strong></p>
-<p>Ở bước này, chúng ta sẽ tạo Glue Dev Endpoint để tương tác với Glue ETL script sử dụng PySpark</p>
-<ul>
-<li>Đi đến: Glue Development Endpoints <a href="https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=devEndpoints">Nhấn vào đây</a></li>
-<li>Nhấn <strong>Add endpoint</strong>
-<ul>
-<li>Development endpoints name: <code>analyticsworkshopEndpoint2</code></li>
-<li>IAM role: <strong>AnalyticsworkshopGlueRole</strong></li>
-<li>Mở rộng <strong>Security configuration.. parameters</strong>
-<ul>
-<li>Data processing unit (DPUs): <code>2</code> (Điều này sẽ giảm chi phí chạy lab)</li>
-</ul>
-</li>
-<li>Tuỳ chọn thêm tags:
-<ul>
-<li>workshop: AnalyticsOnAWS</li>
-</ul>
-</li>
-<li>Nhấn <strong>Next</strong></li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/18.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Màn hình Networking:
-<ul>
-<li>Chọn <strong>Choose a connection</strong></li>
-<li>Chọn <strong>analytics_workshop</strong></li>
-<li>Nhấn <strong>Next</strong></li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/19.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Thêm SSH public key (TUỳ chọn):
-<ul>
-<li>Để mặc định</li>
-<li>Ấn <strong>Next</strong></li>
-</ul>
-</li>
-<li>Xem lại các cấu hình
-<ul>
-<li>Ấn <strong>Finish</strong></li>
-</ul>
-</li>
-</ul>
-<p>Việc này sẽ mất tầm 10 phút để một Glue development endpoint mới được tạo ra</p>
-<p><strong>Bạn cần phải đợi bước này hoàn thành trước khi qua bước tiếp theo</strong></p>
-<hr>
-<h4 id="tạo-sagemaker-notebooks-jupyter-cho-glue-dev-endpoints">Tạo SageMaker Notebooks (Jupyter) cho Glue Dev Endpoints</h4>
-<ul>
-<li>Đi đến: Notebooks console <a href="https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=notebooks">Nhấn vào đây</a></li>
-<li>Chọn tab <strong>Sagemaker notebooks</strong></li>
-<li>Nhấn <strong>Create notebook</strong>
-<ul>
-<li>Notebook name: <code>AnalyticsworkshopRedshiftNotebook</code></li>
-<li>Attach to development endpoint: <strong>analyticsworkshopEndpoint2</strong></li>
-<li>Chọn <strong>Choose an existing role</strong></li>
-<li>IAM Role: <strong>AnalyticsworkshopNotebookRole</strong></li>
-<li>VPC (optional): Để trống</li>
-<li>Encryption key (optional): Để trống</li>
-<li>Tuỳ chọn thêm Tags:
-<ul>
-<li>workshop: AnalyticsOnAWS</li>
-</ul>
-</li>
-<li>Nhấn: <strong>Create Notebook</strong></li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/20.png?width=90pc" alt="Architect"></p>
-<p>Đợi vài phút để khởi tạo thành công</p>
-<hr>
-<h4 id="chạy-jupyter-notebook">Chạy Jupyter Notebook</h4>
-<ul>
-<li>Tải xuống và lưu dưới máy file này: <a href="https://intro-to-analytics-on-aws.workshop.aws/notebooks/analytics-workshop-redshift-notebook.ipynb">https://intro-to-analytics-on-aws.workshop.aws/notebooks/analytics-workshop-redshift-notebook.ipynb</a></li>
-<li>Đi đến: SageMaker Notebook</li>
-<li>Bên trái chọn <strong>Notebook</strong></li>
-<li>Chọn <strong>Open</strong></li>
-</ul>
-<p><img src="/images/10/21.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Ở Sagemaker Jupyter Notebook:
-<ul>
-<li>Nhấn <strong>Upload</strong> (góc phải bên trên)</li>
-<li>Tìm và tải lên <strong>analytics-workshop-redshift-notebook.ipynb</strong> mà bạn đã tải trước đó</li>
-<li>Nhấn <strong>Upload</strong> để xác nhận</li>
-</ul>
-</li>
-</ul>
-<p><img src="/images/10/22.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>Nhấn <strong>analytics-workshop-redshift-notebook.ipynb</strong> để mở notebook</li>
-<li>Hãy chắc rằng &lsquo;<strong>Sparkmagic (PySpark)</strong>&rsquo; ở góc bên phải trên của notetbook, đây là tên của kernel mà Jupyter notebook sẽ sử dụng để chạy code của notebook</li>
-<li><strong>Làm theo hướng dẫn tuần tự của notebook</strong></li>
-<li>Hãy đọc và hiểu hướng dẫn, họ sẽ giải thích về độ quan trọng của GLue</li>
-</ul>
-<hr>
-<h4 id="xác-nhận---chuyển-đổi-dữ-liệu-đã-đi-vào-redshift">Xác nhận - Chuyển đổi dữ liệu đã đi vào Redshift</h4>
-<p>Một khi ETL script đã chạy thành công, đi đến Redshift Query Editor <a href="https://ap-southeast-1.console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1#query-editor">Nhấn vào đây</a></p>
-<p>Chạy câu query để kiểm trả số lượng record ở table của dữ liệu raw và reference</p>
-<pre><code>select count(1) from redshift_lab.f_raw_1;
-
-select count(1) from redshift_lab.d_ref_data_1;
-</code></pre><hr>
-<h4 id="một-số-câu-query-để-thử">Một số câu query để thử</h4>
-<pre><code>select 
-  track_name, 
-  artist_name, 
-  count(1) frequency
-from 
-  redshift_lab.f_raw_1 fr
-inner join 
-  redshift_lab.d_ref_data_1 drf
-on 
-  fr.track_id = drf.track_id
-where 
-  activity_type = 'Running'
-group by 
-  track_name, artist_name
-order by 
-  frequency desc
-limit 10;
-</code></pre><p><img src="/images/10/23.png?width=90pc" alt="Architect"></p>
-<p><strong>Xin chúc mừng</strong></p>
-<p>Bạn đã hoàn thành việc load dữ liệu từ S3 vào Redshift sử dụng Glue Serverless ETL</p>
-<hr>
-<p>Nếu bạn muốn tìm hiểu thêm một chút về Redshiftm hãy làm theo các bước dưới của phần tuỳ chọn</p>
-
-<div class="notices warning" ><p>Hãy chắc rằng bạn sẽ làm phần dọn dẹp sau khi hoàn thành bài lab</p>
-</div>
-
-<hr>
-<h4 id="phần-tuỳ-chọn">Phần tuỳ chọn</h4>
-<p>Best Practice trên Redshift</p>
-<p>Ở bước này, húng ta sẽ làm một số best practices của redshift bằng cách optimize nơi lưu trữ và hiệu năng của cluster dựa trên các câu lệnh query chạy trên Redshift cluster</p>
-<p><strong>Mặc dù hầu hết các bước bạn sẽ thực hiện bên dưới đều được tự động hóa trong Redshift nhưng bạn sẽ tốt hơn nếu bạn luôn hiểu được các khái niệm chính và cách chúng hoạt động</strong></p>
-<ul>
-<li>Sử dụng Redshift query editor để chạy các câu lệnh query ở bước tiếp theo:
-<ul>
-<li>Đi đến: Redshift Query Editor <a href="https://ap-southeast-1.console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1#query-editor">Nhấn vào đây</a></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h4 id="string-column-size">String column size</h4>
-<ul>
-<li>Kiểm tra độ dài tối đa của các cột dựa trên chuỗi.
-<ul>
-<li>Tất cả các cột dựa trên chuỗi không được phân bổ nhiều hơn độ chính xác cần thiết. Nó giúp giảm dung lượng lưu trữ trên cụm và cũng cải thiện hiệu suất truy vấn khi bạn sử dụng các cột này trong truy vấn bằng cách tiêu tốn ít bộ nhớ hơn.</li>
-</ul>
-</li>
-</ul>
-<pre><code>select max(len(uuid)) as uuid_len, max(len(activity_type)) as activity_type_len from redshift_lab.f_raw_1;
-      
-select max(len(track_name)) as uuid_len, max(len(artist_name)) as activity_type_len from redshift_lab.d_ref_data_1;
-</code></pre><ul>
-<li>Kết quả từ truy vấn trên sẽ được sử dụng để xác định độ chính xác mới cho các cột dựa trên chuỗi.
-<ul>
-<li>Nói chung, một bộ đệm được duy trì trong khi xác định độ chính xác của cột hoặc độ chính xác của cột có thể được cố định, nếu thuộc tính tiêu chuẩn của nó mà độ chính xác của cột được biết đến. Ví dụ: Tên miền Đủ điều kiện</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h4 id="compression">Compression</h4>
-<p>Ở bước này, chúng ta sẽ phân tích table raw để compression</p>
-<ul>
-<li>Kiểm tra thuật toán mã hóa thích hợp trên mỗi bảng để thực hiện nén.
-<ul>
-<li>Nén là một hoạt động ở cấp độ cột để giảm kích thước của dữ liệu khi nó được lưu trữ. Nén bảo toàn không gian lưu trữ và giảm kích thước của dữ liệu được đọc từ bộ lưu trữ, làm giảm số lượng I / O vào disk và do đó cải thiện hiệu suất truy vấn.</li>
-</ul>
-</li>
-</ul>
-<pre><code>analyze compression redshift_lab.f_raw_1;
-</code></pre><p><img src="/images/10/24.png?width=90pc" alt="Architect"></p>
-<ul>
-<li>
-<p>Kết quả từ bảng trên cung cấp thông tin sau cho từng cột:</p>
-<ul>
-<li>Cột
-<ul>
-<li>Encoding: Mã hóa được đề xuất dựa trên loại và giá trị độ chính xác của cột.</li>
-<li>Est_reduction_pct: Phần trăm giảm ước tính nếu mã hóa được đề xuất được triển khai.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h4 id="distribution-style">Distribution Style</h4>
-<ul>
-<li>Sử dụng phân phối dựa trên <strong>KEY</strong> cho bảng dữ kiện <strong>f_raw_1</strong>.
-<ul>
-<li>Vì hai bảng (<strong>f_raw_1</strong> và <strong>d_ref_data_1</strong>) cần được kết hợp trên cột <strong>track_id</strong>, nên đã chọn <strong>track_id</strong> làm khóa phân phối.</li>
-</ul>
-</li>
-<li>Sử dụng phân phối <strong>ALL</strong> cho bảng dimension - <strong>d_ref_data_1</strong>.</li>
-</ul>
-<hr>
-<h4 id="sort-keys">Sort Keys</h4>
-<p>Trong các truy vấn từ người tiêu dùng dữ liệu, thuộc tính <strong>activity_type</strong> đã được sử dụng để lọc euqality, do đó, thuộc tính này có thể được chọn làm cột sắp xếp.</p>
-<hr>
-<h4 id="new-table-đl">New Table ĐL</h4>
-<p>Dựa trên tất cả các quan sát ở trên</p>
-<ul>
-<li>Tạo cột mới sử dụng DDL của <strong>f_raw_2</strong> và <strong>d_ref_data_2</strong></li>
-</ul>
-<pre><code>--fact table ddl
-CREATE TABLE IF NOT EXISTS redshift_lab.f_raw_2 (
-  uuid			varchar(40) ENCODE zstd,
-  device_ts 		timestamp,
-  device_id		int ENCODE az64,
-  device_temp		int ENCODE az64,
-  track_id		int ENCODE az64,
-  activity_type		varchar(16) ENCODE bytedict sortkey,
-  load_time		int ENCODE zstd
-)
-DISTKEY(track_id);
-  
---dimension table ddl
-CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_2 (
-  track_id		int,
-  track_name		varchar(64),
-  artist_name		varchar(64)
-)
-DISTSTYLE ALL;
-</code></pre><hr>
-<h4 id="sao-chép-dữ-liệu-vào-table-mới">Sao chép dữ liệu vào table mới</h4>
-<p>Khi mà tất cả dữ liệu đã có sẵ, sao chép dữ liệu từ table cũ sang table mới</p>
-<pre><code>--copy data from f_raw_1 to f_raw_2
-insert into redshift_lab.f_raw_2 select * from redshift_lab.f_raw_1;
-  
---copy data from d_ref_data_1 to d_ref_data_2
-INSERT into redshift_lab.d_ref_data_2 select * from redshift_lab.d_ref_data_1; 
-</code></pre><hr>
-<h4 id="run-vacuum-and-analyze">Run Vacuum and Analyze</h4>
-<p>Ở bước này chúng ta sẽ chạy vacuum và analyze trên table này</p>
-<p>VACUUM: Sắp xếp lại các hàng và lấy lại không gian trong một bảng được chỉ định hoặc tất cả các bảng trong cơ sở dữ liệu hiện tại</p>
-<p>ANALYZE: Cập nhật thống kê bảng để người lập kế hoạch truy vấn sử dụng</p>
-<pre><code>vacuum redshift_lab.f_raw_2;
-analyze redshift_lab.f_raw_2;  
-vacuum redshift_lab.d_ref_data_2;
-analyze redshift_lab.d_ref_data_2;
-</code></pre><hr>
-<h4 id="chạy-query">Chạy Query</h4>
-<pre><code class="language---Top" data-lang="--Top">select 
-  track_name, 
-  artist_name, 
-  count(1) frequency
-from 
-  redshift_lab.f_raw_2 fr
-inner join 
-  redshift_lab.d_ref_data_2 drf
-on 
-  fr.track_id = drf.track_id
-where 
-  activity_type = 'Running'
-group by 
-  track_name, artist_name
-order by 
-  frequency desc
-limit 10;
-</code></pre><p>Bạn có thể so sánh phần nà với phần <strong>Một số query để thử</strong> và so sánh tốc độ như trên ảnh tốc độ từ 12s giờ chỉ còn 2s cho câu lệnh query này</p>
-<p><img src="/images/10/25.png?width=90pc" alt="Architect"></p>
-
-<div class="notices warning" ><p>Hãy chắc rằng bạn sẽ làm phần dọn dẹp sau khi hoàn thành bài lab</p>
-</div>
-
+<p><img src="/images/10/redshift.png?width=60pc" alt="Architect"></p>
+<h4 id="nội-dung">Nội dung</h4>
+<ol>
+<li><a href="10.1-createiamrole/">Tạo Redshift IAM role</a></li>
+<li><a href="10.2-createcluster/">Tạo Redshift cluster</a></li>
+<li><a href="10.3-s3gateway/">Tạo S3 Gateway Endpoint</a></li>
+<li><a href="10.4-configuresecgroup/">Cấu hình Security Group</a></li>
+<li><a href="10.5-glueconnection/">Tạo Redshift connection</a></li>
+<li><a href="10.6-createschema/">Tạo schema và tables</a></li>
+<li><a href="10.7-extractloaddata/">Chuyển đổi và load dữ liệu</a></li>
+<li><a href="10.8-reviewdata/">Kiểm tra dữ liệu</a></li>
+<li><a href="10.9-optimizeredshift/">Tối ưu Redshift</a></li>
+</ol>
 
 
 
@@ -3636,19 +3108,19 @@ limit 10;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1632888248"></script>
-    <script src="/js/perfect-scrollbar.min.js?1632888248"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1632888248"></script>
-    <script src="/js/jquery.sticky.js?1632888248"></script>
-    <script src="/js/featherlight.min.js?1632888248"></script>
-    <script src="/js/highlight.pack.js?1632888248"></script>
+    <script src="/js/clipboard.min.js?1632907181"></script>
+    <script src="/js/perfect-scrollbar.min.js?1632907181"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1632907181"></script>
+    <script src="/js/jquery.sticky.js?1632907181"></script>
+    <script src="/js/featherlight.min.js?1632907181"></script>
+    <script src="/js/highlight.pack.js?1632907181"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1632888248"></script>
-    <script src="/js/learn.js?1632888248"></script>
-    <script src="/js/hugo-learn.js?1632888248"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1632907181"></script>
+    <script src="/js/learn.js?1632907181"></script>
+    <script src="/js/hugo-learn.js?1632907181"></script>
 
-    <link href="/mermaid/mermaid.css?1632888248" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1632888248"></script>
+    <link href="/mermaid/mermaid.css?1632907181" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1632907181"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
