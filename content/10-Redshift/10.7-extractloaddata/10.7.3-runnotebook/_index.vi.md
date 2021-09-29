@@ -9,9 +9,8 @@ pre = "<b>10.7.3 </b>"
 #### Chạy Jupyter Notebook
 
 1. Tải xuống và lưu dưới máy file này: [https://intro-to-analytics-on-aws.workshop.aws/notebooks/analytics-workshop-redshift-notebook.ipynb](https://intro-to-analytics-on-aws.workshop.aws/notebooks/analytics-workshop-redshift-notebook.ipynb)
-  + Bạn cũng có thể tải trực tiếp file notebook dưới đây.
 
-{{%attachments style="orange" title="Notebook" pattern=".*(ipynb)"/%}}
+  + Bạn cũng có thể tải file notebook được đính kèm [tại đây](https://000072.awsstudygroup.com/download/analytics-workshop-redshift-notebook.ipynb).
 
   + Đi đến: SageMaker Notebook.
   + Bên trái chọn **Notebook**.
