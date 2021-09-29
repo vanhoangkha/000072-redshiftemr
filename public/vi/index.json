@@ -1,0 +1,442 @@
+[
+{
+	"uri": "/vi/6-emr/6.1-prepares3/",
+	"title": "Chuẩn bị thư mục và script",
+	"tags": [],
+	"description": "",
+	"content": "Chuẩn bị thư mục và script trên S3   Ở bước này, chúng ta sẽ đến S3 Console và tạo một số folder để sử dụng cho bước transform dữ liệu với EMR.\n  Truy cập tới giao diện quản trị S3.\n  Mở yourname-analytics-workshop-bucket.\n Click : Create folder.  Tạo 1 folder mới tên scripts. Click Save.      Mở scripts.   Tải xuống file: emr_pyspark.py Bạn có thể tải file script ở dưới đây.  \r\rEMR scripts\r\r\remr_pyspark.py\r\r(2 KB)\r\r\r\r Trong S3 console, Click Upload: Click Add files và tải lên file emr_pyspark.py vừa tải xuống Click Upload  Tạo folder cho EMR logs:   Mở yourname-analytics-workshop-bucket.  Click : Create folder.  Tạo 1 folder mới tên logs. Click Save.      "
+},
+{
+	"uri": "/vi/",
+	"title": "Phân Tích Dữ Liệu Trên AWS",
+	"tags": [],
+	"description": "",
+	"content": "Phân Tích Dữ Liệu Trên AWS Tổng Quan Để bắt đầu phân tích dữ liệu (Data Analytics) ở trên AWS, chúng ta sẽ cần phải tìm hiểu về những dịch vụ có thể hỗ trợ chúng ta trong việc thực hiện phân tích, thông qua workshop này chúng ta sẽ tiến hành làm quen với các dịch vụ được sử dụng trong phân tích dữ liệu trên AWS như AWS Glue, Athena, QuickSight, Lambda, Redshift và EMR.\n Chuẩn bị  Bạn sẽ cần phải có 1 tài khoản AWS với quyền AdministratorAccess. Bài lab này sẽ thực hiện ở phân vùng Singapore (Region: ap-southeast-1). Cách tốt nhất là hãy thực hiện theo các đường link của hướng dẫn và mở chúng trong tab mới. Chạy bài lab này ở các trình duyệt phổ biến như Google Chrome, Firefox.  English version Analytics on AWS\n Nội Dung  Lấy và Lưu dữ liệu Catalog dữ liệu Chuyển đổi dữ liệu với AWS Glue Chuyển đổi dữ liệu với AWS Glue Studio Chuyển đổi dữ liệu với AWS Glue DataBrew Chuyển đổi dữ liệu với EMR Phân tích với Athena Trực quan hoá với QuickSight Truy vấn với Lambda Warehouse trên Redshift Dọn dẹp tài nguyên  "
+},
+{
+	"uri": "/vi/5-aws-glue-databrew/5.1-createproject/",
+	"title": "Tạo DataBrew project",
+	"tags": [],
+	"description": "",
+	"content": "Tạo DataBrew project  Truy cập đến giao diện quản trị của Glue DataBrew   Click - Create project  Nhập Project name: AnalyticsOnAWS-GlueDataBrew như màn hình dưới đây.   Dưới mục Select a dataset chọn New dataset. Trong mục New dataset details, nhập raw-dataset như màn hình dưới đây.  Ở dưới Connect to new dataset.   Chọn All AWS Glue tables , bạn sẽ thấy tất cả các database trong AWS Glue Catalog được thể hiện dưới đây.  Click analyticsworkshopdb.   Chọn table raw.  Dưới Permissions.   Chọn Role name là Create new IAM role. Nhập AnalyticsOnAWS-GlueDataBrew trong New IAM role suffix.  Khi Glue DataBrew project được tạo thành công, bạn sẽ thấy như màn hình dưới đây.  "
+},
+{
+	"uri": "/vi/10-redshift/10.7-extractloaddata/10.7.1-createglueep/",
+	"title": "Tạo Glue Dev Endpoint",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Glue Development Endpoint Ở bước này, chúng ta sẽ tạo Glue Dev Endpoint để tương tác với Glue ETL script sử dụng PySpark.\n Truy cập đến giao diện Development Endpoints của dịch vụ Glue.   Click Add endpoint. Development endpoints name: analyticsworkshopEndpoint2. IAM role: AnalyticsworkshopGlueRole. Mở rộng Security configuration.. parameters.  Data processing unit (DPUs): 2 (Điều này sẽ giảm chi phí chạy lab).   Tuỳ chọn thêm tags:.  workshop: AnalyticsOnAWS.   Click Next.  Tại trang Networking:  Chọn Choose a connection. Chọn analytics_workshop. Click Next.    Tại trang SSH public key.   Thêm SSH public key (TUỳ chọn):  Để mặc định. Click Next.    Tại trang Review   Xem lại các cấu hình. Click Finish.  Việc này sẽ mất tầm 10 phút để một Glue development endpoint mới được tạo ra.\nBạn cần phải đợi bước này hoàn thành trước khi qua bước tiếp theo.\n"
+},
+{
+	"uri": "/vi/2-catalog-data/2.1-createiamrole/",
+	"title": "Tạo IAM Role",
+	"tags": [],
+	"description": "",
+	"content": "Tạo IAM Role Ở bước này, chúng ta sẽ đi đến IAM Console và tạo 1 role service mới cho AWS Glue. Việc này sẽ giúp AWS Glue có thể truy cập dữ liệu lưu trong S3 và có thể tạo những entities cần thiết trong Glue Data Catalog.\n Đi đến giao diện quản trị IAM Roles   Click Create role.  Chọn service sẽ sử dụng role là : Glue. Click Next: Permissions.    Thực hiện tìm kiếm policy AmazonS3FullAccess.   Click chọn policy AmazonS3FullAccess.  Thực hiện tìm kiếm policy AWSGlueServiceRole.   Click chọn policy AWSGlueServiceRole. Click Next: Tags  Tại trang Add tags.   Thêm tag Key = workshop và Value = AnalyticsOnAWS. Click Next: Review   Tại trang Create role.   Role name: AnalyticsworkshopGlueRole. Kiểm tra 2 policy chúng ta đã thêm vào ở bước 2 và 3 (AmazonS3FullAccess, AWSGlueServiceRole). Click Create role.  "
+},
+{
+	"uri": "/vi/9-lambda/9.1-createfunction/",
+	"title": "Tạo Lambda Function",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Lambda Function  Truy cập đến giao diện quản trị của dịch vụ Lambda.   Note: Hãy chắc chắn Region đang được chọn là Singapore ap-southeast-1  Nhấn Create function (Nếu bạn sử dụng Lambda lần đầu, bạn nên nhấn Get Started để tiến hành).   Chọn Author from scratch. Tại mục Basic Information: Cho Function name là Analyticsworkshop_top5Songs. Chọn Runtime là Python 3.8. Mở rộng Choose or create an execution role dưới Permissions, hãy chắc rằng Create a new role with basic Lambda permissions được chọn. Nhấn Create Function.  "
+},
+{
+	"uri": "/vi/10-redshift/10.1-createiamrole/",
+	"title": "Tạo Redshift IAM role",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Redshift IAM role Ở bước này chúng ta sẽ tạo IAM role cho Redshift cluster\n Truy cập đến giao diện IAM console.   Nhấn Create role. Chọn Redshift. Chọn Redshift - customizable dưới phần Select your use case.  Nhấn Next: Permissions.   Ở thanh tìm kiếm, tìm và check những policies sau:  AmazonS3FullAccess. AWSGlueConsoleFullAccess.   Nhấn Next: Tags.  Tuỳ chọn thêm Tags:  workshop: AnalyticsOnAWS.   Nhấn Next: Review.    Cho Role Name là Analyticsworkshop_RedshiftRole.   Xác nhận 2 policies dưới đây đã được gắn.  AmazonS3FullAccess. AWSGlueConsoleFullAccess.   Nhấn Create Role.  Tiếp theo chúng ta sẽ tiến hành tạo Redshift cluster.\n"
+},
+{
+	"uri": "/vi/1-ingest-and-store/1.1-creates3bucket/",
+	"title": "Tạo S3 Bucket",
+	"tags": [],
+	"description": "",
+	"content": "Tạo S3 Bucket Ở bước này, chúng ta sẽ đi đến console của S3 và tạo S3 bucket mà sẽ sử dụng xuyên suốt bài lab.\n  Đăng nhập vào AWS Console\n  Đi đến S3 Console và tạo bucket mới ở Region ap-southeast-1:\n   Truy cập đến giao diện quản trị S3 Click - Create Bucket.  Bucket Name: yourname-analytics-workshop-bucket. Region : Asia Pacific (Singapore). Tuỳ chọn thêm Tags, e.g.:  workshop: AnalyticsOnAWS.   Click Create Bucket.    Thêm dữ liệu reference.   Mở - yourname-analytics-workshop-bucket.  Click - Create folder.  Folder mới tên : data. Click - Save.      Mở folder data.  Click - Create folder (trong data folder).  Folder mới : reference_data. Click - Save.      Mở folder reference_data.  Tải file này xuống máy của bạn: tracks_list.json Bạn cũng có thể tải file tracks_list.json ở phần tải về dưới đây:    \r\rtracks_list.json\r\r\rtracks_list.json\r\r(8 KB)\r\r\r\r + Trong S3 Console - Click chọn **Upload**.\r+ Click **Add files** và tải lên file **tracks_list.json**.\r+ Click **Upload**.\r "
+},
+{
+	"uri": "/vi/10-redshift/10.9-optimizeredshift/10.9.1-stringcolumnsize/",
+	"title": "Tối ưu Kích thước cột",
+	"tags": [],
+	"description": "",
+	"content": "Kích thước cột cho dữ liệu chuỗi.  Truy cập giao diện Query Editor của dịch vụ Redshift.   Chúng ta sẽ thực hiện kiểm tra độ dài tối đa của các cột dựa trên chuỗi. Tất cả các cột dựa trên chuỗi không nên được cấp kích thước to hơn cần thiết. Nó giúp giảm dung lượng lưu trữ trên Redshift cluster và cũng cải thiện hiệu suất truy vấn khi bạn sử dụng các cột này trong truy vấn bằng cách tiêu tốn ít bộ nhớ hơn.  select max(len(uuid)) as uuid_len, max(len(activity_type)) as activity_type_len from redshift_lab.f_raw_1;\rselect max(len(track_name)) as uuid_len, max(len(artist_name)) as activity_type_len from redshift_lab.d_ref_data_1;\r Kết quả từ truy vấn trên sẽ được sử dụng để xác định độ chính xác mới cho các cột có dữ liệu dạng chuỗi.\n  Tham khảo thêm về việc giới hạn kích thước cột tại đây.\n  "
+},
+{
+	"uri": "/vi/8-quicksight/8.1-subscribe/",
+	"title": "Đăng ký QuickSight",
+	"tags": [],
+	"description": "",
+	"content": "Đăng ký QuickSight  Truy cập giao diện quản trị của dịch vụ Quicksight.   Click Sign up for QuickSight.  Hãy chắc rằng Enterprise được chọn và Click Continue.   QuickSight account name: yournameanalyticsworkshop. Notification email address: you@youremail.com. Chọn Amazon Athena - việc này sẽ cho phép QuickSight có thể truy cập vào database của Amazon Athena. Chọn Amazon S3. Chọn yourname-analytics-workshop-bucket. Click Finish. Click Finish. Chờ vài phút để account QuickSight được tạo.  "
+},
+{
+	"uri": "/vi/1-ingest-and-store/",
+	"title": "Thu thập và Lưu trữ dữ liệu",
+	"tags": [],
+	"description": "",
+	"content": " Để bắt đầu, chúng ta sẽ tạo ra một số dữ liệu dummy near real-time với Kinesis data generator, và chuyển dữ liệu đó đến S3 với Kinesis Firehose delivery stream.\nChúng ta cũng sẽ copy 1 số dữ liệu reference vào trong Amazon S3 bucket.\nNội dung  Tạo S3 Bucket Tạo Kinesis Firehose Tạo dữ liệu giả lập  "
+},
+{
+	"uri": "/vi/3-aws-glue/3.1-createdevendpoint/",
+	"title": "Tạo Development Endpoint",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Glue Development Endpoint Ở bước này chúng ta sẽ tạo AWS Glue Dev Endpoint để phát triển các Glue ETL scripts sử dụng PySpark.\n Truy cập giao diện quản trị Glue Development Endpoint   Click - Add endpoint.  Tại trang Set up your development endpoint.   Development endpoint name: analyticsworkshopEndpoint1 IAM role AnalyticsworkshopGlueRole Mở rộng phần Security configuration.. parameters  Data processing units (DPUs): 2 (việc này sẽ làm giảm chi phí chạy bài lab)   Tuỳ chọn thêm Tags:  workshop: AnalyticsOnAWS   Click Next   Tại trang Networking.  Click chọn Skip networking information. Click Next.    Tại trang SSH public key.   Để nguyên cấu hình mặc định. Click Next.  Tại trang Reviews.   Kiểm tra lại cấu hình. Click Finish  Việc này sẽ tốn vài phút (6 - 10 phút) để tạo 1 Glue Development Endpoint mới. Bạn sẽ thấy trạng thái chuyển từ PROVISIONING sang READY\nBạn phải đợi bước này thành công trước khi sang bước tiếp theo\n"
+},
+{
+	"uri": "/vi/4-aws-glue-studio/4.1-createjob/",
+	"title": "Tạo Glue Studio job",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Glue Studio job  Truy cập đến giao diện Glue Studio Console   Click - biểu tượng 3 gạch ở góc bên trái.  Click - Jobs và chọn Create job from a blank graph.   Click Create.  Click - Source và chọn S3  Click tab Data source properties - S3 trong cửa sổ cấu hình ở bên phải màn hình.   Dưới S3 source type chọn Data Catalog table. Chọn những giá trị như dưới đây.  Database - analyticsworkshopdb. Table - raw.    Tiếp tục làm bước tương tự để thêm reference_data từ S3. Click - Source và chọn S3.  Click tab Data source properties - S3 trong cửa sổ cấu hình ở bên phải màn hình.   Dưới S3 source type chọn Data Catalog table. Chọn những giá trị như dưới đây.  Database - analyticsworkshopdb. Table - reference_data.    "
+},
+{
+	"uri": "/vi/10-redshift/10.9-optimizeredshift/10.9.2-compression/",
+	"title": "Compression",
+	"tags": [],
+	"description": "",
+	"content": "Compression Ở bước này, chúng ta sẽ phân tích table raw để chọn giải thuật compression ( nén ) phù hợp.\n Kiểm tra thuật toán thích hợp trên mỗi bảng để thực hiện compression.   Compression là một hoạt động ở cấp độ cột để giảm kích thước của dữ liệu khi nó được lưu trữ. Compression giúp tối ưu không gian lưu trữ và giảm kích thước của dữ liệu được đọc từ bộ lưu trữ, đồng thời làm giảm số lượng I / O vào disk và cải thiện hiệu suất truy vấn. Chạy câu query dưới đây trong giao diện Query Editor.  analyze compression redshift_lab.f_raw_1;\rKết quả từ bảng trên cung cấp thông tin sau cho từng cột:   Tên Cột  Encoding: Kiểu compression được đề xuất dựa trên loại và giá trị độ chính xác của cột. Est_reduction_pct: Phần trăm giảm ước tính nếu phương thức compression đề xuất được triển khai.    "
+},
+{
+	"uri": "/vi/8-quicksight/8.2-adddataset/",
+	"title": "Thêm Dataset",
+	"tags": [],
+	"description": "",
+	"content": "Thêm Dataset  Truy cập đến giao diện dịch vụ Quick Sight.   Ở góc trên bên phải, Click Manage Data. Click New Data Set.  Click Athena.   New Athena data source.  Data source name: analyticsworkshop. Click Validate connection.  Việc này sẽ kiểm tra xem QuickSight có thể truy cập Athena không.   Click Create data source.    Chọn table của bạn:  Database: chọn analyticsworkshopdb. Tables: chọn processed_data. Click Select.    Hoàn tất tạo data set:  Chọn Directly query your data. Click Visualize.    "
+},
+{
+	"uri": "/vi/6-emr/6.2-createcluster/",
+	"title": "Tạo EMR Cluster",
+	"tags": [],
+	"description": "",
+	"content": "Tạo EMR Cluster và chạy script đã upload lên S3 Ở bước này, chúng ta sẽ tạo EMR cluster và thêm các bước của Spark\n Truy cập đến giao diện quản trị của EMR.   Click Create cluster. Tiếp tục với Create cluster - Quick options. Đặt tên cho cluster: analytics-workshop-transformer. Chọn tuỳ chọn Logging và cung cấp S3 folder:  s3://yourname-analytics-workshop-bucket/logs/.   Đổi Launch mode thành Step execution. Ở dưới Add steps chọn Spark application.  Click Configure. Ở cửa sổ hiện lên, để trống Spark-submit options. Cho phần Application location, chọn nơi chứa script vừa upload - s3://yourname-analytics-workshop-bucket/scripts/emr_pyspark.py. Click Select. Dưới Arguments, nhập tên s3 bucket yourname-analytics-workshop-bucket. Cho phần Action on failure, chọn Terminate cluster . Click Add để hoàn thành.    Tại mục Software configuration.   Không check tuỳ chọn Use AWS Glue Data Catalog for table metadata. Release: emr-x.x. Applications: Hadoop x.x.x, Spark x.x.x. Version sẽ được để mặc định là mới nhất.  Tại mục Hardware configuration.   Instance type: m5.xlarge. Number of Instances: 3 (1 master and 2 core nodes). Để Security and access mặc định. Click Create cluster.  Chúng ta đã hoàn thành việc tạo cluster EMR. Cluster EMR sẽ được khởi tạo và sẽ thực thi script chúng ta đã upload lên S3 ở bước 6.1\n"
+},
+{
+	"uri": "/vi/1-ingest-and-store/1.2-createkinesis/",
+	"title": "Tạo Kinesis Firehose",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Kinesis Firehose để thu thập dữ liệu và lưu vào S3 bucket. Ở bước này chúng ta sẽ đi đến Kinesis Console và tạo 1 Kinesis Firehose deliver stream để lấy dữ liệu và lưu vào S3:\n Đi đến: Kinesis Firehose Console click Get Started.   Click Create delivery stream.  Tại mục : Name and source.  Delivery stream name : analytics-workshop-stream. Source : Direct PUT or other sources. Click Next.      Tại trang Process records.  Data transformation: Disabled. Record format conversion: Disabled. Click Next.    Tại trang Choose destination.  Destination: Amazon S3. S3 bucket: yourname-analytics-workshop-bucket. Prefix: data/raw/. (Lưu ý: Dấu / đằng sau raw rất quan trọng. Nếu chúng ta không có nó Firehose sẽ sao chép dữ liệu vào nơi không mong muốn) Error prefix: Để trống. Click Next.    Tại trang Configure settings.  S3 buffer conditions: Buffer size: 1 (MB). S3 buffer conditions: Buffer interval: 60 (sec). S3 compression: Disabled. S3 encryption: Disabled. Error logging: Enabled. Tuỳ chọn thêm Tags, e.g.:  workshop: AnalyticsOnAWS   IAM role : Để mặc định Create or update IAM role KinesisFirehoseServiceRole-xxxx. Click - Next.    Tại trang Review.  Xem lại những cấu hình và chắc chắn rằng nó giống như được nêu ở trên. Click - Create delivery stream.    "
+},
+{
+	"uri": "/vi/10-redshift/10.7-extractloaddata/10.7.2-createsagemaker/",
+	"title": "Tạo Notebooks",
+	"tags": [],
+	"description": "",
+	"content": "Tạo SageMaker Notebooks (Jupyter) cho Glue Dev Endpoints  Truy cập đến giao diện Notebooks của dịch vụ Glue.   Chọn tab Sagemaker notebooks. Click Create notebook.  Notebook name: AnalyticsworkshopRedshiftNotebook. Attach to development endpoint: analyticsworkshopEndpoint2. Chọn Choose an existing role. IAM Role: AnalyticsworkshopNotebookRole. VPC (optional): Để trống. Encryption key (optional): Để trống. Tuỳ chọn thêm Tags:  workshop: AnalyticsOnAWS.     Click: Create Notebook.  Đợi vài phút để khởi tạo thành công, tiếp theo chúng ta sẽ chạy 1 notebook để tiến hành load dữ liệu vào Redshift.\n"
+},
+{
+	"uri": "/vi/10-redshift/10.2-createcluster/",
+	"title": "Tạo Redshift cluster",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Redshift cluster Ở bước này, chúng ta sẽ tạo 2 node Redshift cluster để tạo một star schema database nhỏ.\n Truy cập đến giao diện quản trị dịch vụ Redshift   Click Create Cluster. Để Cluster identifier là redshift-cluster-1. Chọn Node Type là dc2.large. Chọn Number of Nodes là 2. Xác nhận Configuration summary.  Để Database port(optional) là 5439.   Thay đổi Master user name thành admin. Nhập Master user password . Kiểm tra các luật đặt password trước khi chọn password (Password này sẽ sử dụng để truy cập vào cluster). Mở rộng phần Clusster permissions (optional).  Chọn role đã tạo từ trước Analyticsworkshop_RedshiftRole. Click Add IAM Role. Analyticsworkshop_RedshiftRole sẽ hiển thị dưới Attached IAM roles.    Để Additional configurations mặc định. Nó sẽ sử dụng VPC mặc định và security group mặc định   Click Create Cluster. CHúng ta sẽ tốn vài phút để cluster đổi qua trạng thái available.  Khi cluster đã tạo và trạng thái là Available, hãy đi đến bước tiếp theo.\n"
+},
+{
+	"uri": "/vi/2-catalog-data/",
+	"title": "Catalog để khám phá dữ liệu",
+	"tags": [],
+	"description": "",
+	"content": " Tiếp theo, chúng ta sẽ thêm datasets trong AWS Glue Data Catalog. Chúng ta sẽ tự động hoá việc thu thập metadata với sự hỗ trợ của Glue Crawlers\nMột khi catalog được tạo, chúng ta có thể bắt đầu query với định dạng raw của dữ liệu bằng Amazon Athena\nNội dung  Tạo IAM role Tạo AWS Glue crawler Kiểm tra Glue catalog Query dữ liệu với Athena  "
+},
+{
+	"uri": "/vi/4-aws-glue-studio/4.2-addtransform/",
+	"title": "Cấu hình transform",
+	"tags": [],
+	"description": "",
+	"content": "Cấu hình transform  Click chọn bất kì S3 nodes nào trong 2 nodes   Click Transform và chọn Join  Click Transform - Join node và chọn Node properties ở cửa sổ cấu hình bên phải, chọn danh sách sổ xuống và chọn tất cả các S3 data source như màn hình dưới đây:  Chuyển qua Transform tab.   Click Add condition. Chọn track_id column là column sẽ join như hình dưới.  Với Join node đang được chọn, Click Transform và chọn ApplyMapping.  Chúng ta sẽ bỏ những cột không sử dụng và map kiểu dữ liệu mới cho column sau:   drop Columns  .track_id parition_0 parition_1 parition_2 parition_3   Map New Data Type  track_id string   Lựa chọn của bạn nên giống hình phía dưới  Click Transform - ApplyMapping node ở trên màn hình.   Sau đó Click Target và chọn S3 như màn hình dưới đây.  Ở tab Data target properties - S3, cung cấp những giá trị sau đây:   Format: Glue Parquet. Compression Type: Snappy. S3 Target Location: s3://yourname-analytics-workshop-bucket/data/processed-data2/. Data Catalog update options  Chọn Create a table in the Data Catalog and on subsequent runs, update the schema and add new partitions.   Database: analyticsworkshopdb. Table name: processed-data2.  Click Job details và cấu hình như dưới đây.   Name: AnalyticsOnAWS-GlueStudio. IAM Role: AnalyticsWorkshopGlueRole. Number of workers: 2. Job bookmark: Disable. Number of retries: 1. Job timeout (minutes): 10. Còn những giá trị còn lại để mặc định. Click Save.  Click Save và bạn nên thấy “Successfully created job”.  "
+},
+{
+	"uri": "/vi/5-aws-glue-databrew/5.2-databrewprofile/",
+	"title": "Data profile với DataBrew",
+	"tags": [],
+	"description": "",
+	"content": "Data profile để kiểm tra chất lượng dữ liệu với DataBrew  Click SCHEMA tab ở phía góc trên bên phải của màn hình để xem table schema và những thuộc tính của nó như column name, data type, data quality, value distribution, và box plot distribution cho dữ liệu số.  Click GRID tab để trở về chế độ hiển thị dạng lưới.   Chúng ta sẽ đổi kiểu dữ liệu của cột track_id , bằng cách Click # ở track_id column, và chọn kiểu string như màn hình dưới đây.  Lập profile data để khám phá các thống kê thông tin về các mối tương quan giữa các thuộc tính.   Click PROFILE ở tab góc trên bên phải, và Click Run data profile.  Để Job name, và Job run sample mặc định.   Chỉ đường dẫn đến S3 bucket với tên s3://-analytics-workshop-bucket/ cho output của job. Không chọn Enable encryption for job output file.  Dưới Permissions, chọn role là Role name đã tạo lúc tạo Glue DataBrew project.   Click Create and run job.  Bạn sẽ thấy job đang in progress nghĩa là Glue Databrew đã bắt đầu quá trình profile data của bạn.  "
+},
+{
+	"uri": "/vi/2-catalog-data/2.2-creategluecrawler/",
+	"title": "Tạo AWS Glue Crawlers",
+	"tags": [],
+	"description": "",
+	"content": "Tạo AWS Glue Crawlers Ở bước này, chúng ta sẽ đi đến AWS Glue Console và tạo 1 glue crawlers để khám phá schema của dữ liệu mới được lấy vào trong S3.\n Truy cập giao diện quản trị của dịch vụ AWS Glue   Ở khung bên trái, chọn Crawlers \u0026gt; Click chọn Add Crawler  Tại trang Crawler info.  Crawler name: AnalyticsworkshopCrawler. Tuỳ chọn thêm tag:.  workshop: AnalyticsOnAWS.   Click Next.    Tại trang Specify crawler source type.   Click Chọn Data stores. Click Next.  Tại trang Add a data store.  Choose a data store: S3. Crawl data in: Specified path in my account. Include path: s3://yourname-analytics-workshop-bucket/data/. Click Next. Add another data store: No. Click Next.    Tại trang Choose an IAM Role.  Chọn: Choose an existing IAM role. IAM role chọn: AnalyticsworkshopGlueRole. Click Next.     Tại trang Schedule.\n Frequency: Run on demand. Click Next.    Tại trang Output.\n Click Add database. Database name: analyticsworkshopdb. Click Create. Click Next.     Tại trang Review all steps.\n Kiểm tra lại tất cả cấu hình của bạn. Click Finish.    Bạn sẽ thấy thông báo: Crawler analyticsworkshopdb was created to run on demand..\n Chọn vào crawler\u0026rsquo;s check box. Click Run crawler để chạy crawler lần đầu tiên. Đợi vài phút để quá trình chạy hoàn tất.    "
+},
+{
+	"uri": "/vi/3-aws-glue/3.2-createsagemaker/",
+	"title": "Tạo SageMaker Notebooks",
+	"tags": [],
+	"description": "",
+	"content": "Tạo SageMaker Notebooks (Jupyter) cho Glue Dev Endpoints  Truy cập đến giao diện quản trị Glue devevelopment endpoin nodebooks.   Chọn tab: Sagemaker notebooks. Click - Create notebook.  Notebook name: AnalyticsworkshopNotebook. Attach to development endpoint: analyticsworkshopEndpoint1. Chọn: Create an IAM role.  IAM Role: Workshop.   VPC (optional): Để Trống. Encryption key (optional): Để Trống. Tuỳ chọn thêm Tags, e.g.:  workshop: AnalyticsOnAWS.   Click Create Notebook.    Quá trình tạo SageMaker notebook sẽ tốn một ít phút (4 - 5 phút). Đợi cho trạng thái của Notebook khởi tạo từ Starting thành Privisioned.\n"
+},
+{
+	"uri": "/vi/9-lambda/9.2-updatelambdacode/",
+	"title": "Viết code Lambda Function",
+	"tags": [],
+	"description": "",
+	"content": "Viết code Lambda Function Ở phần này, chúng ta sẽ code cho lambda function chúng ta vừa tạo. Chúng ta sẽ sử dụng boto3 để truy cập đến Athena.\nBoto là SDK của Dịch vụ Web Amazon (AWS) dành cho Python. Nó cho phép các nhà phát triển Python tạo, định cấu hình và quản lý các dịch vụ AWS, chẳng hạn như EC2 và S3. Boto cung cấp một API hướng đối tượng, dễ sử dụng, cũng như quyền truy cập cấp thấp vào các dịch vụ AWS. Đọc thêm về Boto tại đây https://boto3.amazonaws.com/v1/documentation/api/latest/index.html?id=docs_gateway\n\r Kéo xuống đến phần Function Code và thay thế code có sẵn trong lambda_function.py với đoạn python code dưới đây  import boto3\rimport time\rimport os\r# Environment Variables\rDATABASE = os.environ['DATABASE']\rTABLE = os.environ['TABLE']\r# Top X Constant\rTOPX = 5\r# S3 Constant\rS3_OUTPUT = f's3://{os.environ[\u0026quot;BUCKET_NAME\u0026quot;]}/query_results/'\r# Number of Retries\rRETRY_COUNT = 10\rdef lambda_handler(event, context):\rclient = boto3.client('athena')\r# query variable with two environment variables and a constant\rquery = f\u0026quot;\u0026quot;\u0026quot;\rSELECT track_name as \\\u0026quot;Track Name\\\u0026quot;, artist_name as \\\u0026quot;Artist Name\\\u0026quot;,\rcount(1) as \\\u0026quot;Hits\\\u0026quot; FROM {DATABASE}.{TABLE} GROUP BY 1,2 ORDER BY 3 DESC\rLIMIT {TOPX};\r\u0026quot;\u0026quot;\u0026quot;\rresponse = client.start_query_execution(\rQueryString=query,\rQueryExecutionContext={ 'Database': DATABASE },\rResultConfiguration={'OutputLocation': S3_OUTPUT}\r)\rquery_execution_id = response['QueryExecutionId']\r# Get Execution Status\rfor i in range(0, RETRY_COUNT):\r# Get Query Execution\rquery_status = client.get_query_execution(\rQueryExecutionId=query_execution_id\r)\rexec_status = query_status['QueryExecution']['Status']['State']\rif exec_status == 'SUCCEEDED':\rprint(f'Status: {exec_status}')\rbreak\relif exec_status == 'FAILED':\rraise Exception(f'STATUS: {exec_status}')\relse:\rprint(f'STATUS: {exec_status}')\rtime.sleep(i)\relse:\rclient.stop_query_execution(QueryExecutionId=query_execution_id)\rraise Exception('TIME OVER')\r# Get Query Results\rresult = client.get_query_results(QueryExecutionId=query_execution_id)\rprint(result['ResultSet']['Rows'])\r# Function can return results to your application or service\r# return result['ResultSet']['Rows']\rCấu hình biến môi trường, click vào tab Configuration.  Các biến môi trường cho các hàm Lambda cho phép bạn chuyển động cài đặt vào mã hàm và thư viện của bạn mà không cần thực hiện thay đổi đối với mã của bạn. Đọc thêm về Biến môi trường Lambda tại đây https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html\n\r Click Environment variables. Click Edit.  Thêm 3 Environment variables dưới đây   Key: DATABASE, Value: analyticsworkshopdb. Key: TABLE, Value: processed_data. Key: BUCKET_NAME, Value: yourname-analytics-workshop-bucket. Click Save.   Click General Configuration.   Click Edit. Để Memory (MB) như mặc định là 128 MB. Đổi Timeout thành 10 seconds. Nhấn Save.   Click Permissions.   Nhấn link Role Name để mở IAM Console ở tab mới.  Nhấn Attach policies  Thêm 2 policies như dưới đây:   AmazonS3FullAccess AmazonAthenaFullAccess  Khi các policies đã được gắn vào, chúng ta có thể tắt tab này và quay trở lại giao diện của dịch vụ Lambda.\n"
+},
+{
+	"uri": "/vi/3-aws-glue/3.3-executenotebook/",
+	"title": "Chạy Jupyter Notebook",
+	"tags": [],
+	"description": "",
+	"content": "Chạy Jupyter Notebook 1.Tải xuống và lưu file ở dưới máy của bạn: analytics-workshop-notebook.ipynb.\n Bạn cũng có thể tải file notebook được đính kèm dưới đây.  \r\rNotebook\r\r\ranalytics-workshop-notebook.ipynb\r\r(18 KB)\r\r\r\rTruy cập giao diện quản trị Notebooks   Click aws-glue-AnalyticsworkshopNotebook và click Open Jupyter, Jupyter Notebook sẽ được tự động mở ở tab mới.  Click Upload (góc phải trên của màn hình)   Tìm và tải lên file analytics-workshop-notebook.ipynb đã tải xuống trước đó. Click Upload để xác nhận tải lên.  Click analytics-workshop-notebook.ipynb để mở notebook.   Hãy chắc rằng ‘Sparkmagic (PySpark)\u0026rsquo; được ghi ở góc phải của notebook; đây là tên của kernel Jupyter sẽ sử dụng để chạy các code block trong notebook.\n  Hãy đọc và làm theo hướng dẫn để hiểu rõ các khái niệm về Glue.\n  Khi thực hiện các bước trong notebook, bạn cũng sẽ cần thay đôi 1 số thông tin ví dụ như tên S3 bucket của bạn.\n\r"
+},
+{
+	"uri": "/vi/6-emr/6.3-checkjobstatus/",
+	"title": "Kiểm tra EMR Job ",
+	"tags": [],
+	"description": "",
+	"content": "Kiểm tra trạng thái của Transform Job chạy trên EMR  EMR cluster sẽ tốn 6-8 phút để khởi tạo, và một vài phút để hoàn thành Spark script.   Cluster sẽ tự xoá sau khi Spark job chạy xong. Để check trạng thái của job, Click vào Cluster name: analytics-workshop-transformer. Đi đến tab Steps. Ở đây bạn sẽ thấy 2 thành phần: Spark application và Setup hadoop debugging. Trạng thái của Spark application sẽ chuyển từ Pending đến Running rồi Completed.  Khi Spark job đã chạy xong, EMR cluster sẽ bị xoá.   Dứoi EMR \u0026gt; Cluster, bạn sẽ thấy trạng thái của cluster là Terminated với thông báo All steps completed.  "
+},
+{
+	"uri": "/vi/10-redshift/10.9-optimizeredshift/10.9.3-distributedata/",
+	"title": "Phân phối dữ liệu",
+	"tags": [],
+	"description": "",
+	"content": "Distribution Style và Sort Keys ( Các kiểu phân phối / sắp xếp dữ liệu ) Distribution / Phân phối dữ liệu là một phương thức tối ưu hiệu năng quan trọng trên Redshift. Việc phân phối dữ liệu tốt sẽ làm giảm lượng dữ liệu phải di chuyển qua lại giữa các node trong Redshift cluster.\n Chúng ta sẽ sử dụng phân phối dựa trên KEY cho bảng dữ kiện f_raw_1.   Vì hai bảng (f_raw_1 và d_ref_data_1) cần được kết hợp trên cột track_id, nên chúng ta sẽ chọn track_id làm distribution key.   Chúng ta sẽ sử dụng phân phối ALL cho bảng dimension - d_ref_data_1.\n  Tìm hiểu thêm về Redshift Distribution style tại đây.\n  Trong các truy vấn của chúng ta, thuộc tính activity_type đã được sử dụng để lọc equality, do đó, chúng ta sẽ chọn thuộc tính này làm cột sắp xếp.\n   Việc lựa chọn cột hay dùng để lọc ( filter ) làm cột để sắp xếp các dữ liệu trong table sẽ giúp câu truy vấn trở nên nhanh hơn.  Tìm hiểu thêm về các best practices khi sử dụng sort key của Redshift tại đây  "
+},
+{
+	"uri": "/vi/9-lambda/9.3-testlambda/",
+	"title": "Truy vấn dữ liệu với Lambda",
+	"tags": [],
+	"description": "",
+	"content": "Truy vấn dữ liệu với Lambda Function của chúng ta bây giờ đã sẵn sàng để test.\n  Deploy function bằng cách nhấn nút Deploy.\n  Cấu hình test lambda function để xem kết quả chạy của lambda function mới tạo.\n   Nhấn Test ở trên góc phải của phần Code Source.  Ở cửa sổ mới bật lên cấu hình test event.   Create new test event được chọn mặc định. Event template: Hello World. Event name: Test. Để nguyên những thứ khác. Nhấn Create.  Nhấn Test lần nữa   Bạn sẽ thấy output ở định dạng json ở dưới phần Execution Result.  Tiếp theo chúng ta sẽ kiểm tra xem dữ liệu từ Lambda function có giống như dữ liệu được truy vấn từ Athena không nhé.\n"
+},
+{
+	"uri": "/vi/1-ingest-and-store/1.3-generatedata/",
+	"title": "Tạo dữ liệu giả lập",
+	"tags": [],
+	"description": "",
+	"content": "Tạo dữ liệu giả lập Ở bước này chúng ta sẽ cấu hình Kinesis Data Generator để tạo ra những dữ liệu giả lập và lấy chúng vào Kinesis Firehose\n Cấu hình Amazon Cognito cho Kinesis Data Generator - Ở bước này chúng ta sẽ chạy 1 cloud formation stack mà sẽ cấu hình Cognito. Cloudformation scripts chạy ở region N.Virgina.   Đi đến: https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User\u0026amp;templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json Click Next.  Tại trang Specify stack details:  Username: admin. Password: chọn một mật khẩu bao gồm chữ và số. Click Next.    Tại trang Configure stack options:  Tuỳ chọn thêm Tags, e.g.: workshop: AnalyticsOnAWS Click Next    Tại trang Review:  Kéo chuột xuống phía dưới. Click chọn I acknowledge that AWS CloudFormation might create IAM resources. Click Create stack.    Refresh AWS Cloudformation Console của bạn. ( Ấn F5 trong trình duyệt )   Đợi đến khi stack status đổi thành Create_Complete.  Chọn Kinesis-Data-Generator-Cognito-User stack. Đi đến outputs tab: Click vào đường link có tên: KinesisDataGeneratorUrl - Việc này sẽ mở Kinesis Data Generator tool của bạn.    Ở trang chủ Amazon Kinesis Data Generator.   Đăng nhập với username và password từ bước trước. Region: ap-southeast-1. Stream/delivery stream: analytics-workshop-stream. Records per second: 2000. Record template (Template 1): Trong khoảng trống nhập văn bản, thêm json template dưới đây vào và Click Send Data:  {\r\u0026quot;uuid\u0026quot;: \u0026quot;{{random.uuid}}\u0026quot;,\r\u0026quot;device_ts\u0026quot;: \u0026quot;{{date.utc(\u0026quot;YYYY-MM-DD HH:mm:ss.SSS\u0026quot;)}}\u0026quot;,\r\u0026quot;device_id\u0026quot;: {{random.number(50)}},\r\u0026quot;device_temp\u0026quot;: {{random.weightedArrayElement(\r{\u0026quot;weights\u0026quot;:[0.30, 0.30, 0.20, 0.20],\u0026quot;data\u0026quot;:[32, 34, 28, 40]}\r)}},\r\u0026quot;track_id\u0026quot;: {{random.number(30)}}, \u0026quot;activity_type\u0026quot;: {{random.weightedArrayElement(\r{\r\u0026quot;weights\u0026quot;: [0.1, 0.2, 0.2, 0.3, 0.2],\r\u0026quot;data\u0026quot;: [\u0026quot;\\\u0026quot;Running\\\u0026quot;\u0026quot;, \u0026quot;\\\u0026quot;Working\\\u0026quot;\u0026quot;, \u0026quot;\\\u0026quot;Walking\\\u0026quot;\u0026quot;, \u0026quot;\\\u0026quot;Traveling\\\u0026quot;\u0026quot;, \u0026quot;\\\u0026quot;Sitting\\\u0026quot;\u0026quot;]\r}\r)}}\r}\r Khi tool gửi ~10,000 tin nhắn, bạn có thể click - Stop sending data to Kinesis.\n  Sau một lát bạn hãy đến S3 Console Click vào đây\n   Đi đến: yourname-analytics-workshop-bucket \u0026gt; data. Trong này sẽ có 1 folder raw được tạo ra \u0026gt; Tiếp tục mở, bạn sẽ thấy firehose đẩy data vào S3 sử dụng yyyy/mm/dd/hh  Nếu bạn đã nhận được dữ liệu dummy trong S3 buckets, chúng ta có thể đi tới bước tiếp theo\n"
+},
+{
+	"uri": "/vi/8-quicksight/8.3-createvisual/",
+	"title": "Tạo QuickSight Visual",
+	"tags": [],
+	"description": "",
+	"content": "Sử dụng Amazon QuickSight để biểu diễn dữ liệu đã xử lí Visual 1: Biểu đồ Heatmap của users và track mà họ nghe\nỞ bước này, chúng ta tạo visual cho chúng ta biết được người dùng nào đang nghe các bản nhạc lặp đi lặp lại.\n Ở góc dưới bên trái (Visual types):  Để chuột vào các icon để có thể thấy tên các loại visual có thể sử dụng. Click chọn Heat Map.   Ở góc trên bên trái (Fields list).  Click device_id. Click track_name.   Ở trên đầu biểu đồ bạn sẽ thấy Field wells: Rows: device_id | Columns: track_name.  Visual 2: Biểu đồ Tree Map của Nghệ Sĩ được nghe nhiều nhất\nỞ bước này, chúng ta sẽ tạo visual thể hiện nghệ sĩ nào được lắng nghe nhiều nhất.\n Ở góc trên bên trái, Click ‘+ Add’ \u0026gt; Add Visual. Ở góc dưới bên trái (Visual types):  Để chuột vào các icon để có thể thấy tên các loại visual có thể sử dụng. Click Tree Map.   Ở góc trên bên trái (Fields list):  Click artist_name.    Đến lúc này, bạn đã có thể lấy dữ liệu sử dụng Kinesis firehose, lưu dữ liệu ở S3, catalog table trong AWS Glue data catalog, chuyển đổi dữ liệu sử dụng Glue ETL/EMR và query và visual dữ liệu sử dụng Athena và QuickSight.\nBài lab này cung cấp cấu trúc end to end, từ source của dữ liệu đến business dashboard trong mô hình triển khai serverless analytics.\nHai phần tiếp theo sẽ giới thiệu Lambda và Redshift và những cải tiến cho kiến trúc này, để đáp ứng cho các nhu cầu nâng cao cho việc phân tích.\n"
+},
+{
+	"uri": "/vi/10-redshift/10.3-s3gateway/",
+	"title": "Tạo S3 Gateway Endpoint",
+	"tags": [],
+	"description": "",
+	"content": "Tạo S3 Gateway Endpoint Ở bước này, chúng ta sẽ tạo S3 Gateway Endpoint để Redshift cluster có thể giao tiếp với S3 sử dụng private IP\n Truy cập đến giao diện quản trị của dịch vụ VPC.   Click Create Endpoint. Chọn AWS Service dưới Service category. Dưới Service name trong khung tìm kiếm, tìm S3 và Click enter. com.amazonaws.ap-southeast-1.s3 sẽ hiển ra dưới kết quả tìm kiếm. Chọn tuỳ chọn này. Tại mục VPC, chọn VPC mặc định. Đây cũng là VPC sử dụng khi cấu hình redshift cluster. Nếu có nhiều hơn 1 VPC được liệt kê, hãy kiểm tra VPC của Redshift để tránh nhầm lẫn.  Đi đến: Redshift console Click vào đây. Click redshift-cluster-1. Click tab Properties. Kéo xuống và kiểm tra phần Network and security để tìm tên của VPC.    Khi bạn đã check VPC xong, đi đến phần Configure route tables.   Chọn list route table (nó nên là các main route table). Bạn có thể xác nhận bằng cách check Yes dưới các Main column.  com.amazonaws.ap-southeast-1.s3 id được liệt kê lần nữa ở Configure route tables. Nó nên bắt đầu với pl-[some number]\n\rĐể Policy mặc định (Full Access)   Click Create endpoint. Việc này sẽ tốn vài giây để khởi tạo. Một khi đã sẵn sàng, bạn sẽ thấy Status là Available.  "
+},
+{
+	"uri": "/vi/4-aws-glue-studio/4.3-rungluestudiojob/",
+	"title": "Chạy Glue Studio job",
+	"tags": [],
+	"description": "",
+	"content": "Chạy Glue Studio job  Bắt đầu chạy ETL job bằng cách ấn Run ở góc phải màn hình.   Bạn sẽ thấy “Successfully started job”.  Bạn sẽ thấy PySpark Code của Glue Studio được tạo ra và hãy dùng lại đoạn code này cho mục đích khác, nếu cần.  Đi đến Glue DataCatalog: https://console.aws.amazon.com/glue/home?region=ap-southeast-1 và bạn sẽ thấy table processed-data2 được tạo ra dưới database analyticsworkshopdb.  "
+},
+{
+	"uri": "/vi/10-redshift/10.7-extractloaddata/10.7.3-runnotebook/",
+	"title": "Chạy Jupyter Notebook",
+	"tags": [],
+	"description": "",
+	"content": "Chạy Jupyter Notebook  Tải xuống và lưu dưới máy file này: https://intro-to-analytics-on-aws.workshop.aws/notebooks/analytics-workshop-redshift-notebook.ipynb   Bạn cũng có thể tải trực tiếp file notebook dưới đây.  \r\rNotebook\r\r\ranalytics-workshop-redshift-notebook.ipynb\r\r(17 KB)\r\r\r\r Đi đến: SageMaker Notebook. Bên trái chọn Notebook. Click Open.  Ở Sagemaker Jupyter Notebook:   Click Upload (góc phải bên trên). Tìm và tải lên analytics-workshop-redshift-notebook.ipynb mà bạn đã tải trước đó. Click Upload để xác nhận.  Click analytics-workshop-redshift-notebook.ipynb để mở notebook.   Hãy chắc rằng \u0026lsquo;Sparkmagic (PySpark)\u0026rsquo; ở góc bên phải trên của notetbook, đây là tên của kernel mà Jupyter notebook sẽ sử dụng để chạy code của notebook. Làm theo hướng dẫn tuần tự của notebook. Hãy dành thời gian đọc và hiểu hướng dẫn từng bước chuyển đổi trong notebook.  Tiếp theo chúng ta sẽ kiểm tra dữ liệu trên Redshift.\n"
+},
+{
+	"uri": "/vi/5-aws-glue-databrew/5.3-joindataset/",
+	"title": "Join dataset",
+	"tags": [],
+	"description": "",
+	"content": "Join dataset trong DataBrew  Click GRID tab để trở về chế độ hiển thị dạng lưới.   Click JOIN.  Click Connect new dataset.  Click All AWS Glue table, và click analyticsworkshopdb.   Click reference_data. Dataset name - reference-data-dataset.  Bạn sẽ thấy màn hình như bên dứoi, Click Next.  Tại trang Join.   Chọn track_id từ raw-dataset. Chọn track_id từ reference-data-set. Bỏ chọn track_id từ Table B. Click Finish.  Bạn sẽ thấy kết quả như bên dưới.   Ở bên tay phải , mục Recipe, bạn sẽ thấy các bước transform mà bạn đã thực hiện, bao gồm đổi kiểu dữ liệu sang String và thực hiện inner join với reference-data-dataset.  "
+},
+{
+	"uri": "/vi/2-catalog-data/2.3-reviewcatalog/",
+	"title": "Kiểm tra Glue catalog",
+	"tags": [],
+	"description": "",
+	"content": "Xác nhận table mới được tạo trong catalog Điều hướng đến Glue Catalog và khám phá dữ liệu đã được crawl\n Truy cập trang quản trị database của dịch vụ AWS Glue   Click analyticsworkshopdb. Click Tables in analyticsworkshopdb. Click raw.  Kiểm tra các schema của dataset.  Tìm những dữ liệu averageRecordSize, recordCount, compressionType    Tiếp theo chúng ta sẽ thực hiện truy vấn dữ liệu sử dụng Amazon Athena.\n"
+},
+{
+	"uri": "/vi/3-aws-glue/",
+	"title": "Transform với AWS Glue",
+	"tags": [],
+	"description": "",
+	"content": " Ở phần này, chúng ta sẽ sử dụng AWS Glue ETL để xử lý dữ liệu và lưu ngược kết quả thành đã dạng đã chuyển đổi trong S3.\nChúng ta sẽ sử dụng Glue Development endpoints và Sagemaker notebooks để thực hiện xuyên suốt quá trình cuổi đổi dữ liệu.\nNội dung  Tạo Development Endpoint Tạo SageMaker Notebook Chạy Jupyter Notebook Kiểm tra dữ liệu  "
+},
+{
+	"uri": "/vi/10-redshift/10.4-configuresecgroup/",
+	"title": "Cấu hình Security group",
+	"tags": [],
+	"description": "",
+	"content": "Xác nhận và thêm rule vào security group mặc định Ở bước này, chúng ta sẽ xác nhận và thêm rule cho Redshift security group để dịch vụ Glue có thể làm việc được với Redshift.\n Truy cập đến giao diện quản trị dịch vụ VPC: security groups.   Chọn Redshift security group. Nó sẽ ở security mặc định nếu nó không thay đổi khi chúng ta tạo Redshift cluster. Nếu bạn có nhiều hơn 1 security group trong danh sách, làm theo những bước sau:  Truy cập đến giao diện quản trị dịch vụ Redshift. Click redshift-cluster-1. Click tab Properties. Kéo xuống và kiểm tra phần Network and security để lấy Security Group id.   Một khi bạn đã xác nhận Security Group, chọn security group. Click Inbound rules. Click Edit rules.  Kiểm tra rule có sẵn.  Type: All Traffic. Source: [Tên của security group bạn đang edit].    Rule tự tham chiếu này là cần thiết để Glue có thể giao tiếp với Redshift.\n\r Thêm HTTPS rule cho Amazon S3 access.  Type: HTTPS. Source: [s3-prefix-list-id].    Dưới phần Source chọn Custom và nhập \u0026ldquo;pl vào text box cạnh nó, S3 endpoint tạo trước đó sẽ hiển thị và chọn nó.\n\r Click Save rules.   Click Outbound Rules. Click Edit rules.   Để nguyên rule với những giá trị dưới đây:  Type: All Traffic Source: 0.0.0.0/0   Rule tự tham chiếu  Type: All TCP Source: [Tên của security group bạn đang edit]   Click Save rules.  "
+},
+{
+	"uri": "/vi/5-aws-glue-databrew/5.4-createrunjob/",
+	"title": "Khởi tạo và chạy job",
+	"tags": [],
+	"description": "",
+	"content": "Khởi tạo và chạy AWS Glue DataBrew job  Click PROFILE để xem lại kết quả profiling của raw dataset như summary, missing cells, duplicate rows, value distribution, và columns statistics, nó sẽ cho bạn insights về dữ liệu của bạn.  Click LINEAGE ở góc bên phải.  Bạn có thể thấy luồng dữ liệu của bạn, được trình bày để cung cấp về luồng dữ liệu với sự chuyển đổi qua tất cả các bước.  Trở lại GRID, và Click Create job  Điền vào những giá trị dưới đây:   Mục Job details.  Job Name: AnalyticsOnAWS-GlueDataBrew-Job.   Mục Job output settings.  File type: GlueParquet. S3 location: s3://yourname-analytics-workshop-bucket/data/processed-data/.   Kéo xuống dưới phần Permission, và chọn role name mà bạn đã tạo ở bước đầu, và Click Create and run job.  Bạn sẽ thấy 1 job đang trong tiến trình.  Click Jobs ở menu bên trái, bạn sẽ thấy như màn hình dưới đây.   Click vào tên job.  Ở đây bạn có thể coi lịch sử chạy, chi tiết job, và luồng dữ liệu.   Lịch sử chạy.    Chi tiết về job.   Luồng đi dữ liệu.   "
+},
+{
+	"uri": "/vi/6-emr/6.4-reviewdata/",
+	"title": "Kiểm tra dữ liệu",
+	"tags": [],
+	"description": "",
+	"content": "Xác nhận dữ liệu đã chuyển đổi và xử lí đến S3 Trong bước này chúng sẽ kiểm tra và xác nhận EMR transform job đã tạo ra dataset ở S3 bucket.\nTruy cập giao diện quản trị S3\n Click yourname-analytics-workshop-bucket \u0026gt; data. Mở folder mới emr-processed-data. Kiểm tra định dạng file là .parquet.  "
+},
+{
+	"uri": "/vi/9-lambda/9.4-reviewathena/",
+	"title": "Kiểm tra dữ liệu với Athena",
+	"tags": [],
+	"description": "",
+	"content": "Xác nhận qua Athena Giờ chúng ta sẽ xác nhận kết quả qua Athena\n Truy cập đến giao diện dịch vụ Athena.   Ở khung bên trái, chọn analyticsworkshopdb từ phần sổ xuống. Chạy câu lệnh query dưới đây:  SELECT track_name as \u0026quot;Track Name\u0026quot;,\rartist_name as \u0026quot;Artist Name\u0026quot;,\rcount(1) as \u0026quot;Hits\u0026quot; FROM analyticsworkshopdb.processed_data GROUP BY 1,2 ORDER BY 3 DESC LIMIT 5;\rSo sánh kết quả query với kết quả từ lambda function, cả 2 sẽ cho kết quả giống nhau.  Qua phần này bạn bây giờ có thể tạo Lambda function và thực hiện truy vấn dữ liệu với Lambda. Ở phần tiếp theo chúng ta sẽ đi thử xây dựng Data Warehouse trên Amazon Redshift.\n"
+},
+{
+	"uri": "/vi/10-redshift/10.9-optimizeredshift/10.9.4-createnewtable/",
+	"title": "Tạo table mới ",
+	"tags": [],
+	"description": "",
+	"content": "Tạo table mới và chuyển dữ liệu vào table mới.  Dựa trên tất cả các bước tối ưu chúng ta đã đánh giá , chúng ta sẽ tiến hành tạo table mới.   Tạo cột mới sử dụng DDL của f_raw_2 và d_ref_data_2  --fact table ddl\rCREATE TABLE IF NOT EXISTS redshift_lab.f_raw_2 (\ruuid\tvarchar(40) ENCODE zstd,\rdevice_ts timestamp,\rdevice_id\tint ENCODE az64,\rdevice_temp\tint ENCODE az64,\rtrack_id\tint ENCODE az64,\ractivity_type\tvarchar(16) ENCODE bytedict sortkey,\rload_time\tint ENCODE zstd\r)\rDISTKEY(track_id);\r--dimension table ddl\rCREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_2 (\rtrack_id\tint,\rtrack_name\tvarchar(64),\rartist_name\tvarchar(64)\r)\rDISTSTYLE ALL;\rThực hiện câu truy vấn dưới đây để sao chép dữ liệu từ table cũ sang table mới.  --copy data from f_raw_1 to f_raw_2\rinsert into redshift_lab.f_raw_2 select * from redshift_lab.f_raw_1;\r--copy data from d_ref_data_1 to d_ref_data_2\rINSERT into redshift_lab.d_ref_data_2 select * from redshift_lab.d_ref_data_1; Tiếp theo chúng ta sẽ thực hiện thêm bước dọn dẹp và phân tích dữ liệu sau khi chuyển sang table mới.\n"
+},
+{
+	"uri": "/vi/3-aws-glue/3.4-reviewdata/",
+	"title": "Kiểm tra dữ liệu",
+	"tags": [],
+	"description": "",
+	"content": "Xác Nhận - Những dữ liệu đã được chuyển đổi / xử lí đã đi đến S3 Sau khi chúng ta chạy ETL script thành công, chúng ta sẽ quay lại giao diện dịch vụ S3 để kiểm tra dữ liệu sau khi được chuyển đổi.\n  Truy cập giao diện quản trị S3\n  Click - yourname-analytics-workshop-bucket \u0026gt; data.\n   Mở folder processed-data: Kiểm tra các tập tin với format là .parquet đã được tạo trong folder.  Chúc mừng bạn chuyển đổi dữ liệu với AWS Glue thành công, chúng ta có thể query dữ liệu bằng cách sử dụng Amazon Athena. Chúng ta vẫn còn nhiều cách để xử lí dữ liệu như là sử dụng Glue Studio, Glue DataBrew và Amazon EMR.\n"
+},
+{
+	"uri": "/vi/2-catalog-data/2.4-queryathena/",
+	"title": "Query dữ liệu với Athena",
+	"tags": [],
+	"description": "",
+	"content": "Query dữ liệu sử dụng Amazon Athena Giờ chúng ta sẽ query dữ liệu giả lập đã được catalog sử dụng Amazon Athena.\n Truy cập giao diện quản trị dịch vụ Athena   Nếu cần thiết, chọn set up a query result location in Amazon S3 ở cảnh báo mua xanh gần phía trên Athena console.  Nhập s3://yourname-analytics-workshop-bucket/query_results/. Click Save.    Ở bảng sổ xuống bên trái (Database), chọn analyticsworkshopdb \u0026gt; chọn table raw.   Click vào 3 dots (3 chấm dọc) \u0026gt; chọn Preview Table. Xem phần output. ở query editor, dán nội dung query dưới đây và Click Run Query.  SELECT activity_type,\rcount(activity_type)\rFROM raw\rGROUP BY activity_type\rORDER BY activity_type\rChúc mừng bạn đã hoàn thành bước catalog dữ liệu, hãy tiếp tục với bước tiếp theo là chuyển đổi dữ liệu sử dụng AWS Glue ETL.\n"
+},
+{
+	"uri": "/vi/4-aws-glue-studio/",
+	"title": "Transform với Glue Studio",
+	"tags": [],
+	"description": "",
+	"content": " Trong phần này, chúng ta sẽ sử dụng một công cụ khác cho việc chuyển đổi dữ liệu là AWS Glue Studio.\nTransform dữ liệu với AWS Glue Studio AWS Glue Studio là một dạng giao diện hình ảnh mới giúp công việc tạo, chạy và quan sát các ETL jobs trong AWS Glue 1 cách đơn giản hơn. Bạn có thể soạn một quy trình chuyển đổi dữ liệu và chung sẽ chạy trên engine ETL serverless của AWS Glue\u0026rsquo;s Apache Spark.\nTrong phần này chúng ta sẽ thực hiện quy trình ETL như chúng ta chuyển đổi dữ liệu với AWS Glue nhưng chúng ta sẽ tận dụng giao diện đồ hoạ của AWS Glue Studio!\nNội dung  Tạo Glue Studio job Cấu hình transform Chạy Glue Studio job  "
+},
+{
+	"uri": "/vi/6-emr/6.5-runcrawler/",
+	"title": "Chạy lại Glue Crawler",
+	"tags": [],
+	"description": "",
+	"content": "Chạy lại Glue Crawler  Truy cập đến giao diện quản trị của dịch vụ AWS Glue   Ở khung bên trái, click Crawlers. Chọn crawler đã được tạo ở phần trước: AnalyticsworkshopCrawler. Click Run Crawler.  Bạn sẽ thấy trạng thái đổi thành Starting.   Đợi 1 vài phút để crawler chạy hoàn tất. Crawler sẽ hiển thị Tables added là 1.  Bạn có thể đi đến phần databases ở bên trái và xác nhận là table emr_processed_data đã được thêm vào.  Chúc mừng bạn đã hoàn tất việc transform dữ liệu bằng EMR, chúng ta đã sẵn sàng để thực hiện truy vấn dữ liệu bằng Amazon Athena ở bước tiếp theo.\n"
+},
+{
+	"uri": "/vi/10-redshift/10.5-glueconnection/",
+	"title": "Tạo Redshift connection",
+	"tags": [],
+	"description": "",
+	"content": "Tạo Redshift connection thông qua Glue connection. Ở bước này, chúng ta sẽ tạo một Redshift Connection thông qua Glue connection. Bạn sẽ sử dụng Redshift connection trong Development Endpoint để tạo ra kết nối đến Redshift.\n Truy cập đến giao diện quản trị dịch vụ Glue.   Click Add Connection.  Cho Connection name là analytics_workshop. Chọn Connection type là Amazon Redshift. Click Next.    Thiết lập kết nối vào data store:  Chọn Cluster là redshift-cluster-1. Database name và Username sẽ được tự động tạo là dev và admin. Password: Nhập password mà bạn cấp khi tạo Redshift cluster. Click Next. Sau đó xem lại các thông tin chi tiết của kết nối và Click Finish.    Chúng ta sẽ test kết nối này:  Chọn kết nối analytics_workshop. Click Test Connection.    Chọn Glue role tạo trong phần Catalog dữ liệu là AnalyticsworkshopGlueRole.   Click Test Connection.  Việc này sẽ tốn một ít thời gian. Kết nối thành công sẽ hiện lên màn hình thông báo: analytics_workshop connected successfully to your instance. Tiếp theo chúng ta sẽ tiến hành tạo schema và các tables trên Redshift.\n"
+},
+{
+	"uri": "/vi/10-redshift/10.9-optimizeredshift/10.9.5-vacuumanalyze/",
+	"title": "Vacuum và Analyze",
+	"tags": [],
+	"description": "",
+	"content": "Thực hiện Vacuum và Analyze  Ở bước này chúng ta sẽ chạy vacuum và analyze trên table mới chúng ta vừa tạo.  VACUUM: Sắp xếp lại các hàng và lấy lại không gian trong một bảng được chỉ định hoặc tất cả các bảng trong cơ sở dữ liệu chỉ định.\nANALYZE: Cập nhật thống kê bảng để hệ thống query planner sử dụng, nhằm tối ưu hóa cách thức Redshift truy vấn dữ liệu.\nChạy câu query dưới đây trong Query Editor.  vacuum redshift_lab.f_raw_2;\ranalyze redshift_lab.f_raw_2; vacuum redshift_lab.d_ref_data_2;\ranalyze redshift_lab.d_ref_data_2;\rTiếp theo, chúng ta sẽ thực hiện truy vấn dữ liệu trên bảng mới sau tất cả những thao tác chúng ta đã tối ưu.\n"
+},
+{
+	"uri": "/vi/5-aws-glue-databrew/5.5-reviewdata/",
+	"title": "Kiểm tra dữ liệu",
+	"tags": [],
+	"description": "",
+	"content": "Kiểm tra dữ liệu  Đợi job hoàn thành, bạn sẽ thấy trạng thái Succeeded.   Click 1 output ở dứoi cột Output.  Bạn có thể thấy ở dưới cột Destination là đường dẫn tới output.   Click vào đường dẫn của S3 được tạo ra dưới cột này.  Bạn có thể thấy các file output của Glue DataBrew job.  Chúc mừng bạn đã hoàn thành bước chuyển đổi dữ liệu sử dụng AWS Glue DataBrew.Tiếp theo chúng ta sẽ thực hiện chuyển đổi dữ liệu với EMR.\n"
+},
+{
+	"uri": "/vi/5-aws-glue-databrew/",
+	"title": "Transform với DataBrew",
+	"tags": [],
+	"description": "",
+	"content": "Chuyển đổi dữ liệu với AWS Glue DataBrew AWS Glue DataBrew là gì?\nAWS Glue DataBrew là một công cụ giúp chúng ta chuẩn bị dữ liệu trực quan giúp công việc của các data analysts và data scientist có thể làm sạch và chuẩn hoá dữ liệu để chuẩn bị cho phân tích và machine learning. Bạn có thể chọn từ hơn 250 cách transform dữ liệu được xây dựng sẵn để tự động hóa công việc chuẩn bị data, mà không phải viết bất kì đoạn code nào.\nBạn có thể tự động lọc các dữ liệu dị thường, chuyển đổi format dữ liệu, và xử lí những giá trị không đúng chuẩn và những task khác. Sau khi dữ liệu của bạn sẵn sàng, bạn có thể sử dụng ngay lập tức cho dự án phân tích và machine learning. Với Glue DataBrew bạn chỉ trả tiền cho tài nguyên khi bạn sử dụng và không yêu cầu trả trước chi phí nào.\nNội dung  Tạo DataBrew project Data profile với DataBrew Join dataset Khởi tạo và chạy job Kiểm tra dữ liệu  "
+},
+{
+	"uri": "/vi/10-redshift/10.9-optimizeredshift/10.9.6-testquery/",
+	"title": "Query và so sánh hiệu năng",
+	"tags": [],
+	"description": "",
+	"content": "Chạy Query và so sánh hiệu năng  Thực hiện câu truy vấn dưới đây, liệt kê danh sách 10 bài nhạc cùng nghệ sĩ biểu diễn cho một loại hoạt động nhất định.  select track_name, artist_name, count(1) frequency\rfrom redshift_lab.f_raw_2 fr\rinner join redshift_lab.d_ref_data_2 drf\ron fr.track_id = drf.track_id\rwhere activity_type = 'Running'\rgroup by track_name, artist_name\rorder by frequency desc\rlimit 10;\rBạn có thể so sánh thời gian thực thi với phần kết quả của bước 10.8 và so sánh tốc độ thực thi.   Như trên ảnh dưới, chúng ta có thể thấy thì thời gian thực thi đã giảm từ 12s còn 2s cho câu lệnh query này.  Chúc mừng bạn đã hoàn tất workshop Phân tích dữ liệu trên AWS.Hi vọng qua workshop này sẽ giúp các bạn làm quen với các dịch vụ và tính năng giúp cho việc xây dựng giải pháp phân tích dữ liệu trên AWS trở nên dễ dàng hơn.\nHãy chắc rằng bạn thực hiện phần dọn dẹp sau khi hoàn thành bài lab, đặc biệt là xóa các Glue dev endpoints và notebooks.\n\r"
+},
+{
+	"uri": "/vi/6-emr/",
+	"title": "Transform với EMR",
+	"tags": [],
+	"description": "",
+	"content": " Trong phần này chúng ta sẽ sử dụng Amazon EMR để chạy pyspark jobs để đọc dữ liệu raw và thực hiện một số chuyển đổi và gửi kết quả về S3.\nNội dung  Chuẩn bị thư mục và script Tạo EMR cluster Kiểm tra EMR job Kiểm tra dữ liệu Chạy lại Glue crawler  "
+},
+{
+	"uri": "/vi/10-redshift/10.6-createschema/",
+	"title": "Tạo schema và tables",
+	"tags": [],
+	"description": "",
+	"content": "Tạo schema và Redshift tables  Truy cập đến giao diện Query Editor của dịch vụ Redshift.   Tại trang Connect to database. Chọn Redshift cluster chúng ta đã tạo. Chọn Database name là dev, và Database user là admin. Click Connect.  Chạy các câu query dưới đây để tạo schema.  --\tCreate redshift_lab schema.\rCREATE schema redshift_lab;\rChạy các câu query dưới đây để tạo table cho dữ liệu raw và reference.  --\tCreate f_raw_1 table.\rCREATE TABLE IF not EXISTS redshift_lab.f_raw_1 (\ruuid\tvarchar(256),\rdevice_ts timestamp,\rdevice_id\tint,\rdevice_temp\tint,\rtrack_id\tint,\ractivity_type\tvarchar(128),\rload_time\tint\r);\r--\tCreate d_ref_data_1 table.\rCREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_1 (\rtrack_id\tint,\rtrack_name\tvarchar(128),\rartist_name\tvarchar(128)\r);\rTiếp theo, chúng ta sẽ thực hiện chuyển đổi và load dữ liệu vào Redshift.\n"
+},
+{
+	"uri": "/vi/10-redshift/10.7-extractloaddata/",
+	"title": "Chuyển đổi và load dữ liệu",
+	"tags": [],
+	"description": "",
+	"content": "Chuyển đổi và load dữ liệu vào Redshift Trong bước này, chúng ta sẽ tạo Glue Dev Endpoint, Sage Maker Note Book, sau đó thực hiện chạy Notebook để tương tác với Glue ETL script sử dụng PySpark nhằm chuyển đổi và load dữ liệu vào Redshift.\nNội dung  Tạo Glue Dev Endpoint Tạo Notebook Chạy Jupyter Notebook  "
+},
+{
+	"uri": "/vi/7-athena/",
+	"title": "Phân tích với Athena",
+	"tags": [],
+	"description": "",
+	"content": " Tiếp đến, chúng ta đã lưu 1 vài data sets ở trong Amazon S3, và cataloged chúng trong AWS Glue Data Catalog. Với Amazon Athena chúng ta sẽ có thể khám phá dữ liệu sử dụng những câu lệnh query SQL cơ bản\nKhám phá dữ liệu đã chuyển đổi với Athena Ở bước này chúng ta sẽ phân tích dữ liệu đã chuyển đổi sử dụng Amazon Athena\n Truy cập vào giao diện quản trị của dịch vụ Amazon Athena  Nếu bạn thấy thông báo yêu cầu bạn trước tiên phải tạo S3 bucket để lưu kết quả query, thì hãy làm theo các bước sau.\nTruy cập vào giao diện quản trị của dịch vụ S3 và tạo 1 bucket sử dụng tên như yourname-query-results.\nSau khi tạo bucket, quay trở lại Athena console và click Settings ở góc phải của console.\nNhập tên bucket bạn vừa tạo, và hãy chắc rằng nó có bao gồm gạch chéo: s3://yourname-query-results/.\nClick Save.\n\rAthena sử dụng AWS Glue catalog để tiếp tục theo dõi data source, bất kì table S3 nào được hỗ trợ trong Glue đều sẽ hiển thị ở Athena.   Ở bên trái, chọn analyticsworkshopdb. Chạy câu lệnh query:  SELECT artist_name,\rcount(artist_name) AS count\rFROM processed_data\rGROUP BY artist_name\rORDER BY count desc\rKhám phá giao diện của Athena và hãy thử chạy 1 số queries. Thử query table emr_processed_data.  Query này sẽ trả về danh sách các bản nhạc được phát nhiều lần bởi các thiết bị. Tiếp theo sau, chúng ta sẽ trực quan hoá query này sử dụng QuickSight:  SELECT device_id,\rtrack_name,\rcount(track_name) AS count\rFROM processed_data\rGROUP BY device_id, track_name\rORDER BY count desc\r Bạn có thể chạy những câu lệnh Athena query quen thuộc và khám phá dữ liệu nhiều hơn. Ở phần tiếp theo, chúng ta sẽ sử dụng Athena 1 lần nữa để dựng dashboard và trực quan hoá dữ liệu trên Amazon QuickSight.\n"
+},
+{
+	"uri": "/vi/10-redshift/10.8-reviewdata/",
+	"title": "Kiểm tra dữ liệu",
+	"tags": [],
+	"description": "",
+	"content": "Xác nhận - Chuyển đổi dữ liệu đã đi vào Redshift  Sau khi ETL script đã chạy thành công, truy cập đến giao diện Query Editor của dịch vụ Redshift.   Chạy câu query dưới đây để kiểm trả số lượng record ở table của dữ liệu raw và reference.  select count(1) from redshift_lab.f_raw_1;\rselect count(1) from redshift_lab.d_ref_data_1;\r Thử chạy một câu truy vấn phức tạp hơn trên Redshift, ghi chú lại thời gian thực thi nhé.  select track_name, artist_name, count(1) frequency\rfrom redshift_lab.f_raw_1 fr\rinner join redshift_lab.d_ref_data_1 drf\ron fr.track_id = drf.track_id\rwhere activity_type = 'Running'\rgroup by track_name, artist_name\rorder by frequency desc\rlimit 10;\rBạn đã hoàn thành việc load dữ liệu từ S3 vào Redshift sử dụng Glue Serverless ETL. Tiếp theo chúng ta sẽ thực hiện một số bước tối ưu để làm tăng hiệu năng cho câu truy vấn.\n"
+},
+{
+	"uri": "/vi/8-quicksight/",
+	"title": "Visualization với QuickSight",
+	"tags": [],
+	"description": "",
+	"content": " Ở phần này, chúng ta sẽ sử dụng Amazon QuickSight để xây dựng một số biểu đồ (visual) sử dụng dữ liệu chúng ta thu thập và lưu trong S3\nCác bạn có tểh thoải mái khám phá các loại (visual) khác nhau trong QuickSight\nNội dung  Đăng ký QuickSight Thêm Dataset Tạo QuickSight Visual  "
+},
+{
+	"uri": "/vi/10-redshift/10.9-optimizeredshift/",
+	"title": "Tối ưu Redshift",
+	"tags": [],
+	"description": "",
+	"content": "Tối ưu Redshift Ở bước này, húng ta sẽ làm một số best practices của redshift bằng cách optimize nơi lưu trữ và hiệu năng của cluster dựa trên các câu lệnh query chạy trên Redshift cluster\nMặc dù hầu hết các bước bạn sẽ thực hiện bên dưới đều được tự động hóa trong Redshift nhưng bạn sẽ tốt hơn nếu bạn luôn hiểu được các khái niệm chính và cách chúng hoạt động\nNội dung  Tối ưu kích thước cột Áp dụng compression Phân phối dữ liệu Tạo table mới Vacuum và Analyze Query và so sánh hiệu năng  "
+},
+{
+	"uri": "/vi/9-lambda/",
+	"title": "Truy vấn dữ liệu với Lambda",
+	"tags": [],
+	"description": "",
+	"content": " Ở phần này, chúng ta sẽ tạo 1 Lambda Function cho một use case cụ thể. Lambda Function mà chúng ta sắp viết sẽ lưu trữ mã cho Athena để truy vấn và tìm nạp 5 bài hát phổ biến nhất theo lượt truy cập từ dữ liệu đã xử lý trong S3.\nNội dung  Tạo Lambda Function Viết code Lambda Function Truy vấn dữ liệu với Lambda Kiểm tra dữ liệu vơi Athena  "
+},
+{
+	"uri": "/vi/10-redshift/",
+	"title": "Warehouse trên Redshift",
+	"tags": [],
+	"description": "",
+	"content": " Ở phần này, chúng ta sẽ thiết lập một Amazon Redshift cluster, và sử dụng AWS Glue để load dữ liệu vào Amazon Redshift. Chúng ta sẽ tìm hiểu về một số thiết kế và các phương pháp tốt nhất để tải dữ liệu vào table trong Redshift, và chạy queries trên nó.\nNội dung  Tạo Redshift IAM role Tạo Redshift cluster Tạo S3 Gateway Endpoint Cấu hình Security Group Tạo Redshift connection Tạo schema và tables Chuyển đổi và load dữ liệu Kiểm tra dữ liệu Tối ưu Redshift  "
+},
+{
+	"uri": "/vi/11-cleanup/",
+	"title": "Dọn dẹp tài nguyên",
+	"tags": [],
+	"description": "",
+	"content": " Nếu không dọn dẹp tất cả tài nguyên bạn sẽ tiếp tục bị charge phí sử dụng AWS\nHãy chắc rằng bạn xoá tát cả tài nguyên bạn tạo qua các bước dưới đây , và chỉ xóa các tài nguyên được dùng trong workshop.\n Các tài nguyên cần xóa.   Kinesis Firehose Delivery Stream\n Đi Đến: Kinesis Console Nhấn vào đây Xoá Firehose: analytics-workshop-stream    Lambda\n Đi Đến: Lambda Console Nhấn vào đây Đi đến list function và chọn Analyticsworkshop_top5Songs. Dưới bảng sổ xuống Actions, chọn Delete.    Glue Database\n Đi Đến: Glue Console Nhấn vào đây Xoá Database: analyticsworkshopdb    Glue Crawler\n Đi Đến: Glue Crawlers Nhấn vào đây Xpas Crawler: AnalyticsworkshopCrawler    Glue Dev Endpoints\n Đi Đến: Glue Dev Endpoints Nhấn vào đây Xoá endpoint: analyticsworkshopEndpoint1 Xpas endpoint: analyticsworkshopEndpoint2    Glue Studio Job\n Đi Đến: https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=jobs Chọn AnalyticsOnAWS-GlueStudio Nhấn Action và chọn Delete    Glue DataBrew projects\n Đi Đến: https://console.aws.amazon.com/databrew/home?region=ap-southeast-1#projects Chọn AnalyticsOnAWS-GlueDataBrew Nhấn Action và chọn Delete Chọn Delete attached receipe và nhấn Delete    Glue DataBrew datasets\n Đi đến: https://console.aws.amazon.com/databrew/home?region=ap-southeast-1#datasets Chọn dataset: reference-data-dataset and raw-dataset Nhấn Action và chọn Delete Xác nhận xoá bằng cách nhấn Delete    Glue DataBrew Jobs\n Đi Đến: https://console.aws.amazon.com/databrew/home?region=ap-southeast-1#jobs?tab=profile Chọn dataset: raw-dataset profile job Nhấn Action và chọn Delete Xác nhận xoá bằng cách nhấn Delete    Sagemaker Notebook\n Bạn có thể xoá các file notebook đã tải xuống thông suốt bài lab Đi đến: Notebooks Console Nhấn vào đây Dừng và sau đó xoá Notebook: aws-glue-AnalyticsworkshopRedshiftNotebook Dừng và sau đó xoá Notebook: aws-glue-AnalyticsworkshopNotebook    Delete Glue connection\n Đi đến: Glue Connections Nhấn vào đây chọn analytics_workshop Từ Actions chọn Delete Connection Nhấn Delete    Delete IAM Role\n Đi Đến: IAM Console Nhấn vào đây Tìm AnalyticsworkshopGlueRole Xoá Role: AnalyticsworkshopGlueRole Xoá Role: Analyticsworkshop_RedshiftRole Tìm Analyticsworkshop_top5Songs trong khung tìm kiếm Chọn và xoá. [Analyticsworkshop_top5Songs-role-]    Delete Redshift cluster\n Đi Đến: Redshift Console Nhấn vào đây Chọn redshift-cluster-1 Từ Actions, chọn Delete Bỏ chọn Create final snapshot Nhấn Delete    Delete S3 Gateway Endpoint\n Đi Đến: S3 Gateway Endpoints Nhấn vào đây Chọn RedshiftS3EP Từ Actions chọn Delete Endpoint    Revert Security Group rules\n Đi Đến: EC2 Security Groups Nhấn vào đây Với default security group:  Nhấn Inbound Rules  Nhấn Edit Rules Xoá dùng với S3 prefix list ID Nhấn Save rules   Nhấn Outbound rules  Nhấn Edit Rules Xoá All TCP rule. Nhấn Save rules        Delete S3 bucket\n Đi Đến: S3 Console Nhấn vào đây Xoá Bucket: yourname-analytics-workshop-bucket  Bạn sẽ cần Empty bucket trước Khi bucket đã rỗng, Delete bucket      Delete the Cognito CloudFormation Stack\n Đi Đến: CloudFormation Nhấn vào đây Nhấn: Kinesis-Data-Generator-Cognito-User Nhấn: Actions \u0026gt; DeleteStack Ở màn hình confirm:  Nhấn Delete      Close QuickSight account\n Đi Đến: Quicksight Console Nhấn vào đây Nhấn Unsubscribe    Cognito Userpool\n Đi Đến: Cognito Console Nhấn vào đây Nhấn Kinesis Data-Generator Users Nhấn Delete Pool    "
+},
+{
+	"uri": "/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
