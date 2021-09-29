@@ -10,7 +10,8 @@ pre = "<b>3.3 </b>"
 
 
 1.Tải xuống và lưu file ở dưới máy của bạn: [analytics-workshop-notebook.ipynb](https://intro-to-analytics-on-aws.workshop.aws/notebooks/analytics-workshop-notebook.ipynb).
-  + Bạn cũng có thể tải file notebook được đính kèm dưới đây.
+
+  + Bạn cũng có thể tải file notebook được đính kèm dưới đây.(https://000072.awsstudygroup.com/download/analytics-workshop-notebook.ipynb).
 
 {{%attachments style="orange" title="Notebook" pattern=".*"/%}}
 
