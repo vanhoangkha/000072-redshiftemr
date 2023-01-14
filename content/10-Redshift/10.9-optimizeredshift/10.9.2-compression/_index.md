@@ -8,20 +8,20 @@ pre = "<b>10.9.2 </b>"
 
 #### Compression
 
-Ở bước này, chúng ta sẽ phân tích table raw để chọn giải thuật compression ( nén ) phù hợp.
+In this step, we will analyze the raw table to choose the appropriate compression algorithm.
 
-1. Kiểm tra thuật toán thích hợp trên mỗi bảng để thực hiện compression.
-  + Compression là một hoạt động ở cấp độ cột để giảm kích thước của dữ liệu khi nó được lưu trữ. Compression giúp tối ưu không gian lưu trữ và giảm kích thước của dữ liệu được đọc từ bộ lưu trữ, đồng thời làm giảm số lượng I / O vào disk và cải thiện hiệu suất truy vấn.
-  + Chạy câu query dưới đây trong giao diện Query Editor.
+1. Check the appropriate algorithm on each table to perform compression.
+  Compression is a column-level operation to reduce the size of data as it is stored. Compression helps optimize storage space and reduce the size of data read from storage, while reducing the amount of I/O to disk and improving query performance.
+  + Run the following query in the Query Editor interface.
 
 ```
 analyze compression redshift_lab.f_raw_1;
 ```
 
-![Architect](/images/10/24.png?width=90pc)
+![Data Analysis on AWS](/images/10/58.png?featherlight=false&width=90pc)
 
-2. Kết quả từ bảng trên cung cấp thông tin sau cho từng cột:
+2. The results from the table above provide the following information for each column:
 
-  + Tên Cột
-    + Encoding: Kiểu compression được đề xuất dựa trên loại và giá trị độ chính xác của cột.
-    + Est_reduction_pct: Phần trăm giảm ước tính nếu phương thức compression đề xuất được triển khai.
+  + Column Name
+    Encoding: Recommended compression based on column type and precision value.
+    + Est_reduction_pct: The estimated percentage reduction if the proposed compression method is implemented.

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Viết code Lambda Function :: Phân tích dữ liệu trên AWS</title>
 
     
-    <link href="/css/nucleus.css?1632910943" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1632910943" rel="stylesheet">
-    <link href="/css/hybrid.css?1632910943" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1632910943" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1632910943" rel="stylesheet">
-    <link href="/css/auto-complete.css?1632910943" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1632910943" rel="stylesheet">
-    <link href="/css/theme.css?1632910943" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1632910943" rel="stylesheet">
+    <link href="/css/nucleus.css?1673731429" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673731429" rel="stylesheet">
+    <link href="/css/hybrid.css?1673731429" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673731429" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673731429" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673731429" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673731429" rel="stylesheet">
+    <link href="/css/theme.css?1673731429" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673731429" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1632910943" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673731429" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1632910943"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673731429"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1632910943"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1632910943"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673731429"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673731429"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1632910943"></script>
+<script type="text/javascript" src="/js/search.js?1673731429"></script>
 
     
   </div>
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/vi/1-ingest-and-store/1.1-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
+    <li data-nav-id="/vi/1-ingest-and-store/1.1-creates3bucket/" title="Tạo S3 bucket" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-ingest-and-store/1.1-creates3bucket/">
-          <b>1.1 </b>Tạo S3 Bucket
+           <b> 1.1 </b> Tạo S3 bucket
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1190,7 +1190,7 @@
   
     
     <li data-nav-id="/vi/9-lambda/9.2-updatelambdacode/" title="Viết code Lambda Function" class="dd-item 
-        
+        parent
         active
         
         ">
@@ -1955,7 +1955,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>30-09-2021</font></i>
+        <i><font color=orange>15-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -2062,62 +2062,63 @@
 <ol>
 <li>Kéo xuống đến phần Function Code và thay thế code có sẵn trong <strong>lambda_function.py</strong> với đoạn python code dưới đây</li>
 </ol>
-<pre><code>import boto3
+<pre tabindex="0"><code>import boto3
 import time
 import os
   
 # Environment Variables
-DATABASE = os.environ['DATABASE']
-TABLE = os.environ['TABLE']
+DATABASE = os.environ[&#39;DATABASE&#39;]
+TABLE = os.environ[&#39;TABLE&#39;]
 # Top X Constant
 TOPX = 5
 # S3 Constant
-S3_OUTPUT = f's3://{os.environ[&quot;BUCKET_NAME&quot;]}/query_results/'
+S3_OUTPUT = f&#39;s3://{os.environ[&#34;BUCKET_NAME&#34;]}/query_results/&#39;
 # Number of Retries
 RETRY_COUNT = 10
   
 def lambda_handler(event, context):
-    client = boto3.client('athena')
+    client = boto3.client(&#39;athena&#39;)
     # query variable with two environment variables and a constant
-    query = f&quot;&quot;&quot;
-        SELECT track_name as \&quot;Track Name\&quot;, 
-                artist_name as \&quot;Artist Name\&quot;,
-                count(1) as \&quot;Hits\&quot; 
+    query = f&#34;&#34;&#34;
+        SELECT track_name as \&#34;Track Name\&#34;, 
+                artist_name as \&#34;Artist Name\&#34;,
+                count(1) as \&#34;Hits\&#34; 
         FROM {DATABASE}.{TABLE} 
         GROUP BY 1,2 
         ORDER BY 3 DESC
         LIMIT {TOPX};
-    &quot;&quot;&quot;
+    &#34;&#34;&#34;
     response = client.start_query_execution(
         QueryString=query,
-        QueryExecutionContext={ 'Database': DATABASE },
-        ResultConfiguration={'OutputLocation': S3_OUTPUT}
+        QueryExecutionContext={ &#39;Database&#39;: DATABASE },
+        ResultConfiguration={&#39;OutputLocation&#39;: S3_OUTPUT}
     )
-    query_execution_id = response['QueryExecutionId']
+    query_execution_id = response[&#39;QueryExecutionId&#39;]
     # Get Execution Status
     for i in range(0, RETRY_COUNT):
         # Get Query Execution
         query_status = client.get_query_execution(
             QueryExecutionId=query_execution_id
         )
-        exec_status = query_status['QueryExecution']['Status']['State']
-        if exec_status == 'SUCCEEDED':
-            print(f'Status: {exec_status}')
+        exec_status = query_status[&#39;QueryExecution&#39;][&#39;Status&#39;][&#39;State&#39;]
+        if exec_status == &#39;SUCCEEDED&#39;:
+            print(f&#39;Status: {exec_status}&#39;)
             break
-        elif exec_status == 'FAILED':
-            raise Exception(f'STATUS: {exec_status}')
+        elif exec_status == &#39;FAILED&#39;:
+            raise Exception(f&#39;STATUS: {exec_status}&#39;)
         else:
-            print(f'STATUS: {exec_status}')
+            print(f&#39;STATUS: {exec_status}&#39;)
             time.sleep(i)
     else:
         client.stop_query_execution(QueryExecutionId=query_execution_id)
-        raise Exception('TIME OVER')
+        raise Exception(&#39;TIME OVER&#39;)
     # Get Query Results
     result = client.get_query_results(QueryExecutionId=query_execution_id)
-    print(result['ResultSet']['Rows'])
+    print(result[&#39;ResultSet&#39;][&#39;Rows&#39;])
     # Function can return results to your application or service
-    # return result['ResultSet']['Rows']
-</code></pre><ol start="2">
+    # return result[&#39;ResultSet&#39;][&#39;Rows&#39;]
+</code></pre><p><img src="/images/9/4.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="2">
 <li>Cấu hình biến môi trường, click vào tab <strong>Configuration</strong>.</li>
 </ol>
 
@@ -2128,7 +2129,7 @@ def lambda_handler(event, context):
 <li>Click <strong>Environment variables</strong>.</li>
 <li>Click <strong>Edit</strong>.</li>
 </ul>
-<p><img src="/images/9/2.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/9/5.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="3">
 <li>Thêm 3 <strong>Environment variables</strong> dưới đây</li>
 </ol>
@@ -2136,9 +2137,9 @@ def lambda_handler(event, context):
 <li>Key: <code>DATABASE</code>, Value: <code>analyticsworkshopdb</code>.</li>
 <li>Key: <code>TABLE</code>, Value: <code>processed_data</code>.</li>
 <li>Key: <code>BUCKET_NAME</code>, <code>Value: yourname-analytics-workshop-bucket</code>.</li>
-<li>Click <strong>Save</strong>.
-<img src="/images/9/3.png?width=90pc" alt="Architect"></li>
+<li>Click <strong>Save</strong>.</li>
 </ul>
+<p><img src="/images/9/6.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="4">
 <li>Click <strong>General Configuration</strong>.</li>
 </ol>
@@ -2148,7 +2149,7 @@ def lambda_handler(event, context):
 <li>Đổi <strong>Timeout</strong> thành 10 seconds.</li>
 <li>Nhấn <strong>Save</strong>.</li>
 </ul>
-<p><img src="/images/9/11.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/9/8.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <hr>
 <ol start="5">
 <li>Click <strong>Permissions</strong>.</li>
@@ -2156,11 +2157,11 @@ def lambda_handler(event, context):
 <ul>
 <li>Nhấn link Role Name để mở IAM Console ở tab mới.</li>
 </ul>
-<p><img src="/images/9/4.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/9/9.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="6">
 <li>Nhấn <strong>Attach policies</strong></li>
 </ol>
-<p><img src="/images/9/5.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/9/10.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="7">
 <li>Thêm 2 policies như dưới đây:</li>
 </ol>
@@ -2168,7 +2169,7 @@ def lambda_handler(event, context):
 <li><code>AmazonS3FullAccess</code></li>
 <li><code>AmazonAthenaFullAccess</code></li>
 </ul>
-<p><img src="/images/9/6.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/9/11.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <p>Khi các policies đã được gắn vào, chúng ta có thể tắt tab này và quay trở lại giao diện của dịch vụ Lambda.</p>
 
 
@@ -3220,19 +3221,19 @@ def lambda_handler(event, context):
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1632910943"></script>
-    <script src="/js/perfect-scrollbar.min.js?1632910943"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1632910943"></script>
-    <script src="/js/jquery.sticky.js?1632910943"></script>
-    <script src="/js/featherlight.min.js?1632910943"></script>
-    <script src="/js/highlight.pack.js?1632910943"></script>
+    <script src="/js/clipboard.min.js?1673731429"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673731429"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673731429"></script>
+    <script src="/js/jquery.sticky.js?1673731429"></script>
+    <script src="/js/featherlight.min.js?1673731429"></script>
+    <script src="/js/highlight.pack.js?1673731429"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1632910943"></script>
-    <script src="/js/learn.js?1632910943"></script>
-    <script src="/js/hugo-learn.js?1632910943"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673731429"></script>
+    <script src="/js/learn.js?1673731429"></script>
+    <script src="/js/hugo-learn.js?1673731429"></script>
 
-    <link href="/mermaid/mermaid.css?1632910943" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1632910943"></script>
+    <link href="/mermaid/mermaid.css?1673731429" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673731429"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

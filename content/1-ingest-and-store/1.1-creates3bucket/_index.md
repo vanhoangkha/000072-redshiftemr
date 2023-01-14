@@ -1,54 +1,54 @@
-+++
-title = "Tạo S3 Bucket"
-date = 2021
-weight = 1
-chapter = false
-pre = "<b>1.1 </b>"
-+++
+---
+title : "Create S3 bucket"
+date : "`r Sys.Date()`"
+weight : 1
+chapter : false
+pre : " <b> 1.1 </b> "
+---
 
-#### Tạo S3 Bucket
+#### Create S3 bucket
 
-Ở bước này, chúng ta sẽ đi đến console của S3 và tạo S3 bucket mà sẽ sử dụng xuyên suốt bài lab.
+1. In this step, we will go to the S3 console and create an S3 bucket that we will use throughout the lab.
 
-1. Đăng nhập vào [AWS Console](https://console.aws.amazon.com/console/home?region=ap-southeast-1)
+   - Login to **AWS Console**
+   - Go to **S3 Console** and create new **bucket** in **Region ap-southeast-1**:
+   - Access to admin interface **S3**
+   - Click - **Create Bucket**.
+   - Bucket Name: **```yourname-analytics-workshop-bucket```**.
+   - Region : **Asia Pacific (Singapore)**.
 
-2. Đi đến S3 Console và tạo bucket mới ở Region ap-southeast-1:
+![Data Analysis on AWS](/images/1/1.png?featherlight=false&width=90pc)
 
-+ Truy cập đến [giao diện quản trị S3](https://s3.console.aws.amazon.com/s3/home?region=ap-southeast-1)
-+ Click - **Create Bucket**.
-  + Bucket Name: ```yourname-analytics-workshop-bucket```.
-  + Region : Asia Pacific (Singapore).
-  + Tuỳ chọn thêm Tags, e.g.:
-    + workshop: AnalyticsOnAWS.
-  + Click **Create Bucket**.
+2. Keep the default parameters.
 
-![Architect](/images/1/1.png?width=90pc)
+![Data Analysis on AWS](/images/1/1.1.png?featherlight=false&width=90pc)
 
-3. Thêm dữ liệu reference.
-  + Mở - ```yourname-analytics-workshop-bucket```.
-    + Click - **Create folder**.
-      + Folder mới tên : ```data```.
-      + Click - **Save**.
+3. Optionally add Tags, e.g.:
+   - workshop: **```AnalyticsOnAWS```**.
+   - Click **Create Bucket**.
 
-![Architect](/images/1/2.png?width=90pc)
+![Data Analysis on AWS](/images/1/1.2.png?featherlight=false&width=90pc)
 
-4. Mở folder **data**.
-    + Click - **Create folder** (trong data folder).
-      + Folder mới : ```reference_data```.
-      + Click - **Save**.
+4. Add **reference** data.
+   - Open - **yourname-analytics-workshop-bucket**.
+   - Click - **Create folder**.
+   - New folder name: **data**.
+   - Click - **Save**.
 
-![Architect](/images/1/3.png?width=90pc)
+![Data Analysis on AWS](/images/1/2.png?featherlight=false&width=90pc)
 
-5. Mở folder **reference_data**.
-    + Tải file này xuống máy của bạn: [tracks_list.json](https://intro-to-analytics-on-aws.workshop.aws/data/tracks_list.json)
-    + Bạn cũng có thể tải file tracks_list.json ở phần tải về dưới đây:
+5. Open the **data** folder.
+   - Click - **Create folder** (in data folder).
+   - New folder: **reference_data**.
+   - Click - **Save**.
 
-{{%attachments style="orange" title="tracks_list.json" pattern=".*(json)"/%}}
+![Data Analysis on AWS](/images/1/3.png?featherlight=false&width=90pc)
 
+6. Open the **reference_data** folder.
+   - Download this file to your computer: tracks_list.json
+   - You can also download the tracks_list.json file from the download section here [https://static.us-east-1.prod.workshops.aws/public/97563182-1cb0-4843-b5be-caee2083e9e7/static /data/tracks_list.json)
+   - In **S3 Console** - Click on **Upload**.
+   - Click **Add files** and upload the file **tracks_list.json**.
+   - Click **Upload**.
 
-  + Trong S3 Console - Click chọn **Upload**.
-    + Click **Add files** và tải lên file **tracks_list.json**.
-    + Click **Upload**.
-
-![Architect](/images/1/4.png?width=90pc)
-
+![Data Analysis on AWS](/images/1/4.png?featherlight=false&width=90pc)

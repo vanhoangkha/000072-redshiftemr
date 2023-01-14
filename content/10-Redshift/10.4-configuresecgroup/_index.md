@@ -1,59 +1,63 @@
 +++
-title = "Cấu hình Security group"
+title = "Security group configuration"
 date = 2021
 weight = 4
 chapter = false
 pre = "<b>10.4 </b>"
 +++
 
-#### Xác nhận và thêm rule vào security group mặc định
+#### Confirm and add the rule to the default security group
 
-Ở bước này, chúng ta sẽ xác nhận và thêm rule cho Redshift security group để dịch vụ Glue có thể làm việc được với Redshift.
+In this step, we will confirm and add a rule for the Redshift security group so that the Glue service can work with Redshift.
 
-1. Truy cập đến [giao diện quản trị dịch vụ VPC: security groups](https://console.aws.amazon.com/vpc/home?region=ap-southeast-1#SecurityGroups:sort=tag:Name).
-  + Chọn Redshift security group. Nó sẽ ở security mặc định nếu nó không thay đổi khi chúng ta tạo Redshift cluster.
-  + Nếu bạn có nhiều hơn 1 security group trong danh sách, làm theo những bước sau:
-    + Truy cập đến [giao diện quản trị dịch vụ Redshift](https://console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1).
+1. Go to [VPC service administration interface: security groups](https://console.aws.amazon.com/vpc/home?region=ap-southeast-1#SecurityGroups:sort=tag:Name) .
+  + Select Redshift security group. It will be at the default security if it was not changed when we created the Redshift cluster.
+  + If you have more than 1 security group in the list, follow these steps:
+    + Access to [Redshift service administration interface](https://console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1).
     + Click **redshift-cluster-1**.
-    + Click tab **Properties**.
-    + Kéo xuống và kiểm tra phần **Network and security** để lấy Security Group id.
-  + Một khi bạn đã xác nhận Security Group, chọn security group.
+    + Click the **Properties** tab.
+    + Scroll down and check the **Network and security** section to get the Security Group id.
+  + Once you have confirmed Security Group, select security group.
   + Click **Inbound rules**.
   + Click **Edit rules**.
 
-![Architect](/images/10/8.png?width=90pc)
+![Data Analysis on AWS](/images/10/19.png?featherlight=false&width=90pc)
 
-2. Kiểm tra rule có sẵn.
+2. Check the existing rule.
     + Type: All Traffic.
-    + Source: [Tên của security group bạn đang edit].
+    + Source: [Name of the security group you are editing].
+
+
+![Data Analysis on AWS](/images/10/20.png?featherlight=false&width=90pc)
 
 {{% notice note %}}
-Rule tự tham chiếu này là cần thiết để Glue có thể giao tiếp với Redshift.
+This self-referencing rule is necessary for Glue to communicate with Redshift.
 {{% /notice %}}
 
-  + Thêm **HTTPS** rule cho Amazon S3 access.
+  + Add **HTTPS** rule for Amazon S3 access.
     + Type: ```HTTPS```.
     + Source: [s3-prefix-list-id].
 
 {{% notice note %}}
-Dưới phần **Source** chọn Custom và nhập "pl vào text box cạnh nó, S3 endpoint tạo trước đó sẽ hiển thị và chọn nó.
+Under **Source** select Custom and enter "pl in the text box next to it, the previously created S3 endpoint will display and select it.
 {{% /notice %}}
 
   + Click **Save rules**.
 
-![Architect](/images/10/9.png?width=90pc)
+![Data Analysis on AWS](/images/10/20.png?featherlight=false&width=90pc)
 
   + Click **Outbound Rules**.
   + Click **Edit rules**.
 
-![Architect](/images/10/10.png?width=90pc)
 
-  + Để nguyên rule với những giá trị dưới đây:
+![Data Analysis on AWS](/images/10/21.png?featherlight=false&width=90pc)
+
+  + Leave the rule as it is with the following values:
     + Type: All Traffic
     + Source: ```0.0.0.0/0```
-  + Rule tự tham chiếu
+  + Rule self-referencing
     + Type: All TCP
-    + Source: [Tên của security group bạn đang edit] 
+    + Source: [Name of the security group you are editing]
   + Click **Save rules**.
 
-![Architect](/images/10/11.png?width=90pc)
+![Data Analysis on AWS](/images/10/22.png?featherlight=false&width=90pc)

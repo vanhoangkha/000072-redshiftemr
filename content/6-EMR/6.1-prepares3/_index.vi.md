@@ -13,13 +13,16 @@ pre = "<b>6.1 </b>"
 2. Truy cập tới [giao diện quản trị S3](https://s3.console.aws.amazon.com/s3/home?region=ap-southeast-1).
 
 3. Mở **yourname-analytics-workshop-bucket**.
-    + Click : **Create folder**.
+
+![Data Analysis on AWS](/images/6/1.png?featherlight=false&width=90pc)
+
+4. Click : **Create folder**.
       + Tạo 1 folder mới tên ```scripts```.
       + Click **Save**.
 
-![Architect](/images/6/1.png?width=90pc)
+![Data Analysis on AWS](/images/6/2.png?featherlight=false&width=90pc)
 
-4. Mở **scripts**.
+5. Mở **scripts**.
   + Tải xuống file: [emr_pyspark.py](https://intro-to-analytics-on-aws.workshop.aws/scripts/emr_pyspark.py)
   + Bạn có thể tải file script ở dưới đây.
 
@@ -29,12 +32,21 @@ pre = "<b>6.1 </b>"
   + Click **Add files** và tải lên file **emr_pyspark.py** vừa tải xuống
   + Click **Upload**
 
-![Architect](/images/6/2.png?width=90pc)
+![Data Analysis on AWS](/images/6/3.png?featherlight=false&width=90pc)
 
-5. Tạo folder cho EMR logs:
+6. Upload thành công.
+
+![Data Analysis on AWS](/images/6/4.png?featherlight=false&width=90pc)
+
+7. Tạo folder cho EMR logs:
   + Mở **yourname-analytics-workshop-bucket**.
     + Click : **Create folder**.
       + Tạo 1 folder mới tên ```logs```.
       + Click **Save**.
 
-![Architect](/images/6/3.png?width=90pc)
+![Data Analysis on AWS](/images/6/5.png?featherlight=false&width=90pc)
+
+8. Tạo thành công.
+
+![Data Analysis on AWS](/images/6/6.png?featherlight=false&width=90pc)
+

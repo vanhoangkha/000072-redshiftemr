@@ -13,60 +13,80 @@ pre = "<b>2.2 </b>"
 1. Truy cập giao diện quản trị của dịch vụ [AWS Glue](https://console.aws.amazon.com/glue/home?region=ap-southeast-1)
 + Ở khung bên trái, chọn **Crawlers** > Click chọn **Add Crawler**
 
+![Data Analysis on AWS](/images/2/4.png?featherlight=false&width=90pc)
+
 2. Tại trang **Crawler info**.
     + Crawler name: ```AnalyticsworkshopCrawler```.
     + Tuỳ chọn thêm tag:.
       + workshop: AnalyticsOnAWS.
     + Click **Next**.
 
-![Architect](/images/2/4.png?width=90pc)
+![Data Analysis on AWS](/images/2/5.png?featherlight=false&width=90pc)
 
-3. Tại trang **Specify crawler source type**.
-  + Click Chọn **Data stores**.
-  + Click **Next**.
+3. Đối với **Choose data source and classifiers**
 
-![Architect](/images/2/5.png?width=90pc)
+   - Chọn **Not yet**
+   - Chọn **Add a data source**
 
-4. Tại trang **Add a data store**.
-    + Choose a data store: **S3**.
-    + Crawl data in: **Specified path in my account**.
-    + Include path: ```s3://yourname-analytics-workshop-bucket/data/```.
-    + Click **Next**.
-    + Add another data store: **No**.
-    + Click **Next**.
+![Data Analysis on AWS](/images/2/6.png?featherlight=false&width=90pc)
 
-![Architect](/images/2/6.png?width=90pc)
+4. Tại trang Add a data store.
+   - Choose a data store: **S3**.
+   - Crawl data in: **Specified path in my account**.
+   - Include path: **s3://yourname-analytics-workshop-bucket/data/**.
+   - Click **Next**.
+   - Add another data store: **No**.
+   - Click **Next**.
 
+![Data Analysis on AWS](/images/2/7.png?featherlight=false&width=90pc)
 
-5. Tại trang **Choose an IAM Role**.
-    + Chọn: **Choose an existing IAM role**.
-    + IAM role chọn: **AnalyticsworkshopGlueRole**.
-    + Click **Next**.
+5. Hoàn thành thêm data source và chọn **Next**
 
-![Architect](/images/2/7.png?width=90pc)
+![Data Analysis on AWS](/images/2/8.png?featherlight=false&width=90pc)
 
+6. Tại trang **Choose an IAM Role**.
+   - Chọn: **Choose an existing IAM role**.
+   - IAM role chọn: **AnalyticsworkshopGlueRole**.
+   - Click **Next**.
 
-6. Tại trang **Schedule**.
-    + Frequency: **Run on demand**.
-    + Click **Next**.
+![Data Analysis on AWS](/images/2/9.png?featherlight=false&width=90pc)
 
-7. Tại trang **Output**.
-    + Click **Add database**.
-    + Database name: **analyticsworkshopdb**.
-    + Click **Create**.
-    + Click **Next**.
+7. Sau đó, chúng ta tạo **Database**
 
-![Architect](/images/2/8.png?width=90pc)
+   - Nhập name: **```analyticsworkshopdb```**
+   - Chọn **Create database**
 
-8. Tại trang **Review all steps**.
-    + Kiểm tra lại tất cả cấu hình của bạn.
-    + Click **Finish**.
+![Data Analysis on AWS](/images/2/10.png?featherlight=false&width=90pc)
 
-9. Bạn sẽ thấy thông báo: **Crawler analyticsworkshopdb was created to run on demand.**.
-    + Chọn vào crawler's check box.
-    + Click **Run crawler** để chạy crawler lần đầu tiên.
-    + Đợi vài phút để quá trình chạy hoàn tất.
+8. Hoàn thành tạo database.
 
-![Architect](/images/2/9.png?width=90pc)
+![Data Analysis on AWS](/images/2/11.png?featherlight=false&width=90pc)
 
+9. Đối với **Set output and scheduling**
 
+   - Click **Add database**.
+   - Database name: **analyticsworkshopdb**.
+   - Click **Create**.
+   - Frequency: **Run on demand**.
+   - Click Next.
+
+![Data Analysis on AWS](/images/2/12.png?featherlight=false&width=90pc)
+
+10. Tại trang **Review all steps**.
+
+    - Kiểm tra lại tất cả cấu hình của bạn.
+    - Click **Create crawler**.
+
+![Data Analysis on AWS](/images/2/13.png?featherlight=false&width=90pc)
+
+11. Hoàn thành tạo **crawler**
+
+![Data Analysis on AWS](/images/2/14.png?featherlight=false&width=90pc)
+
+12.  Bạn kiểm tra bằng cách **Run**
+
+![Data Analysis on AWS](/images/2/00016.png?featherlight=false&width=90pc)
+
+13. **Run** thành công.
+
+![Data Analysis on AWS](/images/2/00017.png?featherlight=false&width=90pc)

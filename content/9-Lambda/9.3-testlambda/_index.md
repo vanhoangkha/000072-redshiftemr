@@ -1,34 +1,39 @@
 +++
-title = "Truy vấn dữ liệu với Lambda"
+title = "Querying data with Lambda"
 date = 2021
 weight = 3
 chapter = false
 pre = "<b>9.3 </b>"
 +++
 
-#### Truy vấn dữ liệu với Lambda
+#### Data query with Lambda
 
-Function của chúng ta bây giờ đã sẵn sàng để test. 
+Our function is now ready to test.
 
-1. Deploy function bằng cách nhấn nút **Deploy**.
+1. Deploy function by pressing **Deploy** button.
 
-2. Cấu hình test lambda function để xem kết quả chạy của lambda function mới tạo.
-  + Nhấn **Test** ở trên góc phải của phần **Code Source**.
 
-![Architect](/images/9/7.png?width=90pc)
+![Data Analysis on AWS](/images/9/12.png?featherlight=false&width=90pc)
 
-3. Ở cửa sổ mới bật lên cấu hình test event.
-  + **Create new test event** được chọn mặc định.
+2. Configure the test lambda function to see the run result of the newly created lambda function.
+  + Click **Test** in the upper right corner of the **Code Source** section.
+
+![Data Analysis on AWS](/images/9/13.png?featherlight=false&width=90pc)
+
+
+3. In the new pop-up window configure test event.
+  + **Create new test event** is selected by default.
   + Event template: **Hello World**.
   + Event name: **Test**.
-  + Để nguyên những thứ khác.
-  + Nhấn **Create**.
+  + Leave everything else as is.
+  + Click **Create**.
 
-![Architect](/images/9/8.png?width=90pc)
+![Data Analysis on AWS](/images/9/14.png?featherlight=false&width=90pc)
 
-3. Nhấn **Test** lần nữa
-  + Bạn sẽ thấy output ở định dạng json ở dưới phần **Execution Result**.
+4. Press **Test** again
+  + You will see the output in json format under **Execution Result** section.
 
-![Architect](/images/9/9.png?width=90pc)
 
-Tiếp theo chúng ta sẽ kiểm tra xem dữ liệu từ Lambda function có giống như dữ liệu được truy vấn từ Athena không nhé.
+![Data Analysis on AWS](/images/9/15.png?featherlight=false&width=90pc)
+
+Next we will check if the data from the Lambda function is the same as the data queried from Athena.

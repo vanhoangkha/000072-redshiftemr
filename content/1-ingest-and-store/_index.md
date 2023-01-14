@@ -1,23 +1,22 @@
 +++
-title = "Thu thập và Lưu trữ dữ liệu"
+title = "Ingest and Store"
 date = 2020
 weight = 1
 chapter = false
 pre = "<b>1. </b>"
 +++
 
+#### Ingest and Store
 ---
 
-Để bắt đầu, chúng ta sẽ tạo ra một số dữ liệu dummy near real-time với Kinesis data generator, và chuyển dữ liệu đó đến S3 với Kinesis Firehose delivery stream.
+To start, we'll generate some dummy data near real-time with the Kinesis data generator, and transfer that data to S3 with the Kinesis Firehose delivery stream.
 
-Chúng ta cũng sẽ copy 1 số dữ liệu reference vào trong Amazon S3 bucket.
+We will also copy some reference data into the Amazon S3 bucket.
 
-![Architect](/images/1/ingest.png?width=60pc)
+![Data Analysis on AWS](/images/1/ingest.png?featherlight=false&width=60pc)
 
+#### Content
 
-#### Nội dung
-
-1. [Tạo S3 Bucket](1.1-creates3bucket/)
-2. [Tạo Kinesis Firehose](1.2-createkinesis/)
-3. [Tạo dữ liệu giả lập](1.3-generatedata/)
-
+1. [Create S3 Bucket](1.1-creates3bucket/)
+2. [Create Kinesis Firehose](1.2-createkinesis/)
+3. [Generate emulator data](1.3-generatedata/)

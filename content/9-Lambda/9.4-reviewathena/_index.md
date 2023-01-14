@@ -1,33 +1,33 @@
 +++
-title = "Kiểm tra dữ liệu với Athena"
+title = "Testing data with Athena"
 date = 2021
 weight = 4
 chapter = false
 pre = "<b>9.4 </b>"
 +++
 
-#### Xác nhận qua Athena
+#### Confirmed via Athena
 
-Giờ chúng ta sẽ xác nhận kết quả qua Athena
+Now we will confirm the result via Athena
 
-1. Truy cập đến [giao diện dịch vụ Athena](https://console.aws.amazon.com/athena/home?region=ap-southeast-1#query).
-  + Ở khung bên trái, chọn **analyticsworkshopdb** từ phần sổ xuống.
-  + Chạy câu lệnh query dưới đây:
+1. Go to [Athena service interface](https://console.aws.amazon.com/athena/home?region=ap-southeast-1#query).
+  + In the left pane, select **analyticsworkshopdb** from the drop-down.
+  Run the following query command:
 
 ```
 SELECT track_name as "Track Name",
     artist_name as "Artist Name",
-    count(1) as "Hits" 
-FROM analyticsworkshopdb.processed_data 
-GROUP BY 1,2 
-ORDER BY 3 DESC 
+    count(1) as "Hits"
+FROM analyticsworkshopdb.processed_data
+GROUP BY 1.2
+ORDER BY 3 DESC
 LIMIT 5;
 ```
 
-![Architect](/images/9/10.png?width=90pc)
+![Data Analysis on AWS](/images/9/16.png?featherlight=false&width=90pc)
 
-2. So sánh kết quả query với kết quả từ lambda function, cả 2 sẽ cho kết quả giống nhau.
+2. Compare the query result with the result from the lambda function, both will give the same result.
 
 
-Qua phần này bạn bây giờ có thể tạo Lambda function và thực hiện truy vấn dữ liệu với Lambda.
-Ở phần tiếp theo chúng ta sẽ đi thử xây dựng Data Warehouse trên Amazon Redshift.
+Through this section you can now create Lambda functions and perform data queries with Lambda.
+In the next part, we will try to build Data Warehouse on Amazon Redshift.

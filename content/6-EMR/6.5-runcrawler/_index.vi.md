@@ -13,15 +13,23 @@ pre = "<b>6.5 </b>"
   + Chọn crawler đã được tạo ở phần trước: **AnalyticsworkshopCrawler**.
   + Click **Run Crawler**.
 
-![Architect](/images/6/9.png?width=90pc)
+
+![Data Analysis on AWS](/images/6/15.png?featherlight=false&width=90pc)
 
 2. Bạn sẽ thấy trạng thái đổi thành **Starting**.
   + Đợi 1 vài phút để crawler chạy hoàn tất.
   + Crawler sẽ hiển thị **Tables added** là 1.
 
+![Data Analysis on AWS](/images/6/16.png?featherlight=false&width=90pc)
+
 3. Bạn có thể đi đến phần databases ở bên trái và xác nhận là table **emr_processed_data** đã được thêm vào.
 
-![Architect](/images/6/10.png?width=90pc)
+![Data Analysis on AWS](/images/6/17.png?featherlight=false&width=90pc)
 
 Chúc mừng bạn đã hoàn tất việc transform dữ liệu bằng EMR, chúng ta đã sẵn sàng để thực hiện truy vấn dữ liệu bằng Amazon Athena ở bước tiếp theo.
 
+
+![Data Analysis on AWS](/images/6/18.png?featherlight=false&width=90pc)
+
+
+![Data Analysis on AWS](/images/6/19.png?featherlight=false&width=90pc)

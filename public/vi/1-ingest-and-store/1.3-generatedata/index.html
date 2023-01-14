@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo dữ liệu giả lập :: Phân tích dữ liệu trên AWS</title>
 
     
-    <link href="/css/nucleus.css?1632910942" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1632910942" rel="stylesheet">
-    <link href="/css/hybrid.css?1632910942" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1632910942" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1632910942" rel="stylesheet">
-    <link href="/css/auto-complete.css?1632910942" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1632910942" rel="stylesheet">
-    <link href="/css/theme.css?1632910942" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1632910942" rel="stylesheet">
+    <link href="/css/nucleus.css?1673731428" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673731428" rel="stylesheet">
+    <link href="/css/hybrid.css?1673731428" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673731428" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673731428" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673731428" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673731428" rel="stylesheet">
+    <link href="/css/theme.css?1673731428" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673731428" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1632910942" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673731428" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1632910942"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673731428"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1632910942"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1632910942"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673731428"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673731428"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1632910942"></script>
+<script type="text/javascript" src="/js/search.js?1673731428"></script>
 
     
   </div>
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/vi/1-ingest-and-store/1.1-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
+    <li data-nav-id="/vi/1-ingest-and-store/1.1-creates3bucket/" title="Tạo S3 bucket" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-ingest-and-store/1.1-creates3bucket/">
-          <b>1.1 </b>Tạo S3 Bucket
+           <b> 1.1 </b> Tạo S3 bucket
           
             <i class="fas fa-check read-icon"></i>
           
@@ -170,7 +170,7 @@
   
     
     <li data-nav-id="/vi/1-ingest-and-store/1.3-generatedata/" title="Tạo dữ liệu giả lập" class="dd-item 
-        
+        parent
         active
         
         ">
@@ -1955,7 +1955,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>30-09-2021</font></i>
+        <i><font color=orange>15-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -2056,34 +2056,41 @@
 	<h4 id="tạo-dữ-liệu-giả-lập">Tạo dữ liệu giả lập</h4>
 <p>Ở bước này chúng ta sẽ cấu hình Kinesis Data Generator để tạo ra những dữ liệu giả lập và lấy chúng vào Kinesis Firehose</p>
 <ol>
-<li><strong>Cấu hình Amazon Cognito</strong> cho Kinesis Data Generator - Ở bước này chúng ta sẽ chạy 1 cloud formation stack mà sẽ cấu hình Cognito. Cloudformation scripts chạy ở region <strong>N.Virgina</strong>.</li>
-</ol>
+<li><strong>Cấu hình Amazon Cognito</strong> cho Kinesis Data Generator - Ở bước này chúng ta sẽ chạy 1 cloud formation stack mà sẽ cấu hình Cognito. Cloudformation scripts chạy ở region <strong>N.Virgina</strong>.
 <ul>
-<li>Đi đến: <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&amp;templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json">https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&amp;templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json</a></li>
-<li>Click <strong>Next</strong>.</li>
-</ul>
-<p><img src="/images/1/9.png?width=90pc" alt="Architect"></p>
-<ol start="2">
-<li>Tại trang <strong>Specify stack details</strong>:
-<ul>
-<li>Username: <strong>admin</strong>.</li>
-<li>Password: chọn một mật khẩu bao gồm chữ và số.</li>
+<li>Đi đến <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&amp;templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json">CloudFormation</a></li>
 <li>Click <strong>Next</strong>.</li>
 </ul>
 </li>
 </ol>
-<p><img src="/images/1/10.png?width=90pc" alt="Architect"></p>
-<ol start="3">
-<li>Tại trang <strong>Configure stack options</strong>:
+<p><img src="/images/1/9.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="2">
+<li>Tại trang Specify stack details:
 <ul>
-<li>Tuỳ chọn thêm Tags, e.g.:</li>
-<li>workshop: AnalyticsOnAWS</li>
+<li><strong>Username</strong>: <strong>admin</strong>.</li>
+<li><strong>Password</strong>: chọn một mật khẩu bao gồm chữ và số.</li>
+<li>Click <strong>Next</strong>.</li>
+</ul>
+</li>
+</ol>
+<p><img src="/images/1/10.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="3">
+<li>Tại trang <strong>Configure stack options</strong>:</li>
+</ol>
+<ul>
+<li>Tuỳ chọn thêm Tags, e.g.:
+<ul>
+<li>workshop: <strong>AnalyticsOnAWS</strong></li>
 <li>Click <strong>Next</strong></li>
 </ul>
 </li>
-</ol>
-<p><img src="/images/1/11.png?width=90pc" alt="Architect"></p>
+</ul>
+<p><img src="/images/1/11.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="4">
+<li>Chọn <strong>Next</strong></li>
+</ol>
+<p><img src="/images/1/11.1.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="5">
 <li>Tại trang <strong>Review</strong>:
 <ul>
 <li>Kéo chuột xuống phía dưới.</li>
@@ -2092,59 +2099,67 @@
 </ul>
 </li>
 </ol>
-<p><img src="/images/1/12.png?width=90pc" alt="Architect"></p>
-<ol start="5">
-<li>Refresh AWS Cloudformation Console của bạn. ( Ấn F5 trong trình duyệt )</li>
-</ol>
+<p><img src="/images/1/12.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="6">
+<li>
+<p>Đợi khoảng 20 phút, stack tạo thành công.</p>
 <ul>
-<li>Đợi đến khi stack status đổi thành <strong>Create_Complete</strong>.
-<ul>
-<li>Chọn <strong>Kinesis-Data-Generator-Cognito-User</strong> stack.</li>
-<li>Đi đến outputs tab: Click vào đường link có tên: KinesisDataGeneratorUrl - Việc này sẽ mở Kinesis Data Generator tool của bạn.</li>
+<li>Refresh <strong>AWS Cloudformation Console</strong> của bạn. ( Ấn F5 trong trình duyệt )</li>
+<li>Đợi đến khi <strong>stack status</strong> đổi thành <strong>Create_Complete</strong>.</li>
+<li>Chọn <strong>Kinesis-Data-Generator-Cognito-User stack.</strong></li>
+<li>Đi đến outputs tab: Click vào đường link có tên: <strong>KinesisDataGeneratorUrl</strong> - Việc này sẽ mở Kinesis Data Generator tool của bạn.</li>
 </ul>
 </li>
-</ul>
-<p><img src="/images/1/13.png?width=90pc" alt="Architect"></p>
-<ol start="6">
-<li>Ở  trang chủ Amazon Kinesis Data Generator.</li>
 </ol>
+<p><img src="/images/1/13.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="7">
+<li>Ở trang chủ <strong>Amazon Kinesis Data Generator</strong>.
 <ul>
-<li>Đăng nhập với username và password từ bước trước.</li>
+<li>Đăng nhập với <strong>username</strong> và <strong>password</strong> từ bước trước.</li>
+</ul>
+</li>
+</ol>
+<p><img src="/images/1/13.1.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="8">
+<li>Ở trang chủ <strong>Amazon Kinesis Data Generator</strong>.
+<ul>
 <li>Region: <strong>ap-southeast-1</strong>.</li>
 <li>Stream/delivery stream: <strong>analytics-workshop-stream</strong>.</li>
 <li>Records per second: <strong>2000</strong>.</li>
 <li>Record template (Template 1): Trong khoảng trống nhập văn bản, thêm json template dưới đây vào và Click <strong>Send Data</strong>:</li>
 </ul>
-<pre><code>{
-  &quot;uuid&quot;: &quot;{{random.uuid}}&quot;,
-  &quot;device_ts&quot;: &quot;{{date.utc(&quot;YYYY-MM-DD HH:mm:ss.SSS&quot;)}}&quot;,
-  &quot;device_id&quot;: {{random.number(50)}},
-  &quot;device_temp&quot;: {{random.weightedArrayElement(
-    {&quot;weights&quot;:[0.30, 0.30, 0.20, 0.20],&quot;data&quot;:[32, 34, 28, 40]}
+</li>
+</ol>
+<pre tabindex="0"><code>{
+  &#34;uuid&#34;: &#34;{{random.uuid}}&#34;,
+  &#34;device_ts&#34;: &#34;{{date.utc(&#34;YYYY-MM-DD HH:mm:ss.SSS&#34;)}}&#34;,
+  &#34;device_id&#34;: {{random.number(50)}},
+  &#34;device_temp&#34;: {{random.weightedArrayElement(
+    {&#34;weights&#34;:[0.30, 0.30, 0.20, 0.20],&#34;data&#34;:[32, 34, 28, 40]}
   )}},
-  &quot;track_id&quot;: {{random.number(30)}},  
-  &quot;activity_type&quot;: {{random.weightedArrayElement(
+  &#34;track_id&#34;: {{random.number(30)}},  
+  &#34;activity_type&#34;: {{random.weightedArrayElement(
         {
-            &quot;weights&quot;: [0.1, 0.2, 0.2, 0.3, 0.2],
-            &quot;data&quot;: [&quot;\&quot;Running\&quot;&quot;, &quot;\&quot;Working\&quot;&quot;, &quot;\&quot;Walking\&quot;&quot;, &quot;\&quot;Traveling\&quot;&quot;, &quot;\&quot;Sitting\&quot;&quot;]
+            &#34;weights&#34;: [0.1, 0.2, 0.2, 0.3, 0.2],
+            &#34;data&#34;: [&#34;\&#34;Running\&#34;&#34;, &#34;\&#34;Working\&#34;&#34;, &#34;\&#34;Walking\&#34;&#34;, &#34;\&#34;Traveling\&#34;&#34;, &#34;\&#34;Sitting\&#34;&#34;]
         }
     )}}
 }
-</code></pre><p><img src="/images/1/14.png?width=90pc" alt="Architect"></p>
-<ol start="7">
+</code></pre><p><img src="/images/1/14.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="9">
+<li>Khi tool gửi ~100.000 tin nhắn, bạn có thể click - <strong>Stop sending data to Kinesis</strong>.</li>
+</ol>
+<p><img src="/images/1/14.1.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="10">
 <li>
-<p>Khi tool gửi ~10,000 tin nhắn, bạn có thể click - <strong>Stop sending data to Kinesis</strong>.</p>
-</li>
-<li>
-<p>Sau một lát bạn hãy đến S3 Console <a href="https://s3.console.aws.amazon.com/s3/home?region=us-east-1">Click vào đây</a></p>
+<p>Sau một lát bạn hãy đến S3 Console Click vào đây</p>
+<ul>
+<li>Đi đến: <strong>yourname-analytics-workshop-bucket</strong> &gt; <strong>data</strong>.</li>
+<li>Trong này sẽ có 1 folder raw được tạo ra &gt; Tiếp tục mở, bạn sẽ thấy firehose đẩy data vào S3 sử dụng <strong>yyyy/mm/dd/hh</strong></li>
+</ul>
 </li>
 </ol>
-<ul>
-<li>Đi đến: <strong>yourname-analytics-workshop-bucket &gt; data</strong>.</li>
-<li>Trong này sẽ có 1 folder <strong>raw</strong> được tạo ra &gt; Tiếp tục mở, bạn sẽ thấy firehose đẩy data vào S3 sử dụng yyyy/mm/dd/hh</li>
-</ul>
-<p><img src="/images/1/21.png?width=90pc" alt="Architect"></p>
-<p>Nếu bạn đã nhận được dữ liệu dummy trong S3 buckets, chúng ta có thể đi tới bước tiếp theo</p>
+<p><img src="/images/1/21.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 
 
 
@@ -3192,19 +3207,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1632910943"></script>
-    <script src="/js/perfect-scrollbar.min.js?1632910943"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1632910943"></script>
-    <script src="/js/jquery.sticky.js?1632910943"></script>
-    <script src="/js/featherlight.min.js?1632910943"></script>
-    <script src="/js/highlight.pack.js?1632910943"></script>
+    <script src="/js/clipboard.min.js?1673731428"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673731428"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673731428"></script>
+    <script src="/js/jquery.sticky.js?1673731428"></script>
+    <script src="/js/featherlight.min.js?1673731428"></script>
+    <script src="/js/highlight.pack.js?1673731428"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1632910943"></script>
-    <script src="/js/learn.js?1632910943"></script>
-    <script src="/js/hugo-learn.js?1632910943"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673731428"></script>
+    <script src="/js/learn.js?1673731428"></script>
+    <script src="/js/hugo-learn.js?1673731428"></script>
 
-    <link href="/mermaid/mermaid.css?1632910943" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1632910943"></script>
+    <link href="/mermaid/mermaid.css?1673731428" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673731428"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

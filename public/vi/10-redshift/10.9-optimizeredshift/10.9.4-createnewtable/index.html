@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo table mới  :: Phân tích dữ liệu trên AWS</title>
 
     
-    <link href="/css/nucleus.css?1632910943" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1632910943" rel="stylesheet">
-    <link href="/css/hybrid.css?1632910943" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1632910943" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1632910943" rel="stylesheet">
-    <link href="/css/auto-complete.css?1632910943" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1632910943" rel="stylesheet">
-    <link href="/css/theme.css?1632910943" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1632910943" rel="stylesheet">
+    <link href="/css/nucleus.css?1673731428" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673731428" rel="stylesheet">
+    <link href="/css/hybrid.css?1673731428" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673731428" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673731428" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673731428" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673731428" rel="stylesheet">
+    <link href="/css/theme.css?1673731428" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673731428" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1632910943" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673731428" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1632910943"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673731428"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1632910943"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1632910943"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673731428"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673731428"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1632910943"></script>
+<script type="text/javascript" src="/js/search.js?1673731428"></script>
 
     
   </div>
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/vi/1-ingest-and-store/1.1-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
+    <li data-nav-id="/vi/1-ingest-and-store/1.1-creates3bucket/" title="Tạo S3 bucket" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-ingest-and-store/1.1-creates3bucket/">
-          <b>1.1 </b>Tạo S3 Bucket
+           <b> 1.1 </b> Tạo S3 bucket
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1747,7 +1747,7 @@
   
     
     <li data-nav-id="/vi/10-redshift/10.9-optimizeredshift/10.9.4-createnewtable/" title="Tạo table mới " class="dd-item 
-        
+        parent
         active
         
         ">
@@ -1955,7 +1955,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>30-09-2021</font></i>
+        <i><font color=orange>15-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -2066,7 +2066,7 @@
 <ul>
 <li>Tạo cột mới sử dụng DDL của <strong>f_raw_2</strong> và <strong>d_ref_data_2</strong></li>
 </ul>
-<pre><code>--fact table ddl
+<pre tabindex="0"><code>--fact table ddl
 CREATE TABLE IF NOT EXISTS redshift_lab.f_raw_2 (
   uuid			varchar(40) ENCODE zstd,
   device_ts 		timestamp,
@@ -2085,15 +2085,17 @@ CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_2 (
   artist_name		varchar(64)
 )
 DISTSTYLE ALL;
-</code></pre><ol start="2">
+</code></pre><p><img src="/images/10/59.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="2">
 <li>Thực hiện câu truy vấn dưới đây để sao chép dữ liệu từ table cũ sang table mới.</li>
 </ol>
-<pre><code>--copy data from f_raw_1 to f_raw_2
+<pre tabindex="0"><code>--copy data from f_raw_1 to f_raw_2
 insert into redshift_lab.f_raw_2 select * from redshift_lab.f_raw_1;
   
 --copy data from d_ref_data_1 to d_ref_data_2
 INSERT into redshift_lab.d_ref_data_2 select * from redshift_lab.d_ref_data_1; 
-</code></pre><p>Tiếp theo chúng ta sẽ thực hiện thêm bước dọn dẹp và phân tích dữ liệu sau khi chuyển sang table mới.</p>
+</code></pre><p><img src="/images/10/60.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<p>Tiếp theo chúng ta sẽ thực hiện thêm bước dọn dẹp và phân tích dữ liệu sau khi chuyển sang table mới.</p>
 
 
 
@@ -3148,19 +3150,19 @@ INSERT into redshift_lab.d_ref_data_2 select * from redshift_lab.d_ref_data_1;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1632910943"></script>
-    <script src="/js/perfect-scrollbar.min.js?1632910943"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1632910943"></script>
-    <script src="/js/jquery.sticky.js?1632910943"></script>
-    <script src="/js/featherlight.min.js?1632910943"></script>
-    <script src="/js/highlight.pack.js?1632910943"></script>
+    <script src="/js/clipboard.min.js?1673731428"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673731428"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673731428"></script>
+    <script src="/js/jquery.sticky.js?1673731428"></script>
+    <script src="/js/featherlight.min.js?1673731428"></script>
+    <script src="/js/highlight.pack.js?1673731428"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1632910943"></script>
-    <script src="/js/learn.js?1632910943"></script>
-    <script src="/js/hugo-learn.js?1632910943"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673731428"></script>
+    <script src="/js/learn.js?1673731428"></script>
+    <script src="/js/hugo-learn.js?1673731428"></script>
 
-    <link href="/mermaid/mermaid.css?1632910943" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1632910943"></script>
+    <link href="/mermaid/mermaid.css?1673731428" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673731428"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

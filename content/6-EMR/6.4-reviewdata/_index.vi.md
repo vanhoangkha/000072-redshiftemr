@@ -15,4 +15,6 @@ Truy cập [giao diện quản trị S3](https://s3.console.aws.amazon.com/s3/ho
   + Mở folder mới **emr-processed-data**.
   + Kiểm tra định dạng file là **.parquet**.
 
-![Architect](/images/6/8.png?width=90pc)
+
+![Data Analysis on AWS](/images/6/14.png?featherlight=false&width=90pc)
+

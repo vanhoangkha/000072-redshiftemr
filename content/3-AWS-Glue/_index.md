@@ -1,5 +1,5 @@
 +++
-title = "Transform với AWS Glue"
+title = "Transform with AWS Glue"
 date = 2020
 weight = 3
 chapter = false
@@ -8,16 +8,16 @@ pre = "<b>3. </b>"
 
 ---
 
-Ở phần này, chúng ta sẽ sử dụng AWS Glue ETL để xử lý dữ liệu và lưu ngược kết quả thành đã dạng đã chuyển đổi trong S3.
+In this section, we will use AWS Glue ETL to process the data and save the results back to the converted form in S3.
 
-Chúng ta sẽ sử dụng Glue Development endpoints và Sagemaker notebooks để thực hiện xuyên suốt quá trình cuổi đổi dữ liệu.
+We will use Glue Development endpoints and Sagemaker notebooks to go through the data exchange.
 
 ![Architect](/images/3/transform.png?width=60pc)
 
 
-#### Nội dung
+#### Content
 
-1. [Tạo Development Endpoint](3.1-createdevendpoint/)
-2. [Tạo SageMaker Notebook](3.2-createsagemaker/)
-3. [Chạy Jupyter Notebook](3.3-executenotebook/)
-4. [Kiểm tra dữ liệu](3.4-reviewdata/)
+1. [Create Development Endpoint](3.1-createdevendpoint/)
+2. [Create SageMaker Notebook](3.2-createsagemaker/)
+3. [Run Jupyter Notebook](3.3-executenotebook/)
+4. [Data Check](3.4-reviewdata/)

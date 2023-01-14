@@ -21,11 +21,14 @@ pre = "<b>10.4 </b>"
   + Click **Inbound rules**.
   + Click **Edit rules**.
 
-![Architect](/images/10/8.png?width=90pc)
+![Data Analysis on AWS](/images/10/19.png?featherlight=false&width=90pc)
 
 2. Kiểm tra rule có sẵn.
     + Type: All Traffic.
     + Source: [Tên của security group bạn đang edit].
+
+
+![Data Analysis on AWS](/images/10/20.png?featherlight=false&width=90pc)
 
 {{% notice note %}}
 Rule tự tham chiếu này là cần thiết để Glue có thể giao tiếp với Redshift.
@@ -41,12 +44,13 @@ Dưới phần **Source** chọn Custom và nhập "pl vào text box cạnh nó,
 
   + Click **Save rules**.
 
-![Architect](/images/10/9.png?width=90pc)
+![Data Analysis on AWS](/images/10/20.png?featherlight=false&width=90pc)
 
   + Click **Outbound Rules**.
   + Click **Edit rules**.
 
-![Architect](/images/10/10.png?width=90pc)
+
+![Data Analysis on AWS](/images/10/21.png?featherlight=false&width=90pc)
 
   + Để nguyên rule với những giá trị dưới đây:
     + Type: All Traffic
@@ -56,4 +60,6 @@ Dưới phần **Source** chọn Custom và nhập "pl vào text box cạnh nó,
     + Source: [Tên của security group bạn đang edit] 
   + Click **Save rules**.
 
-![Architect](/images/10/11.png?width=90pc)
+![Data Analysis on AWS](/images/10/22.png?featherlight=false&width=90pc)
+
+

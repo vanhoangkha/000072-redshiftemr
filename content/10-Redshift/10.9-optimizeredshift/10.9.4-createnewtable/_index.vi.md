@@ -33,6 +33,8 @@ CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_2 (
 DISTSTYLE ALL;
 ```
 
+![Data Analysis on AWS](/images/10/59.png?featherlight=false&width=90pc)
+
 2. Thực hiện câu truy vấn dưới đây để sao chép dữ liệu từ table cũ sang table mới.
 
 ```
@@ -42,5 +44,7 @@ insert into redshift_lab.f_raw_2 select * from redshift_lab.f_raw_1;
 --copy data from d_ref_data_1 to d_ref_data_2
 INSERT into redshift_lab.d_ref_data_2 select * from redshift_lab.d_ref_data_1; 
 ```
+
+![Data Analysis on AWS](/images/10/60.png?featherlight=false&width=90pc)
 
 Tiếp theo chúng ta sẽ thực hiện thêm bước dọn dẹp và phân tích dữ liệu sau khi chuyển sang table mới.

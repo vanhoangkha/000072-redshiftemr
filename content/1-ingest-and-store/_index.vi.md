@@ -12,8 +12,7 @@ pre = "<b>1. </b>"
 
 Chúng ta cũng sẽ copy 1 số dữ liệu reference vào trong Amazon S3 bucket.
 
-![Architect](/images/1/ingest.png?width=60pc)
-
+![Data Analysis on AWS](/images/1/ingest.png?featherlight=false&width=60pc)
 
 #### Nội dung
 

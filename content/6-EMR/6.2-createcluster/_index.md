@@ -1,45 +1,53 @@
 +++
-title = "Tạo EMR Cluster"
+title = "Create EMR Cluster"
 date = 2021
 weight = 2
 chapter = false
 pre = "<b>6.2 </b>"
 +++
 
-#### Tạo EMR Cluster và chạy script đã upload lên S3
+#### Create EMR Cluster and run the uploaded script to S3
 
-Ở bước này, chúng ta sẽ tạo EMR cluster và thêm các bước của Spark
+In this step, we will create EMR cluster and add Spark steps
 
-1. Truy cập đến [giao diện quản trị của EMR](https://console.aws.amazon.com/elasticmapreduce/home?region=ap-southeast-1#).
+1. Go to the [EMR admin interface](https://console.aws.amazon.com/elasticmapreduce/home?region=ap-southeast-1#).
+
   + Click **Create cluster**.
-  + Tiếp tục với **Create cluster - Quick options**.
-  + Đặt tên cho cluster: ```analytics-workshop-transformer```.
-  + Chọn tuỳ chọn **Logging** và cung cấp S3 folder:
+
+![Data Analysis on AWS](/images/6/7.png?featherlight=false&width=90pc)
+
+2. Continue with **Create cluster - Quick options**.
+  + Name the cluster: ```analytics-workshop-transformer```.
+  + Select **Logging** option and provision the S3 folder:
     + ```s3://yourname-analytics-workshop-bucket/logs/```.
-  + Đổi **Launch mode** thành **Step execution**.
-  + Ở dưới **Add steps** chọn **Spark application**.
-    + Click **Configure**.
-    + Ở cửa sổ hiện lên, để trống **Spark-submit options**.
-    + Cho phần **Application location**, chọn nơi chứa script vừa upload - ```s3://yourname-analytics-workshop-bucket/scripts/emr_pyspark.py```.
+  + Change **Launch mode** to **Step execution**.
+  + Under **Add steps** select **Spark application**.
+
+![Data Analysis on AWS](/images/6/8.png?featherlight=false&width=90pc)
+
+3. Click **Configure**.
+    + In the pop-up window, leave **Spark-submit options** blank.
+    + For the **Application location** section, select the location of the uploaded script - ```s3://yourname-analytics-workshop-bucket/scripts/emr_pyspark.py```.
     + Click **Select**.
-    + Dưới **Arguments**, nhập tên s3 bucket ```yourname-analytics-workshop-bucket```.
-    + Cho phần **Action on failure**, chọn **Terminate cluster** .
-    + Click **Add** để hoàn thành.
+    + Under **Arguments**, enter the name s3 bucket ```yourname-analytics-workshop-bucket```.
+    + For the **Action on failure** section, select **Terminate cluster** .
+    + Click **Add** to complete.
 
-![Architect](/images/6/4.png?width=90pc)
+![Data Analysis on AWS](/images/6/9.png?featherlight=false&width=90pc)
 
-2. Tại mục **Software configuration**.
-  + Không check tuỳ chọn Use **AWS Glue Data Catalog for table metadata**.
+4. In the **Software configuration** section.
+  + Do not check the Use **AWS Glue Data Catalog for table metadata** option.
   + Release: **emr-x.x**.
   + Applications: Hadoop x.x.x, Spark x.x.x.
-  + Version sẽ được để mặc định là mới nhất.
+  + Version will be defaulted to the latest.
 
-3. Tại mục **Hardware configuration**.
+![Data Analysis on AWS](/images/6/10.png?featherlight=false&width=90pc)
+
+5. In the **Hardware configuration** section.
   + Instance type: **m5.xlarge**.
   + Number of Instances: 3 (1 master and 2 core nodes).
-  + Để **Security and access** mặc định.
+  + Leave **Security and access** as default.
+
+![Data Analysis on AWS](/images/6/10.png?featherlight=false&width=90pc)
+
   + Click **Create cluster**.
-
-![Architect](/images/6/5.png?width=90pc)
-
-Chúng ta đã hoàn thành việc tạo cluster EMR. Cluster EMR sẽ được khởi tạo và sẽ thực thi script chúng ta đã upload lên S3 ở bước 6.1

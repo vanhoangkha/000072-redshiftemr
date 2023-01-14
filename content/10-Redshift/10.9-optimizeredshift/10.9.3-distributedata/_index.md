@@ -1,24 +1,24 @@
 +++
-title = "Phân phối dữ liệu"
+title = "Data Delivery"
 date = 2021
 weight = 3
 chapter = false
 pre = "<b>10.9.3 </b>"
 +++
 
-#### Distribution Style và Sort Keys ( Các kiểu phân phối / sắp xếp dữ liệu )
+#### Distribution Style and Sort Keys
 
-Distribution / Phân phối dữ liệu là một phương thức tối ưu hiệu năng quan trọng trên Redshift. Việc phân phối dữ liệu tốt sẽ làm giảm lượng dữ liệu phải di chuyển qua lại giữa các node trong Redshift cluster.
+Distribution / Data distribution is an important performance optimization method on Redshift. Good data distribution reduces the amount of data that has to be moved back and forth between the nodes in the Redshift cluster.
 
-1. Chúng ta sẽ sử dụng phân phối dựa trên **KEY** cho bảng dữ kiện **f_raw_1**.
-  + Vì hai bảng (**f_raw_1** và **d_ref_data_1**) cần được kết hợp trên cột **track_id**, nên chúng ta sẽ chọn **track_id** làm distribution key.
+1. We will use a **KEY** based distribution for the **f_raw_1** data table.
+  + Since the two tables (**f_raw_1** and **d_ref_data_1**) need to be merged on the **track_id** column, we will choose **track_id** as the distribution key.
+  
 
-2. Chúng ta sẽ sử dụng phân phối **ALL** cho bảng dimension - **d_ref_data_1**.
+2. We will use the **ALL** distribution for the dimension table - **d_ref_data_1**.
 
-3. Tìm hiểu thêm về Redshift Distribution style [tại đây](https://docs.aws.amazon.com/redshift/latest/dg/c_choosing_dist_sort.html).
+3. Learn more about Redshift Distribution style [here](https://docs.aws.amazon.com/redshift/latest/dg/c_choosing_dist_sort.html).
 
-4. Trong các truy vấn của chúng ta, thuộc tính **activity_type** đã được sử dụng để lọc equality, do đó, chúng ta sẽ chọn thuộc tính này làm cột sắp xếp.
-  + Việc lựa chọn cột hay dùng để lọc ( filter ) làm cột để sắp xếp các dữ liệu trong table sẽ giúp câu truy vấn trở nên nhanh hơn.
+4. In our queries, the **activity_type** attribute has been used to filter for equality, so we will choose this attribute as the sort column.
+  + Selecting a column that is often used to filter (filter) as a column to sort the data in the table will help the query become faster.
 
-5. Tìm hiểu thêm về các best practices khi sử dụng sort key của Redshift [tại đây](https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-sort-key.html)
-
+5. Learn more about Redshift's best practices when using sort keys [here](https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-sort-key.html)

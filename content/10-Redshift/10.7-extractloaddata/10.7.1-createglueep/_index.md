@@ -1,43 +1,59 @@
 +++
-title = "Tạo Glue Dev Endpoint"
+title = "Create Glue Dev Endpoint"
 date = 2021
 weight = 1
 chapter = false
 pre = "<b>10.7.1 </b>"
 +++
 
-#### Tạo Glue Development Endpoint
+#### Create Glue Development Endpoint
 
-Ở bước này, chúng ta sẽ tạo Glue Dev Endpoint để tương tác với Glue ETL script sử dụng PySpark.
+In this step, we will create Glue Dev Endpoint to interact with Glue ETL script using PySpark.
 
-1. Truy cập đến [giao diện Development Endpoints của dịch vụ Glue](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=devEndpoints).
+1. Go to the [Development Endpoints interface of the Glue service](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=devEndpoints).
   + Click **Add endpoint**.
-  + Development endpoints name: ```analyticsworkshopEndpoint2```.
+
+![Data Analysis on AWS](/images/10/36.png?featherlight=false&width=90pc)
+
+2. Development endpoints name: ```analyticsworkshopEndpoint2```.
   + IAM role: **AnalyticsworkshopGlueRole**.
-  + Mở rộng **Security configuration.. parameters**.
-    + Data processing unit (DPUs): ```2``` (Điều này sẽ giảm chi phí chạy lab).
-  + Tuỳ chọn thêm tags:.
+  + Expand **Security configuration.. parameters**.
+    + Data processing units (DPUs): ```2``` (This will reduce the cost of running the lab).
+
+![Data Analysis on AWS](/images/10/37.png?featherlight=false&width=90pc)
+
+3. Optionally add tags:.
     + workshop: AnalyticsOnAWS.
   + Click **Next**.
 
-![Architect](/images/10/18.png?width=90pc)
+![Data Analysis on AWS](/images/10/38.png?featherlight=false&width=90pc)
 
-2. Tại trang **Networking**:
-    + Chọn **Choose a connection**.
-    + Chọn **analytics_workshop**.
+4. At the **Networking** page:
+    + Select **Choose a connection**.
+    + Select **analytics_workshop**.
     + Click **Next**.
 
-![Architect](/images/10/19.png?width=90pc)
+![Data Analysis on AWS](/images/10/39.png?featherlight=false&width=90pc)
 
-3. Tại trang **SSH public key**.
-  + Thêm SSH public key (TUỳ chọn):
-    + Để mặc định.
+5. At the **SSH public key** page.
+  + Add SSH public key (Optional):
+    + Leave default.
     + Click **Next**.
 
-4. Tại trang **Review**
-  + Xem lại các cấu hình.
+![Data Analysis on AWS](/images/10/40.png?featherlight=false&width=90pc)
+
+4. At **Review** page
+  + Review the configuration.
   + Click **Finish**.
 
-Việc này sẽ mất tầm 10 phút để một Glue development endpoint mới được tạo ra.
+![Data Analysis on AWS](/images/10/41.png?featherlight=false&width=90pc)
 
-**Bạn cần phải đợi bước này hoàn thành trước khi qua bước tiếp theo**.
+5. This will take about 10 minutes for a new Glue development endpoint to be created.
+
+![Data Analysis on AWS](/images/10/42.png?featherlight=false&width=90pc)
+
+6. Complete creation of the Glue development endpoint.
+
+![Data Analysis on AWS](/images/10/43.png?featherlight=false&width=90pc)
+
+**You need to wait for this step to complete before proceeding to the next step**.

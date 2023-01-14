@@ -19,6 +19,10 @@ select max(len(uuid)) as uuid_len, max(len(activity_type)) as activity_type_len 
 select max(len(track_name)) as uuid_len, max(len(artist_name)) as activity_type_len from redshift_lab.d_ref_data_1;
 ```
 
+![Data Analysis on AWS](/images/10/57.png?featherlight=false&width=90pc)
+
 2.  Kết quả từ truy vấn trên sẽ được sử dụng để xác định độ chính xác mới cho các cột có dữ liệu dạng chuỗi.
+
+![Data Analysis on AWS](/images/10/58.png?featherlight=false&width=90pc)
 
 3. Tham khảo thêm về việc giới hạn kích thước cột [tại đây](https://docs.aws.amazon.com/redshift/latest/dg/c_best-practices-smallest-column-size.html).

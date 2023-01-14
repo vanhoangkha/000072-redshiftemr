@@ -1,5 +1,5 @@
 +++
-title = "Tạo Notebooks"
+title = "Create Notebooks"
 date = 2021
 weight = 2
 chapter = false
@@ -7,21 +7,27 @@ pre = "<b>10.7.2 </b>"
 +++
 
 
-#### Tạo SageMaker Notebooks (Jupyter) cho Glue Dev Endpoints
+#### Create SageMaker Notebooks (Jupyter) for Glue Dev Endpoints
 
-1. Truy cập đến [giao diện Notebooks của dịch vụ Glue](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=notebooks).
-  + Chọn tab **Sagemaker notebooks**.
+1. Go to [Glue service Notebooks interface](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=notebooks).
+  + Select tab **Sagemaker notebooks**
   + Click **Create notebook**.
-    + Notebook name: ```AnalyticsworkshopRedshiftNotebook```.
+
+![Data Analysis on AWS](/images/10/44.png?featherlight=false&width=90pc)
+
+2. Notebook name: ```AnalyticsworkshopRedshiftNotebook```.
     + Attach to development endpoint: **analyticsworkshopEndpoint2**.
-    + Chọn **Choose an existing role**.
+
+3. Select **Choose an existing role**.
     + IAM Role: **AnalyticsworkshopNotebookRole**.
-    + VPC (optional): Để trống.
-    + Encryption key (optional): Để trống.
-    + Tuỳ chọn thêm Tags:
+    + VPC (optional): Leave blank.
+![Data Analysis on AWS](/images/10/45.png?featherlight=false&width=90pc)
+
+    + Encryption key (optional): Leave blank.
+    + Optional extra Tags:
       + workshop: AnalyticsOnAWS.
   + Click: **Create Notebook**.
 
-![Architect](/images/10/20.png?width=90pc)
+![Data Analysis on AWS](/images/10/46.png?featherlight=false&width=90pc)
 
-Đợi vài phút để khởi tạo thành công, tiếp theo chúng ta sẽ chạy 1 notebook để tiến hành load dữ liệu vào Redshift.
+Wait a few minutes for successful initialization, next we will run a notebook to load data into Redshift.

@@ -1,5 +1,5 @@
 +++
-title = "Kiểm tra dữ liệu"
+title = "Data Check"
 date = 2020
 weight = 5
 chapter = false
@@ -7,20 +7,22 @@ pre = "<b>5.5 </b>"
 +++
 
 
-#### Kiểm tra dữ liệu
+#### Test data
 
-1. Đợi job hoàn thành, bạn sẽ thấy trạng thái **Succeeded**.
-  + Click **1 output** ở dứoi cột **Output**.
+1. Wait for the job to complete, you will see the status **Succeeded**.
+  + Click **1 output** below the **Output** column.
 
-![Architect](/images/5/24.png?width=90pc)
+![Data Analysis on AWS](/images/5/30.png?featherlight=false&width=90pc)
 
-2. Bạn có thể thấy ở dưới cột **Destination** là đường dẫn tới output.
-  + Click vào đường dẫn của S3 được tạo ra dưới cột này.
+2. You can see below the **Destination** column is the path to the output.
+  + Click on the path of the generated S3 under this column.
 
-![Architect](/images/5/25.png?width=90pc)
+![Data Analysis on AWS](/images/5/31.png?featherlight=false&width=90pc)
 
-3. Bạn có thể thấy các file output của Glue DataBrew job.
+3. You can see the output files of the Glue DataBrew job.
 
-![Architect](/images/5/26.png?width=90pc)
+![Data Analysis on AWS](/images/5/32.png?featherlight=false&width=90pc)
 
-Chúc mừng bạn đã hoàn thành bước chuyển đổi dữ liệu sử dụng AWS Glue DataBrew.Tiếp theo chúng ta sẽ thực hiện chuyển đổi dữ liệu với EMR.
+Congratulations on completing the data transformation using AWS Glue DataBrew. Next we will perform the data transformation with EMR.
+
+![Data Analysis on AWS](/images/5/33.png?featherlight=false&width=90pc)

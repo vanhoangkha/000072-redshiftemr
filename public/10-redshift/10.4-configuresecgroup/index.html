@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Cấu hình Security group :: Analytics on AWS</title>
+    <title>Security group configuration :: Analytics on AWS</title>
 
     
-    <link href="/css/nucleus.css?1632910942" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1632910942" rel="stylesheet">
-    <link href="/css/hybrid.css?1632910942" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1632910942" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1632910942" rel="stylesheet">
-    <link href="/css/auto-complete.css?1632910942" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1632910942" rel="stylesheet">
-    <link href="/css/theme.css?1632910942" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1632910942" rel="stylesheet">
+    <link href="/css/nucleus.css?1673731427" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673731427" rel="stylesheet">
+    <link href="/css/hybrid.css?1673731427" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673731427" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673731427" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673731427" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673731427" rel="stylesheet">
+    <link href="/css/theme.css?1673731427" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673731427" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1632910942" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673731427" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1632910942"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673731427"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1632910942"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1632910942"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673731427"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673731427"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1632910942"></script>
+<script type="text/javascript" src="/js/search.js?1673731427"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/1-ingest-and-store/" title="Thu thập và Lưu trữ dữ liệu" class="dd-item 
+    <li data-nav-id="/1-ingest-and-store/" title="Ingest and Store" class="dd-item 
         
         
         
         ">
       <a href="/1-ingest-and-store/">
-          <b>1. </b>Thu thập và Lưu trữ dữ liệu
+          <b>1. </b>Ingest and Store
           
             <i class="fas fa-check read-icon"></i>
           
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/1-ingest-and-store/1.1-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
+    <li data-nav-id="/1-ingest-and-store/1.1-creates3bucket/" title="Create S3 bucket" class="dd-item 
         
         
         
         ">
       <a href="/1-ingest-and-store/1.1-creates3bucket/">
-          <b>1.1 </b>Tạo S3 Bucket
+           <b> 1.1 </b> Create S3 bucket
           
             <i class="fas fa-check read-icon"></i>
           
@@ -141,13 +141,13 @@
  
   
     
-    <li data-nav-id="/1-ingest-and-store/1.2-createkinesis/" title="Tạo Kinesis Firehose" class="dd-item 
+    <li data-nav-id="/1-ingest-and-store/1.2-createkinesis/" title="Create Kinesis Firehose" class="dd-item 
         
         
         
         ">
       <a href="/1-ingest-and-store/1.2-createkinesis/">
-          <b>1.2 </b>Tạo Kinesis Firehose
+          <b>1.2 </b>Create Kinesis Firehose
           
             <i class="fas fa-check read-icon"></i>
           
@@ -169,13 +169,13 @@
  
   
     
-    <li data-nav-id="/1-ingest-and-store/1.3-generatedata/" title="Tạo dữ liệu giả lập" class="dd-item 
+    <li data-nav-id="/1-ingest-and-store/1.3-generatedata/" title="Generate Dummy Data" class="dd-item 
         
         
         
         ">
       <a href="/1-ingest-and-store/1.3-generatedata/">
-          <b>1.3 </b>Tạo dữ liệu giả lập
+          <b>1.3 </b>Generate Dummy Data
           
             <i class="fas fa-check read-icon"></i>
           
@@ -204,13 +204,13 @@
  
   
     
-    <li data-nav-id="/2-catalog-data/" title="Catalog để khám phá dữ liệu" class="dd-item 
+    <li data-nav-id="/2-catalog-data/" title="Catalog for data discovery" class="dd-item 
         
         
         
         ">
       <a href="/2-catalog-data/">
-          <b>2. </b>Catalog để khám phá dữ liệu
+          <b>2. </b>Catalog for data discovery
           
             <i class="fas fa-check read-icon"></i>
           
@@ -235,13 +235,13 @@
  
   
     
-    <li data-nav-id="/2-catalog-data/2.1-createiamrole/" title="Tạo IAM Role" class="dd-item 
+    <li data-nav-id="/2-catalog-data/2.1-createiamrole/" title="Create IAM Role" class="dd-item 
         
         
         
         ">
       <a href="/2-catalog-data/2.1-createiamrole/">
-          <b>2.1 </b>Tạo IAM Role
+          <b>2.1 </b>Create IAM Role
           
             <i class="fas fa-check read-icon"></i>
           
@@ -263,13 +263,13 @@
  
   
     
-    <li data-nav-id="/2-catalog-data/2.2-creategluecrawler/" title="Tạo AWS Glue Crawlers" class="dd-item 
+    <li data-nav-id="/2-catalog-data/2.2-creategluecrawler/" title="Create AWS Glue Crawlers" class="dd-item 
         
         
         
         ">
       <a href="/2-catalog-data/2.2-creategluecrawler/">
-          <b>2.2 </b>Tạo AWS Glue Crawlers
+          <b>2.2 </b>Create AWS Glue Crawlers
           
             <i class="fas fa-check read-icon"></i>
           
@@ -291,13 +291,13 @@
  
   
     
-    <li data-nav-id="/2-catalog-data/2.3-reviewcatalog/" title="Kiểm tra Glue catalog" class="dd-item 
+    <li data-nav-id="/2-catalog-data/2.3-reviewcatalog/" title="Check Glue catalog" class="dd-item 
         
         
         
         ">
       <a href="/2-catalog-data/2.3-reviewcatalog/">
-          <b>2.3 </b>Kiểm tra Glue catalog
+          <b>2.3 </b>Check Glue catalog
           
             <i class="fas fa-check read-icon"></i>
           
@@ -319,13 +319,13 @@
  
   
     
-    <li data-nav-id="/2-catalog-data/2.4-queryathena/" title="Query dữ liệu với Athena" class="dd-item 
+    <li data-nav-id="/2-catalog-data/2.4-queryathena/" title="Query data with Athena" class="dd-item 
         
         
         
         ">
       <a href="/2-catalog-data/2.4-queryathena/">
-          <b>2.4 </b>Query dữ liệu với Athena
+          <b>2.4 </b>Query data with Athena
           
             <i class="fas fa-check read-icon"></i>
           
@@ -354,13 +354,13 @@
  
   
     
-    <li data-nav-id="/3-aws-glue/" title="Transform với AWS Glue" class="dd-item 
+    <li data-nav-id="/3-aws-glue/" title="Transform with AWS Glue" class="dd-item 
         
         
         
         ">
       <a href="/3-aws-glue/">
-          <b>3. </b>Transform với AWS Glue
+          <b>3. </b>Transform with AWS Glue
           
             <i class="fas fa-check read-icon"></i>
           
@@ -385,13 +385,13 @@
  
   
     
-    <li data-nav-id="/3-aws-glue/3.1-createdevendpoint/" title="Tạo Development Endpoint" class="dd-item 
+    <li data-nav-id="/3-aws-glue/3.1-createdevendpoint/" title="Create Development Endpoint" class="dd-item 
         
         
         
         ">
       <a href="/3-aws-glue/3.1-createdevendpoint/">
-          <b>3.1 </b>Tạo Development Endpoint
+          <b>3.1 </b>Create Development Endpoint
           
             <i class="fas fa-check read-icon"></i>
           
@@ -413,13 +413,13 @@
  
   
     
-    <li data-nav-id="/3-aws-glue/3.2-createsagemaker/" title="Tạo SageMaker Notebooks" class="dd-item 
+    <li data-nav-id="/3-aws-glue/3.2-createsagemaker/" title="Create SageMaker Notebooks" class="dd-item 
         
         
         
         ">
       <a href="/3-aws-glue/3.2-createsagemaker/">
-          <b>3.2 </b>Tạo SageMaker Notebooks
+          <b>3.2 </b>Create SageMaker Notebooks
           
             <i class="fas fa-check read-icon"></i>
           
@@ -441,13 +441,13 @@
  
   
     
-    <li data-nav-id="/3-aws-glue/3.3-executenotebook/" title="Chạy Jupyter Notebook" class="dd-item 
+    <li data-nav-id="/3-aws-glue/3.3-executenotebook/" title="Run Jupyter Notebook" class="dd-item 
         
         
         
         ">
       <a href="/3-aws-glue/3.3-executenotebook/">
-          <b>3.3 </b>Chạy Jupyter Notebook
+          <b>3.3 </b>Run Jupyter Notebook
           
             <i class="fas fa-check read-icon"></i>
           
@@ -469,13 +469,13 @@
  
   
     
-    <li data-nav-id="/3-aws-glue/3.4-reviewdata/" title="Kiểm tra dữ liệu" class="dd-item 
+    <li data-nav-id="/3-aws-glue/3.4-reviewdata/" title="Data Check" class="dd-item 
         
         
         
         ">
       <a href="/3-aws-glue/3.4-reviewdata/">
-          <b>3.4 </b>Kiểm tra dữ liệu
+          <b>3.4 </b>Data Check
           
             <i class="fas fa-check read-icon"></i>
           
@@ -504,13 +504,13 @@
  
   
     
-    <li data-nav-id="/4-aws-glue-studio/" title="Transform với Glue Studio" class="dd-item 
+    <li data-nav-id="/4-aws-glue-studio/" title="Transform with Glue Studio" class="dd-item 
         
         
         
         ">
       <a href="/4-aws-glue-studio/">
-          <b>4. </b>Transform với Glue Studio
+          <b>4. </b>Transform with Glue Studio
           
             <i class="fas fa-check read-icon"></i>
           
@@ -535,13 +535,13 @@
  
   
     
-    <li data-nav-id="/4-aws-glue-studio/4.1-createjob/" title="Tạo Glue Studio job" class="dd-item 
+    <li data-nav-id="/4-aws-glue-studio/4.1-createjob/" title="Create Glue Studio job" class="dd-item 
         
         
         
         ">
       <a href="/4-aws-glue-studio/4.1-createjob/">
-          <b>4.1 </b>Tạo Glue Studio job
+          <b>4.1 </b>Create Glue Studio job
           
             <i class="fas fa-check read-icon"></i>
           
@@ -563,13 +563,13 @@
  
   
     
-    <li data-nav-id="/4-aws-glue-studio/4.2-addtransform/" title="Cấu hình transform" class="dd-item 
+    <li data-nav-id="/4-aws-glue-studio/4.2-addtransform/" title="Configure transform" class="dd-item 
         
         
         
         ">
       <a href="/4-aws-glue-studio/4.2-addtransform/">
-          <b>4.2 </b>Cấu hình transform
+          <b>4.2 </b>Configure transform
           
             <i class="fas fa-check read-icon"></i>
           
@@ -591,13 +591,13 @@
  
   
     
-    <li data-nav-id="/4-aws-glue-studio/4.3-rungluestudiojob/" title="Chạy Glue Studio job" class="dd-item 
+    <li data-nav-id="/4-aws-glue-studio/4.3-rungluestudiojob/" title="Run Glue Studio job" class="dd-item 
         
         
         
         ">
       <a href="/4-aws-glue-studio/4.3-rungluestudiojob/">
-          <b>4.3 </b>Chạy Glue Studio job
+          <b>4.3 </b>Run Glue Studio job
           
             <i class="fas fa-check read-icon"></i>
           
@@ -626,13 +626,13 @@
  
   
     
-    <li data-nav-id="/5-aws-glue-databrew/" title="Transform với DataBrew" class="dd-item 
+    <li data-nav-id="/5-aws-glue-databrew/" title="Transform with DataBrew" class="dd-item 
         
         
         
         ">
       <a href="/5-aws-glue-databrew/">
-          <b>5. </b>Transform với DataBrew
+          <b>5. </b>Transform with DataBrew
           
             <i class="fas fa-check read-icon"></i>
           
@@ -657,13 +657,13 @@
  
   
     
-    <li data-nav-id="/5-aws-glue-databrew/5.1-createproject/" title="Tạo DataBrew project" class="dd-item 
+    <li data-nav-id="/5-aws-glue-databrew/5.1-createproject/" title="Create DataBrew project" class="dd-item 
         
         
         
         ">
       <a href="/5-aws-glue-databrew/5.1-createproject/">
-          <b>5.1 </b>Tạo DataBrew project
+          <b>5.1 </b>Create DataBrew project
           
             <i class="fas fa-check read-icon"></i>
           
@@ -685,13 +685,13 @@
  
   
     
-    <li data-nav-id="/5-aws-glue-databrew/5.2-databrewprofile/" title="Data profile với DataBrew" class="dd-item 
+    <li data-nav-id="/5-aws-glue-databrew/5.2-databrewprofile/" title="Data profile with DataBrew" class="dd-item 
         
         
         
         ">
       <a href="/5-aws-glue-databrew/5.2-databrewprofile/">
-          <b>5.2 </b>Data profile với DataBrew
+          <b>5.2 </b>Data profile with DataBrew
           
             <i class="fas fa-check read-icon"></i>
           
@@ -741,13 +741,13 @@
  
   
     
-    <li data-nav-id="/5-aws-glue-databrew/5.4-createrunjob/" title="Khởi tạo và chạy job" class="dd-item 
+    <li data-nav-id="/5-aws-glue-databrew/5.4-createrunjob/" title="Initialize and run the job" class="dd-item 
         
         
         
         ">
       <a href="/5-aws-glue-databrew/5.4-createrunjob/">
-          <b>5.4 </b>Khởi tạo và chạy job
+          <b>5.4 </b>Initialize and run the job
           
             <i class="fas fa-check read-icon"></i>
           
@@ -769,13 +769,13 @@
  
   
     
-    <li data-nav-id="/5-aws-glue-databrew/5.5-reviewdata/" title="Kiểm tra dữ liệu" class="dd-item 
+    <li data-nav-id="/5-aws-glue-databrew/5.5-reviewdata/" title="Data Check" class="dd-item 
         
         
         
         ">
       <a href="/5-aws-glue-databrew/5.5-reviewdata/">
-          <b>5.5 </b>Kiểm tra dữ liệu
+          <b>5.5 </b>Data Check
           
             <i class="fas fa-check read-icon"></i>
           
@@ -804,13 +804,13 @@
  
   
     
-    <li data-nav-id="/6-emr/" title="Transform với EMR" class="dd-item 
+    <li data-nav-id="/6-emr/" title="Transform with EMR" class="dd-item 
         
         
         
         ">
       <a href="/6-emr/">
-          <b>6. </b>Transform với EMR
+          <b>6. </b>Transform with EMR
           
             <i class="fas fa-check read-icon"></i>
           
@@ -835,13 +835,13 @@
  
   
     
-    <li data-nav-id="/6-emr/6.1-prepares3/" title="Chuẩn bị thư mục và script" class="dd-item 
+    <li data-nav-id="/6-emr/6.1-prepares3/" title="Prepare directories and scripts" class="dd-item 
         
         
         
         ">
       <a href="/6-emr/6.1-prepares3/">
-          <b>6.1 </b>Chuẩn bị thư mục và script
+          <b>6.1 </b>Prepare directories and scripts
           
             <i class="fas fa-check read-icon"></i>
           
@@ -863,13 +863,13 @@
  
   
     
-    <li data-nav-id="/6-emr/6.2-createcluster/" title="Tạo EMR Cluster" class="dd-item 
+    <li data-nav-id="/6-emr/6.2-createcluster/" title="Create EMR Cluster" class="dd-item 
         
         
         
         ">
       <a href="/6-emr/6.2-createcluster/">
-          <b>6.2 </b>Tạo EMR Cluster
+          <b>6.2 </b>Create EMR Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -891,13 +891,13 @@
  
   
     
-    <li data-nav-id="/6-emr/6.3-checkjobstatus/" title="Kiểm tra EMR Job " class="dd-item 
+    <li data-nav-id="/6-emr/6.3-checkjobstatus/" title="Check EMR Job" class="dd-item 
         
         
         
         ">
       <a href="/6-emr/6.3-checkjobstatus/">
-          <b>6.3 </b>Kiểm tra EMR Job 
+          <b>6.3 </b>Check EMR Job
           
             <i class="fas fa-check read-icon"></i>
           
@@ -919,13 +919,13 @@
  
   
     
-    <li data-nav-id="/6-emr/6.4-reviewdata/" title="Kiểm tra dữ liệu" class="dd-item 
+    <li data-nav-id="/6-emr/6.4-reviewdata/" title="Data Check" class="dd-item 
         
         
         
         ">
       <a href="/6-emr/6.4-reviewdata/">
-          <b>6.4 </b>Kiểm tra dữ liệu
+          <b>6.4 </b>Data Check
           
             <i class="fas fa-check read-icon"></i>
           
@@ -947,13 +947,13 @@
  
   
     
-    <li data-nav-id="/6-emr/6.5-runcrawler/" title="Chạy lại Glue Crawler" class="dd-item 
+    <li data-nav-id="/6-emr/6.5-runcrawler/" title="Rerun Glue Crawler" class="dd-item 
         
         
         
         ">
       <a href="/6-emr/6.5-runcrawler/">
-          <b>6.5 </b>Chạy lại Glue Crawler
+          <b>6.5 </b>Rerun Glue Crawler
           
             <i class="fas fa-check read-icon"></i>
           
@@ -982,13 +982,13 @@
  
   
     
-    <li data-nav-id="/7-athena/" title="Phân tích với Athena" class="dd-item 
+    <li data-nav-id="/7-athena/" title="Analysis with Athena" class="dd-item 
         
         
         
         ">
       <a href="/7-athena/">
-          <b>7. </b>Phân tích với Athena
+          <b>7. </b>Analysis with Athena
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1008,13 +1008,13 @@
  
   
     
-    <li data-nav-id="/8-quicksight/" title="Visualization với QuickSight" class="dd-item 
+    <li data-nav-id="/8-quicksight/" title="Visualization with QuickSight" class="dd-item 
         
         
         
         ">
       <a href="/8-quicksight/">
-          <b>8. </b>Visualization với QuickSight
+          <b>8. </b>Visualization with QuickSight
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1039,13 +1039,13 @@
  
   
     
-    <li data-nav-id="/8-quicksight/8.1-subscribe/" title="Đăng ký QuickSight" class="dd-item 
+    <li data-nav-id="/8-quicksight/8.1-subscribe/" title="Register for QuickSight" class="dd-item 
         
         
         
         ">
       <a href="/8-quicksight/8.1-subscribe/">
-          <b>8.1 </b>Đăng ký QuickSight
+          <b>8.1 </b>Register for QuickSight
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1067,13 +1067,13 @@
  
   
     
-    <li data-nav-id="/8-quicksight/8.2-adddataset/" title="Thêm Dataset" class="dd-item 
+    <li data-nav-id="/8-quicksight/8.2-adddataset/" title="Add Dataset" class="dd-item 
         
         
         
         ">
       <a href="/8-quicksight/8.2-adddataset/">
-          <b>8.2 </b>Thêm Dataset
+          <b>8.2 </b>Add Dataset
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1095,13 +1095,13 @@
  
   
     
-    <li data-nav-id="/8-quicksight/8.3-createvisual/" title="Tạo QuickSight Visual" class="dd-item 
+    <li data-nav-id="/8-quicksight/8.3-createvisual/" title="Create QuickSight Visual" class="dd-item 
         
         
         
         ">
       <a href="/8-quicksight/8.3-createvisual/">
-          <b>8.3 </b>Tạo QuickSight Visual
+          <b>8.3 </b>Create QuickSight Visual
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1130,13 +1130,13 @@
  
   
     
-    <li data-nav-id="/9-lambda/" title="Truy vấn dữ liệu với Lambda" class="dd-item 
+    <li data-nav-id="/9-lambda/" title="Querying data with Lambda" class="dd-item 
         
         
         
         ">
       <a href="/9-lambda/">
-          <b>9. </b>Truy vấn dữ liệu với Lambda
+          <b>9. </b>Querying data with Lambda
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1161,13 +1161,13 @@
  
   
     
-    <li data-nav-id="/9-lambda/9.1-createfunction/" title="Tạo Lambda Function" class="dd-item 
+    <li data-nav-id="/9-lambda/9.1-createfunction/" title="Create Lambda Function" class="dd-item 
         
         
         
         ">
       <a href="/9-lambda/9.1-createfunction/">
-          <b>9.1 </b>Tạo Lambda Function
+          <b>9.1 </b>Create Lambda Function
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1189,13 +1189,13 @@
  
   
     
-    <li data-nav-id="/9-lambda/9.2-updatelambdacode/" title="Viết code Lambda Function" class="dd-item 
+    <li data-nav-id="/9-lambda/9.2-updatelambdacode/" title="Writing Lambda Function Code" class="dd-item 
         
         
         
         ">
       <a href="/9-lambda/9.2-updatelambdacode/">
-          <b>9.2 </b>Viết code Lambda Function
+          <b>9.2 </b>Writing Lambda Function Code
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1217,13 +1217,13 @@
  
   
     
-    <li data-nav-id="/9-lambda/9.3-testlambda/" title="Truy vấn dữ liệu với Lambda" class="dd-item 
+    <li data-nav-id="/9-lambda/9.3-testlambda/" title="Querying data with Lambda" class="dd-item 
         
         
         
         ">
       <a href="/9-lambda/9.3-testlambda/">
-          <b>9.3 </b>Truy vấn dữ liệu với Lambda
+          <b>9.3 </b>Querying data with Lambda
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1245,13 +1245,13 @@
  
   
     
-    <li data-nav-id="/9-lambda/9.4-reviewathena/" title="Kiểm tra dữ liệu với Athena" class="dd-item 
+    <li data-nav-id="/9-lambda/9.4-reviewathena/" title="Testing data with Athena" class="dd-item 
         
         
         
         ">
       <a href="/9-lambda/9.4-reviewathena/">
-          <b>9.4 </b>Kiểm tra dữ liệu với Athena
+          <b>9.4 </b>Testing data with Athena
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1280,13 +1280,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/" title="Warehouse trên Redshift" class="dd-item 
+    <li data-nav-id="/10-redshift/" title="Warehouse on Redshift" class="dd-item 
         parent
         
         
         ">
       <a href="/10-redshift/">
-          <b>10. </b>Warehouse trên Redshift
+          <b>10. </b>Warehouse on Redshift
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1311,13 +1311,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.1-createiamrole/" title="Tạo Redshift IAM role" class="dd-item 
+    <li data-nav-id="/10-redshift/10.1-createiamrole/" title="Create Redshift IAM role" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.1-createiamrole/">
-          <b>10.1 </b>Tạo Redshift IAM role
+          <b>10.1 </b>Create Redshift IAM role
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1339,13 +1339,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.2-createcluster/" title="Tạo Redshift cluster" class="dd-item 
+    <li data-nav-id="/10-redshift/10.2-createcluster/" title="Create Redshift cluster" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.2-createcluster/">
-          <b>10.2 </b>Tạo Redshift cluster
+          <b>10.2 </b>Create Redshift cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1367,13 +1367,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.3-s3gateway/" title="Tạo S3 Gateway Endpoint" class="dd-item 
+    <li data-nav-id="/10-redshift/10.3-s3gateway/" title="Create S3 Gateway Endpoint" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.3-s3gateway/">
-          <b>10.3 </b>Tạo S3 Gateway Endpoint
+          <b>10.3 </b>Create S3 Gateway Endpoint
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1395,13 +1395,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.4-configuresecgroup/" title="Cấu hình Security group" class="dd-item 
-        
+    <li data-nav-id="/10-redshift/10.4-configuresecgroup/" title="Security group configuration" class="dd-item 
+        parent
         active
         
         ">
       <a href="/10-redshift/10.4-configuresecgroup/">
-          <b>10.4 </b>Cấu hình Security group
+          <b>10.4 </b>Security group configuration
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1423,13 +1423,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.5-glueconnection/" title="Tạo Redshift connection" class="dd-item 
+    <li data-nav-id="/10-redshift/10.5-glueconnection/" title="Create Redshift connection" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.5-glueconnection/">
-          <b>10.5 </b>Tạo Redshift connection
+          <b>10.5 </b>Create Redshift connection
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1451,13 +1451,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.6-createschema/" title="Tạo schema và tables" class="dd-item 
+    <li data-nav-id="/10-redshift/10.6-createschema/" title="Create schema and tables" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.6-createschema/">
-          <b>10.6 </b>Tạo schema và tables
+          <b>10.6 </b>Create schema and tables
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1479,13 +1479,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.7-extractloaddata/" title="Chuyển đổi và load dữ liệu" class="dd-item 
+    <li data-nav-id="/10-redshift/10.7-extractloaddata/" title="Convert and load data" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.7-extractloaddata/">
-          <b>10.7 </b>Chuyển đổi và load dữ liệu
+          <b>10.7 </b>Convert and load data
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1510,13 +1510,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.7-extractloaddata/10.7.1-createglueep/" title="Tạo Glue Dev Endpoint" class="dd-item 
+    <li data-nav-id="/10-redshift/10.7-extractloaddata/10.7.1-createglueep/" title="Create Glue Dev Endpoint" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.7-extractloaddata/10.7.1-createglueep/">
-          <b>10.7.1 </b>Tạo Glue Dev Endpoint
+          <b>10.7.1 </b>Create Glue Dev Endpoint
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1538,13 +1538,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.7-extractloaddata/10.7.2-createsagemaker/" title="Tạo Notebooks" class="dd-item 
+    <li data-nav-id="/10-redshift/10.7-extractloaddata/10.7.2-createsagemaker/" title="Create Notebooks" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.7-extractloaddata/10.7.2-createsagemaker/">
-          <b>10.7.2 </b>Tạo Notebooks
+          <b>10.7.2 </b>Create Notebooks
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1566,13 +1566,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.7-extractloaddata/10.7.3-runnotebook/" title="Chạy Jupyter Notebook" class="dd-item 
+    <li data-nav-id="/10-redshift/10.7-extractloaddata/10.7.3-runnotebook/" title="Run Jupyter Notebook" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.7-extractloaddata/10.7.3-runnotebook/">
-          <b>10.7.3 </b>Chạy Jupyter Notebook
+          <b>10.7.3 </b>Run Jupyter Notebook
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1603,13 +1603,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.8-reviewdata/" title="Kiểm tra dữ liệu" class="dd-item 
+    <li data-nav-id="/10-redshift/10.8-reviewdata/" title="Data Check" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.8-reviewdata/">
-          <b>10.8 </b>Kiểm tra dữ liệu
+          <b>10.8 </b>Data Check
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1631,13 +1631,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.9-optimizeredshift/" title="Tối ưu Redshift" class="dd-item 
+    <li data-nav-id="/10-redshift/10.9-optimizeredshift/" title="Optimize Redshift" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.9-optimizeredshift/">
-          <b>10.9 </b>Tối ưu Redshift
+          <b>10.9 </b>Optimize Redshift
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1662,13 +1662,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.9-optimizeredshift/10.9.1-stringcolumnsize/" title="Tối ưu Kích thước cột" class="dd-item 
+    <li data-nav-id="/10-redshift/10.9-optimizeredshift/10.9.1-stringcolumnsize/" title="Optimize Column Size" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.9-optimizeredshift/10.9.1-stringcolumnsize/">
-          <b>10.9.1 </b>Tối ưu Kích thước cột
+          <b>10.9.1 </b>Optimize Column Size
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1718,13 +1718,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.9-optimizeredshift/10.9.3-distributedata/" title="Phân phối dữ liệu" class="dd-item 
+    <li data-nav-id="/10-redshift/10.9-optimizeredshift/10.9.3-distributedata/" title="Data Delivery" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.9-optimizeredshift/10.9.3-distributedata/">
-          <b>10.9.3 </b>Phân phối dữ liệu
+          <b>10.9.3 </b>Data Delivery
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1746,13 +1746,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.9-optimizeredshift/10.9.4-createnewtable/" title="Tạo table mới " class="dd-item 
+    <li data-nav-id="/10-redshift/10.9-optimizeredshift/10.9.4-createnewtable/" title="Create new table" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.9-optimizeredshift/10.9.4-createnewtable/">
-          <b>10.9.4 </b>Tạo table mới 
+          <b>10.9.4 </b>Create new table
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1774,13 +1774,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.9-optimizeredshift/10.9.5-vacuumanalyze/" title="Vacuum và Analyze" class="dd-item 
+    <li data-nav-id="/10-redshift/10.9-optimizeredshift/10.9.5-vacuumanalyze/" title="Vacuum and Analyze" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.9-optimizeredshift/10.9.5-vacuumanalyze/">
-          <b>10.9.5 </b>Vacuum và Analyze
+          <b>10.9.5 </b>Vacuum and Analyze
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1802,13 +1802,13 @@
  
   
     
-    <li data-nav-id="/10-redshift/10.9-optimizeredshift/10.9.6-testquery/" title="Query và so sánh hiệu năng" class="dd-item 
+    <li data-nav-id="/10-redshift/10.9-optimizeredshift/10.9.6-testquery/" title="Query and performance comparison" class="dd-item 
         
         
         
         ">
       <a href="/10-redshift/10.9-optimizeredshift/10.9.6-testquery/">
-          <b>10.9.6 </b>Query và so sánh hiệu năng
+          <b>10.9.6 </b>Query and performance comparison
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1846,13 +1846,13 @@
  
   
     
-    <li data-nav-id="/11-cleanup/" title="Dọn dẹp" class="dd-item 
+    <li data-nav-id="/11-cleanup/" title="Clean up resources" class="dd-item 
         
         
         
         ">
       <a href="/11-cleanup/">
-          <b>11. </b>Dọn dẹp
+          <b>11. </b>Clean up resources
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1955,7 +1955,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>30-09-2021</font></i>
+        <i><font color=orange>15-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -2008,7 +2008,7 @@
             
           
           
-            <a href='/'>Phân Tích Dữ Liệu Trên AWS</a> > <a href='/10-redshift/'>Warehouse trên Redshift</a> > Cấu hình Security group
+            <a href='/'>Data Analysis On AWS</a> > <a href='/10-redshift/'>Warehouse on Redshift</a> > Security group configuration
           
         
           
@@ -2045,7 +2045,7 @@
           
             <h1>
               
-              Cấu hình Security group
+              Security group configuration
             </h1>
           
 
@@ -2053,40 +2053,41 @@
 
 
 
-	<h4 id="xác-nhận-và-thêm-rule-vào-security-group-mặc-định">Xác nhận và thêm rule vào security group mặc định</h4>
-<p>Ở bước này, chúng ta sẽ xác nhận và thêm rule cho Redshift security group để dịch vụ Glue có thể làm việc được với Redshift.</p>
+	<h4 id="confirm-and-add-the-rule-to-the-default-security-group">Confirm and add the rule to the default security group</h4>
+<p>In this step, we will confirm and add a rule for the Redshift security group so that the Glue service can work with Redshift.</p>
 <ol>
-<li>Truy cập đến <a href="https://console.aws.amazon.com/vpc/home?region=ap-southeast-1#SecurityGroups:sort=tag:Name">giao diện quản trị dịch vụ VPC: security groups</a>.</li>
+<li>Go to <a href="https://console.aws.amazon.com/vpc/home?region=ap-southeast-1#SecurityGroups:sort=tag:Name">VPC service administration interface: security groups</a> .</li>
 </ol>
 <ul>
-<li>Chọn Redshift security group. Nó sẽ ở security mặc định nếu nó không thay đổi khi chúng ta tạo Redshift cluster.</li>
-<li>Nếu bạn có nhiều hơn 1 security group trong danh sách, làm theo những bước sau:
+<li>Select Redshift security group. It will be at the default security if it was not changed when we created the Redshift cluster.</li>
+<li>If you have more than 1 security group in the list, follow these steps:
 <ul>
-<li>Truy cập đến <a href="https://console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1">giao diện quản trị dịch vụ Redshift</a>.</li>
+<li>Access to <a href="https://console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1">Redshift service administration interface</a>.</li>
 <li>Click <strong>redshift-cluster-1</strong>.</li>
-<li>Click tab <strong>Properties</strong>.</li>
-<li>Kéo xuống và kiểm tra phần <strong>Network and security</strong> để lấy Security Group id.</li>
+<li>Click the <strong>Properties</strong> tab.</li>
+<li>Scroll down and check the <strong>Network and security</strong> section to get the Security Group id.</li>
 </ul>
 </li>
-<li>Một khi bạn đã xác nhận Security Group, chọn security group.</li>
+<li>Once you have confirmed Security Group, select security group.</li>
 <li>Click <strong>Inbound rules</strong>.</li>
 <li>Click <strong>Edit rules</strong>.</li>
 </ul>
-<p><img src="/images/10/8.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/10/19.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="2">
-<li>Kiểm tra rule có sẵn.
+<li>Check the existing rule.
 <ul>
 <li>Type: All Traffic.</li>
-<li>Source: [Tên của security group bạn đang edit].</li>
+<li>Source: [Name of the security group you are editing].</li>
 </ul>
 </li>
 </ol>
+<p><img src="/images/10/20.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 
-<div class="notices note" ><p>Rule tự tham chiếu này là cần thiết để Glue có thể giao tiếp với Redshift.</p>
+<div class="notices note" ><p>This self-referencing rule is necessary for Glue to communicate with Redshift.</p>
 </div>
 
 <ul>
-<li>Thêm <strong>HTTPS</strong> rule cho Amazon S3 access.
+<li>Add <strong>HTTPS</strong> rule for Amazon S3 access.
 <ul>
 <li>Type: <code>HTTPS</code>.</li>
 <li>Source: [s3-prefix-list-id].</li>
@@ -2094,34 +2095,34 @@
 </li>
 </ul>
 
-<div class="notices note" ><p>Dưới phần <strong>Source</strong> chọn Custom và nhập &ldquo;pl vào text box cạnh nó, S3 endpoint tạo trước đó sẽ hiển thị và chọn nó.</p>
+<div class="notices note" ><p>Under <strong>Source</strong> select Custom and enter &ldquo;pl in the text box next to it, the previously created S3 endpoint will display and select it.</p>
 </div>
 
 <ul>
 <li>Click <strong>Save rules</strong>.</li>
 </ul>
-<p><img src="/images/10/9.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/10/20.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ul>
 <li>Click <strong>Outbound Rules</strong>.</li>
 <li>Click <strong>Edit rules</strong>.</li>
 </ul>
-<p><img src="/images/10/10.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/10/21.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ul>
-<li>Để nguyên rule với những giá trị dưới đây:
+<li>Leave the rule as it is with the following values:
 <ul>
 <li>Type: All Traffic</li>
 <li>Source: <code>0.0.0.0/0</code></li>
 </ul>
 </li>
-<li>Rule tự tham chiếu
+<li>Rule self-referencing
 <ul>
 <li>Type: All TCP</li>
-<li>Source: [Tên của security group bạn đang edit]</li>
+<li>Source: [Name of the security group you are editing]</li>
 </ul>
 </li>
 <li>Click <strong>Save rules</strong>.</li>
 </ul>
-<p><img src="/images/10/11.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/10/22.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 
 
 
@@ -3159,10 +3160,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/10-redshift/10.3-s3gateway/" title="Tạo S3 Gateway Endpoint"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/10-redshift/10.3-s3gateway/" title="Create S3 Gateway Endpoint"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/10-redshift/10.5-glueconnection/" title="Tạo Redshift connection" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/10-redshift/10.5-glueconnection/" title="Create Redshift connection" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -3172,19 +3173,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1632910942"></script>
-    <script src="/js/perfect-scrollbar.min.js?1632910942"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1632910942"></script>
-    <script src="/js/jquery.sticky.js?1632910942"></script>
-    <script src="/js/featherlight.min.js?1632910942"></script>
-    <script src="/js/highlight.pack.js?1632910942"></script>
+    <script src="/js/clipboard.min.js?1673731427"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673731427"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673731427"></script>
+    <script src="/js/jquery.sticky.js?1673731427"></script>
+    <script src="/js/featherlight.min.js?1673731427"></script>
+    <script src="/js/highlight.pack.js?1673731427"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1632910942"></script>
-    <script src="/js/learn.js?1632910942"></script>
-    <script src="/js/hugo-learn.js?1632910942"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673731427"></script>
+    <script src="/js/learn.js?1673731427"></script>
+    <script src="/js/hugo-learn.js?1673731427"></script>
 
-    <link href="/mermaid/mermaid.css?1632910942" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1632910942"></script>
+    <link href="/mermaid/mermaid.css?1673731427" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673731427"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

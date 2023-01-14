@@ -1,5 +1,5 @@
 +++
-title = "Dọn dẹp"
+title = "Clean up resources"
 date = 2020
 weight = 11
 chapter = false
@@ -8,140 +8,140 @@ pre = "<b>11. </b>"
 
 ---
 
-Nếu không dọn dẹp tất cả tài nguyên bạn sẽ tiếp tục bị charge phí sử dụng AWS
+If you don't clean up all your resources, you will continue to be charged for using AWS
 
-Hãy chắc rằng bạn xoá tát cả tài nguyên bạn tạo qua các bước dưới đây
+Make sure you delete all the resources you create through the steps below, and only delete the resources used in the workshop.
 
 ---
 
-#### Các tài nguyên để xoá
+#### Resources to be deleted.
 
 + Kinesis Firehose Delivery Stream
 
-  + Đi Đến: Kinesis Console [Nhấn vào đây](https://console.aws.amazon.com/firehose/home?region=ap-southeast-1#/)
-  + Xoá Firehose: **analytics-workshop-stream**
+  + Go To: Kinesis Console [Click here](https://console.aws.amazon.com/firehose/home?region=ap-southeast-1#/)
+  + Remove Firehose: **analytics-workshop-stream**
 
 + Lambda
 
-  + Đi Đến: Lambda Console [Nhấn vào đây](https://console.aws.amazon.com/lambda/home?region=ap-southeast-1)
-  + Đi đến list function và chọn **Analyticsworkshop_top5Songs**.
-  + Dưới bảng sổ xuống **Actions**, chọn **Delete**.
+  + Go To: Lambda Console [Click here](https://console.aws.amazon.com/lambda/home?region=ap-southeast-1)
+  + Go to function list and select **Analyticsworkshop_top5Songs**.
+  + Under the **Actions** drop-down list, select **Delete**.
 
 + Glue Database
 
-  + Đi Đến: Glue Console [Nhấn vào đây](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#catalog:tab=databases)
-  + Xoá Database: **analyticsworkshopdb**
+  + Go To: Glue Console [Click here](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#catalog:tab=databases)
+  + Delete Database: **analyticsworkshopdb**
 
 + Glue Crawler
 
-  + Đi Đến: Glue Crawlers [Nhấn vào đây](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#catalog:tab=crawlers)
+  + Go To: Glue Crawlers [Click here](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#catalog:tab=crawlers)
   + Xpas Crawler: **AnalyticsworkshopCrawler**
 
 + Glue Dev Endpoints
 
-  + Đi Đến: Glue Dev Endpoints [Nhấn vào đây](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=devEndpoints)
-  + Xoá endpoint: **analyticsworkshopEndpoint1**
+  + Go To: Glue Dev Endpoints [Click here](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=devEndpoints)
+  + Delete endpoint: **analyticsworkshopEndpoint1**
   + Xpas endpoint: **analyticsworkshopEndpoint2**
 
 + Glue Studio Job
 
-  + Đi Đến: https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=jobs
-  + Chọn **AnalyticsOnAWS-GlueStudio**
-  + Nhấn **Action** và chọn **Delete**
+  + Go To: https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=jobs
+  + Select **AnalyticsOnAWS-GlueStudio**
+  + Press **Action** and select **Delete**
 
 + Glue DataBrew projects
 
-  + Đi Đến: https://console.aws.amazon.com/databrew/home?region=ap-southeast-1#projects
-  + Chọn **AnalyticsOnAWS-GlueDataBrew**
-  + Nhấn **Action** và chọn **Delete**
-  + Chọn **Delete attached receipe** và nhấn **Delete**
+  + Go To: https://console.aws.amazon.com/databrew/home?region=ap-southeast-1#projects
+  + Select **AnalyticsOnAWS-GlueDataBrew**
+  + Press **Action** and select **Delete**
+  + Select **Delete attached receipe** and press **Delete**
 
 + Glue DataBrew datasets
 
-  + Đi đến: https://console.aws.amazon.com/databrew/home?region=ap-southeast-1#datasets
-  + Chọn dataset: **reference-data-dataset** and **raw-dataset**
-  + Nhấn **Action** và chọn **Delete**
-  + Xác nhận xoá bằng cách nhấn **Delete**
+  + Go to: https://console.aws.amazon.com/databrew/home?region=ap-southeast-1#datasets
+  + Select dataset: **reference-data-dataset** and **raw-dataset**
+  + Press **Action** and select **Delete**
+  + Confirm deletion by pressing **Delete**
 
 + Glue DataBrew Jobs
 
-  + Đi Đến: https://console.aws.amazon.com/databrew/home?region=ap-southeast-1#jobs?tab=profile
-  + Chọn dataset: **raw-dataset profile job**
-  + Nhấn **Action** và chọn **Delete**
-  + Xác nhận xoá bằng cách nhấn **Delete**
+  + Go To: https://console.aws.amazon.com/databrew/home?region=ap-southeast-1#jobs?tab=profile
+  + Select dataset: **raw-dataset profile job**
+  + Press **Action** and select **Delete**
+  + Confirm deletion by pressing **Delete**
 
 + Sagemaker Notebook
 
-  + Bạn có thể xoá các file notebook đã tải xuống thông suốt bài lab
-  + Đi đến: Notebooks Console [Nhấn vào đây](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=notebooks)
-  + Dừng và sau đó xoá Notebook: **aws-glue-AnalyticsworkshopRedshiftNotebook**
-  + Dừng và sau đó xoá Notebook: **aws-glue-AnalyticsworkshopNotebook**
+  + You can delete downloaded notebook files throughout the lab
+  + Go to: Notebooks Console [Click here](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=notebooks)
+  + Stop and then delete Notebook: **aws-glue-AnalyticsworkshopRedshiftNotebook**
+  + Stop and then delete Notebook: **aws-glue-AnalyticsworkshopNotebook**
 
 + Delete Glue connection
 
-  + Đi đến: Glue Connections [Nhấn vào đây](https://ap-southeast-1.console.aws.amazon.com/glue/home?region=ap-southeast-1#catalog:tab=connections)
-  + chọn **analytics_workshop**
-  + Từ **Actions** chọn **Delete Connection**
-  + Nhấn **Delete**
+  + Go to: Glue Connections [Click here](https://ap-southeast-1.console.aws.amazon.com/glue/home?region=ap-southeast-1#catalog:tab=connections)
+  + select **analytics_workshop**
+  + From **Actions** select **Delete Connection**
+  + Click **Delete**
 
 + Delete IAM Role
 
-  + Đi Đến: IAM Console [Nhấn vào đây](https://console.aws.amazon.com/iam/home?region=ap-southeast-1#/roles)
-  + Tìm AnalyticsworkshopGlueRole
-  + Xoá Role: **AnalyticsworkshopGlueRole**
-  + Xoá Role: **Analyticsworkshop_RedshiftRole**
-  + Tìm Analyticsworkshop_top5Songs trong khung tìm kiếm
-  + Chọn và xoá. [**Analyticsworkshop_top5Songs-role-**]
+  + Go To: IAM Console [Click here](https://console.aws.amazon.com/iam/home?region=ap-southeast-1#/roles)
+  + Find AnalyticsworkshopGlueRole
+  + Delete Role: **AnalyticsworkshopGlueRole**
+  + Delete Role: **Analyticsworkshop_RedshiftRole**
+  + Find Analyticsworkshop_top5Songs in the search box
+  + Select and delete. [**Analyticsworkshop_top5Songs-role-**]
 
 + Delete Redshift cluster
 
-  + Đi Đến: Redshift Console [Nhấn vào đây](https://console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1)
-  + Chọn **redshift-cluster-1**
-  + Từ **Actions**, chọn **Delete**
-  + Bỏ chọn **Create final snapshot**
-  + Nhấn **Delete**
+  + Go To: Redshift Console [Click here](https://console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1)
+  + Select **redshift-cluster-1**
+  + From **Actions**, select **Delete**
+  + Uncheck **Create final snapshot**
+  + Click **Delete**
 
 + Delete S3 Gateway Endpoint
 
-  + Đi Đến: S3 Gateway Endpoints [Nhấn vào đây](https://console.aws.amazon.com/vpc/home?region=ap-southeast-1#Endpoints:sort=vpcEndpointId)
-  + Chọn **RedshiftS3EP**
-  + Từ **Actions** chọn **Delete Endpoint**
+  + Go To: S3 Gateway Endpoints [Click here](https://console.aws.amazon.com/vpc/home?region=ap-southeast-1#Endpoints:sort=vpcEndpointId)
+  + Select **RedshiftS3EP**
+  + From **Actions** select **Delete Endpoint**
 
 + Revert Security Group rules
 
-  + Đi Đến: EC2 Security Groups [Nhấn vào đây](https://console.aws.amazon.com/vpc/home?region=ap-southeast-1#SecurityGroups:sort=tag:Name)
-  + Với ```default``` security group:
-    + Nhấn Inbound Rules
-      + Nhấn Edit Rules
-      + Xoá dùng với S3 prefix list ID
-      + Nhấn Save rules
-    + Nhấn Outbound rules
-      + Nhấn Edit Rules
-      + Xoá All TCP rule.
-      + Nhấn Save rules
+  + Go To: EC2 Security Groups [Click here](https://console.aws.amazon.com/vpc/home?region=ap-southeast-1#SecurityGroups:sort=tag:Name)
+  + With ```default``` security group:
+    + Click Inbound Rules
+      + Click Edit Rules
+      + Delete used with S3 prefix list ID
+      + Click Save rules
+    + Click Outbound rules
+      + Click Edit Rules
+      + Delete All TCP rules.
+      + Click Save rules
 
 + Delete S3 bucket
 
-  + Đi Đến: S3 Console [Nhấn vào đây](https://s3.console.aws.amazon.com/s3/home?region=ap-southeast-1)
-  + Xoá Bucket: **yourname-analytics-workshop-bucket**
-    + Bạn sẽ cần **Empty** bucket trước
-    + Khi bucket đã rỗng, **Delete** bucket
+  + Go To: S3 Console [Click here](https://s3.console.aws.amazon.com/s3/home?region=ap-southeast-1)
+  + Delete Bucket: **yourname-analytics-workshop-bucket**
+    + You will need **Empty** bucket first
+    + When the bucket is empty, **Delete** bucket
 
 + Delete the Cognito CloudFormation Stack
 
-  + Đi Đến: CloudFormation [Nhấn vào đây](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/)
-  + Nhấn: **Kinesis-Data-Generator-Cognito-User**
-  + Nhấn: **Actions > DeleteStack**
-  + Ở màn hình confirm:
-    + Nhấn Delete
+  + Go To: CloudFormation [Click here](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/)
+  + Click: **Kinesis-Data-Generator-Cognito-User**
+  + Click: **Actions > DeleteStack**
+  On the confirmation screen:
+    + Press Delete
 
 + Close QuickSight account
 
-  + Đi Đến: Quicksight Console [Nhấn vào đây](https://ap-southeast-1.quicksight.aws.amazon.com/en/admin#permissions)
-  + Nhấn **Unsubscribe**
+  + Go To: Quicksight Console [Click here](https://ap-southeast-1.quicksight.aws.amazon.com/en/admin#permissions)
+  + Click **Unsubscribe**
 
 + Cognito Userpool
 
-  + Đi Đến: Cognito Console [Nhấn vào đây](https://ap-southeast-1.console.aws.amazon.com/cognito/users/)
-  + Nhấn **Kinesis Data-Generator Users**
-  + Nhấn **Delete Pool**
+  + Go To: Cognito Console [Click here](https://ap-southeast-1.console.aws.amazon.com/cognito/users/)
+  + Click **Kinesis Data-Generator Users**
+  + Click **Delete Pool**

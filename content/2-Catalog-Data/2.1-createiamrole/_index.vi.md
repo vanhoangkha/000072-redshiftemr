@@ -15,24 +15,22 @@ pre = "<b>2.1 </b>"
   + Chọn service sẽ sử dụng role là : **Glue**.
   + Click **Next: Permissions**.
 
-![Architect](/images/2/1.png?width=90pc)
+![Data Analysis on AWS](/images/2/1.png?featherlight=false&width=90pc)
 
-2. Thực hiện tìm kiếm policy **AmazonS3FullAccess**.
-  + Click chọn policy **AmazonS3FullAccess**.
+2. Role name: **AnalyticsworkshopGlueRole**.
 
-3. Thực hiện tìm kiếm policy **AWSGlueServiceRole**.
-  + Click chọn policy **AWSGlueServiceRole**.
-  + Click **Next: Tags**
+![Data Analysis on AWS](/images/2/2.png?featherlight=false&width=90pc)
 
-4. Tại trang **Add tags**.
-  + Thêm tag Key = **workshop** và Value = **AnalyticsOnAWS**.
-  + Click **Next: Review**
-![Architect](/images/2/2.png?width=90pc)
+3. Thực hiện tìm kiếm policy **AmazonS3FullAccess**.
+   - Click chọn policy **AmazonS3FullAccess**.
+   - Thực hiện tìm kiếm policy **AWSGlueServiceRole**.
+   - Click chọn policy **AWSGlueServiceRole**.
+   - Tại trang **Add tags**.
+   - Thêm tag Key = **workshop** và Value = **AnalyticsOnAWS**.
+   - Click **Create role**
 
-5. Tại trang **Create role**.
-  + Role name: ```AnalyticsworkshopGlueRole```.
-  + Kiểm tra 2 policy chúng ta đã thêm vào ở bước 2 và 3 (**AmazonS3FullAccess, AWSGlueServiceRole**).
-  + Click **Create role**.
+![Data Analysis on AWS](/images/2/3.png?featherlight=false&width=90pc)
 
-![Architect](/images/2/3.png?width=90pc)
+4. Hoàn thành tạo role.
 
+![Data Analysis on AWS](/images/2/3.1.png?featherlight=false&width=90pc)

@@ -1,22 +1,22 @@
 +++
-title = "Tối ưu Redshift"
+title = "Optimize Redshift"
 date = 2021
 weight = 9
 chapter = false
 pre = "<b>10.9 </b>"
 +++
 
-#### Tối ưu Redshift
+#### Optimize Redshift
 
-Ở bước này, húng ta sẽ làm một số best practices của redshift bằng cách optimize nơi lưu trữ và hiệu năng của cluster dựa trên các câu lệnh query chạy trên Redshift cluster
+In this step, we will do some redshift best practices by optimizing the storage and performance of the cluster based on the query statements run on the Redshift cluster.
 
-**Mặc dù hầu hết các bước bạn sẽ thực hiện bên dưới đều được tự động hóa trong Redshift nhưng bạn sẽ tốt hơn nếu bạn luôn hiểu được các khái niệm chính và cách chúng hoạt động**
+**Although most of the steps you will perform below are automated in Redshift, you will be better off if you always understand the key concepts and how they work**
 
-#### Nội dung
+#### Content
 
-1. [Tối ưu kích thước cột](10.9.1-stringcolumnsize/)
-2. [Áp dụng compression](10.9.2-compression/)
-3. [Phân phối dữ liệu](10.9.3-distributedata/)
-4. [Tạo table mới](10.9.4-createnewtable/)
-5. [Vacuum và Analyze](10.9.5-vacuumanalyze/)
-6. [Query và so sánh hiệu năng](10.9.6-testquery/)
+1. [Optimize column size](10.9.1-stringcolumnsize/)
+2. [Apply compression](10.9.2-compression/)
+3. [Distributed Data](10.9.3-distributedata/)
+4. [Create New Table](10.9.4-createnewtable/)
+5. [Vacuum and Analyze](10.9.5-vacuumanalyze/)
+6. [Query and performance comparison](10.9.6-testquery/)

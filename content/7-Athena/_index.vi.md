@@ -10,7 +10,7 @@ pre = "<b>7. </b>"
 
 Tiếp đến, chúng ta đã lưu 1 vài data sets ở trong Amazon S3, và cataloged chúng trong AWS Glue Data Catalog. Với Amazon Athena chúng ta sẽ có thể khám phá dữ liệu sử dụng những câu lệnh query SQL cơ bản
 
-![Architect](/images/7/athena.png?width=60pc)
+![Data Analysis on AWS](/images/7/athena.png?featherlight=false&width=60pc)
 
 
 
@@ -41,11 +41,11 @@ GROUP BY artist_name
 ORDER BY count desc
 ```
 
-![Architect](/images/7/1.png?width=90pc)
+![Data Analysis on AWS](/images/7/1.png?featherlight=false&width=90pc)
 
 3. Khám phá giao diện của Athena và hãy thử chạy 1 số queries. Thử query table ```emr_processed_data```.
 
-![Architect](/images/7/2.png?width=90pc)
+![Data Analysis on AWS](/images/7/2.png?featherlight=false&width=90pc)
 
 4. Query này sẽ trả về danh sách các bản nhạc được phát nhiều lần bởi các thiết bị. Tiếp theo sau, chúng ta sẽ trực quan hoá query này sử dụng QuickSight:
 
@@ -57,12 +57,15 @@ FROM processed_data
 GROUP BY device_id, track_name
 ORDER BY count desc
 ```
-
-![Architect](/images/7/3.png?width=90pc)
+![Data Analysis on AWS](/images/7/3.png?featherlight=false&width=90pc)
 
 ---
 
 Bạn có thể chạy những câu lệnh Athena query quen thuộc và khám phá dữ liệu nhiều hơn.
 Ở phần tiếp theo, chúng ta sẽ sử dụng Athena 1 lần nữa để dựng dashboard và trực quan hoá dữ liệu trên Amazon QuickSight.
+
+
+
+
 
 

@@ -1,57 +1,67 @@
 +++
-title = "Tạo dữ liệu giả lập"
+title = "Generate Dummy Data"
 date = 2021
 weight = 3
 chapter = false
 pre = "<b>1.3 </b>"
 +++
 
-#### Tạo dữ liệu giả lập
+#### Generate emulator data
 
-Ở bước này chúng ta sẽ cấu hình Kinesis Data Generator để tạo ra những dữ liệu giả lập và lấy chúng vào Kinesis Firehose
+In this step we will configure Kinesis Data Generator to generate simulation data and get them into Kinesis Firehose.
 
-1. **Cấu hình Amazon Cognito** cho Kinesis Data Generator - Ở bước này chúng ta sẽ chạy 1 cloud formation stack mà sẽ cấu hình Cognito. Cloudformation scripts chạy ở region **N.Virgina**.
-  + Đi đến: https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json
-  + Click **Next**.
+1. **Configuring Amazon Cognito** for Kinesis Data Generator - In this step we will run a cloud formation stack that will configure Cognito. Cloudformation scripts run in region **N.Virgina**.
+     + Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&templateURL=https: //aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json)
+     + Click **Next**.
 
-![Architect](/images/1/9.png?width=90pc)
+![Data Analysis on AWS](/images/1/9.png?featherlight=false&width=90pc)
 
-2. Tại trang **Specify stack details**:
-    + Username: **admin**.
-    + Password: chọn một mật khẩu bao gồm chữ và số.
-    + Click **Next**.
+2. On the Specify stack details page:
+   - **Username**: **admin**.
+   - **Password**: choose a password consisting of letters and numbers.
+   - Click **Next**.
 
-![Architect](/images/1/10.png?width=90pc)
+![Data Analysis on AWS](/images/1/10.png?featherlight=false&width=90pc)
 
-
-3. Tại trang **Configure stack options**:
-    + Tuỳ chọn thêm Tags, e.g.:
-    + workshop: AnalyticsOnAWS
-    + Click **Next**
-
-![Architect](/images/1/11.png?width=90pc)
-
-4. Tại trang **Review**:
-    + Kéo chuột xuống phía dưới.
-    + Click chọn **I acknowledge that AWS CloudFormation might create IAM resources**.
-    + Click **Create stack**.
-
-![Architect](/images/1/12.png?width=90pc)
+3. At the **Configure stack options** page:
+- Optionally add Tags, e.g.:
+  - workshop: **AnalyticsOnAWS**
+  - Click **Next**
 
 
-5. Refresh AWS Cloudformation Console của bạn. ( Ấn F5 trong trình duyệt )
-  + Đợi đến khi stack status đổi thành **Create_Complete**.
-    + Chọn **Kinesis-Data-Generator-Cognito-User** stack.
-    + Đi đến outputs tab: Click vào đường link có tên: KinesisDataGeneratorUrl - Việc này sẽ mở Kinesis Data Generator tool của bạn.
+![Data Analysis on AWS](/images/1/11.png?featherlight=false&width=90pc)
 
-![Architect](/images/1/13.png?width=90pc)
+4. Select **Next**
 
-6. Ở  trang chủ Amazon Kinesis Data Generator.
-  + Đăng nhập với username và password từ bước trước.
-  + Region: **ap-southeast-1**.
-  + Stream/delivery stream: **analytics-workshop-stream**.
-  + Records per second: **2000**.
-  + Record template (Template 1): Trong khoảng trống nhập văn bản, thêm json template dưới đây vào và Click **Send Data**:
+![Data Analysis on AWS](/images/1/11.1.png?featherlight=false&width=90pc)
+
+5. At **Review** page:
+   - Drag the mouse to the bottom.
+   - Click **I acknowledge that AWS CloudFormation might create IAM resources**.
+   - Click **Create stack**.
+
+![Data Analysis on AWS](/images/1/12.png?featherlight=false&width=90pc)
+
+6. Wait about 20 minutes, stack created successfully.
+
+   - Refresh your **AWS Cloudformation Console**. (Press F5 in the browser)
+   - Wait until **stack status** changes to **Create_Complete**.
+   - Select **Kinesis-Data-Generator-Cognito-User stack.**
+   - Go to the outputs tab: Click on the link named: **KinesisDataGeneratorUrl** - This will open your Kinesis Data Generator tool.
+
+
+![Data Analysis on AWS](/images/1/13.png?featherlight=false&width=90pc)
+
+7. At the **Amazon Kinesis Data Generator** homepage.
+   - Login with **username** and **password** from previous step.
+
+![Data Analysis on AWS](/images/1/13.1.png?featherlight=false&width=90pc)
+
+8. At the **Amazon Kinesis Data Generator** homepage.
+    - Region: **ap-southeast-1**.
+    - Stream/delivery stream: **analytics-workshop-stream**.
+    - Records per second: **2000**.
+    - Record template (Template 1): In the text input space, add the following json template and Click **Send Data**:
 
 ```
 {
@@ -70,18 +80,15 @@ pre = "<b>1.3 </b>"
     )}}
 }
 ```
-    
+![Data Analysis on AWS](/images/1/14.png?featherlight=false&width=90pc)
 
-![Architect](/images/1/14.png?width=90pc)
+9. When the tool sends ~100,000 messages, you can click - **Stop sending data to Kinesis**.
 
-7. Khi tool gửi ~10,000 tin nhắn, bạn có thể click - **Stop sending data to Kinesis**.
+![Data Analysis on AWS](/images/1/14.1.png?featherlight=false&width=90pc)
 
-8. Sau một lát bạn hãy đến S3 Console [Click vào đây](https://s3.console.aws.amazon.com/s3/home?region=us-east-1)
+10. After a while go to S3 Console Click here
 
-  + Đi đến: **yourname-analytics-workshop-bucket > data**.
-  + Trong này sẽ có 1 folder **raw** được tạo ra > Tiếp tục mở, bạn sẽ thấy firehose đẩy data vào S3 sử dụng yyyy/mm/dd/hh 
+    - Go to: **yourname-analytics-workshop-bucket** > **data**.
+    - In this will have a raw folder created > Keep opening, you will see firehose push data to S3 using **yyyy/mm/dd/hh**
 
-![Architect](/images/1/21.png?width=90pc)
-
-Nếu bạn đã nhận được dữ liệu dummy trong S3 buckets, chúng ta có thể đi tới bước tiếp theo
-
+![Data Analysis on AWS](/images/1/21.png?featherlight=false&width=90pc)

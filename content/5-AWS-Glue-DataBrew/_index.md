@@ -1,5 +1,5 @@
 +++
-title = "Transform với DataBrew"
+title = "Transform with DataBrew"
 date = 2020
 weight = 5
 chapter = false
@@ -7,22 +7,22 @@ pre = "<b>5. </b>"
 +++
 
 
-#### Chuyển đổi dữ liệu với AWS Glue DataBrew
+#### Transform Data with AWS Glue DataBrew
 
-**AWS Glue DataBrew là gì?**
+**What is AWS Glue DataBrew?**
 
-AWS Glue DataBrew là một công cụ giúp chúng ta chuẩn bị dữ liệu trực quan giúp công việc của các data analysts và data scientist có thể làm sạch và chuẩn hoá dữ liệu để chuẩn bị cho phân tích và machine learning. Bạn có thể chọn từ hơn 250 cách transform dữ liệu được xây dựng sẵn để tự động hóa công việc chuẩn bị data, mà không phải viết bất kì đoạn code nào.
+AWS Glue DataBrew is a visual data preparation tool that enables data analysts and data scientists to clean and normalize data in preparation for analytics and machine learning. You can choose from over 250 built-in data transformations to automate data prep work, without having to write any code.
 
-Bạn có thể tự động lọc các dữ liệu dị thường, chuyển đổi format dữ liệu, và xử lí những giá trị không đúng chuẩn và những task khác. Sau khi dữ liệu của bạn sẵn sàng, bạn có thể sử dụng ngay lập tức cho dự án phân tích và machine learning. Với Glue DataBrew bạn chỉ trả tiền cho tài nguyên khi bạn sử dụng và không yêu cầu trả trước chi phí nào.
+You can automatically filter out data anomalies, convert data formats, and handle erroneous values ​​and other tasks. Once your data is ready, you can use it immediately for your analytics and machine learning projects. With Glue DataBrew you only pay for resources as you use them and require no upfront costs.
 
 ![Architect](/images/5/glue_databrew.png?width=60pc)
 
 
 
-#### Nội dung
+#### Content
 
-1. [Tạo DataBrew project](5.1-createproject/)
-2. [Data profile với DataBrew](5.2-databrewprofile/)
+1. [Create DataBrew project](5.1-createproject/)
+2. [Data profile with DataBrew](5.2-databrewprofile/)
 3. [Join dataset](5.3-joindataset/)
-4. [Khởi tạo và chạy job](5.4-createrunjob/)
-5. [Kiểm tra dữ liệu](5.5-reviewdata/)
+4. [Initialize and run job](5.4-createrunjob/)
+5. [Data Check](5.5-reviewdata/)

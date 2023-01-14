@@ -20,6 +20,8 @@ select count(1) from redshift_lab.d_ref_data_1;
 
 ---
 
+![Data Analysis on AWS](/images/10/55.png?featherlight=false&width=90pc)
+
 2. Thử chạy một câu truy vấn phức tạp hơn trên Redshift, ghi chú lại thời gian thực thi nhé.
 
 ```
@@ -41,8 +43,7 @@ order by
   frequency desc
 limit 10;
 ```
-
-![Architect](/images/10/23.png?width=90pc)
+![Data Analysis on AWS](/images/10/56.png?featherlight=false&width=90pc)
 
 
 Bạn đã hoàn thành việc load dữ liệu từ S3 vào Redshift sử dụng Glue Serverless ETL. Tiếp theo chúng ta sẽ thực hiện một số bước tối ưu để làm tăng hiệu năng cho câu truy vấn. 

@@ -76,6 +76,8 @@ def lambda_handler(event, context):
     # return result['ResultSet']['Rows']
 ```
 
+![Data Analysis on AWS](/images/9/4.png?featherlight=false&width=90pc)
+
 2. Cấu hình biến môi trường, click vào tab **Configuration**.
 
 {{% notice note %}}
@@ -85,14 +87,17 @@ Các biến môi trường cho các hàm Lambda cho phép bạn chuyển động
   + Click **Environment variables**.
   + Click **Edit**.
 
-![Architect](/images/9/2.png?width=90pc)
+![Data Analysis on AWS](/images/9/5.png?featherlight=false&width=90pc)
+
 
 3. Thêm 3 **Environment variables** dưới đây
   + Key: ```DATABASE```, Value: ```analyticsworkshopdb```.
   + Key: ```TABLE```, Value: ```processed_data```.
   + Key: ```BUCKET_NAME```, ```Value: yourname-analytics-workshop-bucket```.
   + Click **Save**.
-![Architect](/images/9/3.png?width=90pc)
+
+
+![Data Analysis on AWS](/images/9/6.png?featherlight=false&width=90pc)
 
 4. Click **General Configuration**.
   + Click **Edit**.
@@ -100,23 +105,24 @@ Các biến môi trường cho các hàm Lambda cho phép bạn chuyển động
   + Đổi **Timeout** thành 10 seconds.
   + Nhấn **Save**.
 
-![Architect](/images/9/11.png?width=90pc)
+![Data Analysis on AWS](/images/9/8.png?featherlight=false&width=90pc)
 
 ---
 
 5. Click **Permissions**.
   + Nhấn link Role Name để mở IAM Console ở tab mới.
 
-![Architect](/images/9/4.png?width=90pc)
+![Data Analysis on AWS](/images/9/9.png?featherlight=false&width=90pc)
 
 6. Nhấn **Attach policies**
 
-![Architect](/images/9/5.png?width=90pc)
+![Data Analysis on AWS](/images/9/10.png?featherlight=false&width=90pc)
 
 7. Thêm 2 policies như dưới đây:
   + ```AmazonS3FullAccess```
   + ```AmazonAthenaFullAccess```
 
-![Architect](/images/9/6.png?width=90pc)
+![Data Analysis on AWS](/images/9/11.png?featherlight=false&width=90pc)
 
 Khi các policies đã được gắn vào, chúng ta có thể tắt tab này và quay trở lại giao diện của dịch vụ Lambda.
+

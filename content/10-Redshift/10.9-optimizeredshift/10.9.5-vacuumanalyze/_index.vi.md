@@ -19,8 +19,16 @@ pre = "<b>10.9.5 </b>"
 ```
 vacuum redshift_lab.f_raw_2;
 analyze redshift_lab.f_raw_2;  
+
+```
+![Data Analysis on AWS](/images/10/61.png?featherlight=false&width=90pc)
+
+3. Tiếp tục
+
+```
 vacuum redshift_lab.d_ref_data_2;
 analyze redshift_lab.d_ref_data_2;
 ```
+![Data Analysis on AWS](/images/10/62.png?featherlight=false&width=90pc)
 
 Tiếp theo, chúng ta sẽ thực hiện truy vấn dữ liệu trên bảng mới sau tất cả những thao tác chúng ta đã tối ưu.

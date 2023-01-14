@@ -1,33 +1,33 @@
 +++
-title = "Cấu hình transform"
+title = "Configure transform"
 date = 2020
 weight = 2
 chapter = false
 pre = "<b>4.2 </b>"
 +++
 
-#### Cấu hình transform
+#### Configure transform
 
-1. Click chọn bất kì S3 nodes nào trong 2 nodes
-+ Click **Transform** và chọn **Join**
+1. Click on any of the S3 nodes in the 2 nodes
++ Click **Transform** and select **Join**
 
-![Architect](/images/4/5.png?width=90pc)
+![Data Analysis on AWS](/images/4/5.png?featherlight=false&width=90pc)
 
-2. Click **Transform - Join** node và chọn **Node properties** ở cửa sổ cấu hình bên phải, chọn danh sách sổ xuống và chọn tất cả các S3 data source như màn hình dưới đây:
+2. Click **Transform - Join** node and select **Node properties** in the right configuration window, select the drop-down list and select all S3 data sources as shown below screen:
 
-![Architect](/images/4/6.png?width=90pc)
+![Data Analysis on AWS](/images/4/6.png?featherlight=false&width=90pc)
 
-3. Chuyển qua **Transform** tab.
+3. Switch to **Transform** tab.
   + Click **Add condition**.
-  + Chọn **track_id** column là column sẽ join như hình dưới.
+  + Select **track_id** column as the column will join as shown below.
 
-![Architect](/images/4/7.png?width=90pc)
+![Data Analysis on AWS](/images/4/8.png?featherlight=false&width=90pc)
 
-4. Với **Join** node đang được chọn, Click **Transform** và chọn **ApplyMapping**.
+4. With **Join** node selected, Click **Transform** and select **ApplyMapping**.
 
-![Architect](/images/4/8.png?width=90pc)
+![Data Analysis on AWS](/images/4/9.png?featherlight=false&width=90pc)
 
-5. Chúng ta sẽ bỏ những cột không sử dụng và map kiểu dữ liệu mới cho column sau:
+5. We will remove the unused columns and map the new data type to the following column:
   + drop Columns
     + .track_id
     + parition_0
@@ -36,36 +36,45 @@ pre = "<b>4.2 </b>"
     + parition_3
   + Map New Data Type
     + track_id **string**
-  + Lựa chọn của bạn nên giống hình phía dưới
+  + Your selection should look like the image below
 
-![Architect](/images/4/9.png?width=90pc)
 
-6. Click **Transform - ApplyMapping** node ở trên màn hình.
-  + Sau đó Click **Target** và chọn **S3** như màn hình dưới đây.
+![Data Analysis on AWS](/images/4/10.png?featherlight=false&width=90pc)
 
-![Architect](/images/4/10.png?width=90pc)
+6. Click **Transform - ApplyMapping** node on the screen.
+  + Then Click **Target** and select **S3** as shown below.
 
-7. Ở tab **Data target properties - S3**, cung cấp những giá trị sau đây:
+![Data Analysis on AWS](/images/4/13.png?featherlight=false&width=90pc)
+
+6. Click **Transform - ApplyMapping** node on the screen.
+  + Then Click **Target** and select **S3** as shown below.
+
+![Data Analysis on AWS](/images/4/13.png?featherlight=false&width=90pc)
+
+7. In the **Data target properties - S3** tab, provide the following values:
   + Format: **Glue Parquet**.
   + Compression Type: **Snappy**.
   + S3 Target Location: **s3://yourname-analytics-workshop-bucket/data/processed-data2/**.
   + Data Catalog update options
-    + Chọn **Create a table in the Data Catalog and on subsequent runs, update the schema and add new partitions**.
+    + Select **Create a table in the Data Catalog and on subsequent runs, update the schema and add new partitions**.
   + Database: **analyticsworkshopdb**.
   + Table name: **processed-data2**.
 
-![Architect](/images/4/14.png?width=90pc)
 
-8. Click **Job details** và cấu hình như dưới đây.
+![Data Analysis on AWS](/images/4/00015.png?featherlight=false&width=90pc)
+
+7. Click **Job details** and configure as below.
   + Name: **AnalyticsOnAWS-GlueStudio**.
   + IAM Role: **AnalyticsWorkshopGlueRole**.
   + Number of workers: **2**.
   + Job bookmark: **Disable**.
   + Number of retries: **1**.
   + Job timeout (minutes): **10**.
-  + Còn những giá trị còn lại để mặc định.
+  + The remaining values ​​are left to default.
   + Click **Save**.
 
-![Architect](/images/4/11.png?width=90pc)
+![Data Analysis on AWS](/images/4/16.png?featherlight=false&width=90pc)
 
-9. Click **Save** và bạn nên thấy **“Successfully created job”**. 
+8. Click **Save** and you should see **“Successfully created job”**.
+
+![Data Analysis on AWS](/images/4/17.png?featherlight=false&width=90pc)

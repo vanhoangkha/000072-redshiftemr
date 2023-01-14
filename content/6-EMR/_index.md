@@ -1,5 +1,5 @@
 +++
-title = "Transform với EMR"
+title = "Transform with EMR"
 date = 2021
 weight = 6
 chapter = false
@@ -8,15 +8,15 @@ pre = "<b>6. </b>"
 
 ---
 
-Trong phần này chúng ta sẽ sử dụng Amazon EMR để chạy pyspark jobs để đọc dữ liệu raw và thực hiện một số chuyển đổi và gửi kết quả về S3.
+In this section we will use Amazon EMR to run pyspark jobs to read the raw data and do some transformations and send the results back to S3.
 
 ![Architect](/images/6/emr.png?width=60pc)
 
 
-#### Nội dung
+#### Content
 
-1. [Chuẩn bị thư mục và script](6.1-prepares3/)
-2. [Tạo EMR cluster](6.2-createcluster/)
-3. [Kiểm tra EMR job](6.3-checkjobstatus/)
-4. [Kiểm tra dữ liệu](6.4-reviewdata/)
-5. [Chạy lại Glue crawler](6.5-runcrawler/)
+1. [Preparing directories and scripts](6.1-prepares3/)
+2. [Create EMR cluster](6.2-createcluster/)
+3. [Check EMR job](6.3-checkjobstatus/)
+4. [Check Data](6.4-reviewdata/)
+5. [Rerun Glue crawler](6.5-runcrawler/)

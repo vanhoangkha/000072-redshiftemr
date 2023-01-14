@@ -1,40 +1,51 @@
 +++
-title = "Chuẩn bị thư mục và script"
+title = "Prepare directories and scripts"
 date = 2021
 weight = 1
 chapter = false
 pre = "<b>6.1 </b>"
 +++
 
-#### Chuẩn bị thư mục và script trên S3
+#### Prepare folders and scripts on S3
 
-1. Ở bước này, chúng ta sẽ đến S3 Console và tạo một số folder để sử dụng cho bước transform dữ liệu với EMR.
+1. In this step, we will go to the S3 Console and create some folders to use for the data transform step with EMR.
 
-2. Truy cập tới [giao diện quản trị S3](https://s3.console.aws.amazon.com/s3/home?region=ap-southeast-1).
+2. Go to [S3 admin interface](https://s3.console.aws.amazon.com/s3/home?region=ap-southeast-1).
 
-3. Mở **yourname-analytics-workshop-bucket**.
-    + Click : **Create folder**.
-      + Tạo 1 folder mới tên ```scripts```.
+3. Open **yourname-analytics-workshop-bucket**.
+
+![Data Analysis on AWS](/images/6/1.png?featherlight=false&width=90pc)
+
+4. Click: **Create folder**.
+      + Create a new folder named ```scripts```.
       + Click **Save**.
 
-![Architect](/images/6/1.png?width=90pc)
+![Data Analysis on AWS](/images/6/2.png?featherlight=false&width=90pc)
 
-4. Mở **scripts**.
-  + Tải xuống file: [emr_pyspark.py](https://intro-to-analytics-on-aws.workshop.aws/scripts/emr_pyspark.py)
-  + Bạn có thể tải file script ở dưới đây.
+5. Open **scripts**.
+  + Download file: [emr_pyspark.py](https://intro-to-analytics-on-aws.workshop.aws/scripts/emr_pyspark.py)
+  + You can download the script file below.
 
 {{%attachments style="orange" title="EMR scripts" pattern=".*(py)"/%}}
 
-  + Trong S3 console, Click **Upload**:
-  + Click **Add files** và tải lên file **emr_pyspark.py** vừa tải xuống
+  + In S3 console, Click **Upload**:
+  + Click **Add files** and upload the downloaded **emr_pyspark.py** file
   + Click **Upload**
 
-![Architect](/images/6/2.png?width=90pc)
+![Data Analysis on AWS](/images/6/3.png?featherlight=false&width=90pc)
 
-5. Tạo folder cho EMR logs:
-  + Mở **yourname-analytics-workshop-bucket**.
-    + Click : **Create folder**.
-      + Tạo 1 folder mới tên ```logs```.
+6. Upload successful.
+
+![Data Analysis on AWS](/images/6/4.png?featherlight=false&width=90pc)
+
+7. Create folder for EMR logs:
+  + Open **yourname-analytics-workshop-bucket**.
+    + Click: **Create folder**.
+      + Create a new folder named ```logs```.
       + Click **Save**.
 
-![Architect](/images/6/3.png?width=90pc)
+![Data Analysis on AWS](/images/6/5.png?featherlight=false&width=90pc)
+
+8. Create success.
+
+![Data Analysis on AWS](/images/6/6.png?featherlight=false&width=90pc)

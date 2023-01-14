@@ -24,7 +24,7 @@ ORDER BY 3 DESC
 LIMIT 5;
 ```
 
-![Architect](/images/9/10.png?width=90pc)
+![Data Analysis on AWS](/images/9/16.png?featherlight=false&width=90pc)
 
 2. So sánh kết quả query với kết quả từ lambda function, cả 2 sẽ cho kết quả giống nhau.
 

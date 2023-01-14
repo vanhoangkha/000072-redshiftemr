@@ -1,39 +1,47 @@
 +++
-title = "Tạo Redshift IAM role"
+title = "Create Redshift IAM role"
 date = 2021
 weight = 1
 chapter = false
 pre = "<b>10.1 </b>"
 +++
 
-#### Tạo Redshift IAM role
+#### Create Redshift IAM role
 
-Ở bước này chúng ta sẽ tạo IAM role cho Redshift cluster
+In this step we will create IAM role for Redshift cluster
 
-1. Truy cập đến [giao diện IAM console](https://console.aws.amazon.com/iam/home?region=ap-southeast-1#/roles).
-  + Nhấn **Create role**.
-  + Chọn **Redshift**.
-  + Chọn **Redshift - customizable** dưới phần **Select your use case**.
+1. Go to [IAM console](https://console.aws.amazon.com/iam/home?region=ap-southeast-1#/roles).
+  + Click **Create role**.
 
-![Architect](/images/10/1.png?width=90pc)
 
-2. Nhấn **Next: Permissions**.
-  + Ở thanh tìm kiếm, tìm và check những policies sau:
-    + **AmazonS3FullAccess**.
+![Data Analysis on AWS](/images/10/1.png?featherlight=false&width=90pc)
+
+2. Select **Redshift**.
+  + Select **Redshift - customizable** under **Select your use case**.
+
+![Data Analysis on AWS](/images/10/2.png?featherlight=false&width=90pc)
+
+3. Click **Next**.
+
+
+![Data Analysis on AWS](/images/10/3.png?featherlight=false&width=90pc)
+
+4. Let **Role Name** be ```Analyticsworkshop_RedshiftRole```.
+
+
+![Data Analysis on AWS](/images/10/4.png?featherlight=false&width=90pc)
+
+5. Check the following policies:
+    + **AmazonS3FullAccess**.a
     + **AWSGlueConsoleFullAccess**.
-  + Nhấn **Next: Tags**.
-    + Tuỳ chọn thêm Tags:
+    + Optional extra Tags:
       + workshop: AnalyticsOnAWS.
-    + Nhấn **Next: Review**.
+    + Click **Create role**.
 
-![Architect](/images/10/2.png?width=90pc)
+![Data Analysis on AWS](/images/10/5.png?featherlight=false&width=90pc)
 
-3. Cho **Role Name** là ```Analyticsworkshop_RedshiftRole```.
-  + Xác nhận 2 policies dưới đây đã được gắn.
-    + **AmazonS3FullAccess**.
-    + **AWSGlueConsoleFullAccess**.
-  + Nhấn **Create Role**.
+6. Create a successful role.
 
-![Architect](/images/10/3.png?width=90pc)
+![Data Analysis on AWS](/images/10/6.png?featherlight=false&width=90pc)
 
-Tiếp theo chúng ta sẽ tiến hành tạo Redshift cluster.
+Next we will proceed to create a Redshift cluster.

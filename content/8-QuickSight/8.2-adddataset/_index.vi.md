@@ -13,26 +13,33 @@ pre = "<b>8.2 </b>"
   + Ở góc trên bên phải, Click **Manage Data**.
   + Click **New Data Set**.
 
-![Architect](/images/8/3.png?width=90pc)
+![Data Analysis on AWS](/images/7/4.png?featherlight=false&width=90pc)
 
 2. Click **Athena**.
-  + New Athena data source.
+
+![Data Analysis on AWS](/images/7/5.png?featherlight=false&width=90pc)
+
+
+3. New Athena data source.
     + Data source name: ```analyticsworkshop```.
     + Click **Validate connection**.
       + Việc này sẽ kiểm tra xem QuickSight có thể truy cập Athena không.
     + Click **Create data source**.
 
-![Architect](/images/8/4.png?width=90pc)
+![Data Analysis on AWS](/images/7/6.png?featherlight=false&width=90pc)
 
-3. Chọn table của bạn:
+4. Chọn table của bạn:
     + Database: chọn **analyticsworkshopdb**.
     + Tables: chọn **processed_data**.
     + Click **Select**.
+![Data Analysis on AWS](/images/7/7.png?featherlight=false&width=90pc)
 
-![Architect](/images/8/5.png?width=90pc)
 
-4. Hoàn tất tạo data set:
+5. Hoàn tất tạo data set:
     + Chọn **Directly query your data**.
     + Click **Visualize**.
 
-![Architect](/images/8/6.png?width=90pc)
+
+![Data Analysis on AWS](/images/7/8.png?featherlight=false&width=90pc)
+
+

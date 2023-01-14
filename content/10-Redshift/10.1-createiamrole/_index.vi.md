@@ -12,28 +12,37 @@ pre = "<b>10.1 </b>"
 
 1. Truy cập đến [giao diện IAM console](https://console.aws.amazon.com/iam/home?region=ap-southeast-1#/roles).
   + Nhấn **Create role**.
-  + Chọn **Redshift**.
+
+
+![Data Analysis on AWS](/images/10/1.png?featherlight=false&width=90pc)
+
+2. Chọn **Redshift**.
   + Chọn **Redshift - customizable** dưới phần **Select your use case**.
 
-![Architect](/images/10/1.png?width=90pc)
+![Data Analysis on AWS](/images/10/2.png?featherlight=false&width=90pc)
 
-2. Nhấn **Next: Permissions**.
-  + Ở thanh tìm kiếm, tìm và check những policies sau:
-    + **AmazonS3FullAccess**.
+3. Nhấn **Next**.
+
+
+![Data Analysis on AWS](/images/10/3.png?featherlight=false&width=90pc)
+
+4.   Cho **Role Name** là ```Analyticsworkshop_RedshiftRole```.
+
+
+![Data Analysis on AWS](/images/10/4.png?featherlight=false&width=90pc)
+
+5. Check những policies sau:
+    + **AmazonS3FullAccess**.a
     + **AWSGlueConsoleFullAccess**.
-  + Nhấn **Next: Tags**.
     + Tuỳ chọn thêm Tags:
       + workshop: AnalyticsOnAWS.
-    + Nhấn **Next: Review**.
+    + Nhấn **Create role**.
 
-![Architect](/images/10/2.png?width=90pc)
+![Data Analysis on AWS](/images/10/5.png?featherlight=false&width=90pc)
 
-3. Cho **Role Name** là ```Analyticsworkshop_RedshiftRole```.
-  + Xác nhận 2 policies dưới đây đã được gắn.
-    + **AmazonS3FullAccess**.
-    + **AWSGlueConsoleFullAccess**.
-  + Nhấn **Create Role**.
+6. Tạo role thành công.
 
-![Architect](/images/10/3.png?width=90pc)
+![Data Analysis on AWS](/images/10/6.png?featherlight=false&width=90pc)
 
 Tiếp theo chúng ta sẽ tiến hành tạo Redshift cluster.
+

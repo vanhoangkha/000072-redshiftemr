@@ -1,5 +1,5 @@
 +++
-title = "Catalog để khám phá dữ liệu"
+title = "Catalog for data discovery"
 date = 2020
 weight = 2
 chapter = false
@@ -8,17 +8,17 @@ pre = "<b>2. </b>"
 
 ---
 
-Tiếp theo, chúng ta sẽ thêm datasets trong AWS Glue Data Catalog. Chúng ta sẽ tự động hoá việc thu thập metadata với sự hỗ trợ của Glue Crawlers 
+Next, we will add datasets to the AWS Glue Data Catalog. We will automate metadata collection with the help of Glue Crawlers
 
-Một khi catalog được tạo, chúng ta có thể bắt đầu query với định dạng raw của dữ liệu bằng Amazon Athena
+Once the catalog is created, we can start querying the raw format of the data using Amazon Athena
 
 ![Architect](/images/2/catalog.png?width=60pc)
 
 
 
-#### Nội dung
+#### Content
 
-1. [Tạo IAM role](2.1-createiamrole/)
-2. [Tạo AWS Glue crawler](2.2-creategluecrawler/)
-3. [Kiểm tra Glue catalog](2.3-reviewcatalog/)
-4. [Query dữ liệu với Athena](2.4-queryathena/)
+1. [Create IAM role](2.1-createiamrole/)
+2. [Create AWS Glue crawler](2.2-creategluecrawler/)
+3. [Check Glue catalog](2.3-reviewcatalog/)
+4. [Query data with Athena](2.4-queryathena/)

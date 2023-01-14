@@ -1,27 +1,35 @@
 +++
-title = "Chạy lại Glue Crawler"
+title = "Rerun Glue Crawler"
 date = 2021
 weight = 5
 chapter = false
 pre = "<b>6.5 </b>"
 +++
 
-#### Chạy lại Glue Crawler
+#### Rerun Glue Crawler
 
-1. Truy cập đến [giao diện quản trị của dịch vụ AWS Glue](https://console.aws.amazon.com/glue/home?region=ap-southeast-1)
-  + Ở khung bên trái, click **Crawlers**.
-  + Chọn crawler đã được tạo ở phần trước: **AnalyticsworkshopCrawler**.
+1. Go to [AWS Glue service admin interface](https://console.aws.amazon.com/glue/home?region=ap-southeast-1)
+  + In the left pane, click **Crawlers**.
+  + Select the crawler created in the previous section: **AnalyticsworkshopCrawler**.
   + Click **Run Crawler**.
 
-![Architect](/images/6/9.png?width=90pc)
 
-2. Bạn sẽ thấy trạng thái đổi thành **Starting**.
-  + Đợi 1 vài phút để crawler chạy hoàn tất.
-  + Crawler sẽ hiển thị **Tables added** là 1.
+![Data Analysis on AWS](/images/6/15.png?featherlight=false&width=90pc)
 
-3. Bạn có thể đi đến phần databases ở bên trái và xác nhận là table **emr_processed_data** đã được thêm vào.
+2. You will see the status change to **Starting**.
+  + Wait a few minutes for the crawler to complete.
+  + Crawler will show **Tables added** as 1.
 
-![Architect](/images/6/10.png?width=90pc)
+![Data Analysis on AWS](/images/6/16.png?featherlight=false&width=90pc)
 
-Chúc mừng bạn đã hoàn tất việc transform dữ liệu bằng EMR, chúng ta đã sẵn sàng để thực hiện truy vấn dữ liệu bằng Amazon Athena ở bước tiếp theo.
+3. You can go to the databases section on the left and confirm that the **emr_processed_data** table has been added.
 
+![Data Analysis on AWS](/images/6/17.png?featherlight=false&width=90pc)
+
+Congratulations on completing the data transformation using EMR, we are ready to perform the data query using Amazon Athena in the next step.
+
+
+![Data Analysis on AWS](/images/6/18.png?featherlight=false&width=90pc)
+
+
+![Data Analysis on AWS](/images/6/19.png?featherlight=false&width=90pc)

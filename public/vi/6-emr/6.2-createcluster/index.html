@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo EMR Cluster :: Phân tích dữ liệu trên AWS</title>
 
     
-    <link href="/css/nucleus.css?1632910943" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1632910943" rel="stylesheet">
-    <link href="/css/hybrid.css?1632910943" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1632910943" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1632910943" rel="stylesheet">
-    <link href="/css/auto-complete.css?1632910943" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1632910943" rel="stylesheet">
-    <link href="/css/theme.css?1632910943" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1632910943" rel="stylesheet">
+    <link href="/css/nucleus.css?1673731428" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673731428" rel="stylesheet">
+    <link href="/css/hybrid.css?1673731428" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673731428" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673731428" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673731428" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673731428" rel="stylesheet">
+    <link href="/css/theme.css?1673731428" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673731428" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1632910943" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673731428" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1632910943"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673731428"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1632910943"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1632910943"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673731428"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673731428"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1632910943"></script>
+<script type="text/javascript" src="/js/search.js?1673731428"></script>
 
     
   </div>
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/vi/1-ingest-and-store/1.1-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
+    <li data-nav-id="/vi/1-ingest-and-store/1.1-creates3bucket/" title="Tạo S3 bucket" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-ingest-and-store/1.1-creates3bucket/">
-          <b>1.1 </b>Tạo S3 Bucket
+           <b> 1.1 </b> Tạo S3 bucket
           
             <i class="fas fa-check read-icon"></i>
           
@@ -864,7 +864,7 @@
   
     
     <li data-nav-id="/vi/6-emr/6.2-createcluster/" title="Tạo EMR Cluster" class="dd-item 
-        
+        parent
         active
         
         ">
@@ -1955,7 +1955,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>30-09-2021</font></i>
+        <i><font color=orange>15-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -2060,7 +2060,12 @@
 </ol>
 <ul>
 <li>Click <strong>Create cluster</strong>.</li>
+</ul>
+<p><img src="/images/6/7.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="2">
 <li>Tiếp tục với <strong>Create cluster - Quick options</strong>.</li>
+</ol>
+<ul>
 <li>Đặt tên cho cluster: <code>analytics-workshop-transformer</code>.</li>
 <li>Chọn tuỳ chọn <strong>Logging</strong> và cung cấp S3 folder:
 <ul>
@@ -2068,9 +2073,12 @@
 </ul>
 </li>
 <li>Đổi <strong>Launch mode</strong> thành <strong>Step execution</strong>.</li>
-<li>Ở dưới <strong>Add steps</strong> chọn <strong>Spark application</strong>.
+<li>Ở dưới <strong>Add steps</strong> chọn <strong>Spark application</strong>.</li>
+</ul>
+<p><img src="/images/6/8.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="3">
+<li>Click <strong>Configure</strong>.
 <ul>
-<li>Click <strong>Configure</strong>.</li>
 <li>Ở cửa sổ hiện lên, để trống <strong>Spark-submit options</strong>.</li>
 <li>Cho phần <strong>Application location</strong>, chọn nơi chứa script vừa upload - <code>s3://yourname-analytics-workshop-bucket/scripts/emr_pyspark.py</code>.</li>
 <li>Click <strong>Select</strong>.</li>
@@ -2079,9 +2087,9 @@
 <li>Click <strong>Add</strong> để hoàn thành.</li>
 </ul>
 </li>
-</ul>
-<p><img src="/images/6/4.png?width=90pc" alt="Architect"></p>
-<ol start="2">
+</ol>
+<p><img src="/images/6/9.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="4">
 <li>Tại mục <strong>Software configuration</strong>.</li>
 </ol>
 <ul>
@@ -2090,17 +2098,19 @@
 <li>Applications: Hadoop x.x.x, Spark x.x.x.</li>
 <li>Version sẽ được để mặc định là mới nhất.</li>
 </ul>
-<ol start="3">
+<p><img src="/images/6/10.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="5">
 <li>Tại mục <strong>Hardware configuration</strong>.</li>
 </ol>
 <ul>
 <li>Instance type: <strong>m5.xlarge</strong>.</li>
 <li>Number of Instances: 3 (1 master and 2 core nodes).</li>
 <li>Để <strong>Security and access</strong> mặc định.</li>
+</ul>
+<p><img src="/images/6/10.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ul>
 <li>Click <strong>Create cluster</strong>.</li>
 </ul>
-<p><img src="/images/6/5.png?width=90pc" alt="Architect"></p>
-<p>Chúng ta đã hoàn thành việc tạo cluster EMR. Cluster EMR sẽ được khởi tạo và sẽ thực thi script chúng ta đã upload lên S3 ở bước 6.1</p>
 
 
 
@@ -3151,19 +3161,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1632910943"></script>
-    <script src="/js/perfect-scrollbar.min.js?1632910943"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1632910943"></script>
-    <script src="/js/jquery.sticky.js?1632910943"></script>
-    <script src="/js/featherlight.min.js?1632910943"></script>
-    <script src="/js/highlight.pack.js?1632910943"></script>
+    <script src="/js/clipboard.min.js?1673731429"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673731429"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673731429"></script>
+    <script src="/js/jquery.sticky.js?1673731429"></script>
+    <script src="/js/featherlight.min.js?1673731429"></script>
+    <script src="/js/highlight.pack.js?1673731429"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1632910943"></script>
-    <script src="/js/learn.js?1632910943"></script>
-    <script src="/js/hugo-learn.js?1632910943"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673731429"></script>
+    <script src="/js/learn.js?1673731429"></script>
+    <script src="/js/hugo-learn.js?1673731429"></script>
 
-    <link href="/mermaid/mermaid.css?1632910943" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1632910943"></script>
+    <link href="/mermaid/mermaid.css?1673731429" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673731429"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

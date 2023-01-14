@@ -1,22 +1,29 @@
 +++
-title = "Tạo Lambda Function"
+title = "Create Lambda Function"
 date = 2021
 weight = 1
 chapter = false
 pre = "<b>9.1 </b>"
 +++
 
-#### Tạo Lambda Function
+#### Create Lambda Function
 
-1. Truy cập đến [giao diện quản trị của dịch vụ Lambda](https://console.aws.amazon.com/lambda/home?region=ap-southeast-1).
-  + **Note**: Hãy chắc chắn Region đang được chọn là Singapore ap-southeast-1
+1. Go to [Lambda service admin interface](https://console.aws.amazon.com/lambda/home?region=ap-southeast-1).
+  + **Note**: Make sure the Region selected is Singapore ap-southeast-1
 
-2. Nhấn **Create function** (Nếu bạn sử dụng Lambda lần đầu, bạn nên nhấn Get Started để tiến hành).
-  + Chọn **Author from scratch**.
-  + Tại mục **Basic Information**:
-  + Cho Function name là ```Analyticsworkshop_top5Songs```.
-  + Chọn Runtime là **Python 3.8**.
-  + Mở rộng **Choose or create an execution role** dưới Permissions, hãy chắc rằng **Create a new role with basic Lambda permissions** được chọn.
-  + Nhấn **Create Function**.
+![Data Analysis on AWS](/images/9/1.png?featherlight=false&width=90pc)
 
-![Architect](/images/9/1.png?width=90pc)
+2. Click **Create function** (If you are using Lambda for the first time, you should click Get Started to proceed).
+  + Select **Author from scratch**.
+  + In the **Basic Information** section:
+  + Let the Function name be ```Analyticsworkshop_top5Songs```.
+  + Select Runtime as **Python 3.8**.
+
+
+![Data Analysis on AWS](/images/9/2.png?featherlight=false&width=90pc)
+
+3. Expand **Choose or create an execution role** under Permissions, make sure **Create a new role with basic Lambda permissions** is checked.
+  + Click **Create Function**.
+
+
+![Data Analysis on AWS](/images/9/3.png?featherlight=false&width=90pc)

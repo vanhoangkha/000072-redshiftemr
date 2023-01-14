@@ -1,5 +1,5 @@
 +++
-title = "Tạo Redshift cluster"
+title = "Create Redshift cluster"
 date = 2021
 weight = 2
 chapter = false
@@ -7,31 +7,42 @@ pre = "<b>10.2 </b>"
 +++
 
 
-#### Tạo Redshift cluster
+#### Create Redshift cluster
 
-Ở bước này, chúng ta sẽ tạo 2 node Redshift cluster để tạo một star schema database nhỏ.
+In this step, we will create 2 nodes Redshift cluster to create a small star schema database.
 
-1. Truy cập đến [giao diện quản trị dịch vụ Redshift](https://console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1)
+1. Go to [Redshift service administration interface](https://console.aws.amazon.com/redshiftv2/home?region=ap-southeast-1)
   + Click **Create Cluster**.
-  + Để **Cluster identifier** là **redshift-cluster-1**.
-  + Chọn **Node Type** là **dc2.large**.
-  + Chọn **Number of Nodes** là ```2```.
-  + Xác nhận **Configuration summary**.
 
-![Architect](/images/10/4.png?width=90pc)
 
-2.  Để **Database port(optional)** là **5439**.
-  + Thay đổi **Master user name** thành ```admin```.
-  + Nhập **Master user password** .
-  + Kiểm tra các luật đặt password trước khi chọn password (**Password này sẽ sử dụng để truy cập vào cluster**).
-  + Mở rộng phần **Clusster permissions (optional)**.
-    + Chọn role đã tạo từ trước **Analyticsworkshop_RedshiftRole**.
+![Data Analysis on AWS](/images/10/7.png?featherlight=false&width=90pc)
+
+2. Set **Cluster identifier** to **redshift-cluster-1**.
+  + Select **Node Type** as **dc2.large**.
+  + Select **Number of Nodes** as ```2```.
+  + Confirm **Configuration summary**.
+
+![Data Analysis on AWS](/images/10/8.png?featherlight=false&width=90pc)
+
+3. Let **Database port(optional)** be **5439**.
+  + Change **Master user name** to ```admin```.
+  + Enter **Master user password** .
+  + Check the password setting rules before choosing a password (**This password will be used to access the cluster**).
+
+![Data Analysis on AWS](/images/10/9.png?featherlight=false&width=90pc)
+
+4. Expand the **Clusster permissions (optional)** section.
+    + Select the pre-created role **Analyticsworkshop_RedshiftRole**.
     + Click **Add IAM Role**.
-    + **Analyticsworkshop_RedshiftRole** sẽ hiển thị dưới **Attached IAM roles**.
+    + **Analyticsworkshop_RedshiftRole** will show up under **Attached IAM roles**.
 
-![Architect](/images/10/5.png?width=90pc)
+![Data Analysis on AWS](/images/10/10.png?featherlight=false&width=90pc)
 
-3. Để **Additional configurations** mặc định. Nó sẽ sử dụng VPC mặc định và security group mặc định
-  + Click **Create Cluster**. CHúng ta sẽ tốn vài phút để cluster đổi qua trạng thái ```available```.
+5. Leave **Additional configurations** as default. It will use default VPC and default security group
+  + Click **Create Cluster**. It will take a few minutes for the cluster to change to ```available``` state.
 
-Khi cluster đã tạo và trạng thái là Available, hãy đi đến bước tiếp theo.
+![Data Analysis on AWS](/images/10/11.png?featherlight=false&width=90pc)
+
+Once the cluster is created and the status is Available, go to the next step.
+
+![Data Analysis on AWS](/images/10/12.png?featherlight=false&width=90pc)

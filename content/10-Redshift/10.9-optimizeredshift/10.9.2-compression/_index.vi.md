@@ -18,7 +18,7 @@ pre = "<b>10.9.2 </b>"
 analyze compression redshift_lab.f_raw_1;
 ```
 
-![Architect](/images/10/24.png?width=90pc)
+![Data Analysis on AWS](/images/10/58.png?featherlight=false&width=90pc)
 
 2. Kết quả từ bảng trên cung cấp thông tin sau cho từng cột:
 

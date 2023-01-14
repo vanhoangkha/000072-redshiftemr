@@ -15,13 +15,14 @@ pre = "<b>2.3 </b>"
   + Click **Tables in analyticsworkshopdb**.
   + Click **raw**.
 
-![Architect](/images/2/10.png?width=90pc)
+![Data Analysis on AWS](/images/2/00018.png?featherlight=false&width=90pc)
 
 2. Kiểm tra các schema của dataset.
     + Tìm những dữ liệu ```averageRecordSize```, ```recordCount```, ```compressionType```
-
-![Architect](/images/2/12.png?width=90pc)
    
 Tiếp theo chúng ta sẽ thực hiện truy vấn dữ liệu sử dụng **Amazon Athena**.
+
+![Data Analysis on AWS](/images/2/00019.png?featherlight=false&width=90pc)
+
 
 

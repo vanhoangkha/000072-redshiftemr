@@ -14,7 +14,9 @@ pre = "<b>10.6 </b>"
   + Chọn Database name là **dev**, và Database user là **admin**.
   + Click **Connect**.
 
-![Architect](/images/10/16.png?width=90pc)
+
+![Data Analysis on AWS](/images/10/32.png?featherlight=false&width=90pc)
+
 
 2. Chạy các câu query dưới đây để tạo schema.
 
@@ -23,9 +25,11 @@ pre = "<b>10.6 </b>"
 CREATE schema redshift_lab;
 ```
 
-![Architect](/images/10/17.png?width=90pc)
 
-3. Chạy các câu query dưới đây để tạo table cho dữ liệu raw và reference.
+![Data Analysis on AWS](/images/10/33.png?featherlight=false&width=90pc)
+
+
+1. Chạy các câu query dưới đây để tạo table cho dữ liệu raw và reference.
 ```
 --	Create f_raw_1 table.
 CREATE TABLE IF not EXISTS redshift_lab.f_raw_1 (
@@ -39,6 +43,8 @@ CREATE TABLE IF not EXISTS redshift_lab.f_raw_1 (
 );
 ```
 
+![Data Analysis on AWS](/images/10/34.png?featherlight=false&width=90pc)
+
 ```
 --	Create d_ref_data_1 table.
 CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_1 (
@@ -47,5 +53,6 @@ CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_1 (
   artist_name	varchar(128)
 );
 ```
+![Data Analysis on AWS](/images/10/35.png?featherlight=false&width=90pc)
 
 Tiếp theo, chúng ta sẽ thực hiện chuyển đổi và load dữ liệu vào Redshift.

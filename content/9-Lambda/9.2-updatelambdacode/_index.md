@@ -1,22 +1,22 @@
 +++
-title = "Viết code Lambda Function"
+title = "Writing Lambda Function Code"
 date = 2020
 weight = 2
 chapter = false
 pre = "<b>9.2 </b>"
 +++
 
-#### Viết code Lambda Function
+#### Write Lambda Function code
 
-Ở phần này, chúng ta sẽ code cho lambda function chúng ta vừa tạo. Chúng ta sẽ sử dụng ```boto3``` để truy cập đến Athena.
+In this part, we will code for the lambda function we just created. We will use ```boto3``` to access Athena.
 
 {{% notice note %}}
-Boto là SDK của Dịch vụ Web Amazon (AWS) dành cho Python. Nó cho phép các nhà phát triển Python tạo, định cấu hình và quản lý các dịch vụ AWS, chẳng hạn như EC2 và S3. Boto cung cấp một API hướng đối tượng, dễ sử dụng, cũng như quyền truy cập cấp thấp vào các dịch vụ AWS. Đọc thêm về Boto tại đây [https://boto3.amazonaws.com/v1/documentation/api/latest/index.html?id=docs_gateway](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html?id=docs_gateway)
+Boto is the Amazon Web Services (AWS) SDK for Python. It allows Python developers to create, configure, and manage AWS services, such as EC2 and S3. Boto provides an easy-to-use, object-oriented API, as well as low-level access to AWS services. Read more about Boto here [https://boto3.amazonaws.com/v1/documentation/api/latest/index.html?id=docs_gateway](https://boto3.amazonaws.com/v1/documentation/api/ latest/index.html?id=docs_gateway)
 {{% /notice %}}
 
 
 
-1. Kéo xuống đến phần Function Code và thay thế code có sẵn trong **lambda_function.py** với đoạn python code dưới đây
+1. Scroll down to the Function Code section and replace the code available in **lambda_function.py** with the python code below.
 
 ```
 import boto3
@@ -76,47 +76,52 @@ def lambda_handler(event, context):
     # return result['ResultSet']['Rows']
 ```
 
-2. Cấu hình biến môi trường, click vào tab **Configuration**.
+![Data Analysis on AWS](/images/9/4.png?featherlight=false&width=90pc)
+
+2. To configure the environment variable, click the **Configuration** tab.
 
 {{% notice note %}}
-Các biến môi trường cho các hàm Lambda cho phép bạn chuyển động cài đặt vào mã hàm và thư viện của bạn mà không cần thực hiện thay đổi đối với mã của bạn. Đọc thêm về Biến môi trường Lambda tại đây [https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html](https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html)
+Environment variables for Lambda functions allow you to move settings into your function code and libraries without making changes to your code. Read more about Lambda Environment Variables here [https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html](https://docs.aws.amazon.com/lambda/latest/dg /env_variables.html)
 {{% /notice %}}
 
   + Click **Environment variables**.
   + Click **Edit**.
 
-![Architect](/images/9/2.png?width=90pc)
+![Data Analysis on AWS](/images/9/5.png?featherlight=false&width=90pc)
 
-3. Thêm 3 **Environment variables** dưới đây
+
+3. Add 3 **Environment variables** below
   + Key: ```DATABASE```, Value: ```analyticsworkshopdb```.
   + Key: ```TABLE```, Value: ```processed_data```.
   + Key: ```BUCKET_NAME```, ```Value: yourname-analytics-workshop-bucket```.
   + Click **Save**.
-![Architect](/images/9/3.png?width=90pc)
+
+
+![Data Analysis on AWS](/images/9/6.png?featherlight=false&width=90pc)
 
 4. Click **General Configuration**.
   + Click **Edit**.
-  + Để **Memory (MB)** như mặc định là 128 MB.
-  + Đổi **Timeout** thành 10 seconds.
-  + Nhấn **Save**.
+  + Leave **Memory (MB)** as default 128 MB.
+  + Change **Timeout** to 10 seconds.
+  + Click **Save**.
 
-![Architect](/images/9/11.png?width=90pc)
+![Data Analysis on AWS](/images/9/8.png?featherlight=false&width=90pc)
 
 ---
 
 5. Click **Permissions**.
-  + Nhấn link Role Name để mở IAM Console ở tab mới.
+  + Click the Role Name link to open the IAM Console in a new tab.
 
-![Architect](/images/9/4.png?width=90pc)
+![Data Analysis on AWS](/images/9/9.png?featherlight=false&width=90pc)
 
-6. Nhấn **Attach policies**
+6. Click **Attach policies**
 
-![Architect](/images/9/5.png?width=90pc)
+![Data Analysis on AWS](/images/9/10.png?featherlight=false&width=90pc)
 
-7. Thêm 2 policies như dưới đây:
-  + ```AmazonS3FullAccess```
+7. Add 2 policies as below:
+  + ```AmazonS3FullAccess````
   + ```AmazonAthenaFullAccess```
 
-![Architect](/images/9/6.png?width=90pc)
+![Data Analysis on AWS](/images/9/11.png?featherlight=false&width=90pc)
 
-Khi các policies đã được gắn vào, chúng ta có thể tắt tab này và quay trở lại giao diện của dịch vụ Lambda.
+Once the policies have been attached, we can close this tab and return to the interface of the Lambda service.

@@ -31,10 +31,9 @@ limit 10;
 ```
 
 2. Bạn có thể so sánh thời gian thực thi với phần kết quả của bước **10.8** và so sánh tốc độ thực thi.
-  + Như trên ảnh dưới, chúng ta có thể thấy thì thời gian thực thi đã giảm từ 12s còn 2s cho câu lệnh query này.
+  + Như trên ảnh dưới, chúng ta có thể thấy thì thời gian thực thi đã giảm từ 12s còn 2s cho câu lệnh query này
 
-![Architect](/images/10/25.png?width=90pc)
-
+![Data Analysis on AWS](/images/10/63.png?featherlight=false&width=90pc)
 
 Chúc mừng bạn đã hoàn tất workshop Phân tích dữ liệu trên AWS.Hi vọng qua workshop này sẽ giúp các bạn làm quen với các dịch vụ và tính năng giúp cho việc xây dựng giải pháp phân tích dữ liệu trên AWS trở nên dễ dàng hơn. 
 

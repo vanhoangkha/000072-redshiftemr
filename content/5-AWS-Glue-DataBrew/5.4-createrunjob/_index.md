@@ -1,5 +1,5 @@
 +++
-title = "Khởi tạo và chạy job"
+title = "Initialize and run the job"
 date = 2021
 weight = 4
 chapter = false
@@ -7,50 +7,53 @@ pre = "<b>5.4 </b>"
 +++
 
 
-#### Khởi tạo và chạy AWS Glue DataBrew job
+#### Create and run an AWS Glue DataBrew job
 
-1. Click **PROFILE** để xem lại kết quả profiling của raw dataset như summary, missing cells, duplicate rows, value distribution, và columns statistics, nó sẽ cho bạn insights về dữ liệu của bạn.
+1. Click **PROFILE** to review the profiling results of the raw dataset like summary, missing cells, duplicate rows, value distribution, and columns statistics, which will give you insights about your data.
 
-![Architect](/images/5/14.png?width=90pc)
+![Data Analysis on AWS](/images/5/20.png?featherlight=false&width=90pc)
 
-2. Click **LINEAGE** ở góc bên phải.
+2. Click **LINEAGE** in the right corner.
 
-![Architect](/images/5/15.png?width=90pc)
+![Data Analysis on AWS](/images/5/21.png?featherlight=false&width=90pc)
 
-3. Bạn có thể thấy luồng dữ liệu của bạn, được trình bày để cung cấp về luồng dữ liệu với sự chuyển đổi qua tất cả các bước.
+3. You can see your data flow, presented to provide data flow with transition through all steps.
 
-![Architect](/images/5/16.png?width=90pc)
+![Data Analysis on AWS](/images/5/21.png?featherlight=false&width=90pc)
 
-4. Trở lại **GRID**, và Click **Create job**
+4. Go back to **GRID**, and Click **Create job**
 
-![Architect](/images/5/17.png?width=90pc)
+![Data Analysis on AWS](/images/5/22.png?featherlight=false&width=90pc)
 
-5. Điền vào những giá trị dưới đây:
-  + Mục **Job details**.
+5. Fill in the values ​​below:
+  + Section **Job details**.
     + Job Name: **AnalyticsOnAWS-GlueDataBrew-Job**.
-  + Mục **Job output settings**.
+  + Section **Job output settings**.
     + File type: **GlueParquet**.
     + S3 location: **s3://yourname-analytics-workshop-bucket/data/processed-data/**.
-  + Kéo xuống dưới phần **Permission**, và chọn role name mà bạn đã tạo ở bước đầu, và Click **Create and run job**.
 
-![Architect](/images/5/18.png?width=90pc)
 
-6. Bạn sẽ thấy 1 job đang trong tiến trình.
+![Data Analysis on AWS](/images/5/23.png?featherlight=false&width=90pc)
 
-![Architect](/images/5/19.png?width=90pc)
+6. Scroll down under **Permission**, and select the role name you created in the first step, and Click **Create and run job**.
 
-7. Click **Jobs** ở menu bên trái, bạn sẽ thấy như màn hình dưới đây.
-  + Click vào tên job.
+![Data Analysis on AWS](/images/5/24.png?featherlight=false&width=90pc)
 
-![Architect](/images/5/20.png?width=90pc)
+7. You will see a job in progress.
 
-8. Ở đây bạn có thể coi lịch sử chạy, chi tiết job, và luồng dữ liệu.
-  + Lịch sử chạy.
+8. Click **Jobs** in the left menu, you will see the screen below.
+  Click on the job name.
 
-![Architect](/images/5/21.png?width=90pc)
+![Data Analysis on AWS](/images/5/26.png?featherlight=false&width=90pc)
 
-  + Chi tiết về job.
-![Architect](/images/5/22.png?width=90pc)
+9. Here you can view run history, job details, and data flow.
+  + Running history.
 
-  + Luồng đi dữ liệu.
-![Architect](/images/5/23.png?width=90pc)
+![Data Analysis on AWS](/images/5/27.png?featherlight=false&width=90pc)
+  + Details of the job.
+  
+![Data Analysis on AWS](/images/5/28.png?featherlight=false&width=90pc)
+
+  + Data flow.
+
+![Data Analysis on AWS](/images/5/21.png?featherlight=false&width=90pc)

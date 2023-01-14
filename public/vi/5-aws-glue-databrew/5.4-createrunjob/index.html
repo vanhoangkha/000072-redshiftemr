@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.99.1" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Khởi tạo và chạy job :: Phân tích dữ liệu trên AWS</title>
 
     
-    <link href="/css/nucleus.css?1632910943" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1632910943" rel="stylesheet">
-    <link href="/css/hybrid.css?1632910943" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1632910943" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1632910943" rel="stylesheet">
-    <link href="/css/auto-complete.css?1632910943" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1632910943" rel="stylesheet">
-    <link href="/css/theme.css?1632910943" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1632910943" rel="stylesheet">
+    <link href="/css/nucleus.css?1673731428" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1673731428" rel="stylesheet">
+    <link href="/css/hybrid.css?1673731428" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1673731428" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1673731428" rel="stylesheet">
+    <link href="/css/auto-complete.css?1673731428" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1673731428" rel="stylesheet">
+    <link href="/css/theme.css?1673731428" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1673731428" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1632910943" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1673731428" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1632910943"></script>
+    <script src="/js/jquery-3.3.1.min.js?1673731428"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1632910943"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1632910943"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1673731428"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1673731428"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1632910943"></script>
+<script type="text/javascript" src="/js/search.js?1673731428"></script>
 
     
   </div>
@@ -113,13 +113,13 @@
  
   
     
-    <li data-nav-id="/vi/1-ingest-and-store/1.1-creates3bucket/" title="Tạo S3 Bucket" class="dd-item 
+    <li data-nav-id="/vi/1-ingest-and-store/1.1-creates3bucket/" title="Tạo S3 bucket" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-ingest-and-store/1.1-creates3bucket/">
-          <b>1.1 </b>Tạo S3 Bucket
+           <b> 1.1 </b> Tạo S3 bucket
           
             <i class="fas fa-check read-icon"></i>
           
@@ -742,7 +742,7 @@
   
     
     <li data-nav-id="/vi/5-aws-glue-databrew/5.4-createrunjob/" title="Khởi tạo và chạy job" class="dd-item 
-        
+        parent
         active
         
         ">
@@ -1955,7 +1955,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>30-09-2021</font></i>
+        <i><font color=orange>15-01-2023</font></i>
     </left>
     <left>
         <br>
@@ -2057,19 +2057,19 @@
 <ol>
 <li>Click <strong>PROFILE</strong> để xem lại kết quả profiling của raw dataset như summary, missing cells, duplicate rows, value distribution, và columns statistics, nó sẽ cho bạn insights về dữ liệu của bạn.</li>
 </ol>
-<p><img src="/images/5/14.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/5/20.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="2">
 <li>Click <strong>LINEAGE</strong> ở góc bên phải.</li>
 </ol>
-<p><img src="/images/5/15.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/5/21.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="3">
 <li>Bạn có thể thấy luồng dữ liệu của bạn, được trình bày để cung cấp về luồng dữ liệu với sự chuyển đổi qua tất cả các bước.</li>
 </ol>
-<p><img src="/images/5/16.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/5/21.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="4">
 <li>Trở lại <strong>GRID</strong>, và Click <strong>Create job</strong></li>
 </ol>
-<p><img src="/images/5/17.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/5/22.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="5">
 <li>Điền vào những giá trị dưới đây:</li>
 </ol>
@@ -2085,37 +2085,39 @@
 <li>S3 location: <strong>s3://yourname-analytics-workshop-bucket/data/processed-data/</strong>.</li>
 </ul>
 </li>
-<li>Kéo xuống dưới phần <strong>Permission</strong>, và chọn role name mà bạn đã tạo ở bước đầu, và Click <strong>Create and run job</strong>.</li>
 </ul>
-<p><img src="/images/5/18.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/5/23.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="6">
-<li>Bạn sẽ thấy 1 job đang trong tiến trình.</li>
+<li>Kéo xuống dưới phần <strong>Permission</strong>, và chọn role name mà bạn đã tạo ở bước đầu, và Click <strong>Create and run job</strong>.</li>
 </ol>
-<p><img src="/images/5/19.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/5/24.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ol start="7">
-<li>Click <strong>Jobs</strong> ở menu bên trái, bạn sẽ thấy như màn hình dưới đây.</li>
+<li>
+<p>Bạn sẽ thấy 1 job đang trong tiến trình.</p>
+</li>
+<li>
+<p>Click <strong>Jobs</strong> ở menu bên trái, bạn sẽ thấy như màn hình dưới đây.</p>
+</li>
 </ol>
 <ul>
 <li>Click vào tên job.</li>
 </ul>
-<p><img src="/images/5/20.png?width=90pc" alt="Architect"></p>
-<ol start="8">
+<p><img src="/images/5/26.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ol start="9">
 <li>Ở đây bạn có thể coi lịch sử chạy, chi tiết job, và luồng dữ liệu.</li>
 </ol>
 <ul>
 <li>Lịch sử chạy.</li>
 </ul>
-<p><img src="/images/5/21.png?width=90pc" alt="Architect"></p>
+<p><img src="/images/5/27.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 <ul>
-<li>
-<p>Chi tiết về job.
-<img src="/images/5/22.png?width=90pc" alt="Architect"></p>
-</li>
-<li>
-<p>Luồng đi dữ liệu.
-<img src="/images/5/23.png?width=90pc" alt="Architect"></p>
-</li>
+<li>Chi tiết về job.</li>
 </ul>
+<p><img src="/images/5/28.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
+<ul>
+<li>Luồng đi dữ liệu.</li>
+</ul>
+<p><img src="/images/5/21.png?featherlight=false&amp;width=90pc" alt="Data Analysis on AWS"></p>
 
 
 
@@ -3166,19 +3168,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1632910943"></script>
-    <script src="/js/perfect-scrollbar.min.js?1632910943"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1632910943"></script>
-    <script src="/js/jquery.sticky.js?1632910943"></script>
-    <script src="/js/featherlight.min.js?1632910943"></script>
-    <script src="/js/highlight.pack.js?1632910943"></script>
+    <script src="/js/clipboard.min.js?1673731429"></script>
+    <script src="/js/perfect-scrollbar.min.js?1673731429"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1673731429"></script>
+    <script src="/js/jquery.sticky.js?1673731429"></script>
+    <script src="/js/featherlight.min.js?1673731429"></script>
+    <script src="/js/highlight.pack.js?1673731429"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1632910943"></script>
-    <script src="/js/learn.js?1632910943"></script>
-    <script src="/js/hugo-learn.js?1632910943"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1673731429"></script>
+    <script src="/js/learn.js?1673731429"></script>
+    <script src="/js/hugo-learn.js?1673731429"></script>
 
-    <link href="/mermaid/mermaid.css?1632910943" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1632910943"></script>
+    <link href="/mermaid/mermaid.css?1673731429" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1673731429"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

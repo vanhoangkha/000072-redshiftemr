@@ -1,5 +1,5 @@
 +++
-title = "Query dữ liệu với Athena"
+title = "Query data with Athena"
 date = 2020
 weight = 4
 chapter = false
@@ -7,31 +7,35 @@ pre = "<b>2.4 </b>"
 +++
 
 
-#### Query dữ liệu sử dụng Amazon Athena
+#### Query data using Amazon Athena
 
-Giờ chúng ta sẽ query dữ liệu giả lập đã được catalog sử dụng Amazon Athena.
+We will now query the cataloged simulated data using Amazon Athena.
 
-1. Truy cập [giao diện quản trị dịch vụ Athena](https://console.aws.amazon.com/athena/home?region=ap-southeast-1#query)
-  + Nếu cần thiết, chọn **set up a query result location in Amazon S3** ở cảnh báo mua xanh gần phía trên Athena console.
-    + Nhập ```s3://yourname-analytics-workshop-bucket/query_results/```.
-    + Click **Save**.
+1. Go to [Athena service admin interface](https://console.aws.amazon.com/athena/home?region=ap-southeast-1#query)
 
-![Architect](/images/2/11.png?width=90pc)
+![Data Analysis on AWS](/images/2/00020.png?featherlight=false&width=90pc)
 
-2. Ở bảng sổ xuống bên trái (**Database**), chọn **analyticsworkshopdb** > chọn table **raw**.
-  + Click vào **3 dots** (3 chấm dọc) > chọn **Preview Table**.
-  + Xem phần output.
-  + ở query editor, dán nội dung query dưới đây và Click **Run Query**.
+2. Select **Manage**
+
+![Data Analysis on AWS](/images/2/00021.png?featherlight=false&width=90pc)
+
+3. Select **Location of query result**. Select **Save**
+
+![Data Analysis on AWS](/images/2/00022.png?featherlight=false&width=90pc)
+
+4. In the left drop-down table (**Database**), select **analyticsworkshopdb** > select table **raw**.
+  + Click on **3 dots** (3 vertical dots) > select **Preview Table**.
+  + See the output section.
+  + In the query editor, paste the query text below and Click **Run Query**.
 
 ```
 SELECT activity_type,
          count(activity_type)
 FROM raw
-GROUP BY  activity_type
-ORDER BY  activity_type
+GROUP BY activity_type
+ORDER BY activity_type
 ```
 
-![Architect](/images/2/13.png?width=90pc)
+![Data Analysis on AWS](/images/2/00023.png?featherlight=false&width=90pc)
 
-Chúc mừng bạn đã hoàn thành bước catalog dữ liệu, hãy tiếp tục với bước tiếp theo là chuyển đổi dữ liệu sử dụng AWS Glue ETL.
-
+Congratulations on completing the data catalog step, continue with the next step of data migration using AWS Glue ETL.

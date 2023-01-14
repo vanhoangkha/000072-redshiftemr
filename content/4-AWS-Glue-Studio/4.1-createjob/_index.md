@@ -1,43 +1,39 @@
 +++
-title = "Tạo Glue Studio job"
+title = "Create Glue Studio job"
 date = 2020
 weight = 1
 chapter = false
 pre = "<b>4.1 </b>"
 +++
 
-#### Tạo Glue Studio job
+#### Create Glue Studio job
 
-1. Truy cập đến giao diện [Glue Studio Console](https://console.aws.amazon.com/gluestudio/home?region=ap-southeast-1)
-  + Click - biểu tượng **3 gạch** ở góc bên trái.
+1. Go to the [Glue Studio Console] interface(https://console.aws.amazon.com/gluestudio/home?region=ap-southeast-1)
+  + Click - icon **3 tiles** in the left corner.
 
-![Architect](/images/4/glue_studio.png?width=90pc)
-
-2. Click - **Jobs** và chọn **Create job from a blank graph**.
+2. Click - **Jobs** and select **Create job from a blank graph**.
   + Click **Create**.
 
-![Architect](/images/4/1.png?width=90pc)
+![Data Analysis on AWS](/images/4/1.png?featherlight=false&width=90pc)
 
-3. Click - **Source** và chọn **S3**
+3. Click - **Source** and select **S3**
 
-![Architect](/images/4/2.png?width=90pc)
-
-4. Click tab **Data source properties - S3** trong cửa sổ cấu hình ở bên phải màn hình.
-+ Dưới **S3 source type** chọn **Data Catalog table**.
-+ Chọn những giá trị như dưới đây.
+4. Click the **Data source properties - S3** tab in the configuration window on the right side of the screen.
++ Under **S3 source type** select **Data Catalog table**.
++ Select the values ​​as below.
   + Database - **analyticsworkshopdb**.
   + Table - **raw**.
 
-![Architect](/images/4/3.png?width=90pc)
+![Data Analysis on AWS](/images/4/2.png?featherlight=false&width=90pc)
 
-5. Tiếp tục làm bước tương tự để thêm reference_data từ S3. Click - **Source** và chọn **S3**.
+5. Continue to do the same step to add reference_data from S3. Click - **Source** and select **S3**.
 
-![Architect](/images/4/2.png?width=90pc)
+![Data Analysis on AWS](/images/4/3.png?featherlight=false&width=90pc)
 
-6. Click tab **Data source properties - S3** trong cửa sổ cấu hình ở bên phải màn hình.
-+ Dưới **S3 source type** chọn **Data Catalog table**.
-+ Chọn những giá trị như dưới đây.
+6. Click the **Data source properties - S3** tab in the configuration window on the right side of the screen.
++ Under **S3 source type** select **Data Catalog table**.
++ Select the values ​​as below.
   + Database - **analyticsworkshopdb**.
   + Table - **reference_data**.
 
-![Architect](/images/4/4.png?width=90pc)
+![Data Analysis on AWS](/images/4/4.png?featherlight=false&width=90pc)

@@ -1,5 +1,5 @@
 +++
-title = "Tạo SageMaker Notebooks"
+title = "Create SageMaker Notebooks"
 date = 2020
 weight = 2
 chapter = false
@@ -7,22 +7,36 @@ pre = "<b>3.2 </b>"
 +++
 
 
-#### Tạo SageMaker Notebooks (Jupyter) cho Glue Dev Endpoints
+#### Create SageMaker Notebooks (Jupyter) for Glue Dev Endpoints
 
 
-1. Truy cập đến [giao diện quản trị Glue devevelopment endpoin nodebooks](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=notebooks).
-  + Chọn tab: **Sagemaker notebooks**.
+1. Go to [Glue devevelopment endpoin nodebooks admin interface](https://console.aws.amazon.com/glue/home?region=ap-southeast-1#etl:tab=notebooks).
+  + Select tab: **Sagemaker notebooks**.
   + Click - **Create notebook**.
-    + Notebook name: AnalyticsworkshopNotebook.
-    + Attach to development endpoint: analyticsworkshopEndpoint1.
-    + Chọn: Create an IAM role.
-      + IAM Role: Workshop.
-    + VPC (optional): Để Trống.
-    + Encryption key (optional): Để Trống.
-    + Tuỳ chọn thêm Tags, e.g.:
-      + workshop: AnalyticsOnAWS.
-    + Click **Create Notebook**.
 
-![Architect](/images/3/7.png?width=90pc)
+![Data Analysis on AWS](/images/3/9.png?featherlight=false&width=90pc)
 
-Quá trình tạo SageMaker notebook sẽ tốn một ít phút (4 - 5 phút). Đợi cho trạng thái của Notebook khởi tạo từ Starting thành Privisioned.
+
+2. Notebook name: AnalyticsworkshopNotebook.
++ Attach to development endpoint: analyticsworkshopEndpoint1.
++ Select: Create an IAM role.
++ IAM Role: Workshop.
++ VPC (optional): Leave blank.
+
+![Data Analysis on AWS](/images/3/10.png?featherlight=false&width=90pc)
+
+
+3. Encryption key (optional): Leave blank.
++ Optionally add Tags, e.g.:
++ workshop: AnalyticsOnAWS.
++ Click **Create Notebook**.
+
+![Data Analysis on AWS](/images/3/11.png?featherlight=false&width=90pc)
+
+4. Creating a SageMaker notebook will take a few minutes (4 - 5 minutes).
+
+![Data Analysis on AWS](/images/3/12.png?featherlight=false&width=90pc)
+
+5. Wait for the Notebook's state to initialize from Starting to Ready.
+
+![Data Analysis on AWS](/images/3/13.png?featherlight=false&width=90pc)

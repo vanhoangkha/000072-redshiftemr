@@ -12,6 +12,7 @@ Distribution / Phân phối dữ liệu là một phương thức tối ưu hi�
 
 1. Chúng ta sẽ sử dụng phân phối dựa trên **KEY** cho bảng dữ kiện **f_raw_1**.
   + Vì hai bảng (**f_raw_1** và **d_ref_data_1**) cần được kết hợp trên cột **track_id**, nên chúng ta sẽ chọn **track_id** làm distribution key.
+  
 
 2. Chúng ta sẽ sử dụng phân phối **ALL** cho bảng dimension - **d_ref_data_1**.
 
