@@ -45,7 +45,7 @@ pre : " <b> 1.1 </b> "
 ![Data Analysis on AWS](/images/1/3.png?featherlight=false&width=90pc)
 
 6. Open the **reference_data** folder.
-   - Download this file to your computer: tracks_list.json
+   - Download this file to your computer: tracks_list.json. [Github](https://github.com/AWS-First-Cloud-Journey/Workshop-72-Datasets)
    - You can also download the tracks_list.json file from the download section [here](https://static.us-east-1.prod.workshops.aws/public/7072e03f-04ad-4825-87ca-0eab704a7e83/static/data/tracks_list.json)
    - In **S3 Console** - Click on **Upload**.
    - Click **Add files** and upload the file **tracks_list.json**.

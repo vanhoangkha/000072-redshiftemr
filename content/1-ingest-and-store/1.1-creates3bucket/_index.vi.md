@@ -45,7 +45,7 @@ pre : " <b> 1.1 </b> "
 ![Data Analysis on AWS](/images/1/3.png?featherlight=false&width=90pc)
 
 6. Mở folder **reference_data**.
-   - Tải file này xuống máy của bạn: tracks_list.json
+   - Tải file này xuống máy của bạn: tracks_list.json. [Github](https://github.com/AWS-First-Cloud-Journey/Workshop-72-Datasets)
    - Bạn cũng có thể tải file tracks_list.json ở phần tải về tại [đây](https://static.us-east-1.prod.workshops.aws/public/7072e03f-04ad-4825-87ca-0eab704a7e83/static/data/tracks_list.json)
    - Trong **S3 Console** - Click chọn **Upload**.
    - Click **Add files** và tải lên file **tracks_list.json**.
