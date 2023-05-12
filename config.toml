@@ -18,24 +18,24 @@ home = [ "HTML", "RSS", "JSON"]
   
 [Languages]
 [Languages.en]
-title = "Analytics on AWS"
+title = "DATA ANALYSIS ON AWS"
 weight = 1
 languageName = "English"
 
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-aws'></i> AWS Study Group - Blog"
 identifier = "AWS Study Group"
-url = "http://awsstudygroup.com"
+url = "https://aws.amazon.com/blogs"
 weight = 20
 
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-facebook'></i> AWS Study Group - FB Group"
 identifier = "AWS Study Group FB"
-url = "https://www.facebook.com/groups/660548818043427/"
+url = "https://www.facebook.com/groups/awsstudygroupfcj"
 weight = 20
 
 [Languages.vi]
-title = "Phân tích dữ liệu trên AWS"
+title = "Phân tích chi phí và hiệu năng sử dụng với AWS Glue và Amazon Athena"
 weight = 2
 languageName = "Tiếng Việt"
 
@@ -48,6 +48,6 @@ weight = 20
 [[Languages.vi.menu.shortcuts]]
 name = "<i class='fab fa-facebook'></i> AWS Study Group - Nhóm FB"
 identifier = "AWS Study Group FB"
-url = "https://www.facebook.com/groups/660548818043427/"
+url = "https://www.facebook.com/groups/awsstudygroupfcj"
 weight = 20
 

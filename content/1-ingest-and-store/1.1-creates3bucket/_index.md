@@ -46,7 +46,7 @@ pre : " <b> 1.1 </b> "
 
 6. Open the **reference_data** folder.
    - Download this file to your computer: tracks_list.json
-   - You can also download the tracks_list.json file from the download section here [https://static.us-east-1.prod.workshops.aws/public/97563182-1cb0-4843-b5be-caee2083e9e7/static /data/tracks_list.json)
+   - You can also download the tracks_list.json file from the download section [here](https://static.us-east-1.prod.workshops.aws/public/7072e03f-04ad-4825-87ca-0eab704a7e83/static/data/tracks_list.json)
    - In **S3 Console** - Click on **Upload**.
    - Click **Add files** and upload the file **tracks_list.json**.
    - Click **Upload**.

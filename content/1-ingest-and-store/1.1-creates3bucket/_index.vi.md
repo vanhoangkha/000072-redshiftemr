@@ -46,7 +46,7 @@ pre : " <b> 1.1 </b> "
 
 6. Mở folder **reference_data**.
    - Tải file này xuống máy của bạn: tracks_list.json
-   - Bạn cũng có thể tải file tracks_list.json ở phần tải về tại [đây](https://static.us-east-1.prod.workshops.aws/public/97563182-1cb0-4843-b5be-caee2083e9e7/static/data/tracks_list.json)
+   - Bạn cũng có thể tải file tracks_list.json ở phần tải về tại [đây](https://static.us-east-1.prod.workshops.aws/public/7072e03f-04ad-4825-87ca-0eab704a7e83/static/data/tracks_list.json)
    - Trong **S3 Console** - Click chọn **Upload**.
    - Click **Add files** và tải lên file **tracks_list.json**.
    - Click **Upload**.

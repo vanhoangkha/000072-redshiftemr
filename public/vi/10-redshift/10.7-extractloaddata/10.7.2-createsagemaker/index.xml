@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tạo Notebooks on Phân tích dữ liệu trên AWS</title>
+    <title>Tạo Notebooks on Phân tích chi phí và hiệu năng sử dụng với AWS Glue và Amazon Athena</title>
     <link>/vi/10-redshift/10.7-extractloaddata/10.7.2-createsagemaker/</link>
-    <description>Recent content in Tạo Notebooks on Phân tích dữ liệu trên AWS</description>
+    <description>Recent content in Tạo Notebooks on Phân tích chi phí và hiệu năng sử dụng với AWS Glue và Amazon Athena</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Thu, 01 Jan 1970 07:33:41 +0700</lastBuildDate><atom:link href="/vi/10-redshift/10.7-extractloaddata/10.7.2-createsagemaker/index.xml" rel="self" type="application/rss+xml" />
   </channel>
