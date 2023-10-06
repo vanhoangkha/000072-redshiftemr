@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Phân tích với Kinesis Data Analytics :: BẮT ĐẦU VỚI AMAZON RDS</title>
+
+    
+    <link href="/css/nucleus.css?1696564053" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696564053" rel="stylesheet">
+    <link href="/css/hybrid.css?1696564053" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696564053" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696564053" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696564053" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696564053" rel="stylesheet">
+    <link href="/css/theme.css?1696564053" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696564053" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1696564053" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1696564053"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/vi/10-kinesis-data-analytics/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1696564053"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696564053"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/vi";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1696564053"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-introduce/">
+           <b> 1. </b> Giới thiệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/">
+           <b> 2. </b> Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3.ingestandstore/" title="Nhập và lưu trữ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3.ingestandstore/">
+           <b> 3. </b> Nhập và lưu trữ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3.ingestandstore/3.1-create-kinesis-firehose/" title="Tạo Kinesis Firehose" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3.ingestandstore/3.1-create-kinesis-firehose/">
+           <b> 3.1 </b> Tạo Kinesis Firehose
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3.ingestandstore/3.2-generate-dummy-data/" title="Generate Dummy Data" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3.ingestandstore/3.2-generate-dummy-data/">
+           <b> 3.2 </b> Generate Dummy Data
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4.catalogdata/" title="Catalog Data" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4.catalogdata/">
+           <b> 4. </b> Catalog Data
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4.catalogdata/4.1-create-iam-role/" title="Tạo IAM Role" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4.catalogdata/4.1-create-iam-role/">
+           <b> 4.1 </b> Tạo IAM Role
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4.catalogdata/4.2-create-aws-glue-crawlers/" title="Tạo AWS Glue Crawlers" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4.catalogdata/4.2-create-aws-glue-crawlers/">
+           <b> 4.2 </b> Tạo AWS Glue Crawlers
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4.catalogdata/4.3-amazon-athena/" title="Xác minh các bảng vừa tạo trong catalog" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4.catalogdata/4.3-amazon-athena/">
+           <b> 4.3 </b> Xác minh các bảng vừa tạo trong catalog
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-interactive-sessions/" title="Transform Data with AWS Glue (interactive sessions)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-interactive-sessions/">
+           <b> 5. </b> Transform Data with AWS Glue (interactive sessions)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-graphical-interface/" title="Transform Data with AWS Glue Studio (graphical interface)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-graphical-interface/">
+           <b> 6. </b> Transform Data with AWS Glue Studio (graphical interface)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-glue-databrew/" title="Transform Data with AWS Glue DataBrew" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-glue-databrew/">
+           <b> 7. </b> Transform Data with AWS Glue DataBrew
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/8-emr/" title="Chuyển đổi dữ liệu bằng EMR" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/8-emr/">
+           <b> 8. </b> Chuyển đổi dữ liệu bằng EMR
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/9-athena/" title="Phân tích với Athena" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/9-athena/">
+           <b> 9. </b> Phân tích với Athena
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/10-kinesis-data-analytics/" title="Phân tích với Kinesis Data Analytics" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/vi/10-kinesis-data-analytics/">
+           <b> 10. </b> Phân tích với Kinesis Data Analytics
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/11-quicksight/" title="Hiển thị dữ liệu trong Quicksight" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/11-quicksight/">
+           <b> 11. </b> Hiển thị dữ liệu trong Quicksight
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/12-lambda/" title="Serve with Lambda" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/12-lambda/">
+           <b> 12. </b> Serve with Lambda
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/13-redshift/" title="Warehouse trên Redshift" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/13-redshift/">
+           <b> 13. </b> Warehouse trên Redshift
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/14-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/14-clean-up/">
+           <b> 14. </b> Dọn dẹp tài nguyên
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="http://awsstudygroup.com"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj"><i class='fab fa-facebook'></i> AWS Study Group - Nhóm FB</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/10-kinesis-data-analytics/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/10-kinesis-data-analytics/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7873627&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>06-10-2023</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i>
+                <a href="https://www.linkedin.com/in/khanhvg/"  style="color:orange">Gia Khánh</a> , 
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a>
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/vi/'>Analytics on AWS workshop</a> > Phân tích với Kinesis Data Analytics
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Phân tích với Kinesis Data Analytics
+            </h1>
+          
+
+        
+
+
+
+	<h4 id="phân-tích-với-kinesis-data-analytics">Phân tích với Kinesis Data Analytics</h4>
+<p>Trong phần trước, bạn đã khám phá cách phân tích dữ liệu bằng cách sử dụng Amazon Athena. Trong phần này, chúng ta sẽ thấy cách thực hiện phân tích thời gian thực của dữ liệu đang truyền bằng cách sử dụng Amazon Kinesis Data Analytics. Điều này có thể được thực hiện theo 2 cách, sử dụng Ứng dụng SQL cũ hoặc sử dụng Sổ ghi Studio mới được khuyến nghị. Trong buổi thực hành này, chúng ta sẽ sử dụng Sổ ghi Studio và tạo Ứng dụng Phân tích Kinesis dựa trên SQL.</p>
+<h4 id="tạo-iam-role">Tạo IAM Role</h4>
+<p>Trong bước này, chúng ta sẽ điều hướng đến Bảng điều khiển IAM và tạo một role dịch vụ Amazon Kinesis Data Analytics mới. Điều này cho phép dịch vụ Amazon Kinesis Data Analytics truy cập vào Kinesis Data Streams cũng như AWS Glue Catalog table.</p>
+<ol>
+<li>Đi đến Role AWS IAM</li>
+</ol>
+<ul>
+<li>Chọn  vào Create IAM Role</li>
+<li>Chọn dịch vụ Kinesis trong Use case từ menu thả xuống có tên Use cases for other AWS services:</li>
+<li>Chọn Kinesis Analytics</li>
+<li>Chọn  vào Next</li>
+</ul>
+<p><img src="/images/9/0003.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="2">
+<li>Tìm kiếm AWSGlueServiceRole</li>
+</ol>
+<ul>
+<li>Chọn hộp kiểm nhập của mục này</li>
+<li>Tìm kiếm AmazonKinesisFullAccess</li>
+<li>Chọn hộp kiểm nhập của mục này</li>
+</ul>
+<p>LƯU Ý: Chúng tôi sử dụng quyền truy cập đầy đủ chỉ cho mục đích thực hành. Hãy cấp quyền truy cập cần thiết nếu bạn sử dụng Role này trong môi trường sản xuất.</p>
+<p><img src="/images/9/0004.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="3">
+<li>Chọn  vào Next</li>
+</ol>
+<ul>
+<li>Nhập tên Role: AnalyticsworkshopKinesisAnalyticsRole</li>
+<li>Đảm bảo chỉ có hai policy được gắn kết vào Role này (AWSGlueServiceRole, AmazonKinesisFullAccess)</li>
+<li>Tùy chọn thêm Tag, ví dụ: workshop: AnalyticsOnAWS</li>
+<li>Chọn  vào Create IAM Role</li>
+</ul>
+<p><img src="/images/9/0005.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/9/0006.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/9/0007.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<h4 id="tạo-kinesis--data-stream">Tạo Kinesis  Data Stream</h4>
+<p>Kinesis Data Generator là một ứng dụng giúp việc gửi dữ liệu kiểm thử tới luồng Kinesis của Amazon hoặc luồng chuyển phân phối Firehose của Amazon Kinesis trở nên đơn giản. Chúng ta sẽ tạo luồng dữ liệu Kinesis để tiếp nhận dữ liệu từ Kinesis Data Generator. Sổ ghi chú Ứng dụng Kinesis của chúng ta sẽ đọc dữ liệu đang truyền từ luồng dữ liệu Kinesis này.</p>
+<ol>
+<li>Truy cập vào dịch vụ AWS Kinesis
+Chọn  vào Create Data Stream</li>
+</ol>
+<p><img src="/images/9/0008.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="2">
+<li>Nhập tên luồng dữ liệu: analytics-workshop-data-stream</li>
+</ol>
+<ul>
+<li>Data Stream capacity:</li>
+<li>Choose Capacity Mode: Provisioned</li>
+<li>Set Provisioned Shards: 2</li>
+</ul>
+<p><img src="/images/9/0009.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="3">
+<li>THÔNG TIN: Một shard là một nhóm các bản ghi dữ liệu đặc biệt được xác định trong luồng dữ liệu Kinesis. Một shard hỗ trợ 1 MB/giây và 1.000 bản ghi mỗi giây cho việc ghi và 2 MB/giây cho việc đọc. Vì vậy, 2 shard được cấp phát ở đây có thể hỗ trợ 2 MB/giây và 2.000 bản ghi mỗi giây cho việc ghi và 4 MB/giây cho việc đọc.</li>
+</ol>
+<ul>
+<li>Cuộn xuống dưới cùng và Chọn  vào Create Data Stream</li>
+</ul>
+<p><img src="/images/9/00010.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<h4 id="tạo-glue-catalog-table">Tạo Glue Catalog Table</h4>
+<p>Kinesis Application Notebook của chúng tôi sẽ lấy thông tin về nguồn dữ liệu từ AWS Glue. Khi bạn tạo Studio notebook, bạn chỉ định AWS Glue database chứa thông tin kết nối của bạn. Khi truy cập vào nguồn dữ liệu của bạn, bạn chỉ định các bảng AWS Glue được chứa trong cơ sở dữ liệu.</p>
+<ol>
+<li>Từ thanh bên trái, đi đến Database và Chọn  vào cơ sở dữ liệu đã tạo trước đó analyticsworkshopdb của chúng tôi</li>
+</ol>
+<ul>
+<li>
+<p>Chọn  vào Tables in analyticsworkshopdb</p>
+</li>
+<li>
+<p>Chọn  vào menu thả xuống  Add tables và sau đó chọn Add table manually</p>
+</li>
+</ul>
+<p><img src="/images/9/00011.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="2">
+<li>Trong Table Properties</li>
+</ol>
+<ul>
+<li>Nhập Table Name: raw_stream</li>
+</ul>
+<p><img src="/images/9/00012.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="3">
+<li>Trong Data store:</li>
+</ol>
+<ul>
+<li>Chọn loại nguồn: Kinesis</li>
+<li>Bỏ qua Select a kinesis data stream. (Stream in my account được chọn mặc định)</li>
+<li>Region US East (N. Virginia) us-east-1</li>
+<li>Kinesis stream name analytics-workshop-data-stream</li>
+<li>Bỏ qua kích thước mẫu</li>
+<li>Trong Data format:</li>
+<li>Classification: JSON</li>
+<li>Sau đó, Chọn  vào Next</li>
+</ul>
+<p><img src="/images/9/00013.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="4">
+<li>Trong Schema: Chọn  vàoEdit Schema as JSON và chèn đoạn văn bản JSON sau đây.</li>
+</ol>
+<p><img src="/images/9/00014.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<pre tabindex="0"><code>[
+  {
+    &#34;Name&#34;: &#34;uuid&#34;,
+    &#34;Type&#34;: &#34;string&#34;,
+    &#34;Comment&#34;: &#34;&#34;
+  },
+  {
+    &#34;Name&#34;: &#34;device_ts&#34;,
+    &#34;Type&#34;: &#34;timestamp&#34;,
+    &#34;Comment&#34;: &#34;&#34;
+  },
+  {
+    &#34;Name&#34;: &#34;device_id&#34;,
+    &#34;Type&#34;: &#34;int&#34;,
+    &#34;Comment&#34;: &#34;&#34;
+  },
+  {
+    &#34;Name&#34;: &#34;device_temp&#34;,
+    &#34;Type&#34;: &#34;int&#34;,
+    &#34;Comment&#34;: &#34;&#34;
+  },
+  {
+    &#34;Name&#34;: &#34;track_id&#34;,
+    &#34;Type&#34;: &#34;int&#34;,
+    &#34;Comment&#34;: &#34;&#34;
+  },
+  {
+    &#34;Name&#34;: &#34;activity_type&#34;,
+    &#34;Type&#34;: &#34;string&#34;,
+    &#34;Comment&#34;: &#34;&#34;
+  }
+]
+</code></pre><p><img src="/images/9/00015.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="5">
+<li>Trong Schema: Sau đó, Chọn  vào Next</li>
+</ol>
+<p><img src="/images/9/00016.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="6">
+<li>Trong  Partition:  Bỏ qua phần này và Chọn  vào Next
+INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng được xác định trong bảng. Điều này hữu ích để truy xuất một phần con của các phân vùng thay vì tải tất cả các phân vùng. Tìm thông tin chi tiết tại đây.</li>
+</ol>
+<ul>
+<li>
+<p>Chọn  vào Next</p>
+</li>
+<li>
+<p>Kiểm tra rằng tất cả thông tin đều chính xác, sau đó Chọn  vào Create</p>
+</li>
+</ul>
+<p><img src="/images/9/00017.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="7">
+<li>Xác minh rằng bảng Glue mới raw_stream đã được tạo đúng. Làm mới danh sách bảng nếu nó chưa hiển thị.</li>
+</ol>
+<ul>
+<li>
+<p>Chọn  vào bảng mới tạo raw_stream</p>
+</li>
+<li>
+<p>Chọn  vào  Actions và Chọn  vào Edit table</p>
+</li>
+</ul>
+<p><img src="/images/9/00018.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/9/00019.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="8">
+<li>Dưới Table properties, thêm thuộc tính mới:</li>
+</ol>
+<ul>
+<li>Key: kinesisanalytics.proctime</li>
+<li>Value: proctime</li>
+<li>INFO: Các thuộc tính giá trị khóa này cho biết thời gian đã xử lý dữ liệu của Kinesis Analytics</li>
+</ul>
+<p><img src="/images/9/00020.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/9/00021.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<h4 id="tạo-analytics-streaming-application-studio-notebook">Tạo Analytics Streaming Application Studio Notebook</h4>
+<p>Bây giờ chúng ta hãy tạo Kinesis Analytics Streaming Application Studio Notebook của chúng ta trong Kinesis Analytics Studio. Kinesis Analytics Streaming Application Studio Notebook này có thể xử lý dữ liệu luồng từ Kinesis Data Stream và chúng ta có thể viết các truy vấn phân tích SQL để lấy thông tin thời gian thực như số lượng hoạt động hiện tại hoặc nhiệt độ thiết bị.</p>
+<ol>
+<li>Chuyển đến Studio</li>
+</ol>
+<ul>
+<li>Chọn  vào Create Studio notebook</li>
+</ul>
+<p><img src="/images/9/00022.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="2">
+<li>Chọn Create with custom settings</li>
+</ol>
+<ul>
+<li>Nhập Studio notebook name: AnalyticsWorkshop-KDANotebook</li>
+<li>Nhập Runtime: Apache Flink 1.11, Apache Zeppelin 0.9</li>
+<li>Chọn  vào Next</li>
+</ul>
+<p><img src="/images/9/00023.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="3">
+<li>Trong IAM role</li>
+</ol>
+<ul>
+<li>Chọn Choose from IAM roles that Kinesis Data Analytics can assume</li>
+<li>Chọn Role dịch vụ đã được tạo trước đó của chúng ta: AnalyticsworkshopKinesisAnalyticsRole</li>
+<li>Trong AWS Glue database, chọn: analyticsworkshopdb</li>
+<li>Chọn  vào Next</li>
+</ul>
+<p><img src="/images/9/00024.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="4">
+<li>Trong Configurations</li>
+</ol>
+<ul>
+<li>Parallelism: 4</li>
+<li>Parallelism per KPU: 1</li>
+</ul>
+<p><img src="/images/9/00025.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="5">
+<li>Không bật Turn on Logging (Bỏ chọn ô kiểm Bật ghi nhật ký)</li>
+</ol>
+<ul>
+<li>
+<p>INFO: Ghi nhật ký hữu ích để hiểu lỗi khi ứng dụng của bạn gặp sự cố. Để thực hiện điều này, cần thêm quyền CLoudwatchFullAccess và CloudwatchLogFullAccess cho role dịch vụ. Chúng ta sẽ bỏ qua phần này vì không cần thiết trong bài thực hành này.</p>
+</li>
+<li>
+<p>Bỏ qua tất cả mọi thứ và di chuyển xuống dưới cùng</p>
+</li>
+</ul>
+<p><img src="/images/9/00026.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="6">
+<li>Trong Tags:</li>
+</ol>
+<ul>
+<li>Tùy chọn thêm các Tag, ví dụ:workshop: AnalyticsOnAWS</li>
+<li>Chọn  vào Next</li>
+</ul>
+<p><img src="/images/9/00027.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="7">
+<li>Trong Review và create</li>
+</ol>
+<ul>
+<li>Xác nhận rằng tất cả các giá trị đều đúng</li>
+<li>Chọn  vào Create Studio notebook</li>
+</ul>
+<p><img src="/images/9/00028.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="8">
+<li>Chạy Kinesis Analytics Studio Notebook</li>
+</ol>
+<ul>
+<li>
+<p>Bây giờ chúng ta đã tạo Notebook, chúng ta có thể chạy nó và thử thực thi một số truy vấn SQL.</p>
+</li>
+<li>
+<p>Xem danh sách các Notebook trong tab Studio và Chọn  vào Notebook mới được tạo AnalyticsWorkshop-KDANotebook của chúng ta.</p>
+</li>
+<li>
+<p>Chọn  vào Run</p>
+</li>
+<li>
+<p>Chờ cho đến khi Status chuyển sang Running mode. (Việc này sẽ mất khoảng 5-7 phút)</p>
+</li>
+</ul>
+<p><img src="/images/9/00029.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/9/00030.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="9">
+<li>Chọn  vào Open in Apache Zeppelin ở góc trên bên phải để mở Zeppelin Notebook.</li>
+</ol>
+<ul>
+<li>
+<p>Chọn  vào Create new note và đặt tên cho ghi chú là AnalyticsWorkshop-ZeppelinNote.</p>
+</li>
+<li>
+<p>Dán câu truy vấn SQL này.</p>
+</li>
+</ul>
+<pre tabindex="0"><code>%flink.ssql(type=update)
+
+SELECT * FROM raw_stream;
+</code></pre><p><img src="/images/9/00031.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/9/00032.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="10">
+<li>Câu truy vấn SQL này sẽ liệt kê tất cả dữ liệu streaming từ Kinesis Data Generator của chúng ta.
+type=update là một trình thông dịch Flink cho cú pháp ghi chú Zeppelin. Trong chế độ update, đầu ra của ghi chú sẽ được cập nhật liên tục với kết quả mới.</li>
+</ol>
+<pre tabindex="0"><code>%flink.ssql(type=update)
+
+SELECT activity_type, count(*) as activity_cnt FROM raw_stream group by activity_type;
+</code></pre><ul>
+<li>Câu truy vấn SQL này sẽ đếm số lượng hoạt động đang được thực hiện.</li>
+<li>Khi tất cả các truy vấn được dán vào, Chọn  vào nút Play ở góc phải trên của đoạn văn.</li>
+</ul>
+<p><img src="/images/9/00033.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<h4 id="generate-dummy-data-to-kinesis-data-stream">Generate Dummy Data to Kinesis Data Stream</h4>
+<p>Để hiển thị dữ liệu từ các truy vấn chạy trong Analytics Streaming notebook, chúng ta phải gửi dữ liệu gốc từ Kinesis Data Generator của chúng ta.</p>
+<ol>
+<li>Truy cập vào KinesisDataGeneratorURL. Bạn có thể tìm thấy nó trong tab Output của stack Cloudformation.</li>
+</ol>
+<ul>
+<li>Đăng nhập bằng tên người dùng và mật khẩu của bạn</li>
+<li>Điền thông tin như sau:</li>
+<li>Khu vực (Region): us-east-1</li>
+<li>Luồng/luồng giao hàng (Stream/delivery stream): analytics-workshop-data-stream (ĐỪNG chọn analytics-workshop-stream mà bạn có thể đã tạo trong mô-đun &ldquo;Ingest and Store&rdquo;)</li>
+<li>Đảm bảo Records per second (Số bản ghi mỗi giây) là Constant.</li>
+<li>Giá trị cho Records per second (Số bản ghi mỗi giây): 100 (ĐỪNG thay đổi số này.)</li>
+<li>Đảm bảo Compress Records (Nén bản ghi) không được chọn.</li>
+<li>Mẫu bản ghi (Template 1): Trong khu vực văn bản lớn, chèn mẫu json sau:</li>
+</ul>
+<pre tabindex="0"><code>{
+  &#34;uuid&#34;: &#34;{{random.uuid}}&#34;,
+  &#34;device_ts&#34;: &#34;{{date.utc(&#34;YYYY-MM-DD HH:mm:ss.SSS&#34;)}}&#34;,
+  &#34;device_id&#34;: {{random.number(50)}},
+  &#34;device_temp&#34;: {{random.weightedArrayElement(
+    {&#34;weights&#34;:[0.30, 0.30, 0.20, 0.20],&#34;data&#34;:[32, 34, 28, 40]}
+  )}},
+  &#34;track_id&#34;: {{random.number(30)}},  
+  &#34;activity_type&#34;: {{random.weightedArrayElement(
+        {
+            &#34;weights&#34;: [0.1, 0.2, 0.2, 0.3, 0.2],
+            &#34;data&#34;: [&#34;\&#34;Running\&#34;&#34;, &#34;\&#34;Working\&#34;&#34;, &#34;\&#34;Walking\&#34;&#34;, &#34;\&#34;Traveling\&#34;&#34;, &#34;\&#34;Sitting\&#34;&#34;]
+        }
+    )}}
+}
+</code></pre><p><img src="/images/9/00034.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="2">
+<li>Sau đó, Chọn  vào  Send Data.</li>
+</ol>
+<ul>
+<li>CHÚ Ý: KHÔNG TẠM DỪNG sau khi Chọn  vào  Send Data vì điều này là cần thiết để có luồng liên tục dữ liệu để phân tích trong Zeppelin notebook.</li>
+<li>Quay trở lại Zeppelin notebook. của chúng ta. Chờ vài phút, kết quả sẽ được hiển thị.</li>
+</ul>
+<p><img src="/images/9/00035.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p>Trong module này, bạn đã tạo một Kinesis Data Stream để nhận dữ liệu luồng từ Kinesis Data Generator, một bảng Glue lưu trữ thông tin về lược đồ và dữ liệu của Kinesis Data Stream, và một ứng dụng Kinesis Analytics Studio Notebook đọc và phân tích dữ liệu luồng.</p>
+<p>Next, chúng ta sẽ tìm hiểu cách xây dựng các biểu đồ/ bảng điều khiển bằng cách sử dụng Amazon Quicksight.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/vi/9-athena/" title="Phân tích với Athena"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/vi/11-quicksight/" title="Hiển thị dữ liệu trong Quicksight" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1696564053"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696564053"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696564053"></script>
+    <script src="/js/jquery.sticky.js?1696564053"></script>
+    <script src="/js/featherlight.min.js?1696564053"></script>
+    <script src="/js/highlight.pack.js?1696564053"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696564053"></script>
+    <script src="/js/learn.js?1696564053"></script>
+    <script src="/js/hugo-learn.js?1696564053"></script>
+
+    <link href="/mermaid/mermaid.css?1696564053" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696564053"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

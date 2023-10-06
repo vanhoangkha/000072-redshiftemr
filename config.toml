@@ -18,7 +18,7 @@ home = [ "HTML", "RSS", "JSON"]
   
 [Languages]
 [Languages.en]
-title = "DATA ANALYSIS ON AWS"
+title = "GET STARTED WITH AMAZON RDS."
 weight = 1
 languageName = "English"
 
@@ -35,7 +35,7 @@ url = "https://www.facebook.com/groups/awsstudygroupfcj"
 weight = 20
 
 [Languages.vi]
-title = "Phân tích chi phí và hiệu năng sử dụng với AWS Glue và Amazon Athena"
+title = "BẮT ĐẦU VỚI AMAZON RDS"
 weight = 2
 languageName = "Tiếng Việt"
 

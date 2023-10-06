@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Warehouse on Redshift :: GET STARTED WITH AMAZON RDS.</title>
+
+    
+    <link href="/css/nucleus.css?1696564053" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696564053" rel="stylesheet">
+    <link href="/css/hybrid.css?1696564053" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696564053" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696564053" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696564053" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696564053" rel="stylesheet">
+    <link href="/css/theme.css?1696564053" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696564053" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1696564053" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1696564053"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/13-redshift/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1696564053"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696564053"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1696564053"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-introduce/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-introduce/">
+           <b> 1. </b> Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-prerequiste/" title="Preparatory steps" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-prerequiste/">
+           <b> 2. </b> Preparatory steps
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3.ingestandstore/" title="Ingest and Store" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3.ingestandstore/">
+           <b> 3. </b> Ingest and Store
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3.ingestandstore/3.1-create-kinesis-firehose/" title="Creating Kinesis Firehose" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3.ingestandstore/3.1-create-kinesis-firehose/">
+           <b> 3.1 </b> Creating Kinesis Firehose
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3.ingestandstore/3.2-generate-dummy-data/" title="Generate Dummy Data" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3.ingestandstore/3.2-generate-dummy-data/">
+           <b> 3.2 </b> Generate Dummy Data
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4.catalogdata/" title="Catalog Data" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.catalogdata/">
+           <b> 4. </b> Catalog Data
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4.catalogdata/4.1-create-iam-role/" title="Create IAM Role" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.catalogdata/4.1-create-iam-role/">
+           <b> 4.1 </b> Create IAM Role
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4.catalogdata/4.2-create-aws-glue-crawlers/" title="Creating AWS Glue Crawlers" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.catalogdata/4.2-create-aws-glue-crawlers/">
+           <b> 4.2 </b> Creating AWS Glue Crawlers
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4.catalogdata/4.3-amazon-athena/" title="Verify newly created tables in catalog" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4.catalogdata/4.3-amazon-athena/">
+           <b> 4.3 </b> Verify newly created tables in catalog
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-interactive-sessions/" title="Transform Data with AWS Glue (interactive sessions)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-interactive-sessions/">
+           <b> 5. </b> Transform Data with AWS Glue (interactive sessions)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-graphical-interface/" title="Transform Data with AWS Glue Studio (graphical interface)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-graphical-interface/">
+           <b> 6. </b> Transform Data with AWS Glue Studio (graphical interface)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/7-glue-databrew/" title="Transform Data with AWS Glue DataBrew" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/7-glue-databrew/">
+           <b> 7. </b> Transform Data with AWS Glue DataBrew
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/8-emr/" title="Transform Data with EMR" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/8-emr/">
+           <b> 8. </b> Transform Data with EMR
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/9-athena/" title="Analysis with Athena" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/9-athena/">
+           <b> 9. </b> Analysis with Athena
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/10-kinesis-data-analytics/" title="Analysis with Kinesis Data Analytics" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/10-kinesis-data-analytics/">
+           <b> 10. </b> Analysis with Kinesis Data Analytics
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/11-quicksight/" title="Visualize in Quicksight" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/11-quicksight/">
+           <b> 11. </b> Visualize in Quicksight
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/12-lambda/" title="Serve with Lambda" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/12-lambda/">
+           <b> 12. </b> Serve with Lambda
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/13-redshift/" title="Warehouse on Redshift" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/13-redshift/">
+           <b> 13. </b> Warehouse on Redshift
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/14-clean-up/" title="Clean up" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/14-clean-up/">
+           <b> 14. </b> Clean up
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://aws.amazon.com/blogs"><i class='fab fa-aws'></i> AWS Study Group - Blog</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj"><i class='fab fa-facebook'></i> AWS Study Group - FB Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/13-redshift/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/13-redshift/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7873627&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>06-10-2023</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i>
+                <a href="https://www.linkedin.com/in/khanhvg/"  style="color:orange">Gia Khánh</a> , 
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng</a>
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'>Analytics on AWS workshop</a> > Warehouse on Redshift
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Warehouse on Redshift
+            </h1>
+          
+
+        
+
+
+
+	<h4 id="warehouse-on-redshift">Warehouse on Redshift</h4>
+<p>In this module, we will set up an Amazon Redshift cluster and use AWS Glue to load data into Amazon Redshift. We&rsquo;ll learn about some design elements and best practices for creating and loading data into tables in Redshift, and performing queries on it.</p>
+<ol>
+<li>Prepare Glue IAM policies and roles</li>
+</ol>
+<ul>
+<li>Note: Skip this section if you have already created Glue IAM policies and roles in the &ldquo;Data migration with AWS Glue (interactive session)&rdquo; module and continue to the &ldquo;Create IAM role for Redshift&rdquo; section in the module- this boil.</li>
+</ul>
+<p>In this step, you will access the IAM console and create Glue IAM policies and roles to work with Jupyter notebooks and AWS Glue Studio interactive sessions.</p>
+<ul>
+<li>
+<p>Let&rsquo;s start by creating an IAM policy for the AWS Glue notebook role.</p>
+</li>
+<li>
+<p>Select Policies from the panel on the left sidebar</p>
+</li>
+<li>
+<p>Select Create policy</p>
+</li>
+<li>
+<p>Select the JSON tab</p>
+</li>
+<li>
+<p>Replace the default text in the policy edit window with the following policy statements.</p>
+</li>
+</ul>
+<pre tabindex="0"><code>{
+  &#34;Version&#34;: &#34;2012-10-17&#34;,
+  &#34;Statement&#34;: [
+    {
+    &#34;Effect&#34;: &#34;Allow&#34;,
+    &#34;Action&#34;: &#34;iam:PassRole&#34;,
+    &#34;Resource&#34;:&#34;arn:aws:iam::&lt;AWS account ID&gt;:role/Analyticsworkshop-GlueISRole&#34;
+    }
+  ]
+}
+</code></pre><p><img src="/images/12/0001.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="2">
+<li>Note that Analyticsworkshop-GlueISRole is the role we created for the AWS Glue Studio Jupyter notebook in the Next step.</li>
+</ol>
+<ul>
+<li>
+<p>Warning: Replace <!-- raw HTML omitted --> with your AWS account ID in the copied policy statement.</p>
+</li>
+<li>
+<p>Select Next: Tags</p>
+</li>
+<li>
+<p>Option to add Tags, for example: workshop: AnalyticsOnAWS</p>
+</li>
+<li>
+<p>Select Next: Review</p>
+</li>
+<li>
+<p>Policy name: AWSGlueInteractiveSessionPassRolePolicy</p>
+</li>
+<li>
+<p>Option to write a description for the policy:</p>
+</li>
+<li>
+<p>Description: policy that allows the AWS Glue notebook role to pass to interactive sessions so that the same role can be used in both places</p>
+</li>
+<li>
+<p>Select Create policy</p>
+</li>
+</ul>
+<p><img src="/images/12/0002.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/12/0003.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="3">
+<li>Next, create an IAM role for AWS Glue notebooks</li>
+</ol>
+<ul>
+<li>Select Roles from the left panel</li>
+<li>Select Create role</li>
+<li>Select the service that will use this role: Glue under Use Case and Use cases for other AWS services:</li>
+<li>Select Next</li>
+<li>Search for the following policies and check the check box next to them:</li>
+<li>AWSGlueServiceRole</li>
+<li>AwsGlueSessionUserRestrictedNotebookPolicy</li>
+<li>AWSGlueInteractiveSessionPassRolePolicy</li>
+<li>AmazonS3FullAccess</li>
+<li>Select Next</li>
+</ul>
+<p><img src="/images/12/0004.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="4">
+<li>Role name: Analyticsworkshop-GlueISRole</li>
+</ol>
+<ul>
+<li>Make sure only four policies are attached to this role (AWSGlueServiceRole, AwsGlueSessionUserRestrictedNotebookPolicy, AWSGlueInteractiveSessionPassRolePolicy, AmazonS3FullAccess)</li>
+<li>Option to add Tag, for example: workshop: AnalyticsOnAWS</li>
+<li>Select Create role</li>
+<li>Note: We have granted full access to S3 for the Glue role for the purposes of this practice session. It is recommended to grant only the permissions necessary to perform a task, i.e. adhere to the authority model as little as possible in the actual implementation.</li>
+</ul>
+<p><img src="/images/12/0005.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/12/0006.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="5">
+<li>Create IAM role for Redshift
+In this step, we will create an IAM role for the Redshift cluster.</li>
+</ol>
+<ul>
+<li>Go to: Redshift Dashboard</li>
+<li>Select Create Role</li>
+<li>Select Redshift under Use case and Use cases for other AWS services:</li>
+<li>Choose Redshift - customizable</li>
+<li>Select Next</li>
+</ul>
+<p><img src="/images/12/0007.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="6">
+<li>In the Search box, search and select the following two policies</li>
+</ol>
+<ul>
+<li>AmazonS3FullAccess</li>
+<li>AWSGlueConsoleFullAccess</li>
+<li>Select Next</li>
+<li>Set Role name as Analyticsworkshop_RedshiftRole
+Verify that the following two policies are attached to the role:</li>
+<li>AmazonS3FullAccess</li>
+<li>AWSGlueConsoleFullAccess</li>
+<li>Optionally add Tags, for example: workshop: AnalyticsOnAWS</li>
+<li>Select Create Role</li>
+</ul>
+<p><img src="/images/12/0008.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/12/0009.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/12/00010.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<h4 id="create-redshift-cluster">Create Redshift cluster</h4>
+<ol>
+<li>In this step, you will create a Redshift cluster of 2 nodes to create a mini-database in a star model.</li>
+</ol>
+<ul>
+<li>Access to: Console</li>
+<li>Select Provision and manage clusters from the top left panel</li>
+<li>Select Create Cluster</li>
+</ul>
+<p><img src="/images/12/00011.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="2">
+<li>Keep the Cluster identifier as redshift-cluster-1</li>
+</ol>
+<ul>
+<li>Select dc2.large as Node Type</li>
+<li>Select Number of Nodes as 2.</li>
+</ul>
+<p><img src="/images/12/00012.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="3">
+<li>Confirm the Configuration summary.</li>
+</ol>
+<ul>
+<li>Change Master user name to admin</li>
+<li>Enter Master user password.</li>
+<li>Check the password rules mentioned under Master user password before choosing a password. (This password will be used to access the cluster)</li>
+</ul>
+<p><img src="/images/12/00013.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="4">
+<li>Under Cluster permissions</li>
+</ol>
+<ul>
+<li>Select the Associate IAM role</li>
+<li>Select the previously created Analyticsworkshop_RedshiftRole.</li>
+<li>Select Associate IAM roles</li>
+</ul>
+<p><img src="/images/12/00014.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="5">
+<li>Analyticsworkshop_RedshiftRole will appear under Associated IAM roles</li>
+</ol>
+<ul>
+<li>Keep Additional configurations by default. It uses default VPC and default security group.</li>
+<li>Select Create cluster</li>
+</ul>
+<p><img src="/images/12/00015.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="6">
+<li>It takes a few minutes for the cluster to become available.</li>
+</ol>
+<ul>
+<li>After the cluster has been started and is in the Available state, move on to the Next step.</li>
+</ul>
+<p><img src="/images/12/00016.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<h4 id="create-s3-gateway-endpoint">Create S3 Gateway Endpoint</h4>
+<ol>
+<li>In this step, we will create the S3 Gateway Endpoint so that the Redshift cluster can communicate with S3 using the private IP address.</li>
+</ol>
+<ul>
+<li>Access: AWS VPC Console</li>
+<li>Select Create endpoint</li>
+</ul>
+<p><img src="/images/12/00017.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="2">
+<li>Name tag - optional: RedshiftS3EP</li>
+</ol>
+<ul>
+<li>Select AWS Services in the Service category (this is the default option)</li>
+<li>In the Service name search box, search for &ldquo;s3&rdquo; and Select Enter/Return.</li>
+<li>com.amazonaws.us-east-1.s3 will appear as search results. Select this option with type as Gateway.</li>
+</ul>
+<p><img src="/images/12/00018.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="3">
+<li>Select VPC, select default VPC. This is the same VPC that was used to configure the redshift cluster.</li>
+</ol>
+<ul>
+<li>If more than one VPC is listed in the drop-down list, double check Redshift&rsquo;s VPC to avoid misunderstandings. Perform the following steps:</li>
+<li>Access: Redshift Dashboard</li>
+<li>Select redshift-cluster-1</li>
+<li>Select the Properties tab.</li>
+<li>Scroll down and check the Network and security section to find the VPC name.</li>
+<li>After checking the VPC ID again, continue to configure the Route tables section.</li>
+<li>Select the listed routing table (this should be the main routing table). You can verify this by checking Yes in the Primary column.</li>
+<li>Keep the default for Policy. (Full access)</li>
+</ul>
+<p><img src="/images/12/00019.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="4">
+<li>Optionally add Tags, for example: * workshop: AnalyticsOnAWS</li>
+</ol>
+<ul>
+<li>Select Create endpoint. Provisioning this endpoint may take a few seconds. When this endpoint is ready, you will see Status as Available for the newly created S3 endpoint.</li>
+</ul>
+<p><img src="/images/12/00020.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/12/00021.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<h4 id="verify-and-add-rules-to-default-security-group">Verify and add rules to default security group</h4>
+<ol>
+<li>In this step, you will verify and add rules to the Redshift security group so that the Glue service can talk to Redshift.</li>
+</ol>
+<ul>
+<li>Access: VPC security groups.</li>
+<li>Select security group Redshift. If the default security group is not changed during Redshift cluster creation, it will be the default security group.</li>
+<li>If you have more than one security group in the list, follow the steps below:</li>
+<li>Access: Redshift Console.</li>
+<li>Select redshift-cluster-1</li>
+<li>Select the Properties tab.</li>
+<li>Scroll down and check the Network and security section to find the Security Group id.</li>
+<li>After the Security Group has been verified, select Security Group (check box at the beginning of the line).</li>
+<li>Select Inbound Rules.</li>
+<li>Select Edit inbound rules.</li>
+<li>Check if there is a rule that points to yourself. (This rule should be available by default, but if not, add a rule as listed below)</li>
+<li>Type: All Traffic</li>
+<li>Source: [Name of the security group along with the security group you are editing] Note: The self-pointing rule is necessary for Glue components to communicate.</li>
+<li>Add HTTPS rule for Amazon S3 access.</li>
+<li>Type: HTTPS</li>
+<li>Source: Custom</li>
+<li>Note : Under Source select Custom and type &ldquo;pl&rdquo;</li>
+<li>Click Save rules.</li>
+<li>Click Outbound Rules.</li>
+<li>Click Edit rules</li>
+<li>Type as &ldquo;All Traffic&rdquo;</li>
+<li>Add a self-referencing rule.</li>
+<li>Type: All TCP</li>
+<li>Source: [Name of the same security group which you are editing] Note : A self-referencing rule is required for Glue components to communicate.</li>
+<li>Click Save rules.</li>
+</ul>
+<p><img src="/images/12/00022.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<h4 id="create-redshift-connection-in-glue-connection">Create Redshift connection in Glue Connection.</h4>
+<ol>
+<li>In this step, we will create a Redshift connection in the Glue connection that we can use in the Development Endpoint to establish a connection with Redshift.</li>
+</ol>
+<ul>
+<li>Access to: Glue Connections Dashboard</li>
+<li>Under Connections Click Create connection</li>
+</ul>
+<p><img src="/images/12/00023.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="2">
+<li>Set the connection name to analytics_workshop.</li>
+</ol>
+<ul>
+<li>Select connection type as Amazon Redshift.</li>
+</ul>
+<p><img src="/images/12/00024.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="3">
+<li>Connection access permission settings:</li>
+</ol>
+<ul>
+<li>Select Database instances as redshift-cluster-1</li>
+<li>Database name and Username will automatically be filled in as dev and admin respectively.</li>
+<li>Password: Enter the password that you used during the installation of the Redshift cluster.</li>
+<li>Select Create connection</li>
+</ul>
+<p><img src="/images/12/00025.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="4">
+<li>You should now see the analytics_workshop connection in the Connections list.</li>
+</ol>
+<p><img src="/images/12/00026.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<h4 id="create-schema-and-redshift-tables">Create schema and redshift tables.</h4>
+<ol>
+<li>Access: Redshift Query Editor</li>
+</ol>
+<ul>
+<li>Click Connect to database</li>
+<li>Connection: Create a new connection</li>
+</ul>
+<p><img src="/images/12/00027.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="2">
+<li>Authentication: Temporary credentials</li>
+</ol>
+<ul>
+<li>cluster: redshift-cluster-1</li>
+<li>Database name: dev</li>
+<li>Database user: admin</li>
+<li>Click Connect</li>
+</ul>
+<p><img src="/images/12/00028.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="3">
+<li>Execute the below queries to generate schema and tables for raw and reference data.</li>
+</ol>
+<pre tabindex="0"><code>-- Create redshift_lab schema.
+CREATE schema redshift_lab;
+</code></pre><pre tabindex="0"><code>-- Create f_raw_1 table.
+CREATE TABLE IF not EXISTS redshift_lab.f_raw_1 (
+  uuid varchar(256),
+  device_ts timestamp,
+  device_id int,
+  device_temp int,
+  track_id int,
+  activity_type varchar(128),
+  load_time int
+);
+</code></pre><pre tabindex="0"><code>-- Create d_ref_data_1 table.
+CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_1 (
+  track_id int,
+  track_name varchar(128),
+  artist_name varchar(128)
+);
+</code></pre><p><img src="/images/12/00029.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/12/00030.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img src="/images/12/00031.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<h4 id="convert-and-load-data-into-redshift">Convert and load data into Redshift</h4>
+<ol>
+<li>Use Jupyter Notebook in AWS Glue for Interactive ETL Development</li>
+</ol>
+<ul>
+<li>In this step, you will create an AWS Glue job using Jupyter Notebook to interactively develop Glue ETL scripts using PySpark.</li>
+<li>Download and save this file on your computer: analytics-workshop-redshift-glueis-notebook.ipynb</li>
+<li>Go to: Glue Studio jobs</li>
+<li>Select Jupyter Notebook option</li>
+<li>Select Upload and edit an existing notebook</li>
+<li>Select Choose file</li>
+</ul>
+<p><img src="/images/12/00032.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="2">
+<li>Browse and upload analytics-workshop-redshift-glueis-notebook.ipynb that you downloaded earlier</li>
+</ol>
+<ul>
+<li>Select Create</li>
+</ul>
+<p><img src="/images/12/00033.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<ol start="3">
+<li>Under Notebook Setup and Initial Configuration</li>
+</ol>
+<ul>
+<li>Job name: AnalyticsOnAWS-Redshift</li>
+<li>IAM role Analyticsworkshop-GlueISRole</li>
+<li>Leave the default Kernel as Spark</li>
+<li>Click Start notebook</li>
+<li>After the notebook is initialized, follow the instructions in the notebook</li>
+<li>Read and understand the instructions as they explain important Glue concepts</li>
+</ul>
+<p><img src="/images/12/00034.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<h4 id="validate---the-convertedprocessed-data-has-arrived-at-redshift">Validate - The converted/processed data has arrived at Redshift.</h4>
+<ol>
+<li>
+<p>After ETL script runs successfully, open Redshift Query Editor</p>
+</li>
+<li>
+<p>Execute the following queries to check the number of records in the raw data table and the reference table.</p>
+</li>
+</ol>
+<pre tabindex="0"><code>select count(1) from redshift_lab.f_raw_1;
+
+select count(1) from redshift_lab.d_ref_data_1;
+</code></pre><ol start="3">
+<li>Some queries to try</li>
+</ol>
+<pre tabindex="0"><code>select
+  track_name,
+  artist_name,
+  count(1) frequency
+from
+  redshift_lab.f_raw_1 fr
+inner join
+  redshift_lab.d_ref_data_1 drf
+on
+  fr.track_id = drf.track_id
+where
+  activity_type = &#39;Running&#39;
+group by
+  track_name, artist_name
+order by
+  frequency desc
+limit 10;
+</code></pre>
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/12-lambda/" title="Serve with Lambda"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/14-clean-up/" title="Clean up" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1696564053"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696564053"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696564053"></script>
+    <script src="/js/jquery.sticky.js?1696564053"></script>
+    <script src="/js/featherlight.min.js?1696564053"></script>
+    <script src="/js/highlight.pack.js?1696564053"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696564053"></script>
+    <script src="/js/learn.js?1696564053"></script>
+    <script src="/js/hugo-learn.js?1696564053"></script>
+
+    <link href="/mermaid/mermaid.css?1696564053" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696564053"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

@@ -1,39 +1,35 @@
-+++
-title = "Phân Tích Dữ Liệu Trên AWS"
-date = 2021
-weight = 1
-chapter = false
-+++
-
-# Phân Tích Dữ Liệu Trên AWS
-
-
-#### Tổng Quan
-
-Để bắt đầu phân tích dữ liệu (Data Analytics) ở trên AWS, chúng ta sẽ cần phải tìm hiểu về những dịch vụ có thể hỗ trợ chúng ta trong việc thực hiện phân tích, thông qua workshop này chúng ta sẽ tiến hành làm quen với các dịch vụ được sử dụng trong phân tích dữ liệu trên AWS như AWS Glue, Athena, QuickSight, Lambda, Redshift và EMR.
-
 ---
-#### Chuẩn bị
-
-+ Bạn sẽ cần phải có 1 tài khoản AWS với quyền **AdministratorAccess**.
-+ Bài lab này sẽ thực hiện ở phân vùng Singapore (**Region: ap-southeast-1**).
-+ Cách tốt nhất là hãy **thực hiện theo các đường link của hướng dẫn** và mở chúng **trong tab mới**.
-+ Chạy bài lab này ở các trình duyệt phổ biến như Google Chrome, Firefox.
-
-#### English version
-[Analytics on AWS](https://intro-to-analytics-on-aws.workshop.aws/en/)
-
+title : "Analytics on AWS workshop"
+date :  "`r Sys.Date()`" 
+weight : 1 
+chapter : false
 ---
-#### Nội Dung
 
-1. [Lấy và Lưu dữ liệu](1-ingest-and-store/)
-2. [Catalog dữ liệu](2-Catalog-Data/)
-3. [Chuyển đổi dữ liệu với AWS Glue](3-AWS-Glue/)
-4. [Chuyển đổi dữ liệu với AWS Glue Studio](4-AWS-Glue-Studio/)
-5. [Chuyển đổi dữ liệu với AWS Glue DataBrew](5-AWS-Glue-DataBrew/)
-6. [Chuyển đổi dữ liệu với EMR](6-EMR/)
-7. [Phân tích với Athena](7-Athena/)
-8. [Trực quan hoá với QuickSight](8-QuickSight/)
-9. [Truy vấn với Lambda](9-Lambda/)
-10. [Warehouse trên Redshift](10-Redshift/)
-11. [Dọn dẹp tài nguyên](11-Cleanup/)
+# Analytics on AWS workshop
+
+
+Chào mừng bạn đến với workshop về Analytics trên AWS. Workshop này đã được thiết kế để giúp bạn làm quen với các dịch vụ phân tích khác nhau có trong danh mục AWS Analytics.
+
+Workshop sẽ đi qua một chuỗi các module, bao gồm các khía cạnh khác nhau của việc xây dựng một nền tảng phân tích trên AWS. Bạn sẽ được học cách tiếp nhận, lưu trữ, chuyển đổi và tiêu thụ dữ liệu bằng một số dịch vụ phân tích như AWS Glue, Amazon Athena, Amazon Kinesis, Amazon EMR, Amazon QuickSight cùng với AWS Lambda và Amazon Redshift.
+
+Một biểu đồ chi tiết hơn về thiết kế được trình bày trong kiến trúc dưới đây -
+
+![Data Analytics on AWS](/images/0/0001.png?featherlight=false&width=60pc)
+
+
+Kết quả học tập từ workshop này:
+
+1. Thiết kế kiến trúc Data Lake serverless (serverless data lake).
+2. Xây dựng đường ống xử lý dữ liệu và Data Lake bằng cách sử dụng Amazon S3 để lưu trữ dữ liệu.
+3. Sử dụng Amazon Kinesis để xử lý dữ liệu trực tiếp (real-time streaming data).
+4. Sử dụng Amazon Kinesis Data Analytics để phân tích dữ liệu trực tiếp (real-time data analysis).
+5. Sử dụng AWS Glue để tự động lưu trữ dữ liệu trong danh mục (catalog datasets).
+6. Chuyển đổi dữ liệu (Data Transformation).
+7. Chạy các script ETL tương tác trong Jupyter notebook trên AWS Glue Studio bằng cách sử dụng phiên tương tác của AWS Glue.
+8. Sử dụng Glue Studio để chạy và giám sát các ETL jobs trên AWS Glue.
+9. Sử dụng Glue DataBrew để chuẩn bị dữ liệu.
+10. Sử dụng EMR để chạy job biến đổi Spark.
+11. Tải dữ liệu lên Amazon Redshift từ Glue.
+12. Giới thiệu về các phương pháp thiết kế tốt nhất của Amazon Redshift.
+13. Truy vấn dữ liệu bằng Amazon Athena và trực quan hóa nó bằng Amazon QuickSight. 
+14. Dọn dẹp tài nguyên
