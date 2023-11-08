@@ -51,7 +51,7 @@ In this step, we will navigate to the S3 Console and create an S3 bucket to be u
 ![Data Analytics on AWS](/images/1/0008.png?featherlight=false&width=90pc)
 
 
-9. Download this file to your machine: [tracks_list.json](https://static.us-east-1.prod.workshops.aws/public/9b2d1982-fdcf-4207-ba26-71a458796115/static/data/tracks_list.json) or [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/000072-Data-Lab/master/tracks_list.json)
+9. Download this file to your machine: [tracks_list.json](https://static.us-east-1.prod.workshops.aws/public/9b2d1982-fdcf-4207-ba26-71a458796115/static/data/tracks_list.json) or [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/Lab-72--Analytics-workshop-on-AWS/master/tracks_list.json)
    - In the S3 Dashboard, select - **Upload**
 
 

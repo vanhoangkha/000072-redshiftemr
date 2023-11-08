@@ -31,3 +31,5 @@ Các kết quả học tập từ buổi workshop này:
 11. Tải dữ liệu lên Amazon Redshift từ Glue.
 12. Giới thiệu về các quy practices thiết kế tốt cho Amazon Redshift.
 13. Truy vấn dữ liệu bằng Amazon Athena và trực quan hóa dữ liệu bằng Amazon QuickSight.
+
+**Tham khảo workshop bản tiếng Anh: [Analytics on AWS](https://catalog.us-east-1.prod.workshops.aws/workshops/44c91c21-a6a4-4b56-bd95-56bd443aa449/en-US)**

@@ -26,7 +26,7 @@ This is an optional module. In this module, we will use Amazon EMR to send pyspa
 ![Data Analytics on AWS](/images/8/0002.png?featherlight=false&width=90pc)
 
 3. Open the scripts folder
-- Download this file to your local machine: [emr_pyspark.py](https://static.us-east-1.prod.workshops.aws/public/7072e03f-04ad-4825-87ca-0eab704a7e83/static/scripts/emr_pyspark .py)
+- Download this file to your local machine: [emr_pyspark.py](https://static.us-east-1.prod.workshops.aws/public/7072e03f-04ad-4825-87ca-0eab704a7e83/static/scripts/emr_pyspark .py) or [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/Lab-72--Analytics-workshop-on-AWS/master/emr_pyspark.py)
 - In the S3 console, click Upload:
 - Click Add files and Upload the emr_pyspark.py file you just downloaded
 - Click Upload

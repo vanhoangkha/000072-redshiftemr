@@ -13,7 +13,7 @@ In this step, we will configure the Kinesis Data Generator to generate dummy dat
 
 Configure Amazon Cognito for Kinesis Data Generator - In this step, we will launch a stack cloud formation to configure Cognito. These cloudformation script files will be launched in the N.Virginia region (No need to change this region).
 
-1. Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json)
+1. Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json) or [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/Lab-72--Analytics-workshop-on-AWS/master/cognito-setup.json)
 
    - Click Next
 

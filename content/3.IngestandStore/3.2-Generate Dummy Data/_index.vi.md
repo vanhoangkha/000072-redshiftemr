@@ -14,7 +14,7 @@ Trong bước này, chúng ta sẽ cấu hình Kinesis Data Generator để tạ
 
 Cấu hình Amazon Cognito cho Kinesis Data Generator - Trong bước này, chúng ta sẽ khởi chạy một stack cloud formation để cấu hình Cognito. Những tệp script cloudformation này sẽ được khởi chạy trong khu vực N.Virginia (Không cần thay đổi khu vực này).
 
-1. Đi tới [CloudFormation](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json)
+1. Đi tới [CloudFormation](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=Kinesis-Data-Generator-Cognito-User&templateURL=https://aws-kdg-tools-us-east-1.s3.amazonaws.com/cognito-setup.json) hoặc [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/Lab-72--Analytics-workshop-on-AWS/master/cognito-setup.json)
 
    - Click Next
 

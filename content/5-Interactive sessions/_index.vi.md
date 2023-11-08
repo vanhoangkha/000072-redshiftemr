@@ -100,7 +100,7 @@ Cảnh báo: Thay bằng ID tài khoản AWS của bạn trong câu lệnh polic
 
 1. Trong bước này, bạn sẽ tạo một job AWS Glue với Jupyter Notebook để phát triển tương tác các script Glue ETL bằng PySpark.
 
-- Tải xuống và lưu tệp:  [analytics-workshop-glueis-notebook.ipynb](https://static.us-east-1.prod.workshops.aws/public/9b2d1982-fdcf-4207-ba26-71a458796115/static/notebooks/analytics-workshop-glueis-notebook.ipynb) hoặc [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/000072-Data-Lab/master/analytics-workshop-glueis-notebook.ipynb)
+- Tải xuống và lưu tệp:  [analytics-workshop-glueis-notebook.ipynb](https://static.us-east-1.prod.workshops.aws/public/9b2d1982-fdcf-4207-ba26-71a458796115/static/notebooks/analytics-workshop-glueis-notebook.ipynb) hoặc [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/Lab-72--Analytics-workshop-on-AWS/master/analytics-workshop-glueis-notebook.ipynb)
 - Đi đến:  Glue Studio Jobs
 - Chọn tùy chọn Jupyter Notebook
 - Chọn **Upload and edit an existing notebook**

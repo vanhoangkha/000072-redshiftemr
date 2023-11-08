@@ -99,7 +99,7 @@ Warning: Replace with your AWS account ID in the copied policy statement.
 
 1. In this step, you will create an AWS Glue job with Jupyter Notebook to interactively develop Glue ETL scripts using PySpark.
 
-- Download and save the file: [analytics-workshop-glueis-notebook.ipynb](https://static.us-east-1.prod.workshops.aws/public/9b2d1982-fdcf-4207-ba26-71a458796115/static/notebooks/analytics-workshop-glueis-notebook.ipynb) or [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/000072-Data-Lab/master/analytics-workshop-glueis-notebook.ipynb)
+- Download and save the file: [analytics-workshop-glueis-notebook.ipynb](https://static.us-east-1.prod.workshops.aws/public/9b2d1982-fdcf-4207-ba26-71a458796115/static/notebooks/analytics-workshop-glueis-notebook.ipynb) or [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/Lab-72--Analytics-workshop-on-AWS/master/analytics-workshop-glueis-notebook.ipynb)
 - Go to: Glue Studio Jobs
 - Select Jupyter Notebook option
 - Select **Upload and edit an existing notebook**
@@ -108,7 +108,7 @@ Warning: Replace with your AWS account ID in the copied policy statement.
 
 ![Data Analytics on AWS](/images/5/00011.png?featherlight=false&width=90pc)
 
-1. Browse and upload analytics-workshop-glueis-notebook.ipynb that you downloaded earlier
+2. Browse and upload analytics-workshop-glueis-notebook.ipynb that you downloaded earlier
 - Select Create
 
 

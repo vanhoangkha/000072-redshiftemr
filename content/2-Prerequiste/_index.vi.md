@@ -51,7 +51,7 @@ Trong bước này, chúng ta sẽ điều hướng đến S3 Console và tạo 
 ![Data Analytics on AWS](/images/1/0008.png?featherlight=false&width=90pc)
 
 
-9. Tải tệp này xuống máy: [tracks_list.json](https://static.us-east-1.prod.workshops.aws/public/9b2d1982-fdcf-4207-ba26-71a458796115/static/data/tracks_list.json) hoặc [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/000072-Data-Lab/master/tracks_list.json)
+9. Tải tệp này xuống máy: [tracks_list.json](https://static.us-east-1.prod.workshops.aws/public/9b2d1982-fdcf-4207-ba26-71a458796115/static/data/tracks_list.json) hoặc [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/Lab-72--Analytics-workshop-on-AWS/master/tracks_list.json)
    - Trong Bảng điều khiển S3 - Chọn - **Uplaod**
 
 

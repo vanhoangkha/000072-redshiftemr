@@ -26,7 +26,7 @@ pre : " <b> 8. </b> "
 ![Data Analytics on AWS](/images/8/0002.png?featherlight=false&width=90pc)
 
 3. Mở thư mục scripts
-- Tải tệp này về máy cục bộ: [emr_pyspark.py](https://static.us-east-1.prod.workshops.aws/public/7072e03f-04ad-4825-87ca-0eab704a7e83/static/scripts/emr_pyspark.py)
+- Tải tệp này về máy cục bộ: [emr_pyspark.py](https://static.us-east-1.prod.workshops.aws/public/7072e03f-04ad-4825-87ca-0eab704a7e83/static/scripts/emr_pyspark.py) hoặc [Github](https://raw.githubusercontent.com/AWS-First-Cloud-Journey/Lab-72--Analytics-workshop-on-AWS/master/emr_pyspark.py)
 - Trong S3 console, bấm Upload:
 - Bấm Add files and Upload tệp emr_pyspark.py bạn vừa tải xuống
 - Bấm Upload
