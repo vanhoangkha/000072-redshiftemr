@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Chuyển đổi dữ liệu bằng EMR :: BẮT ĐẦU VỚI AMAZON RDS</title>
 
     
-    <link href="/css/nucleus.css?1701085208" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701085208" rel="stylesheet">
-    <link href="/css/hybrid.css?1701085208" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701085208" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701085208" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701085208" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701085208" rel="stylesheet">
-    <link href="/css/theme.css?1701085208" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701085208" rel="stylesheet">
+    <link href="/css/nucleus.css?1733813070" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733813070" rel="stylesheet">
+    <link href="/css/hybrid.css?1733813070" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733813070" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733813070" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733813070" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733813070" rel="stylesheet">
+    <link href="/css/theme.css?1733813070" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733813070" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701085208" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733813070" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701085208"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733813070"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701085208"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701085208"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733813070"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733813070"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701085208"></script>
+<script type="text/javascript" src="/js/search.js?1733813070"></script>
 
     
   </div>
@@ -429,7 +429,7 @@
   
     
     <li data-nav-id="/vi/8-emr/" title="Chuyển đổi dữ liệu bằng EMR" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -693,7 +693,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -797,11 +797,11 @@
 <li>Mở yourname-analytics-workshop-bucket</li>
 <li>Bấm Create  folder</li>
 </ul>
-<p><img src="/images/8/0001.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/0001.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Tạo một thư mục mới có tên là scripts</li>
 </ol>
-<p><img src="/images/8/0002.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/0002.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Mở thư mục scripts</li>
 </ol>
@@ -811,8 +811,8 @@
 <li>Bấm Add files and Upload tệp emr_pyspark.py bạn vừa tải xuống</li>
 <li>Bấm Upload</li>
 </ul>
-<p><img src="/images/8/0003.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/8/0004.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/0003.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/0004.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Tạo một thư mục cho EMR logs:</li>
 </ol>
@@ -820,11 +820,11 @@
 <li>Mở yourname-analytics-workshop-bucket</li>
 <li>Bấm Create folder</li>
 </ul>
-<p><img src="/images/8/0005.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/0005.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Tạo một thư mục mới có tên là logs. Bấm Save</li>
 </ol>
-<p><img src="/images/8/0006.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/0006.png?featherlight=false&width=90pc"></p>
 <h4 id="tạo-cụm-emr-và-thêm-bước">Tạo cụm EMR và thêm bước</h4>
 <p>Trong bước này, chúng ta sẽ tạo một cụm EMR và gửi một bước Spark.</p>
 <ol>
@@ -833,7 +833,7 @@
 <ul>
 <li>Chọn  vào Create cluster</li>
 </ul>
-<p><img src="/images/8/0007.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/0007.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Tên và ứng dụng:</li>
 </ol>
@@ -844,7 +844,7 @@
 <li>Cài đặt AWS Glue Data Catalog: Bỏ chọn Use for Spark table metadata</li>
 <li>Để các cài đặt khác mặc định.</li>
 </ul>
-<p><img src="/images/8/0008.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/0008.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Cluster configuration:</li>
 </ol>
@@ -854,12 +854,12 @@
 <li>Leave Cluster scaling and provisioning option to default (Core: size 1, Task -1: size 1)</li>
 <li>Networking: Leave to deafult</li>
 </ul>
-<p><img src="/images/8/0009.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/8/00010.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/0009.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00010.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Steps: Add</li>
 </ol>
-<p><img src="/images/8/00011.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00011.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Type: Spark application</li>
 </ol>
@@ -871,7 +871,7 @@
 <li>Action if step fails: Terminate cluster</li>
 <li>Click Save step</li>
 </ul>
-<p><img src="/images/8/00012.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00012.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>Cluster termination</li>
 </ol>
@@ -881,7 +881,7 @@
 <li>Check Terminate cluster after last step completes</li>
 <li>Uncheck Use termination protection</li>
 </ul>
-<p><img src="/images/8/00013.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00013.png?featherlight=false&width=90pc"></p>
 <ol start="7">
 <li>Cluster logs:</li>
 </ol>
@@ -889,7 +889,7 @@
 <li>Check Publish cluster-specific logs to Amazon S3</li>
 <li>Amazon S3 location: s3://yourname-analytics-workshop-bucket/logs/</li>
 </ul>
-<p><img src="/images/8/00014.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00014.png?featherlight=false&width=90pc"></p>
 <ol start="8">
 <li>Tags:</li>
 </ol>
@@ -898,22 +898,22 @@
 <li>Identity and Access Management (IAM) roles</li>
 <li>Amazon EMR service role: Create a service role</li>
 </ul>
-<p><img src="/images/8/00015.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00015.png?featherlight=false&width=90pc"></p>
 <ol start="9">
 <li>EC2 instance profile for Amazon EMR: Create an instance profile</li>
 </ol>
 <ul>
 <li>S3 bucket access: All S3 buckets in this account with read and write access</li>
 </ul>
-<p><img src="/images/8/00016.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00016.png?featherlight=false&width=90pc"></p>
 <ol start="10">
 <li>Click Create cluster</li>
 </ol>
-<p><img src="/images/8/00017.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00017.png?featherlight=false&width=90pc"></p>
 <ol start="11">
 <li>Kiểm tra trạng thái của job Transform Job chạy trên EMR. EMR Cluster sẽ mất từ 6-8 phút để được chuẩn bị, và một phút nữa để hoàn thành thực thi bước Spark.</li>
 </ol>
-<p><img src="/images/8/00018.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00018.png?featherlight=false&width=90pc"></p>
 <ol start="12">
 <li>Cluster sẽ bị chấm dứt sau khi job Spark được thực thi.</li>
 </ol>
@@ -923,14 +923,14 @@
 <li>Ở đây bạn nên thấy hai mục: Spark application và Setup hadoop debugging</li>
 <li>Trạng thái của  Spark application nên thay đổi từ Pending to Running to Completed.</li>
 </ul>
-<p><img src="/images/8/00019.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00019.png?featherlight=false&width=90pc"></p>
 <ol start="13">
 <li>Sau khi job chạy Spark hoàn tất, cụm EMR sẽ được chấm dứt.</li>
 </ol>
 <ul>
 <li>Dưới EMR &gt; Cluster, bạn sẽ thấy Trạng thái của cụm là &ldquo;Terminated&rdquo; kèm theo thông báo &ldquo;All steps completed&rdquo;.</li>
 </ul>
-<p><img src="/images/8/00020.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00020.png?featherlight=false&width=90pc"></p>
 <h4 id="validate---dữ-liệu-đã-được-xác-thực-đã-được-gửi-đến-s3">Validate - Dữ liệu đã được xác thực đã được gửi đến S3.</h4>
 <ol>
 <li>Hãy tiến hành xác nhận rằng job chuyển đổi EMR đã tạo ra tập dữ liệu trong bảng điều khiển S3: Chọn  vào đây</li>
@@ -940,7 +940,7 @@
 <li>Mở thư mục mới emr-processed-data:</li>
 <li>Đảm bảo rằng các tệp .parquet đã được tạo ra trong thư mục này.</li>
 </ul>
-<p><img src="/images/8/00021.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00021.png?featherlight=false&width=90pc"></p>
 <h4 id="chạy-lại-glue-crawler">Chạy lại Glue Crawler</h4>
 <ol>
 <li>Đi tới: Bảng điều khiển Glue</li>
@@ -950,20 +950,20 @@
 <li>Chọn công cụ thu thập dữ liệu đã tạo trong module trước: AnalyticsworkshopCrawler</li>
 <li>Chọn  vào Chạy (Run)</li>
 </ul>
-<p><img src="/images/8/00022.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00022.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Bạn sẽ thấy Trạng thái thay đổi thành Starting.</li>
 </ol>
-<p><img src="/images/8/00023.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00023.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Chờ vài phút cho quá trình chạy công cụ thu thập dữ liệu hoàn tất Công cụ thu thập dữ liệu sẽ hiển thị Các bảng được thêm là 1</li>
 </ol>
-<p><img src="/images/8/00024.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00024.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Bạn có thể đi đến phần cơ sở dữ liệu ở bên trái và xác nhận rằng bảng emr_processed_data đã được thêm vào.</li>
 </ol>
-<p><img src="/images/8/00025.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/8/00026.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00025.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/8/00026.png?featherlight=false&width=90pc"></p>
 <p>Bây giờ bạn có thể truy vấn kết quả của job EMR bằng cách sử dụng Amazon Athena trong module Next.</p>
 
 
@@ -1337,19 +1337,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701085208"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701085208"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701085208"></script>
-    <script src="/js/jquery.sticky.js?1701085208"></script>
-    <script src="/js/featherlight.min.js?1701085208"></script>
-    <script src="/js/highlight.pack.js?1701085208"></script>
+    <script src="/js/clipboard.min.js?1733813070"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733813070"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733813070"></script>
+    <script src="/js/jquery.sticky.js?1733813070"></script>
+    <script src="/js/featherlight.min.js?1733813070"></script>
+    <script src="/js/highlight.pack.js?1733813070"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701085208"></script>
-    <script src="/js/learn.js?1701085208"></script>
-    <script src="/js/hugo-learn.js?1701085208"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733813070"></script>
+    <script src="/js/learn.js?1733813070"></script>
+    <script src="/js/hugo-learn.js?1733813070"></script>
 
-    <link href="/mermaid/mermaid.css?1701085208" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701085208"></script>
+    <link href="/mermaid/mermaid.css?1733813070" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733813070"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

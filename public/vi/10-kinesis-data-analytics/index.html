@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Phân tích với Kinesis Data Analytics :: BẮT ĐẦU VỚI AMAZON RDS</title>
 
     
-    <link href="/css/nucleus.css?1701085208" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701085208" rel="stylesheet">
-    <link href="/css/hybrid.css?1701085208" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701085208" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701085208" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701085208" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701085208" rel="stylesheet">
-    <link href="/css/theme.css?1701085208" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701085208" rel="stylesheet">
+    <link href="/css/nucleus.css?1733813070" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733813070" rel="stylesheet">
+    <link href="/css/hybrid.css?1733813070" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733813070" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733813070" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733813070" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733813070" rel="stylesheet">
+    <link href="/css/theme.css?1733813070" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733813070" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701085208" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733813070" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701085208"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733813070"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701085208"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701085208"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733813070"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733813070"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701085208"></script>
+<script type="text/javascript" src="/js/search.js?1733813070"></script>
 
     
   </div>
@@ -481,7 +481,7 @@
   
     
     <li data-nav-id="/vi/10-kinesis-data-analytics/" title="Phân tích với Kinesis Data Analytics" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -693,7 +693,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -798,7 +798,7 @@
 <li>Chọn Kinesis Analytics</li>
 <li>Chọn  vào Next</li>
 </ul>
-<p><img src="/images/9/0003.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0003.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Tìm kiếm AWSGlueServiceRole</li>
 </ol>
@@ -808,7 +808,7 @@
 <li>Chọn hộp kiểm nhập của mục này</li>
 </ul>
 <p>LƯU Ý: Chúng tôi sử dụng quyền truy cập đầy đủ chỉ cho mục đích thực hành. Hãy cấp quyền truy cập cần thiết nếu bạn sử dụng Role này trong môi trường sản xuất.</p>
-<p><img src="/images/9/0004.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0004.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Chọn  vào Next</li>
 </ol>
@@ -818,16 +818,16 @@
 <li>Tùy chọn thêm Tag, ví dụ: workshop: AnalyticsOnAWS</li>
 <li>Chọn  vào Create IAM Role</li>
 </ul>
-<p><img src="/images/9/0005.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/0006.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/0007.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0005.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0006.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0007.png?featherlight=false&width=90pc"></p>
 <h4 id="tạo-kinesis--data-stream">Tạo Kinesis  Data Stream</h4>
 <p>Kinesis Data Generator là một ứng dụng giúp việc gửi dữ liệu kiểm thử tới luồng Kinesis của Amazon hoặc luồng chuyển phân phối Firehose của Amazon Kinesis trở nên đơn giản. Chúng ta sẽ tạo luồng dữ liệu Kinesis để tiếp nhận dữ liệu từ Kinesis Data Generator. Sổ ghi chú Ứng dụng Kinesis của chúng ta sẽ đọc dữ liệu đang truyền từ luồng dữ liệu Kinesis này.</p>
 <ol>
 <li>Truy cập vào dịch vụ AWS Kinesis
 Chọn  vào Create Data Stream</li>
 </ol>
-<p><img src="/images/9/0008.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0008.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Nhập tên luồng dữ liệu: analytics-workshop-data-stream</li>
 </ol>
@@ -836,14 +836,14 @@ Chọn  vào Create Data Stream</li>
 <li>Choose Capacity Mode: Provisioned</li>
 <li>Set Provisioned Shards: 2</li>
 </ul>
-<p><img src="/images/9/0009.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0009.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>THÔNG TIN: Một shard là một nhóm các bản ghi dữ liệu đặc biệt được xác định trong luồng dữ liệu Kinesis. Một shard hỗ trợ 1 MB/giây và 1.000 bản ghi mỗi giây cho việc ghi và 2 MB/giây cho việc đọc. Vì vậy, 2 shard được cấp phát ở đây có thể hỗ trợ 2 MB/giây và 2.000 bản ghi mỗi giây cho việc ghi và 4 MB/giây cho việc đọc.</li>
 </ol>
 <ul>
 <li>Cuộn xuống dưới cùng và Chọn  vào Create Data Stream</li>
 </ul>
-<p><img src="/images/9/00010.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00010.png?featherlight=false&width=90pc"></p>
 <h4 id="tạo-glue-catalog-table">Tạo Glue Catalog Table</h4>
 <p>Kinesis Application Notebook của chúng tôi sẽ lấy thông tin về nguồn dữ liệu từ AWS Glue. Khi bạn tạo Studio notebook, bạn chỉ định AWS Glue database chứa thông tin kết nối của bạn. Khi truy cập vào nguồn dữ liệu của bạn, bạn chỉ định các bảng AWS Glue được chứa trong cơ sở dữ liệu.</p>
 <ol>
@@ -857,14 +857,14 @@ Chọn  vào Create Data Stream</li>
 <p>Chọn  vào menu thả xuống  Add tables và sau đó chọn Add table manually</p>
 </li>
 </ul>
-<p><img src="/images/9/00011.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00011.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Trong Table Properties</li>
 </ol>
 <ul>
 <li>Nhập Table Name: raw_stream</li>
 </ul>
-<p><img src="/images/9/00012.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00012.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Trong Data store:</li>
 </ol>
@@ -878,11 +878,11 @@ Chọn  vào Create Data Stream</li>
 <li>Classification: JSON</li>
 <li>Sau đó, Chọn  vào Next</li>
 </ul>
-<p><img src="/images/9/00013.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00013.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Trong Schema: Chọn  vàoEdit Schema as JSON và chèn đoạn văn bản JSON sau đây.</li>
 </ol>
-<p><img src="/images/9/00014.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00014.png?featherlight=false&width=90pc"></p>
 <pre tabindex="0"><code>[
   {
     &#34;Name&#34;: &#34;uuid&#34;,
@@ -915,11 +915,11 @@ Chọn  vào Create Data Stream</li>
     &#34;Comment&#34;: &#34;&#34;
   }
 ]
-</code></pre><p><img src="/images/9/00015.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+</code></pre><p><img alt="Data Analytics on AWS" src="/images/9/00015.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Trong Schema: Sau đó, Chọn  vào Next</li>
 </ol>
-<p><img src="/images/9/00016.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00016.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>Trong  Partition:  Bỏ qua phần này và Chọn  vào Next
 INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng được xác định trong bảng. Điều này hữu ích để truy xuất một phần con của các phân vùng thay vì tải tất cả các phân vùng. Tìm thông tin chi tiết tại đây.</li>
@@ -932,7 +932,7 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <p>Kiểm tra rằng tất cả thông tin đều chính xác, sau đó Chọn  vào Create</p>
 </li>
 </ul>
-<p><img src="/images/9/00017.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00017.png?featherlight=false&width=90pc"></p>
 <ol start="7">
 <li>Xác minh rằng bảng Glue mới raw_stream đã được tạo đúng. Làm mới danh sách bảng nếu nó chưa hiển thị.</li>
 </ol>
@@ -944,8 +944,8 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <p>Chọn  vào  Actions và Chọn  vào Edit table</p>
 </li>
 </ul>
-<p><img src="/images/9/00018.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/00019.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00018.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00019.png?featherlight=false&width=90pc"></p>
 <ol start="8">
 <li>Dưới Table properties, thêm thuộc tính mới:</li>
 </ol>
@@ -954,8 +954,8 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <li>Value: proctime</li>
 <li>INFO: Các thuộc tính giá trị khóa này cho biết thời gian đã xử lý dữ liệu của Kinesis Analytics</li>
 </ul>
-<p><img src="/images/9/00020.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/00021.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00020.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00021.png?featherlight=false&width=90pc"></p>
 <h4 id="tạo-analytics-streaming-application-studio-notebook">Tạo Analytics Streaming Application Studio Notebook</h4>
 <p>Bây giờ chúng ta hãy tạo Kinesis Analytics Streaming Application Studio Notebook của chúng ta trong Kinesis Analytics Studio. Kinesis Analytics Streaming Application Studio Notebook này có thể xử lý dữ liệu luồng từ Kinesis Data Stream và chúng ta có thể viết các truy vấn phân tích SQL để lấy thông tin thời gian thực như số lượng hoạt động hiện tại hoặc nhiệt độ thiết bị.</p>
 <ol>
@@ -964,7 +964,7 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <ul>
 <li>Chọn  vào Create Studio notebook</li>
 </ul>
-<p><img src="/images/9/00022.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00022.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Chọn Create with custom settings</li>
 </ol>
@@ -973,7 +973,7 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <li>Nhập Runtime: Apache Flink 1.11, Apache Zeppelin 0.9</li>
 <li>Chọn  vào Next</li>
 </ul>
-<p><img src="/images/9/00023.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00023.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Trong IAM role</li>
 </ol>
@@ -983,7 +983,7 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <li>Trong AWS Glue database, chọn: analyticsworkshopdb</li>
 <li>Chọn  vào Next</li>
 </ul>
-<p><img src="/images/9/00024.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00024.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Trong Configurations</li>
 </ol>
@@ -991,7 +991,7 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <li>Parallelism: 4</li>
 <li>Parallelism per KPU: 1</li>
 </ul>
-<p><img src="/images/9/00025.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00025.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Không bật Turn on Logging (Bỏ chọn ô kiểm Bật ghi nhật ký)</li>
 </ol>
@@ -1003,7 +1003,7 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <p>Bỏ qua tất cả mọi thứ và di chuyển xuống dưới cùng</p>
 </li>
 </ul>
-<p><img src="/images/9/00026.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00026.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>Trong Tags:</li>
 </ol>
@@ -1011,7 +1011,7 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <li>Tùy chọn thêm các Tag, ví dụ:workshop: AnalyticsOnAWS</li>
 <li>Chọn  vào Next</li>
 </ul>
-<p><img src="/images/9/00027.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00027.png?featherlight=false&width=90pc"></p>
 <ol start="7">
 <li>Trong Review và create</li>
 </ol>
@@ -1019,7 +1019,7 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <li>Xác nhận rằng tất cả các giá trị đều đúng</li>
 <li>Chọn  vào Create Studio notebook</li>
 </ul>
-<p><img src="/images/9/00028.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00028.png?featherlight=false&width=90pc"></p>
 <ol start="8">
 <li>Chạy Kinesis Analytics Studio Notebook</li>
 </ol>
@@ -1037,8 +1037,8 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <p>Chờ cho đến khi Status chuyển sang Running mode. (Việc này sẽ mất khoảng 5-7 phút)</p>
 </li>
 </ul>
-<p><img src="/images/9/00029.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/00030.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00029.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00030.png?featherlight=false&width=90pc"></p>
 <ol start="9">
 <li>Chọn  vào Open in Apache Zeppelin ở góc trên bên phải để mở Zeppelin Notebook.</li>
 </ol>
@@ -1053,8 +1053,8 @@ INFO: Chỉ số phân vùng là một chỉ số cho các khóa phân vùng đ�
 <pre tabindex="0"><code>%flink.ssql(type=update)
 
 SELECT * FROM raw_stream;
-</code></pre><p><img src="/images/9/00031.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/00032.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+</code></pre><p><img alt="Data Analytics on AWS" src="/images/9/00031.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00032.png?featherlight=false&width=90pc"></p>
 <ol start="10">
 <li>Câu truy vấn SQL này sẽ liệt kê tất cả dữ liệu streaming từ Kinesis Data Generator của chúng ta.
 type=update là một trình thông dịch Flink cho cú pháp ghi chú Zeppelin. Trong chế độ update, đầu ra của ghi chú sẽ được cập nhật liên tục với kết quả mới.</li>
@@ -1066,7 +1066,7 @@ SELECT activity_type, count(*) as activity_cnt FROM raw_stream group by activity
 <li>Câu truy vấn SQL này sẽ đếm số lượng hoạt động đang được thực hiện.</li>
 <li>Khi tất cả các truy vấn được dán vào, Chọn  vào nút Play ở góc phải trên của đoạn văn.</li>
 </ul>
-<p><img src="/images/9/00033.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00033.png?featherlight=false&width=90pc"></p>
 <h4 id="generate-dummy-data-to-kinesis-data-stream">Generate Dummy Data to Kinesis Data Stream</h4>
 <p>Để hiển thị dữ liệu từ các truy vấn chạy trong Analytics Streaming notebook, chúng ta phải gửi dữ liệu gốc từ Kinesis Data Generator của chúng ta.</p>
 <ol>
@@ -1097,7 +1097,7 @@ SELECT activity_type, count(*) as activity_cnt FROM raw_stream group by activity
         }
     )}}
 }
-</code></pre><p><img src="/images/9/00034.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+</code></pre><p><img alt="Data Analytics on AWS" src="/images/9/00034.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Sau đó, Chọn  vào  Send Data.</li>
 </ol>
@@ -1105,7 +1105,7 @@ SELECT activity_type, count(*) as activity_cnt FROM raw_stream group by activity
 <li>CHÚ Ý: KHÔNG TẠM DỪNG sau khi Chọn  vào  Send Data vì điều này là cần thiết để có luồng liên tục dữ liệu để phân tích trong Zeppelin notebook.</li>
 <li>Quay trở lại Zeppelin notebook. của chúng ta. Chờ vài phút, kết quả sẽ được hiển thị.</li>
 </ul>
-<p><img src="/images/9/00035.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00035.png?featherlight=false&width=90pc"></p>
 <p>Trong module này, bạn đã tạo một Kinesis Data Stream để nhận dữ liệu luồng từ Kinesis Data Generator, một bảng Glue lưu trữ thông tin về lược đồ và dữ liệu của Kinesis Data Stream, và một ứng dụng Kinesis Analytics Studio Notebook đọc và phân tích dữ liệu luồng.</p>
 <p>Next, chúng ta sẽ tìm hiểu cách xây dựng các biểu đồ/ bảng điều khiển bằng cách sử dụng Amazon Quicksight.</p>
 
@@ -1480,19 +1480,19 @@ SELECT activity_type, count(*) as activity_cnt FROM raw_stream group by activity
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701085208"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701085208"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701085208"></script>
-    <script src="/js/jquery.sticky.js?1701085208"></script>
-    <script src="/js/featherlight.min.js?1701085208"></script>
-    <script src="/js/highlight.pack.js?1701085208"></script>
+    <script src="/js/clipboard.min.js?1733813070"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733813070"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733813070"></script>
+    <script src="/js/jquery.sticky.js?1733813070"></script>
+    <script src="/js/featherlight.min.js?1733813070"></script>
+    <script src="/js/highlight.pack.js?1733813070"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701085208"></script>
-    <script src="/js/learn.js?1701085208"></script>
-    <script src="/js/hugo-learn.js?1701085208"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733813070"></script>
+    <script src="/js/learn.js?1733813070"></script>
+    <script src="/js/hugo-learn.js?1733813070"></script>
 
-    <link href="/mermaid/mermaid.css?1701085208" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701085208"></script>
+    <link href="/mermaid/mermaid.css?1733813070" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733813070"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

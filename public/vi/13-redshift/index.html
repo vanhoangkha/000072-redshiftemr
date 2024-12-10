@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Warehouse trên Redshift :: BẮT ĐẦU VỚI AMAZON RDS</title>
 
     
-    <link href="/css/nucleus.css?1701085208" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701085208" rel="stylesheet">
-    <link href="/css/hybrid.css?1701085208" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701085208" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701085208" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701085208" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701085208" rel="stylesheet">
-    <link href="/css/theme.css?1701085208" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701085208" rel="stylesheet">
+    <link href="/css/nucleus.css?1733813070" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733813070" rel="stylesheet">
+    <link href="/css/hybrid.css?1733813070" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733813070" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733813070" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733813070" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733813070" rel="stylesheet">
+    <link href="/css/theme.css?1733813070" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733813070" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701085208" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733813070" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701085208"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733813070"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701085208"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701085208"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733813070"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733813070"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701085208"></script>
+<script type="text/javascript" src="/js/search.js?1733813070"></script>
 
     
   </div>
@@ -559,7 +559,7 @@
   
     
     <li data-nav-id="/vi/13-redshift/" title="Warehouse trên Redshift" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -693,7 +693,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -823,7 +823,7 @@
     }
   ]
 }
-</code></pre><p><img src="/images/12/0001.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+</code></pre><p><img alt="Data Analytics on AWS" src="/images/12/0001.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Lưu ý rằng Analyticsworkshop-GlueISRole là role chúng ta tạo cho Jupyter notebook của AWS Glue Studio trong bước Next.</li>
 </ol>
@@ -853,8 +853,8 @@
 <p>Chọn  vào Create policy</p>
 </li>
 </ul>
-<p><img src="/images/12/0002.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/12/0003.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/0002.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/0003.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Next, tạo một role IAM cho sổ ghi chú AWS Glue</li>
 </ol>
@@ -870,7 +870,7 @@
 <li>AmazonS3FullAccess</li>
 <li>Chọn  vào Next</li>
 </ul>
-<p><img src="/images/12/0004.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/0004.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Tên role: Analyticsworkshop-GlueISRole</li>
 </ol>
@@ -880,8 +880,8 @@
 <li>Chọn  vào Create role</li>
 <li>Lưu ý: Chúng tôi đã cấp quyền truy cập đầy đủ vào S3 cho role Glue cho mục đích của buổi thực hành này. Đề nghị chỉ cấp quyền cho phép cần thiết để thực hiện một nhiệm vụ, tức là tuân thủ mô hình quyền hạn ít nhất có thể trong triển khai thực tế.</li>
 </ul>
-<p><img src="/images/12/0005.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/12/0006.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/0005.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/0006.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Tạo IAM role cho Redshift</li>
 </ol>
@@ -893,7 +893,7 @@
 <li>Chọn Redshift - customizable</li>
 <li>Chọn  Next</li>
 </ul>
-<p><img src="/images/12/0007.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/0007.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>Trong ô Tìm kiếm, tìm kiếm và chọn hai policy sau</li>
 </ol>
@@ -908,9 +908,9 @@
 <li>Tùy chọn thêm Tags, ví dụ: workshop: AnalyticsOnAWS</li>
 <li>Chọn  Create Role</li>
 </ul>
-<p><img src="/images/12/0008.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/12/0009.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/12/00010.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/0008.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/0009.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00010.png?featherlight=false&width=90pc"></p>
 <h4 id="tạo-redshift-cluster">Tạo Redshift cluster</h4>
 <ol>
 <li>Trong bước này, bạn sẽ tạo một Redshift cluster gồm 2 node để tạo cơ sở dữ liệu mini theo mô hình sao.</li>
@@ -920,7 +920,7 @@
 <li>Chọn  vào Provision and manage clusters từ bảng điều khiển trên cùng bên trái</li>
 <li>Chọn  vào Create Cluster</li>
 </ul>
-<p><img src="/images/12/00011.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00011.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Giữ nguyên Cluster identifier là redshift-cluster-1</li>
 </ol>
@@ -928,7 +928,7 @@
 <li>Chọn dc2.large làm Node Type</li>
 <li>Chọn Number of Nodes là 2.</li>
 </ul>
-<p><img src="/images/12/00012.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00012.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Xác nhận Configuration summary.</li>
 </ol>
@@ -937,7 +937,7 @@
 <li>Nhập Master user password.</li>
 <li>Kiểm tra các quy tắc mật khẩu được đề cập dưới Master user password trước khi chọn một mật khẩu. (Mật khẩu này sẽ được sử dụng để truy cập vào cụm)</li>
 </ul>
-<p><img src="/images/12/00013.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00013.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Dưới Cluster permissions</li>
 </ol>
@@ -946,7 +946,7 @@
 <li>Chọn Analyticsworkshop_RedshiftRole đã được tạo trước đó.</li>
 <li>Chọn  vào Associate IAM roles</li>
 </ul>
-<p><img src="/images/12/00014.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00014.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Analyticsworkshop_RedshiftRole sẽ xuất hiện dưới Associated IAM roles</li>
 </ol>
@@ -954,14 +954,14 @@
 <li>Giữ nguyên Additional configurations theo mặc định. Nó sử dụng VPC mặc định và nhóm bảo mật mặc định.</li>
 <li>Chọn  vào Create cluster</li>
 </ul>
-<p><img src="/images/12/00015.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00015.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>Mất vài phút để cụm chuyển sang trạng thái available.</li>
 </ol>
 <ul>
 <li>Sau khi cụm đã được khởi động và ở trạng thái Available, chuyển sang bước Next.</li>
 </ul>
-<p><img src="/images/12/00016.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00016.png?featherlight=false&width=90pc"></p>
 <h4 id="tạo-s3-gateway-endpoint">Tạo S3 Gateway Endpoint</h4>
 <ol>
 <li>Trong bước này, chúng ta sẽ tạo S3 Gateway Endpoint để Redshift cluster có thể giao tiếp với S3 bằng cách sử dụng địa chỉ IP riêng.</li>
@@ -970,7 +970,7 @@
 <li>Truy cập: Bảng điều khiển AWS VPC</li>
 <li>Chọn  vào Create endpoint</li>
 </ul>
-<p><img src="/images/12/00017.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00017.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Name tag - optional: RedshiftS3EP</li>
 </ol>
@@ -979,7 +979,7 @@
 <li>Trong ô tìm kiếm Service name, tìm kiếm &ldquo;s3&rdquo; và Chọn  Enter/Return.</li>
 <li>com.amazonaws.us-east-1.s3 sẽ xuất hiện như kết quả tìm kiếm. Chọn tùy chọn này với loại là Gateway.</li>
 </ul>
-<p><img src="/images/12/00018.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00018.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Chọn VPC, chọn VPC mặc định. Đây là cùng VPC đã được sử dụng để cấu hình redshift cluster.</li>
 </ol>
@@ -993,15 +993,15 @@
 <li>Chọn bảng định tuyến được liệt kê (đây nên là bảng định tuyến chính). Bạn có thể xác minh điều này bằng cách kiểm tra Yes trong cột Chính.</li>
 <li>Giữ mặc định cho Policy. (Full access)</li>
 </ul>
-<p><img src="/images/12/00019.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00019.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Tùy chọn thêm các Tag, ví dụ: * workshop: AnalyticsOnAWS</li>
 </ol>
 <ul>
 <li>Chọn  vào Create endpoint. Việc cung cấp điểm cuối này có thể mất một vài giây. Khi điểm cuối này đã sẵn sàng, bạn sẽ thấy Status là Available đối với điểm cuối S3 vừa tạo mới.</li>
 </ul>
-<p><img src="/images/12/00020.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/12/00021.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00020.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00021.png?featherlight=false&width=90pc"></p>
 <h4 id="xác-minh-và-thêm-các-quy-tắc-vào-security-group-mặc-định">Xác minh và thêm các quy tắc vào security group mặc định</h4>
 <ol>
 <li>Trong bước này, bạn sẽ xác minh và thêm các rule vào security group Redshift để dịch vụ Glue có thể trò chuyện với Redshift.</li>
@@ -1033,7 +1033,7 @@
 <li>Source: [Name of the same security group which you are editing] Note : A self-referencing rule is required for Glue components to communicate.</li>
 <li>Click Save rules.</li>
 </ul>
-<p><img src="/images/12/00022.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00022.png?featherlight=false&width=90pc"></p>
 <h4 id="tạo-redshift-connection-trong-glue-connection">Tạo Redshift connection trong Glue Connection.</h4>
 <ol>
 <li>Trong bước này, chúng ta sẽ tạo một Redshift connection trong Glue connection mà chúng ta có thể sử dụng trong Development Endpoint để thiết lập kết nối với Redshift.</li>
@@ -1042,14 +1042,14 @@
 <li>Truy cập vào: Bảng điều khiển Glue Connections</li>
 <li>Dưới Connections Click Create connection</li>
 </ul>
-<p><img src="/images/12/00023.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00023.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Đặt connection name là analytics_workshop.</li>
 </ol>
 <ul>
 <li>Chọn onnection type là Amazon Redshift.</li>
 </ul>
-<p><img src="/images/12/00024.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00024.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Cài đặt quyền truy cập kết nối:</li>
 </ol>
@@ -1059,11 +1059,11 @@
 <li>Mật khẩu: Nhập mật khẩu mà bạn đã sử dụng trong quá trình cài đặt cụm Redshift.</li>
 <li>Chọn  vào Create connection</li>
 </ul>
-<p><img src="/images/12/00025.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00025.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Bây giờ bạn nên thấy kết nối analytics_workshop trong danh sách Connections.</li>
 </ol>
-<p><img src="/images/12/00026.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00026.png?featherlight=false&width=90pc"></p>
 <h4 id="create-schema-và-redshift-tables">Create schema và redshift tables.</h4>
 <ol>
 <li>Truy cập: Redshift Query Editor</li>
@@ -1072,7 +1072,7 @@
 <li>Click Connect to database</li>
 <li>Connection: Create a new connection</li>
 </ul>
-<p><img src="/images/12/00027.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00027.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Authentication: Temporary credentials</li>
 </ol>
@@ -1082,7 +1082,7 @@
 <li>Database user: admin</li>
 <li>Click Connect</li>
 </ul>
-<p><img src="/images/12/00028.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00028.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Thực hiện các truy vấn dưới đây để tạo schema và bảng cho dữ liệu raw và reference.</li>
 </ol>
@@ -1104,9 +1104,9 @@ CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_1 (
   track_name    varchar(128),
   artist_name    varchar(128)
 );
-</code></pre><p><img src="/images/12/00029.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/12/00030.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/12/00031.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+</code></pre><p><img alt="Data Analytics on AWS" src="/images/12/00029.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00030.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00031.png?featherlight=false&width=90pc"></p>
 <h4 id="chuyển-đổi-và-tải-dữ-liệu-vào-redshift">Chuyển đổi và tải dữ liệu vào Redshift</h4>
 <ol>
 <li>Sử dụng Jupyter Notebook trong AWS Glue để phát triển ETL tương tác</li>
@@ -1119,14 +1119,14 @@ CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_1 (
 <li>Chọn Upload and edit an existing notebook</li>
 <li>Chọn  vào Choose file</li>
 </ul>
-<p><img src="/images/12/00032.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00032.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Duyệt và tải lên analytics-workshop-redshift-glueis-notebook.ipynb mà bạn đã tải xuống trước đó</li>
 </ol>
 <ul>
 <li>Chọn  vào Create</li>
 </ul>
-<p><img src="/images/12/00033.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00033.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Dưới Phần thiết lập Notebook và Cấu hình ban đầu</li>
 </ol>
@@ -1138,7 +1138,7 @@ CREATE TABLE IF NOT EXISTS redshift_lab.d_ref_data_1 (
 <li>Sau khi notebook được khởi tạo, làm theo các hướng dẫn trong notebook</li>
 <li>Đọc và hiểu các hướng dẫn vì chúng giải thích các khái niệm Glue quan trọng</li>
 </ul>
-<p><img src="/images/12/00034.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/12/00034.png?featherlight=false&width=90pc"></p>
 <h4 id="validate---dữ-liệu-đã-được-chuyển-đổi--xử-lý-đã-đến-redshift">Validate - Dữ liệu đã được chuyển đổi / xử lý đã đến Redshift.</h4>
 <ol>
 <li>
@@ -1543,19 +1543,19 @@ limit 10;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701085208"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701085208"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701085208"></script>
-    <script src="/js/jquery.sticky.js?1701085208"></script>
-    <script src="/js/featherlight.min.js?1701085208"></script>
-    <script src="/js/highlight.pack.js?1701085208"></script>
+    <script src="/js/clipboard.min.js?1733813070"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733813070"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733813070"></script>
+    <script src="/js/jquery.sticky.js?1733813070"></script>
+    <script src="/js/featherlight.min.js?1733813070"></script>
+    <script src="/js/highlight.pack.js?1733813070"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701085208"></script>
-    <script src="/js/learn.js?1701085208"></script>
-    <script src="/js/hugo-learn.js?1701085208"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733813070"></script>
+    <script src="/js/learn.js?1733813070"></script>
+    <script src="/js/hugo-learn.js?1733813070"></script>
 
-    <link href="/mermaid/mermaid.css?1701085208" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701085208"></script>
+    <link href="/mermaid/mermaid.css?1733813070" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733813070"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

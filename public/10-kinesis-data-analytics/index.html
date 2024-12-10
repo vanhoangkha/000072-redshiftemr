@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Analysis with Kinesis Data Analytics :: GET STARTED WITH AMAZON RDS.</title>
 
     
-    <link href="/css/nucleus.css?1701085208" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701085208" rel="stylesheet">
-    <link href="/css/hybrid.css?1701085208" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701085208" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701085208" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701085208" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701085208" rel="stylesheet">
-    <link href="/css/theme.css?1701085208" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701085208" rel="stylesheet">
+    <link href="/css/nucleus.css?1733813070" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733813070" rel="stylesheet">
+    <link href="/css/hybrid.css?1733813070" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733813070" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733813070" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733813070" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733813070" rel="stylesheet">
+    <link href="/css/theme.css?1733813070" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733813070" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701085208" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733813070" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701085208"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733813070"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701085208"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701085208"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733813070"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733813070"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701085208"></script>
+<script type="text/javascript" src="/js/search.js?1733813070"></script>
 
     
   </div>
@@ -481,7 +481,7 @@
   
     
     <li data-nav-id="/10-kinesis-data-analytics/" title="Analysis with Kinesis Data Analytics" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -693,7 +693,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -798,7 +798,7 @@
 <li>Select Kinesis Analytics</li>
 <li>Select Next</li>
 </ul>
-<p><img src="/images/9/0003.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0003.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Search for AWSGlueServiceRole</li>
 </ol>
@@ -808,7 +808,7 @@
 <li>Select the input checkbox of this item</li>
 </ul>
 <p>NOTE: We use full access for practice purposes only. Please grant necessary access if you use this Role in production environment.</p>
-<p><img src="/images/9/0004.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0004.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Select Next</li>
 </ol>
@@ -818,16 +818,16 @@
 <li>Option to add Tag, for example: workshop: AnalyticsOnAWS</li>
 <li>Select Create IAM Role</li>
 </ul>
-<p><img src="/images/9/0005.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/0006.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/0007.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0005.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0006.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0007.png?featherlight=false&width=90pc"></p>
 <h4 id="create-kinesis-data-stream">Create Kinesis Data Stream</h4>
 <p>Kinesis Data Generator is an application that makes it simple to send test data to an Amazon Kinesis stream or an Amazon Kinesis Firehose delivery flow. We will create a Kinesis data stream to receive data from the Kinesis Data Generator. Notebook Our Kinesis Application will read the data in transit from this Kinesis data stream.</p>
 <ol>
 <li>Access to the AWS Kinesis service
 Select Create Data Stream</li>
 </ol>
-<p><img src="/images/9/0008.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0008.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Enter data stream name: analytics-workshop-data-stream</li>
 </ol>
@@ -836,14 +836,14 @@ Select Create Data Stream</li>
 <li>Choose Capacity Mode: Provisioned</li>
 <li>Set Provisioned Shards: 2</li>
 </ul>
-<p><img src="/images/9/0009.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/0009.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>INFORMATION: A shard is a special group of data records defined in a Kinesis data stream. A shard supports 1 MB/s and 1,000 records per second for writes and 2 MB/s for reads. So the 2 shards allocated here can support 2 MB/s and 2,000 records per second for writes and 4 MB/s for reads.</li>
 </ol>
 <ul>
 <li>Scroll to the bottom and Select Create Data Stream</li>
 </ul>
-<p><img src="/images/9/00010.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00010.png?featherlight=false&width=90pc"></p>
 <h4 id="create-glue-catalog-table">Create Glue Catalog Table</h4>
 <p>Our Kinesis Application Notebook pulls data source information from AWS Glue. When you create a Studio notebook, you specify the AWS Glue database that contains your connection information. When accessing your data source, you specify the AWS Glue tables that are contained in the database.</p>
 <ol>
@@ -857,14 +857,14 @@ Select Create Data Stream</li>
 <p>Select the Add tables drop-down menu and then select Add table manually</p>
 </li>
 </ul>
-<p><img src="/images/9/00011.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00011.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>In Table Properties</li>
 </ol>
 <ul>
 <li>Enter Table Name: raw_stream</li>
 </ul>
-<p><img src="/images/9/00012.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00012.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>In the Data store:</li>
 </ol>
@@ -878,11 +878,11 @@ Select Create Data Stream</li>
 <li>Classification: JSON</li>
 <li>Then, Select Next</li>
 </ul>
-<p><img src="/images/9/00013.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00013.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>In Schema: Select Edit Schema as JSON and insert the following JSON text.</li>
 </ol>
-<p><img src="/images/9/00014.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00014.png?featherlight=false&width=90pc"></p>
 <pre tabindex="0"><code>[
   {
     &#34;Name&#34;: &#34;uuid&#34;,
@@ -915,11 +915,11 @@ Select Create Data Stream</li>
     &#34;Comment&#34;: &#34;&#34;
   }
 ]
-</code></pre><p><img src="/images/9/00015.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+</code></pre><p><img alt="Data Analytics on AWS" src="/images/9/00015.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>In Schema: Then Click Next</li>
 </ol>
-<p><img src="/images/9/00016.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00016.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>In Partition: Skip this section and Select Next
 INFO: Partition index is an index for the partition keys defined in the table. This is useful for retrieving a subset of partitions instead of loading all partitions. Find detailed information here.</li>
@@ -932,7 +932,7 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <p>Check that all information is correct, then Click on Create</p>
 </li>
 </ul>
-<p><img src="/images/9/00017.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00017.png?featherlight=false&width=90pc"></p>
 <ol start="7">
 <li>Verify that the new Glue table raw_stream has been properly created. Refresh the table list if it is not already visible.</li>
 </ol>
@@ -944,8 +944,8 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <p>Select on Actions and Select on Edit table</p>
 </li>
 </ul>
-<p><img src="/images/9/00018.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/00019.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00018.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00019.png?featherlight=false&width=90pc"></p>
 <ol start="8">
 <li>Under Table properties, add a new property:</li>
 </ol>
@@ -954,8 +954,8 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <li>Value: proctime</li>
 <li>INFO: These key-value attributes indicate how long Kinesis Analytics data has been processed</li>
 </ul>
-<p><img src="/images/9/00020.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/00021.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00020.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00021.png?featherlight=false&width=90pc"></p>
 <h4 id="create-analytics-streaming-application-studio-notebook">Create Analytics Streaming Application Studio Notebook</h4>
 <p>Now let&rsquo;s create our Kinesis Analytics Streaming Application Studio Notebook in Kinesis Analytics Studio. This Kinesis Analytics Streaming Application Studio Notebook can process stream data from Kinesis Data Stream and we can write SQL analytics queries to get real-time information like current activity count or device temperature.</p>
 <ol>
@@ -964,7 +964,7 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <ul>
 <li>Select Create Studio notebook</li>
 </ul>
-<p><img src="/images/9/00022.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00022.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Select Create with custom settings</li>
 </ol>
@@ -973,7 +973,7 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <li>Enter Runtime: Apache Flink 1.11, Apache Zeppelin 0.9</li>
 <li>Select Next</li>
 </ul>
-<p><img src="/images/9/00023.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00023.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>In IAM role</li>
 </ol>
@@ -983,7 +983,7 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <li>In the AWS Glue database, select: analyticsworkshopdb</li>
 <li>Select Next</li>
 </ul>
-<p><img src="/images/9/00024.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00024.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>In Configurations</li>
 </ol>
@@ -991,7 +991,7 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <li>Parallelism: 4</li>
 <li>Parallelism per KPU: 1</li>
 </ul>
-<p><img src="/images/9/00025.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00025.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Don&rsquo;t enable Turn on Logging (Uncheck the Enable Logging check box)</li>
 </ol>
@@ -1003,7 +1003,7 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <p>Skip everything and scroll to the bottom</p>
 </li>
 </ul>
-<p><img src="/images/9/00026.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00026.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>In Tags:</li>
 </ol>
@@ -1011,7 +1011,7 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <li>Optionally add tags, for example: workshop: AnalyticsOnAWS</li>
 <li>Select Next</li>
 </ul>
-<p><img src="/images/9/00027.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00027.png?featherlight=false&width=90pc"></p>
 <ol start="7">
 <li>In Review and create</li>
 </ol>
@@ -1019,7 +1019,7 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <li>Confirm that all values ​​are correct</li>
 <li>Select Create Studio notebook</li>
 </ul>
-<p><img src="/images/9/00028.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00028.png?featherlight=false&width=90pc"></p>
 <ol start="8">
 <li>Run Kinesis Analytics Studio Notebook</li>
 </ol>
@@ -1037,8 +1037,8 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <p>Wait until the Status changes to Running mode. (This will take about 5-7 minutes)</p>
 </li>
 </ul>
-<p><img src="/images/9/00029.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/00030.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00029.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00030.png?featherlight=false&width=90pc"></p>
 <ol start="9">
 <li>Select Open in Apache Zeppelin in the upper right corner to open Zeppelin Notebook.</li>
 </ol>
@@ -1053,8 +1053,8 @@ INFO: Partition index is an index for the partition keys defined in the table. T
 <pre tabindex="0"><code>%flink.ssql(type=update)
 
 SELECT * FROM raw_stream;
-</code></pre><p><img src="/images/9/00031.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/9/00032.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+</code></pre><p><img alt="Data Analytics on AWS" src="/images/9/00031.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00032.png?featherlight=false&width=90pc"></p>
 <ol start="10">
 <li>This SQL query will list all the data streaming from our Kinesis Data Generator.
 type=update is a Flink interpreter for Zeppelin annotation syntax. In update mode, the output of the note will be continuously updated with new results.</li>
@@ -1066,7 +1066,7 @@ SELECT activity_type, count(*) as activity_cnt FROM raw_stream group by activity
 <li>This SQL query will count the number of operations being performed.</li>
 <li>When all queries are pasted, Select the Play button in the upper right corner of the paragraph.</li>
 </ul>
-<p><img src="/images/9/00033.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00033.png?featherlight=false&width=90pc"></p>
 <h4 id="generate-dummy-data-to-kinesis-data-stream">Generate Dummy Data to Kinesis Data Stream</h4>
 <p>To display data from queries running in the Analytics Streaming notebook, we must send the original data from our Kinesis Data Generator.</p>
 <ol>
@@ -1097,7 +1097,7 @@ SELECT activity_type, count(*) as activity_cnt FROM raw_stream group by activity
         }
     )}}
 }
-</code></pre><p><img src="/images/9/00034.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+</code></pre><p><img alt="Data Analytics on AWS" src="/images/9/00034.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Then, Select Send Data.</li>
 </ol>
@@ -1105,7 +1105,7 @@ SELECT activity_type, count(*) as activity_cnt FROM raw_stream group by activity
 <li>NOTE: DO NOT PAUSE after Select to Send Data as this is necessary for a continuous flow of data for analysis in Zeppelin notebooks.</li>
 <li>Return to Zeppelin notebook. our. Wait a few minutes, the results will be displayed.</li>
 </ul>
-<p><img src="/images/9/00035.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/9/00035.png?featherlight=false&width=90pc"></p>
 <p>In this module, you created a Kinesis Data Stream to receive stream data from the Kinesis Data Generator, a Glue table that stores Kinesis Data Stream data and schema information, and a Kinesis Analytics Studio Notebook application that reads and parses stream data.</p>
 <p>Next, we will learn how to build charts/dashboards using Amazon Quicksight.</p>
 
@@ -1480,19 +1480,19 @@ SELECT activity_type, count(*) as activity_cnt FROM raw_stream group by activity
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701085208"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701085208"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701085208"></script>
-    <script src="/js/jquery.sticky.js?1701085208"></script>
-    <script src="/js/featherlight.min.js?1701085208"></script>
-    <script src="/js/highlight.pack.js?1701085208"></script>
+    <script src="/js/clipboard.min.js?1733813070"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733813070"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733813070"></script>
+    <script src="/js/jquery.sticky.js?1733813070"></script>
+    <script src="/js/featherlight.min.js?1733813070"></script>
+    <script src="/js/highlight.pack.js?1733813070"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701085208"></script>
-    <script src="/js/learn.js?1701085208"></script>
-    <script src="/js/hugo-learn.js?1701085208"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733813070"></script>
+    <script src="/js/learn.js?1733813070"></script>
+    <script src="/js/hugo-learn.js?1733813070"></script>
 
-    <link href="/mermaid/mermaid.css?1701085208" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701085208"></script>
+    <link href="/mermaid/mermaid.css?1733813070" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733813070"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

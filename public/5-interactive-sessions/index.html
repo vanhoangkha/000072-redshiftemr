@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Transform Data with AWS Glue (interactive sessions) :: GET STARTED WITH AMAZON RDS.</title>
 
     
-    <link href="/css/nucleus.css?1701085208" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701085208" rel="stylesheet">
-    <link href="/css/hybrid.css?1701085208" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701085208" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701085208" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701085208" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701085208" rel="stylesheet">
-    <link href="/css/theme.css?1701085208" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701085208" rel="stylesheet">
+    <link href="/css/nucleus.css?1733813070" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733813070" rel="stylesheet">
+    <link href="/css/hybrid.css?1733813070" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733813070" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733813070" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733813070" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733813070" rel="stylesheet">
+    <link href="/css/theme.css?1733813070" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733813070" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701085208" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733813070" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701085208"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733813070"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701085208"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701085208"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733813070"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733813070"></script>
 <script type="text/javascript">
     
-        var baseurl = "";
+        var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701085208"></script>
+<script type="text/javascript" src="/js/search.js?1733813070"></script>
 
     
   </div>
@@ -351,7 +351,7 @@
   
     
     <li data-nav-id="/5-interactive-sessions/" title="Transform Data with AWS Glue (interactive sessions)" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -693,7 +693,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -812,7 +812,7 @@
     }
   ]
 }
-</code></pre><p><img src="/images/5/0001.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+</code></pre><p><img alt="Data Analytics on AWS" src="/images/5/0001.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Note that Analyticsworkshop-GlueISRole is the role we created for the Jupyter notebook AWS Glue Studio in the Next step.</li>
 </ol>
@@ -826,9 +826,9 @@
 <li>Description: policy that allows AWS Glue notebook roles to pass to interactive sessions so that the same role can be used in both places</li>
 <li>Select Create Policy</li>
 </ul>
-<p><img src="/images/5/0002.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/0003.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/0004.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/0002.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/0003.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/0004.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Select Roles from the left sidebar</li>
 </ol>
@@ -837,7 +837,7 @@
 <li>Select the service that will use this role: Glue under Use Case and Use cases for other AWS services:</li>
 <li>Select Next</li>
 </ul>
-<p><img src="/images/5/0005.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/0005.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Search for the following policies and select the check box next to them:</li>
 </ol>
@@ -848,22 +848,22 @@
 <li>AmazonS3FullAccess</li>
 <li>Select Next</li>
 </ul>
-<p><img src="/images/5/0006.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/0006.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Role Name: Analyticsworkshop-GlueISRole</li>
 </ol>
 <ul>
 <li>Make sure only four policies are attached to this role (AWSGlueServiceRole, AwsGlueSessionUserRestrictedNotebookPolicy, AWSGlueInteractiveSessionPassRolePolicy, AmazonS3FullAccess)</li>
 </ul>
-<p><img src="/images/5/0007.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/0007.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>Optionally add Tags (labels), e.g. workshop: AnalyticsOnAWS</li>
 </ol>
 <ul>
 <li>Select Create role</li>
 </ul>
-<p><img src="/images/5/0009.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00010.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/0009.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00010.png?featherlight=false&width=90pc"></p>
 <h4 id="using-jupyter-notebook-in-aws-glue-for-interactive-etl-development">Using Jupyter Notebook in AWS Glue for Interactive ETL Development</h4>
 <ol>
 <li>In this step, you will create an AWS Glue job with Jupyter Notebook to interactively develop Glue ETL scripts using PySpark.</li>
@@ -875,14 +875,14 @@
 <li>Select <strong>Upload and edit an existing notebook</strong></li>
 <li>Select Choose file</li>
 </ul>
-<p><img src="/images/5/00011.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00011.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Browse and upload analytics-workshop-glueis-notebook.ipynb that you downloaded earlier</li>
 </ol>
 <ul>
 <li>Select Create</li>
 </ul>
-<p><img src="/images/5/00012.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00012.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Under Notebook setup and Initial configuration</li>
 </ol>
@@ -892,28 +892,28 @@
 <li>Leave Kernel to default as Spark</li>
 <li>Click Start notebook</li>
 </ul>
-<p><img src="/images/5/00013.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00013.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>When the notebook is initialized, follow the instructions in the notebook. You observe and run the notebook according to the picture.</li>
 </ol>
-<p><img src="/images/5/00014.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00015.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00016.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00017.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00018.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00019.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00020.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00021.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00022.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00023.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00024.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00025.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00026.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00027.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00028.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00029.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00030.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
-<p><img src="/images/5/00032.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00014.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00015.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00016.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00017.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00018.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00019.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00020.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00021.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00022.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00023.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00024.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00025.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00026.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00027.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00028.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00029.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00030.png?featherlight=false&width=90pc"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00032.png?featherlight=false&width=90pc"></p>
 <h4 id="validated-data---convertedprocessed-and-arrived-in-s3">Validated data - converted/processed and arrived in S3</h4>
 <ol>
 <li>Select - yourname-analytics-workshop-bucket &gt; data</li>
@@ -921,14 +921,14 @@
 <ul>
 <li>Open the processed-data folder:</li>
 </ul>
-<p><img src="/images/5/0033.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/0033.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Make sure that the .parquet files have been created in this folder.</li>
 </ol>
 <ul>
 <li>Now that we have transformed the data, we can query the data using Amazon Athena. We can also continue to transform/aggregate data using AWS Glue or Amazon EMR.</li>
 </ul>
-<p><img src="/images/5/00034.png?featherlight=false&amp;width=90pc" alt="Data Analytics on AWS"></p>
+<p><img alt="Data Analytics on AWS" src="/images/5/00034.png?featherlight=false&width=90pc"></p>
 <p>The Next module on EMR is optional. You can skip it if you want and continue analyzing with Athena.</p>
 
 
@@ -1302,19 +1302,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701085208"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701085208"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701085208"></script>
-    <script src="/js/jquery.sticky.js?1701085208"></script>
-    <script src="/js/featherlight.min.js?1701085208"></script>
-    <script src="/js/highlight.pack.js?1701085208"></script>
+    <script src="/js/clipboard.min.js?1733813070"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733813070"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733813070"></script>
+    <script src="/js/jquery.sticky.js?1733813070"></script>
+    <script src="/js/featherlight.min.js?1733813070"></script>
+    <script src="/js/highlight.pack.js?1733813070"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701085208"></script>
-    <script src="/js/learn.js?1701085208"></script>
-    <script src="/js/hugo-learn.js?1701085208"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733813070"></script>
+    <script src="/js/learn.js?1733813070"></script>
+    <script src="/js/hugo-learn.js?1733813070"></script>
 
-    <link href="/mermaid/mermaid.css?1701085208" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701085208"></script>
+    <link href="/mermaid/mermaid.css?1733813070" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733813070"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
